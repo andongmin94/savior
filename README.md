@@ -1,0 +1,9 @@
+# D109 소개
+
+|FE|FE|BE|BE|BE|PM |
+|:-:|:-----:|:---:|:----------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------:|:-:|
+| <a href="https://github.com/andongmin94"><img src="https://avatars.githubusercontent.com/u/110483588?v=4" width="100" height="100"></a> | <a href="https://github.com/Hyun-Jik"><img src="https://avatars.githubusercontent.com/u/139331395?v=4" width="100" height="100"></a> | <a href="https://github.com/jjo2889"><img src="https://avatars.githubusercontent.com/u/139419012?v=4" width="100" height="100"></a> | <a href="https://github.com/eunalove"><img src="https://avatars.githubusercontent.com/u/88129325?v=4" width="100" height="100"></a> | <a href="https://github.com/malrangcow00"><img src="https://avatars.githubusercontent.com/u/115908997?v=4" width="100" height="100"></a> |<a href="https://github.com/songminseok0725"><img src="https://avatars.githubusercontent.com/u/139418961?v=4" width="100" height="100"></a>|
+|                                            [andongmin94](https://github.com/andongmin94)                                             |                                              [Hyun-Jik](https://github.com/Hyun-Jik)                                               |                                                   [jy](https://github.com/jjo2889)                                                   |                                               [eunalove](https://github.com/eunalove)                                                |                                               [MalrangCow](https://github.com/malrangcow00)                                               |[songminseok0725](https://github.com/songminseok0725)    |
+
+
+connecting
