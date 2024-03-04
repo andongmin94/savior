@@ -1,0 +1,78 @@
+{
+  "name": "fronted",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/electron/main.js",
+  "build": {
+    "appId": "example",
+    "mac": {
+      "icon": "src/electron/icon.png"
+    },
+    "win": {
+      "icon": "src/electron/icon.png"
+    },
+    "productName": "example",
+    "copyright": "Copyright © 2024 D109",
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "dist/**/*",
+      "src/electron/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist_electron"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "elec": "electron .",
+    "app": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && npm run elec\"",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "electron": "wait-on tcp:3000 && cross-env IS_DEV=true electron .",
+    "electron:pack": "electron-builder --dir",
+    "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"npm run electron\"",
+    "electron:builder": "electron-builder",
+    "build:for:electron": "tsc --noEmit && cross-env ELECTRON=true vite build",
+    "app:build": "npm run build:for:electron && npm run electron:builder"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "axios": "^1.6.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "dotenv": "^16.4.5",
+    "lucide-react": "^0.344.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.2",
+    "tailwind-merge": "^2.2.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.18",
+    "concurrently": "^8.2.2",
+    "electron": "^29.1.0",
+    "electron-builder": "^24.12.0",
+    "electron-localshortcut": "^3.2.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4",
+    "wait-on": "^7.2.0"
+  }
+}
