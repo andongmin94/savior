@@ -1,16 +1,21 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import "@/globals.css";
+import ReactDOM from "react-dom/client";
+import App from "@/routes/App";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import App from './App.tsx'
-import './globals.css'
+
 ////////////////일렉트론 컴포넌트/////////////////////
 const electron = window.electron;
 import TitleBar from "@/electron/TitleBar.tsx";
 /////////////////////////////////////////////////////
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-  {typeof electron !== "undefined" && <TitleBar />}
-    <App />
-  </React.StrictMode>,
-)
+const router = createBrowserRouter([
+  { path: "/", element: <App /> },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+      {typeof electron !== "undefined" && <TitleBar />}
+      <RouterProvider router={router} />
+  </ThemeProvider>
+);
