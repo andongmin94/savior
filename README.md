@@ -6,4 +6,3 @@
 |                                            [andongmin94](https://github.com/andongmin94)                                             |                                              [Hyun-Jik](https://github.com/Hyun-Jik)                                               |                                                   [jy](https://github.com/jjo2889)                                                   |                                               [eunalove](https://github.com/eunalove)                                                |                                               [MalrangCow](https://github.com/malrangcow00)                                               |[songminseok0725](https://github.com/songminseok0725)    |
 
 
-connecting
