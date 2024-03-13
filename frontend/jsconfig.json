@@ -28,6 +28,6 @@
     "src/electron/SettingPage.tsx",
     "src/electron"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }],
+  "references": [],
   // "exclude": ["*"]
 }

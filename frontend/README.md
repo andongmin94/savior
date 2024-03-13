@@ -1,26 +1,8 @@
-# React + TypeScript + Vite + Electron Boilerplate
+# React + Vite
 
-<img src="https://github.com/andongmin94/react-electron-boilerplate/assets/110483588/0f36682b-6ab3-40bf-b892-8351a6a5cd88">
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Used CSS : Tailwind + Shadcn
+Currently, two official plugins are available:
 
-This is boilerplate that based in vite build tool with react + electron.
-
-```
-script
-
-npm run dev : only executing react web dev server
-
-npm run elec : only executing electron dev server
-
-npm run web:build : only react + vite build
-
-npm run app : executing electron dev server after executing react web dev server
-
-npm run app:build : electron build
-// Before doing app:build, changing BASE_URL in main.js localhost:3000 to your url.
-```
-
-## License
-
-Licensed under the [MIT license](https://github.com/andongmin94/react-electron-boilerplate/blob/main/LICENCE.md).
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
