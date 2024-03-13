@@ -33,24 +33,23 @@ const createWindow = () => {
 
 // 이 메소드는 Electron의 초기화가 완료되고
 // 브라우저 윈도우가 생성될 준비가 되었을때 호출된다.
-export default app.whenReady().then(createWindow).then(async () => {
+export default app.whenReady().then(createWindow).then(() => {
 
   // 기본 생성 세팅
-  app.on("window-all-closed", () => { if (process.platform !== "darwin") { app.quit() } });
-  app.on("activate", () => { if (BrowserWindow.getAllWindows().length === 0) { createWindow() } });
+  app.on("window-all-closed", () => { if (process.platform !== "darwin") app.quit() });
+  app.on("activate", () => { if (BrowserWindow.getAllWindows().length === 0) createWindow() });
 
   // 타이틀 바 옵션
-  ipcMain.on("hidden", (event) => { mainWindow.hide() });
-  ipcMain.on("minimize", (event) => { mainWindow.minimize() });
-  ipcMain.on("maximize", (event) => {
-    if (mainWindow.isMaximized()) { mainWindow.restore(); console.log("restoring") }
-    else { mainWindow.maximize(); console.log("maximizing") }
+  ipcMain.on("hidden", () => mainWindow.hide());
+  ipcMain.on("minimize", () => mainWindow.minimize());
+  ipcMain.on("maximize", () => {
+    mainWindow.isMaximized() ? mainWindow.restore() : mainWindow.maximize();
   });
 
   // 트레이 세팅
   const tray = new Tray(nativeImage.createFromPath(join(dirname(fileURLToPath(import.meta.url)), "../../public/icon.png")));
   tray.setToolTip("react-electron-boilerplate");
-  tray.on("double-click", () => { mainWindow.show() });
+  tray.on("double-click", () => mainWindow.show());
   tray.setContextMenu(Menu.buildFromTemplate([
     { label: "켜기", type: "normal", click: () => mainWindow.show() },
     { label: "끄기", type: "normal", click: () => app.quit() }
@@ -63,7 +62,7 @@ export default app.whenReady().then(createWindow).then(async () => {
   electronLocalshortcut.register(mainWindow, "F12", () => { console.log("F12 is pressed"); mainWindow.webContents.toggleDevTools() });
   
   // 애플리케이션이 종료되기 전에 단축키 해제
-  app.on('will-quit', () => { globalShortcut.unregisterAll() });
+  app.on('will-quit', () => { globalShortcut.unregisterAll(); });
 });
 
 // 여기서부터 코드 작성
