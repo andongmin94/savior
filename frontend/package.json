@@ -34,7 +34,7 @@
     "dev": "vite",
     "elec": "electron .",
     "app": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && npm run elec\"",
-    "web:build": "tsc && vite build",
+    "build": "tsc && vite build",
     "app:build": "electron-builder"
   },
   "dependencies": {
