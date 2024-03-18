@@ -34,7 +34,7 @@
     "dev": "vite",
     "elec": "electron .",
     "app": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && npm run elec\"",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "app:build": "electron-builder"
   },
   "dependencies": {
@@ -89,8 +89,6 @@
     "@types/node": "^20.11.25",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "@typescript-eslint/parser": "^7.0.2",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.18",
     "concurrently": "^8.2.2",
@@ -103,7 +101,6 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.2.2",
     "vite": "^5.1.4",
     "wait-on": "^7.2.0"
   }
