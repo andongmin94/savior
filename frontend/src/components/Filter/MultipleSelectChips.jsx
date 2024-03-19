@@ -1,26 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Chip, Typography, FormHelperText } from '@mui/material';
-
-const StyledContainer = styled.div`
-  margin-bottom: 2%;
-  margin: .5rem 0 .5rem;
-  text-align: center;
-`;
-
-const ChipsDiv = styled.div`
-  margin-top: .3rem;
-`;
-
-const StyledChip = styled(Chip)`
-  margin: .5rem;
-  padding: .5rem;
-`;
-
-const StyledFormHelperText = styled(FormHelperText)`
-  text-align: center;
-`;
 
 const MultipleSelectChips = ({ value, setValue, options, label, error, setError }) => {
 
@@ -39,19 +19,19 @@ const MultipleSelectChips = ({ value, setValue, options, label, error, setError 
   };
 
   return (
-    <StyledContainer>
+    <div className="mb-[2%] my-2 text-center">
       <h5>
         <b>{label}</b>
       </h5>
       {Boolean(error) && (
-        <StyledFormHelperText error={Boolean(error)}>
+        <FormHelperText className='text-center' error={Boolean(error)}>
           {error}
-        </StyledFormHelperText>
+        </FormHelperText>
       )}
-      <ChipsDiv>
+      <div className='mt-[0.3rem]'>
         {options && options.length
           ? options.map((option, i) => (
-              <StyledChip
+              <Chip className='m-2 p-2'
                 icon={option.icon}
                 key={i}
                 color="primary"
@@ -62,8 +42,8 @@ const MultipleSelectChips = ({ value, setValue, options, label, error, setError 
               />
             ))
           : null}
-      </ChipsDiv>
-    </StyledContainer>
+      </div>
+    </div>
   );
 };
 
