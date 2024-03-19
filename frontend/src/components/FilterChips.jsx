@@ -7,8 +7,6 @@ import MultipleSelectChips from '@/components/Filter/MultipleSelectChips';
 import ChildSelectBox from '@/components/Filter/Child';
 import AlertModal from '@/components/AlertModal';
 
-import styled from 'styled-components';
-
 const map = new Map();
 map.set(15, 0); //학생
 map.set(16, 1); //무직
