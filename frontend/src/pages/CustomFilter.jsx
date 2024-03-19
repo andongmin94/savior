@@ -1,4 +1,3 @@
-import React from 'react';
 import FilterChips from '@/components/FilterChips';
 import styled from 'styled-components';
 import LoginModal from '@/components/LoginModal';
