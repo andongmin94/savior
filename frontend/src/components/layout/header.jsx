@@ -2,7 +2,7 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import Login from '@/pages/Login';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+export default function Header() {
   return (
     <header className="fixed top-0 w-full">
       {typeof window.electron !== "undefined" && <div className="pt-10"/>}
@@ -27,5 +27,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

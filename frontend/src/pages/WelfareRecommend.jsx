@@ -16,7 +16,7 @@ const isLogin = () => {
   }
 };
 
-function WelfareRecommend() {
+export default function WelfareRecommend() {
   const axios = getAxios();
   const [name, setName] = useState('User');
   const [profile, setProfile] = useState('');
@@ -65,5 +65,3 @@ function WelfareRecommend() {
     <LoginModal />
   );
 }
-
-export default WelfareRecommend;

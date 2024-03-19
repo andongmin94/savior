@@ -6,8 +6,7 @@ import { getAxios } from "@/api";
 import SearchBar from "@/components/Main/SearchBar";
 import FilterSlide from "@/components/WelfareRecommend/FilterSlide";
 
-function Main() {
-
+export default function Main() {
   const axios = getAxios();
   let navigate = useNavigate();
 
@@ -310,5 +309,3 @@ const StyledTab = styled.div`
   border-radius: 5px;
   padding: 1% 1%;
 `;
-
-export default Main;

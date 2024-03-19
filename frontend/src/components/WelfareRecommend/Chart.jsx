@@ -8,7 +8,7 @@ const Container = styled.div`
   padding: 3vh;
 `;
 
-function Chart() {
+export default function Chart() {
   const axios = getAxios();
   const [label, setLabel] = useState([]);
   const [datas, setDatas] = useState([]);
@@ -61,4 +61,3 @@ function Chart() {
     </Container>
   );
 }
-export default Chart;

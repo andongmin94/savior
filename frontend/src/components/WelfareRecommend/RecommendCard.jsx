@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import styled from "styled-components";
 
-function RecommendCard(props) {
+export default function RecommendCard(props) {
   const { title, id, content } = props;
   let navigate = useNavigate();
 
@@ -68,4 +68,3 @@ const StyledLi = styled.div`
   }
   cursor: pointer;
 `;
-export default RecommendCard;

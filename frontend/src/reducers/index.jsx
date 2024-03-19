@@ -3,9 +3,8 @@ import change from "./change";
 import welData from "./welData";
 import likeused from "./likeused";
 
-const rootReducer = combineReducers({
+export default combineReducers({
   change,
   welData,
   likeused,
 });
-export default rootReducer;

@@ -7,7 +7,7 @@ const genderMap = new Map();
 genderMap.set("female", "여자");
 genderMap.set("male", "남자");
 
-const UserProfile = ({
+export default function UserProfile({
   modify,
   setModify,
   setProfile,
@@ -18,7 +18,7 @@ const UserProfile = ({
   setAgeRange,
   gender,
   setGender,
-}) => {
+}) {
   const [show, setShow] = useState(false);
   const [text, setText] = useState("");
   const handleShow = () => setShow(true);
@@ -145,5 +145,3 @@ const UserProfile = ({
     </div>
   );
 };
-
-export default UserProfile;

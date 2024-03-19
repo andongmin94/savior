@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-function ProfileCard(props) {
+export default function ProfileCard(props) {
   return (
     <StyledCard>
       {props.profile === null ? (
@@ -51,4 +51,3 @@ const StyledName = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export default ProfileCard;

@@ -11,7 +11,7 @@ function isLogin() {
   }
 }
 
-function CustomFilter() {
+export default function CustomFilter() {
   return (
     <StyledContainer>
       {isLogin() ? (
@@ -36,5 +36,3 @@ const StyledFilterBox = styled.div`
   height: 100vh;
   background-image: url('/background/waves.svg');
 `;
-
-export default CustomFilter;

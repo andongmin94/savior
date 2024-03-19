@@ -14,7 +14,8 @@ function isLogin() {
     return false;
   }
 }
-function QnaDetail(props) {
+
+export default function QnaDetail(props) {
   let navigate = useNavigate();
   let state = useSelector((state) => state);
   const qnaId = useParams().qnaId;
@@ -195,4 +196,3 @@ function QnaDetail(props) {
     </Container>
   );
 }
-export default QnaDetail;

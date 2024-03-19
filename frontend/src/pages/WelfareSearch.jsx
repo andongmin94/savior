@@ -2,7 +2,7 @@ import Keyword from '@/components/Search/Keyword';
 import ResultBoard from '@/components/Search/ResultBoard';
 import SearchBar from '@/components/Search/SearchBar';
 
-function Search(){
+export default function Search(){
     return(
         <div className="grid justify-center" style={{ paddingTop: '30px', marginTop: '12vh' }}>
             <h2>통합검색</h2>
@@ -14,5 +14,3 @@ function Search(){
         </div>
     )
 };
-
-export default Search;

@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
-function RecommendSlide() {
+export default function RecommendSlide() {
   const { title, content, id } = useSelector(state => state.welData);
 
   return (
@@ -103,4 +103,3 @@ function RecommendSlide() {
     </div>
   );
 }
-export default RecommendSlide;

@@ -38,7 +38,8 @@ function isLogin() {
     return true;
   }
 }
-function Qna(props) {
+
+export default function Qna(props) {
   let navigate = useNavigate();
   let state = useSelector((state) => state);
   let [qnas, setQnas] = useState([]);
@@ -139,5 +140,3 @@ function Qna(props) {
     </Container>
   );
 }
-
-export default Qna;
