@@ -1,12 +1,7 @@
-import styled from "styled-components";
-import "chart.js/auto";
-import { Doughnut } from "react-chartjs-2";
 import { useEffect, useState } from "react";
 import { getAxios } from "@/api";
-
-const Container = styled.div`
-  padding: 3vh;
-`;
+import "chart.js/auto";
+import { Doughnut } from "react-chartjs-2";
 
 export default function Chart() {
   const axios = getAxios();
@@ -56,8 +51,8 @@ export default function Chart() {
   }, []);
 
   return (
-    <Container>
+    <div className="p-[3vh]">
       <Doughnut type="doughnut" data={data} />
-    </Container>
+    </div>
   );
 }
