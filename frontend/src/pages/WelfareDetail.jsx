@@ -170,9 +170,11 @@ function WelfareDetail() {
         siteLink={siteLink}
         siteName={siteName}
       />
-        <div className="text-decoration-none inline text-xl" style={{ boxShadow: '0 -6px rgba(75, 112, 253, 0.3) inset' }}>
+      <div>
+        <span className="text-decoration-none inline text-xl" style={{ boxShadow: '0 -6px rgba(75, 112, 253, 0.3) inset' }}>
           유사한 복지를 추천합니다
-        </div>
+        </span>
+      </div>
       <div className="flex justify-between" style={{ margin: '10px' }}>
         {recommend.map((wel, index) => {
           return likeWelfares.length !== 0 ? (
