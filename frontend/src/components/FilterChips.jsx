@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import styled from 'styled-components';
-import MultipleSelectChips from '@/components//Filter/MultipleSelectChips';
-import ChildSelectBox from '@/components//Filter/Child';
-import { getAxios, getAxiosDjango } from '../api';
 import { useNavigate } from 'react-router-dom';
-import AlertModal from '@/components/AlertModal';
+import { getAxios, getAxiosDjango } from '../api';
 import { StepContext } from '@mui/material';
+import MultipleSelectChips from '@/components/Filter/MultipleSelectChips';
+import ChildSelectBox from '@/components/Filter/Child';
+import AlertModal from '@/components/AlertModal';
+
+import styled from 'styled-components';
 
 const map = new Map();
 map.set(15, 0); //학생
@@ -156,7 +157,7 @@ function FilterChips() {
   }, [value]);
 
   return (
-    <StyledFilterSet>
+    <div className='flex flex-col justify-center items-center'>
       <MultipleSelectChips
         label="직장"
         value={clicked}
@@ -166,14 +167,14 @@ function FilterChips() {
         setError={setError}
       />
 
-      <StyledChildArea>
-        <h5 style={{ marginBottom: '15px' }}>
+      <div className="flex flex-col w-[20%] mb-[2%] items-center">
+        <h5 className='mb-[15px]'>
           <b>자녀</b>
         </h5>
         <ChildSelectBox child={child} setChild={setChild}></ChildSelectBox>
-      </StyledChildArea>
+      </div>
 
-      <StyledFamilyArea>
+      <div className='w-[70%]'>
         <MultipleSelectChips
           label="상황"
           value={clicked}
@@ -182,7 +183,7 @@ function FilterChips() {
           error={error}
           setError={setError}
         />
-      </StyledFamilyArea>
+      </div>
 
       <Button
         variant="Warning"
@@ -200,27 +201,8 @@ function FilterChips() {
       </Button>
 
       <AlertModal text={text} show={show} setShow={setShow}></AlertModal>
-    </StyledFilterSet>
+    </div>
   );
 }
-
-const StyledFilterSet = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledFamilyArea = styled.div`
-  width: 70%;
-`;
-
-const StyledChildArea = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  margin-bottom: 2%;
-  align-items: center;
-`;
 
 export default FilterChips;
