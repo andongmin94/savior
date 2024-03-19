@@ -1,4 +1,3 @@
-import React from "react";
 import _ from "lodash";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
