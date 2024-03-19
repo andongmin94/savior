@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
 import { Container, Button, Modal } from 'react-bootstrap';
 import { connect, useSelector } from 'react-redux';
 import { getAxios } from '@/api';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import HtmlReactParser from 'html-react-parser';
 import Comments from '@/components/Comments';
+
+import styled from 'styled-components';
 let 글작성틀 = styled.div`
   width: 70%;
   margin-top: 10%;
