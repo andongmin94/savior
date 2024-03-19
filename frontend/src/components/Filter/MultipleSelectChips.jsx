@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Chip, Typography, FormHelperText } from '@mui/material';
 

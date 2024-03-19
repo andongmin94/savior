@@ -1,4 +1,3 @@
-import React from 'react';
 import Keyword from '@/components/Search/Keyword';
 import ResultBoard from '@/components/Search/ResultBoard';
 import SearchBar from '@/components/Search/SearchBar';

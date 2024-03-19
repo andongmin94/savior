@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 let 빈값 = styled.td`
