@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { Button, Container } from 'react-bootstrap';
@@ -8,27 +7,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { getAxios } from '@/api';
 import HtmlReactParser from 'html-react-parser';
-let BoardName = styled.h1`
-  text-align: center;
-  margin-bottom: 3%;
-`;
 
-let QnaName = styled.div`
-  width: 100%;
-  margin-bottom: 2%;
-`;
-let WritePlace = styled.div`
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 15%;
-  padding-bottom: 15%;
-  font-family: 'Pretendard';
-`;
-let ButtonPlace = styled.div`
-  padding-top: 3%;
-  text-align: center;
-`;
 function isLogin() {
   const token = localStorage.getItem('token');
   if (token) {
@@ -71,14 +50,14 @@ function QnaCreate(props) {
   return (
     <Container>
       {isLogin() ? (
-        <WritePlace>
-          <BoardName>
+        <div className="mx-auto" style={{ width: '70%', marginTop: '15%', paddingBottom: '15%'}}>
+          <div className='text-center' style={{marginBottom: '3%'}}>
             <strong>고객센터</strong>
             <div style={{ textAlign: 'center', fontSize: '16px', marginTop: '5px' }}>
               궁금한 점이나 문의 사항을 남겨주세요.
             </div>
-          </BoardName>
-          <QnaName>
+          </div>
+          <div className='w-full' style={{marginBottom : '2%'}}>
             <p>제목</p>
             <input
               type="text"
@@ -88,18 +67,17 @@ function QnaCreate(props) {
                 setTitle(e.target.value);
               }}
             />
-          </QnaName>
+          </div>
           <p>내용</p>
           <CKEditor
             editor={ClassicEditor}
             onChange={(event, editor) => {
               const data = editor.getData();
-
               setContent(data);
             }}
           />
 
-          <ButtonPlace>
+          <div className='py-10 text-center'>
             <Link to="/Qna">
               <Button 
                 style={{
@@ -124,8 +102,8 @@ function QnaCreate(props) {
               등록
             </Button>
             {/* </Link> */}
-          </ButtonPlace>
-        </WritePlace>
+          </div>
+        </div>
       ) : (
         <div></div>
       )}
