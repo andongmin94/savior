@@ -6,8 +6,6 @@ import NewsTicker from "react-advanced-news-ticker";
 import { getAxios } from "@/api";
 import { changeInput } from "@/reducers/change";
 
-import styled from "styled-components";
-
 function SearchBar() {
   const axios = getAxios();
   const dispatch = useDispatch();
