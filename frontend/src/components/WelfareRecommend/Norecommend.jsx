@@ -17,7 +17,7 @@ export default function Norecommend(props) {
               borderTopLeftRadius: "20px",
               borderTopRightRadius: "20px",
             }}
-          ></img>
+          />
         ) : (
           <img
             src={props.profile}
@@ -29,7 +29,7 @@ export default function Norecommend(props) {
               borderTopLeftRadius: "20px",
               borderTopRightRadius: "20px",
             }}
-          ></img>
+          />
         )}
         {props.name === null ? (
           <div
