@@ -1,13 +1,13 @@
-import React, { Component, useEffect } from 'react';
-import styled from 'styled-components';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import React, { Component, useEffect, useState } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import { getAxios } from '@/api';
 import HtmlReactParser from 'html-react-parser';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+import styled from 'styled-components';
 let 게시판이름 = styled.h1`
   text-align: center;
   margin-bottom: 5%;
