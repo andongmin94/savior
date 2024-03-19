@@ -5,7 +5,6 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import styled from 'styled-components';
 
 export default function FilterCard(props) {
   const { name, content, id } = props;
@@ -36,10 +35,16 @@ export default function FilterCard(props) {
             sx={10}
             style={{ color: '#033075', fontFamily: 'Pretendard' }}
           >
-            <StyledLi>{name}</StyledLi>
+            <div className="cursor-pointer hover:no-underline" style={{ boxShadow: '0 -6px rgba(75, 112, 253, 0.3) inset' }}>
+              {name}
+            </div>
           </Typography>
         </Grid>
-        <StyledP>{content}</StyledP>
+        <div
+          className="overflow-hidden text-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words"
+          style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>
+          {content}
+        </div>
       </CardContent>
       <CardActions>
         <Button variant="contained" size="small" fullWidth onClick={onClick}>
@@ -49,23 +54,3 @@ export default function FilterCard(props) {
     </Card>
   );
 }
-const StyledP = styled.div`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-  line-height: 1.5;
-  height: 4.5em;
-  text-align: left;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  word-wrap: break-word;
-`;
-const StyledLi = styled.div`
-  &:hover {
-    text-decoration: none;
-    display: inline;
-    box-shadow: 0 -6px rgba(75, 112, 253, 0.3) inset;
-  }
-  cursor: pointer;
-`;
