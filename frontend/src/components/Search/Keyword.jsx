@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 import { getAxios } from "@/api";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { changeInput } from "@/reducers/change";
 
-function Keyword() {
+export default function Keyword() {
   const dispatch = useDispatch();
   const [keywords, setKeywords] = useState([]);
   const navigate = useNavigate();
@@ -33,7 +32,7 @@ function Keyword() {
   };
 
   return (
-    <StyledBox>
+    <div className="box-border border-[#e9ecef] h-1/2 w-[15vw] text-center grid items-center rounded-lg grid-rows-[8vh]">
       <div
         style={{
           background: "#fb923c",
@@ -48,7 +47,8 @@ function Keyword() {
       </div>
       <div></div>
       {keywords.map((keyword, i) => (
-        <StyledLi key={i}>
+        <div className="box-border flex hover:underline cursor-pointer"
+        key={i}>
           <div style={{ flexBasis: "30%", }}><span style={{
                     color:'white',
                     backgroundColor: '#0d6dfd',
@@ -66,30 +66,10 @@ function Keyword() {
           >
             {keyword.keywordName}
           </div>
-        </StyledLi>
+        </div>
       ))}
       <div></div>
       <div></div>
-    </StyledBox>
+    </div>
   );
 }
-const StyledBox = styled.div`
-  box-sizing: border-box;
-  border: 1px solid #e9ecef;
-  height: 50vh;
-  width: 15vw;
-  text-align: center;
-  display: grid;
-  align-items: center;
-  border-radius: 15px;
-  grid-template-rows: 8vh;
-`;
-const StyledLi = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  &:hover {
-    text-decoration: underline;
-  }
-  cursor: pointer;
-`;
-export default Keyword;
