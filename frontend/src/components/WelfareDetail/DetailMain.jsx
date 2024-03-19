@@ -8,7 +8,6 @@ import BookmarkAddedOutlinedIcon from "@mui/icons-material/BookmarkAddedOutlined
 import { yellow, blue, grey } from "@mui/material/colors";
 import { Grid, Typography } from "@mui/material";
 import { getAxios } from "@/api";
-import styled from "styled-components";
 import AlertModal from "@/components/AlertModal";
 import { useSelector } from "react-redux";
 
@@ -146,12 +145,8 @@ export default function DetailMain(props) {
             <div></div>
           )}
         </Grid>
-        <StyledP>{Content}</StyledP>
+        <div className="mt-[3vh]">{Content}</div>
       </Paper>
     </Box>
   );
 }
-
-const StyledP = styled.div`
-  margin-top: 3vh;
-`;
