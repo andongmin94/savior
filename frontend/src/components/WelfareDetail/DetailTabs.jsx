@@ -5,7 +5,6 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 function TabPanel(props) {
@@ -105,7 +104,7 @@ export default function DetailTaps(props) {
           >
             지원대상 |
           </div>
-          <StyledP>{target}</StyledP>
+          <div>{target}</div>
         </div>
         {crit !== null ? (
           <Box
@@ -145,7 +144,7 @@ export default function DetailTaps(props) {
           >
             지원내용 |
           </div>
-          <StyledP>{content}</StyledP>
+          <div>{content}</div>
         </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
@@ -169,7 +168,7 @@ export default function DetailTaps(props) {
           >
             신청방법 |
           </div>
-          <StyledP>{howto}</StyledP>
+          <div>{howto}</div>
         </div>
       </TabPanel>
       <TabPanel value={value} index={3}>
@@ -198,8 +197,8 @@ export default function DetailTaps(props) {
           >
             관련부서 |
           </div>
-          <StyledP>{deptName}</StyledP>
-          <StyledP>{contact}</StyledP>
+          <div>{deptName}</div>
+          <div>{contact}</div>
         </div>
         <div style={{ display: "flex" }}>
           <Avatar
@@ -217,7 +216,7 @@ export default function DetailTaps(props) {
           >
             전화문의 |
           </div>
-          <StyledP>{phone}</StyledP>
+          <div>{phone}</div>
         </div>
         <div style={{ display: "flex" }}>
           <Avatar
@@ -234,16 +233,12 @@ export default function DetailTaps(props) {
           >
             관련 웹사이트 |
           </div>
-          <StyledP style={{ marginRight: "1vw" }}>{siteName}</StyledP>
-          <StyledP>
+          <div style={{ marginRight: "1vw" }}>{siteName}</div>
+          <div>
             <a href={siteLink}>{siteLink}</a>
-          </StyledP>
+          </div>
         </div>
       </TabPanel>
     </Box>
   );
 }
-
-const StyledP = styled.div`
-  font-family: 'Pretendard';
-`;

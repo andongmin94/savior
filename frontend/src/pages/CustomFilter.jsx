@@ -28,7 +28,6 @@ function CustomFilter() {
 
 const StyledContainer = styled.div`
   display: grid;
-  font-family: 'Pretendard';
 `;
 
 const StyledFilterBox = styled.div`
