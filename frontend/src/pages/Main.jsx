@@ -272,7 +272,6 @@ const StyledS = styled.strong`
 const StyledContainer = styled.div`
   display: grid;
   justify-content: center;
-  font-family: "Pretendard";
 `;
 
 const StyledIntro = styled.div`

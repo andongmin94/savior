@@ -14,11 +14,9 @@ let TablePlace = styled.div`
   margin-right: auto;
   padding-top: 15%;
   padding-bottom: 15%;
-  font-family: "Pretendard";
 `;
 let Title = styled.h1`
   text-align: center;
-  font-family: "Pretendard";
 `;
 let WriteButton = styled.span`
   float: right;
