@@ -13,8 +13,6 @@ import { getAxios } from "@/api";
 import AlertModal from "@/components/AlertModal";
 import { useSelector } from "react-redux";
 
-import styled from "styled-components";
-
 export default function DetailCard(props) {
   const { used, like } = useSelector(state => state.likeused);
   const [likeBtn, setLikeBtn] = useState(false);
@@ -118,7 +116,11 @@ export default function DetailCard(props) {
             <div></div>
           )}
         </Grid>
-        <StyledP>{welfare[2]}</StyledP>
+        <p
+          style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical'}}
+          className="overflow-hidden text-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words">
+          {welfare[2]}
+        </p>
       </CardContent>
       <CardActions>
         <Button
@@ -133,27 +135,3 @@ export default function DetailCard(props) {
     </Card>
   );
 }
-const StyledT = styled.div`
-  overflow: hidden !important;
-  text-overflow: ellipsis;
-  white-space: normal;
-  line-height: 1.5;
-  height: 3em;
-  text-align: left;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  word-wrap: break-word;
-`;
-const StyledP = styled.p`
-  overflow: hidden !important;
-  text-overflow: ellipsis;
-  white-space: normal;
-  line-height: 1.5;
-  height: 4.5em;
-  text-align: left;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  word-wrap: break-word;
-`;
