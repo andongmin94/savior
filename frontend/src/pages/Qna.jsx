@@ -135,7 +135,7 @@ export default function Qna(props) {
           </Table>
         </TablePlace>
       ) : (
-        <LoginModal></LoginModal>
+        <LoginModal />
       )}
     </Container>
   );
