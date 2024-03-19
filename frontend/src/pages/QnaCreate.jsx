@@ -34,7 +34,7 @@ function isLogin() {
   if (token) {
     return true;
   } else {
-    return false;
+    return true;
   }
 }
 function QnaCreate(props) {
@@ -101,13 +101,21 @@ function QnaCreate(props) {
 
           <ButtonPlace>
             <Link to="/Qna">
-              <Button variant="secondary" size="lg">
+              <Button 
+                style={{
+                  backgroundColor: "#666666",
+                  borderColor: "#666666"
+                }}
+                size="lg">
                 취소
               </Button>
             </Link>{' '}
             {/* <Link to = '/Qna'> */}
             <Button
-              variant="primary"
+              style={{
+                backgroundColor: "#ea580c",
+                borderColor: "#ea580c"
+              }}
               size="lg"
               onClick={(e) => {
                 createQna();
