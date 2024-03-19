@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import DetailTabs from '@/components/WelfareDetail/DetailTabs';
 import DetailMain from '@/components/WelfareDetail/DetailMain';
@@ -9,6 +8,8 @@ import { getAxios } from '@/api';
 import DetailCard from '@/components/WelfareDetail/DetailCard';
 import { useDispatch } from "react-redux";
 import { likeusedLike, likeusedUsed } from "@/reducers/likeused";
+
+import styled from 'styled-components';
 
 const isLogin = () => {
   const token = localStorage.getItem('token');
