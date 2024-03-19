@@ -1,19 +1,15 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination, Autoplay, Navigation } from 'swiper/core';
+import FilterCard from '@/components/WelfareRecommend/FilterCard';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import FilterCard from '@/components/WelfareRecommend/FilterCard';
-import styled from 'styled-components';
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
-function FilterSlide(props) {
+export default function FilterSlide(props) {
   return (
-    <StyledBox className="main-wrap">
-      {/* <h2 style={{ marginLeft: '60px', marginBottom: '3vh', fontWeight: '600' }}>
-        {props.name}님에게 추천하는 복지
-      </h2> */}
+    <div className="box-border mb-[5vh] mt-[5vh">
       <Swiper
         style={{
           width: '70vw',
@@ -59,12 +55,6 @@ function FilterSlide(props) {
           </SwiperSlide>
         ))}
       </Swiper>
-    </StyledBox>
+    </div>
   );
 }
-const StyledBox = styled.div`
-  box-sizing: border-box;
-  margin-bottom: 5vh;
-  margin-top: 5vh;
-`;
-export default FilterSlide;
