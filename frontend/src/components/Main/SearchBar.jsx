@@ -6,7 +6,7 @@ import NewsTicker from "react-advanced-news-ticker";
 import { getAxios } from "@/api";
 import { changeInput } from "@/reducers/change";
 
-function SearchBar() {
+export default function SearchBar() {
   const axios = getAxios();
   const dispatch = useDispatch();
   const [keywords, setKeywords] = useState([]);
@@ -358,5 +358,3 @@ function SearchBar() {
     </div>
   );
 }
-
-export default SearchBar;

@@ -15,7 +15,7 @@ function isLogin() {
     return false;
   }
 }
-function QnaPatch(props) {
+export default function QnaPatch(props) {
   let navigate = useNavigate();
   let state = useSelector((state) => state);
   let [제목, 제목값변경] = useState('');
@@ -111,4 +111,3 @@ function QnaPatch(props) {
     </Container>
   );
 }
-export default QnaPatch;

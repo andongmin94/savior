@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
 
-const Norecommend = (props) => {
+export default function Norecommend(props) {
   const navigate = useNavigate();
   return (
     <StyledContainer>
@@ -106,4 +106,3 @@ const StyledBox = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export default Norecommend;

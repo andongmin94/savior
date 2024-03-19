@@ -18,7 +18,7 @@ const isLogin = () => {
   }
 }
 
-function WelfareDetail() {
+export default function WelfareDetail() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const welfareId = useParams().welfareId;
@@ -185,5 +185,3 @@ function WelfareDetail() {
     </div>
   );
 }
-
-export default WelfareDetail;

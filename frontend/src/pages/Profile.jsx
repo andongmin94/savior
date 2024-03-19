@@ -29,7 +29,7 @@ const PaginationBtn = (props) => {
     </Stack>
   );
 };
-function Profile() {
+export default function Profile() {
   const [userSeq, setUserSeq] = useState('');
   const [username, setUsername] = useState('');
   const [ageRange, setAgeRange] = useState('');
@@ -342,5 +342,3 @@ const StyledDeleteBtn = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-
-export default Profile;

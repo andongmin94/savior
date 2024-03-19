@@ -2,7 +2,7 @@ import _ from "lodash";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
-const PaginationBtn = props => {
+export default function PaginationBtn(props) {
   const { itemsCount, pageSize, currentPage, onPageChange } = props;
   // 각각 복지목록 개수, 한 페이지에 보여줄 데이터개수,
   const pageCount = Math.ceil(itemsCount / pageSize); // 몇 페이지가 필요한지 계산
@@ -22,4 +22,3 @@ const PaginationBtn = props => {
     </Stack>
   );
 };
-export default PaginationBtn;

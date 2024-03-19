@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { changeInput } from "@/reducers/change";
 
-function SearchBar() {
+export default function SearchBar() {
   const dispatch = useDispatch();
   const [word, setWord] = useState("");
 
@@ -50,5 +50,3 @@ function SearchBar() {
     </div>
   );
 }
-
-export default SearchBar;

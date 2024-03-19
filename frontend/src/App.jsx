@@ -13,7 +13,7 @@ import NotFound from "@/pages/NotFound";
 import Layout from "@/components/layout/layout";
 import Manual from "@/pages/Manual";
 
-function App() {
+export default function App() {
   return (
     <div>
       <Layout>
@@ -35,5 +35,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

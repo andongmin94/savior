@@ -3,7 +3,7 @@ import { Button, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { getAxios } from '@/api';
 
-const DeleteAccount = () => {
+export default function DeleteAccount() {
   let navigate = useNavigate();
 
   const [show, setShow] = useState(false);
@@ -75,5 +75,3 @@ const DeleteAccount = () => {
     </div>
   );
 };
-
-export default DeleteAccount;

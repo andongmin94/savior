@@ -12,7 +12,7 @@ import styled from "styled-components";
 import AlertModal from "@/components/AlertModal";
 import { useSelector } from "react-redux";
 
-function DetailMain(props) {
+export default function DetailMain(props) {
   const { used, like } = useSelector(state => state.likeused);
   const [likeBtn, setLikeBtn] = useState(false);
   const [checkBtn, setCheckBtn] = useState(false);
@@ -155,4 +155,3 @@ function DetailMain(props) {
 const StyledP = styled.div`
   margin-top: 3vh;
 `;
-export default DetailMain;

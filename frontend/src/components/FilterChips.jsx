@@ -76,7 +76,7 @@ const familyChip = [
   { label: '해당없음', value: 35 },
 ];
 
-function FilterChips() {
+export default function FilterChips() {
   let navigate = useNavigate();
 
   const [userSeq, setUserSeq] = useState('');
@@ -202,5 +202,3 @@ function FilterChips() {
     </div>
   );
 }
-
-export default FilterChips;

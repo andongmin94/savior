@@ -1,7 +1,7 @@
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-function LoginModal() {
+export default function LoginModal() {
   let navigate = useNavigate();
   return (
     <div className="mt-[200px]">
@@ -27,5 +27,3 @@ function LoginModal() {
     </div>
   );
 }
-
-export default LoginModal;

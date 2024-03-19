@@ -6,7 +6,7 @@ const initialState = {
   keyword: "",
 };
 
-const change = (state = initialState, action) => {
+export default function change(state = initialState, action) {
   switch (action.type) {
     case CHANGE_INPUT:
       return {
@@ -16,4 +16,3 @@ const change = (state = initialState, action) => {
       return state;
   }
 };
-export default change;
