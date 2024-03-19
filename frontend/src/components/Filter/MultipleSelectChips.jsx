@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Chip, Typography, FormHelperText } from '@mui/material';
 
-const MultipleSelectChips = ({ value, setValue, options, label, error, setError }) => {
+export default function MultipleSelectChips({ value, setValue, options, label, error, setError }) {
 
   const handleClick = (clickedValue) => {
     if (setError) {
@@ -60,5 +60,3 @@ MultipleSelectChips.propTypes = {
   error: PropTypes.string,
   setError: PropTypes.func,
 };
-
-export default MultipleSelectChips;

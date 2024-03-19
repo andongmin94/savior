@@ -10,8 +10,7 @@ function isLogin() {
   }
 }
 
-function Login() {
-  
+export default function Login() {
   let navigate = useNavigate();
 
   return (
@@ -69,5 +68,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;

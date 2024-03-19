@@ -10,11 +10,12 @@ import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { yellow, grey } from "@mui/material/colors";
 import Grid from "@mui/material/Grid";
 import { getAxios } from "@/api";
-import styled from "styled-components";
 import AlertModal from "@/components/AlertModal";
 import { useSelector } from "react-redux";
 
-function DetailCard(props) {
+import styled from "styled-components";
+
+export default function DetailCard(props) {
   const { used, like } = useSelector(state => state.likeused);
   const [likeBtn, setLikeBtn] = useState(false);
   const welfare = props.recommend;
@@ -156,4 +157,3 @@ const StyledP = styled.p`
   -webkit-box-orient: vertical;
   word-wrap: break-word;
 `;
-export default DetailCard;

@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 
-const GenderSelectBox = ({ gender, setGender }) => {
+export default function GenderSelectBox({ gender, setGender }) {
   const handleChange = (e) => {
     setGender(e.target.value);
   };
@@ -21,5 +21,3 @@ const GenderSelectBox = ({ gender, setGender }) => {
     </Form.Select>
   );
 };
-
-export default GenderSelectBox;

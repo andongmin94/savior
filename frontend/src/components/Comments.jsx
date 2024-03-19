@@ -4,7 +4,7 @@ import { Comment } from '@mui/icons-material';
 import { Button, Modal } from 'react-bootstrap';
 import { getAxios } from '@/api';
 
-const Comments = props => {
+export default function Comments(props) {
   const axios = getAxios();
   const qnaId  = useParams().qnaId;
   const [comment, setComment] = useState('');
@@ -121,9 +121,5 @@ const Comments = props => {
           setEditable(!editable)
         }}>취소</Button>
     </div>
-    
-
-    
   );
 };
-export default Comments;

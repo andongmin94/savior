@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import styled from 'styled-components';
 
-function FilterCard(props) {
+export default function FilterCard(props) {
   const { name, content, id } = props;
   let navigate = useNavigate();
 
@@ -69,4 +69,3 @@ const StyledLi = styled.div`
   }
   cursor: pointer;
 `;
-export default FilterCard;

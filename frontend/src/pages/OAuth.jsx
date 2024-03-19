@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Auth() {
+export default function Auth() {
   // BE에서 받은 token
   const token = new URL(window.location.href).searchParams.get('token');
 
@@ -23,5 +23,3 @@ function Auth() {
 
   return null;
 }
-
-export default Auth;

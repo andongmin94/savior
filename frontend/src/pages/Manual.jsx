@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-function Manual() {
+export default function Manual() {
   const text = 'text';
   return (
     <StyledContainer>
@@ -156,5 +156,3 @@ const StyledImgArea = styled.div`
   align-items: center;
   width: 100vw;
 `;
-
-export default Manual;

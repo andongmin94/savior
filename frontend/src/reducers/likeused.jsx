@@ -9,7 +9,7 @@ const initialState = {
   used: [],
 };
 
-const likeused = (state = initialState, action) => {
+export default function likeused(state = initialState, action) {
   switch (action.type) {
     case LIKE_INPUT:
       return { ...state, like: action.like };
@@ -19,4 +19,3 @@ const likeused = (state = initialState, action) => {
       return state;
   }
 };
-export default likeused;
