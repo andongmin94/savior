@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Chart from '@/components/WelfareRecommend/Chart';
 import LineChart from '@/components/WelfareRecommend/LineChart';
 import FilterSlide from '@/components/WelfareRecommend/FilterSlide';
