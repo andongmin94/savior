@@ -83,7 +83,7 @@ function QnaCreate(props) {
             <input
               type="text"
               maxLength="50"
-              style={{ width: '100%' }}
+              style={{ width: '100%', border: '1px solid #cccccc', padding: '10px'}}
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
