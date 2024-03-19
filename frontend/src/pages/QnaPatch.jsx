@@ -7,28 +7,6 @@ import HtmlReactParser from 'html-react-parser';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-import styled from 'styled-components';
-let 게시판이름 = styled.h1`
-  text-align: center;
-  margin-bottom: 5%;
-`;
-
-let 게시글제목 = styled.div`
-  width: 100%;
-  margin-bottom: 2%;
-`;
-let 글작성틀 = styled.div`
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15%;
-    padding-bottom: 15%;
-    font-family: 'Pretendard';
-`;
-let 버튼위치 = styled.div`
-  padding-top: 3%;
-  text-align: center;
-`;
 function isLogin() {
   const token = localStorage.getItem('token');
   if (token) {
@@ -78,14 +56,14 @@ function QnaPatch(props) {
   return (
     <Container>
       {isLogin() ? (
-        <글작성틀>
-          <게시판이름>
+        <div className="mx-auto" style={{ width: '70%', marginTop: '15%', paddingBottom: '15%'}}>
+          <h1 className='text-center' style={{marginBottom:'5%'}}>
             <strong>고객센터</strong>
             <div style={{ textAlign: 'center', fontSize: '16px', marginTop: '5px' }}>
               궁금한 점이나 문의 사항을 남겨주세요.
             </div>
-          </게시판이름>
-          <게시글제목>
+          </h1>
+          <div className='w-full' style={{marginBottom:'2%'}}>
             <p>제목</p>
             {/* value={qna.title || ""} */}
 
@@ -98,7 +76,7 @@ function QnaPatch(props) {
                 제목값변경(e.target.value);
               }}
             />
-          </게시글제목>
+          </div>
           <p>내용</p>
           <CKEditor
             editor={ClassicEditor}
@@ -110,7 +88,7 @@ function QnaPatch(props) {
             }}
           />
 
-          <버튼위치>
+          <div className="text-center" style={{ paddingTop: '3%'}}>
             <Link to="/Qna">
               <Button variant="secondary" size="lg">
                 취소
@@ -125,8 +103,8 @@ function QnaPatch(props) {
             >
               등록
             </Button>
-          </버튼위치>
-        </글작성틀>
+          </div>
+        </div>
       ) : (
         <div></div>
       )}
