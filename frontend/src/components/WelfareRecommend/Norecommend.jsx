@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
-import styled from "styled-components";
-
 export default function Norecommend(props) {
   const navigate = useNavigate();
   return (
