@@ -1,6 +1,6 @@
 # 코딩 컨벤션  
 
-### Python style
+### Python Style (PEP 8: Python Style Guide)
 Python 파일은 들여쓰기에 4개의 공백을 사용하고, HTML 파일은 2개의 공백을 사용한다.
 
 문자열 변수 보간에는 %-포매팅, f-문자열, 또는 str.format()을 상황에 맞게 사용할 수 있으며, 코드의 가독성을 최대화하는 것이 목표입니다.
@@ -58,6 +58,26 @@ def test_foo():
     ...
 ```
 ### Imports
+Python에서 라이브러리를 임포트하는 경우, 일반적인 컨벤션은 표준 라이브러리, 관련 없는 서드 파티 라이브러리, 그리고 로컬 어플리케이션/라이브러리에 대한 임포트를 구분하여 그룹화하고, 각 그룹 내에서 알파벳 순으로 정렬하는 것입니다. 이 컨벤션은 PEP 8(파이썬 스타일 가이드)에 기술되어 있습니다.
+
+위 코드를 PEP 8 가이드에 따라 정리하면 다음과 같습니다:
+
+표준 라이브러리 임포트
+서드 파티 라이브러리 임포트
+로컬 어플리케이션/라이브러리 임포트
+이 경우, contextlib은 표준 라이브러리, requests와 bs4(BeautifulSoup)는 서드 파티 라이브러리, pandas도 서드 파티 라이브러리에 해당합니다. 따라서, 적절한 순서는 다음과 같습니다:
+
+python
+Copy code
+# 표준 라이브러리
+from contextlib import nullcontext
+
+# 서드 파티 라이브러리
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+여기서 contextlib을 먼저 임포트하고, 그 다음에 알파벳 순서대로 pandas, requests, bs4 순으로 임포트합니다. 각 그룹은 한 줄 띄어서 구분합니다.
+
 Use isort to automate import sorting using the guidelines below.
 
 Quick start:
@@ -403,10 +423,6 @@ def get_absolute_url()
 ---
 
 
-
-Coding Convention
-나 혼자만 이해할 수 있는 코드는 좋지 않은 코드이다.
-다른 개발자들도 쉽게 이해할 수 있는 코드가 좋은 코드이다.
 
 클래스 (Class)
 class http_request
