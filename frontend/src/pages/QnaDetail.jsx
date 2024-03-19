@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Button, Modal } from 'react-bootstrap';
 import { connect, useSelector } from 'react-redux';
 import { getAxios } from '@/api';
