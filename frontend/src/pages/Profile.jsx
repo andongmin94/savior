@@ -305,7 +305,6 @@ const StyledBox = styled.div`
   display: grid;
   align-items: center;
   grid-template-rows: 15% 70% 15%;
-  font-family: 'Pretendard';
   background: rgba(255, 255, 255, 0.4);
   border-radius: 5px;
 `;
@@ -319,7 +318,6 @@ const StyledH = styled.h6`
 const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
-  font-family: 'Pretendard';
   color: black;
   background-color: #90caf9;
   width: 100vw;

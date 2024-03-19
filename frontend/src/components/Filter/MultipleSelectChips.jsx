@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { Chip, Typography, FormHelperText } from '@mui/material';
 
 const StyledContainer = styled.div`
-  font-family: 'Pretendard';
   margin-bottom: 2%;
   margin: .5rem 0 .5rem;
   text-align: center;

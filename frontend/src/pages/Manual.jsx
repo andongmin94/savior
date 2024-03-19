@@ -100,7 +100,6 @@ function Manual() {
 
 const StyledContainer = styled.div`
   display: grid;
-  font-family: 'Pretendard';
   margin-top: 90px;
   width: 100vw;
   height: 350vh;
