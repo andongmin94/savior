@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import FilterChips from '@/components/FilterChips';
 import { getAxios, getAxiosDjango } from '@/api';
