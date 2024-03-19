@@ -45,12 +45,12 @@ export default function ResultBoard() {
 
   const { length: count } = data;
   if (count === 0) {
-    return <div className="box-border w-1/2 h-1/2 rounded-lg border-solid border border-[#e9ecef] m-auto text-center font-bold leading-[50vh]">검색 정보가 없습니다 🔍</div>;
+    return <div className="box-border w-[50vw] h-[50vh] rounded-lg border-solid border border-[#e9ecef] m-auto text-center font-bold leading-[50vh]">검색 정보가 없습니다 🔍</div>;
   }
 
   return (
     <div className="box-border w-1/2 flex flex-col mb-[5vh]">
-      <div className="border border-[gray] p-4">
+      <div className='box-border border-t-[1px] border-t-[solid] border-t-[gray] border-b-[1px] border-b-[solid] border-b-[gray]'>
         <Table striped bordered hover>
           <thead className="text-center">
             <tr>
@@ -63,16 +63,16 @@ export default function ResultBoard() {
             {pagedWelfares.map(welfare => (
               <tr key={welfare[0]}>
                 <td>{welfare[0]}</td>
-                <td className="hover:underline cursor-pointer" onClick={e => onClick(welfare[0])}>
+                <div className="cursor-pointer hover:underline" onClick={e => onClick(welfare[0])}>
                   {welfare[1]}
-                </td>
+                </div>
                 <td>{welfare[2]}</td>
               </tr>
             ))}
           </tbody>
         </Table>
       </div>
-      <div className="m-auto mt-4">
+      <div className="mx-auto mt-[10px]">
         <PaginationBtn
           itemsCount={count}
           pageSize={pageSize}
