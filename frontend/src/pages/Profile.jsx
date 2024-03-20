@@ -166,25 +166,9 @@ export default function Profile() {
               setGender={setGender}
             ></UserProfile>
 
-            <hr
-              style={{
-                margin: '3% 0 3% 0',
-              }}
-            />
+            <hr className='my-[3%] mx-0' />
 
-            <div
-              className="filterChips"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: '5% 5%',
-                margin: '0 5%',
-                borderRadius: '5px',
-                background: 'rgba(255, 255, 255, 0.4)',
-              }}
-            >
+            <div className='flex flex-col justify-center items-center p-[5%] my-0 mx-[5%] rounded-[5px] bg-[rgba(255,255,255,0.4)]'>
               <h5>
                 <strong>
                   회원님의 상황을 자세하게 설정하세요. 추천 복지 선택에 도움을 줍니다.
@@ -193,23 +177,17 @@ export default function Profile() {
               <FilterChips></FilterChips>
             </div>
 
-            <hr
-              style={{
-                margin: '3% 0 3% 0',
-              }}
-            />
+            <hr className='my-[3%] mx-0' />
 
             <div className="flex flex-wrap justify-evenly">
               <div className="h-[50vh] w-[400px] p-[1%] py-0 grid items-center grid-rows-[15%,70%,15%] bg-white bg-opacity-40 rounded-md">
-                <h5 style={{ textAlign: 'center', marginTop: '0.5rem' }}>
+                <h5 className='text-center mt-[0.5rem]'>
                   <strong>찜한 복지</strong>
                 </h5>
                 {countl !== 0 ? (
                   <ListGroup
                     variant="flush"
-                    style={{
-                      padding: '0 5%',
-                    }}
+                    className='py-0 px-[5%]'
                   >
                     {pagedWelLikes.map((wel) => (
                       <ListGroup.Item
@@ -217,16 +195,14 @@ export default function Profile() {
                         onClick={() => {
                           navigate(`/welfare/${wel.welfareId}`);
                         }}
-                        style={{
-                          background: 'rgba(255, 255, 255, 0)',
-                        }}
+                        className='bg-[rgba(255,255,255,0)]'
                       >
                         <h6 className="hover:underline cursor-pointer">{wel.welfare_service_name}</h6>
                       </ListGroup.Item>
                     ))}
                   </ListGroup>
                 ) : (
-                  <div style={{ margin: 'auto' }}>찜한 복지가 없습니다.</div>
+                  <div className='m-auto'>찜한 복지가 없습니다.</div>
                 )}
                 <div className="mx-auto">
                   <PaginationBtn
@@ -237,16 +213,14 @@ export default function Profile() {
                 </div>
               </div>
               <div className="h-[50vh] w-[400px] p-[1%] py-0 grid items-center grid-rows-[15%,70%,15%] bg-white bg-opacity-40 rounded-md">
-                <h5 style={{ textAlign: 'center', marginTop: '0.5rem' }}>
+                <h5 className='text-center mt-[0.5rem]'>
                   <strong>사용 중인 복지</strong>
                 </h5>
 
                 {countu !== 0 ? (
                   <ListGroup
                     variant="flush"
-                    style={{
-                      padding: '0 5%',
-                    }}
+                    className='py-0 px-[5%]'
                   >
                     {pagedWelUsed.map((wel) => (
                       <ListGroup.Item
@@ -254,16 +228,14 @@ export default function Profile() {
                         onClick={() => {
                           navigate(`/welfare/${wel.welfareId}`);
                         }}
-                        style={{
-                          background: 'rgba(255, 255, 255, 0)',
-                        }}
+                        className='bg-[rgba(255,255,255,0)]'
                       >
                         <h6 className="hover:underline cursor-pointer">{wel.welfare_service_name}</h6>
                       </ListGroup.Item>
                     ))}
                   </ListGroup>
                 ) : (
-                  <div style={{ margin: 'auto' }}>사용중인 복지가 없습니다.</div>
+                  <div className='m-auto'>사용중인 복지가 없습니다.</div>
                 )}
                 <div className="mx-auto">
                   <PaginationBtn
@@ -275,11 +247,7 @@ export default function Profile() {
               </div>
             </div>
 
-            <hr
-              style={{
-                margin: '3% 0 3% 0',
-              }}
-            />
+            <hr className='my-[3%] mx-0' />
 
             <div className="flex justify-end">
               <DeleteAccount></DeleteAccount>
