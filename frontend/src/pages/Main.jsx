@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Button, Tabs, Tab, ListGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import { Button, Tabs, Tab, ListGroup } from "react-bootstrap";
 import { getAxios } from "@/api";
 import SearchBar from "@/components/Main/SearchBar";
 import FilterSlide from "@/components/WelfareRecommend/FilterSlide";
@@ -85,9 +84,9 @@ export default function Main() {
 
   return (
     <div className="main">
-      <StyledContainer>
-        <StyledIntro>
-          <StyledIntroMain>
+      <div className="grid justify-center">
+        <div className="flex flex-wrap flex-col p-[1%] px-[10%] bg-[#f97316] w-full text-black">
+          <div className="flex flex-wrap flex-row mt-[100px] justify-around bg-[#f97316]">
             <div className="intro-text-area text-white" style={{ marginTop: "170px" }}>
               <h2>
                 <b className="white">만류귀종, 삶의 형태는 다양하지만 우리는 모두 동등하다.</b>
@@ -117,15 +116,15 @@ export default function Main() {
               alt="main-image"
               width="400px"
             />
-          </StyledIntroMain>
-        </StyledIntro>
+          </div>
+        </div>
 
-        <StyledBottomBackground>
-          <StyledSearchBar>
+        <div className="w-full h-screen relative bg-[url('/background/waves.svg')]">
+          <div className="mx-[10%] mb-[1%]">
             <SearchBar keywords={keywords}></SearchBar>
-          </StyledSearchBar>
+          </div>
 
-          <StyledTab>
+          <div className="mx-[10%] my-[5%] mt-0 bg-white rounded-md p-[1%]">
             <Tabs
               defaultActiveKey="home"
               id="main-welfare-tab"
@@ -225,13 +224,13 @@ export default function Main() {
                           margin: "0 0 0 20px",
                         }}
                       >
-                        <StyledS
+                        <strong className="hover:no-underline hover:inline hover:shadow-[0_-6px_rgba(75,112,253,0.3)_inset]"
                           onClick={() => {
                             navigate(`/welfare/${item.welfareId}`);
                           }}
                         >
                           {item.welfare_service_name}
-                        </StyledS>
+                        </strong>
                       </div>
                       <div className="vr" style={{ margin: "0 2%" }} />
                       <strong
@@ -254,58 +253,9 @@ export default function Main() {
                 </ListGroup>
               </Tab>
             </Tabs>
-          </StyledTab>
-        </StyledBottomBackground>
-      </StyledContainer>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-const StyledS = styled.strong`
-  &:hover {
-    text-decoration: none;
-    display: inline;
-    box-shadow: 0 -6px rgba(75, 112, 253, 0.3) inset;
-  }
-  cursor: pointer;
-`;
-const StyledContainer = styled.div`
-  display: grid;
-  justify-content: center;
-`;
-
-const StyledIntro = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  padding: 1% 10%;
-  background-color: #f97316;
-  width: 100vw;
-  color: black;
-`;
-
-const StyledIntroMain = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: 100px 0 0 0;
-  justify-content: space-around;
-  background-color: #f97316;
-`;
-
-const StyledBottomBackground = styled.div`
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  background-image: url("/background/waves.svg");
-`;
-
-const StyledSearchBar = styled.div`
-  margin: 0 10% 1% 10%;
-`;
-
-const StyledTab = styled.div`
-  margin: 0 10% 5% 10%;
-  background: white;
-  border-radius: 5px;
-  padding: 1% 1%;
-`;
