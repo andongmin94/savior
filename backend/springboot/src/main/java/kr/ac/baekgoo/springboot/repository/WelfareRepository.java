@@ -72,9 +72,4 @@ public class WelfareRepository {
                 .getResultList();
         return resultList.subList(0, 10);
     }
-
-//    public List<Array> exportWelfarePurpose(List<Welfare> welfareList) {
-//        System.out.println(welfareList);
-//        return new ArrayList<>();
-//    }
 }
