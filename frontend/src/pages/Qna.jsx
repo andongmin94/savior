@@ -54,18 +54,13 @@ export default function Qna(props) {
           <h1 className="text-center">
             <strong>고객센터</strong>
           </h1>
-          <div style={{ textAlign: "center" }}>
+          <div className='text-center'>
             궁금한 점이나 문의 사항을 남겨주세요.
           </div>
 
           <Link to="/QnaCreate">
             <span className="float-right mb-[1%]">
-              <Button
-                style={{
-                  backgroundColor: "#ea580c",
-                  borderColor: "#ea580c",
-                }}
-              >
+              <Button className="bg-[#ea580c] border-[#ea580c]">
                 글쓰기
               </Button>{" "}
             </span>
@@ -97,11 +92,11 @@ export default function Qna(props) {
                       onClick={() => {
                         navigate(`/QnaDetail/${a.id}`);
                       }}
-                      style={{ cursor: "pointer" }}
+                      className="cursor-pointer"
                     >
-                      <td className="text-center" width="20%">{i + 1}</td>
-                      <td className="text-center" width="60%">{a.title}</td>
-                      <td className="text-center" width="20%">
+                      <td className="text-center w-[20%]">{i + 1}</td>
+                      <td className="text-center w-[60%]">{a.title}</td>
+                      <td className="text-center w-[20%]">
                         {a.qna_created_at[0]}년 {a.qna_created_at[1]}월{" "}
                         {a.qna_created_at[2]}일
                       </td>
