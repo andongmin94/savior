@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wantedDtl>
+    <servId>WLF00000031</servId>
+    <servNm>노후준비서비스</servNm>
+    <jurMnofNm>보건복지부 인구정책총괄과</jurMnofNm>
+    <tgtrDtlCn>
+
+
+        일반 국민 모두가 서비스를 이용할 수 있습니다.
+
+    </tgtrDtlCn>
+    <slctCritCn>
+
+
+        지원대상을 참고해주시기 바랍니다.
+
+    </slctCritCn>
+    <alwServCn>
+
+
+        노후준비에 필요한 재무건강여가대인관계 등의 분야에 대한 종합적인 노후준비 진단, 상담, 교육, 관계기관 연계, 사후관리 서비스를 제공합니다,
+        노후준비서비스를 아래 절차에 따라 제공합니다.
+
+        (진단서비스) '노후준비 종합진단지' 작성을 통해 개인의 노후준비상태를 종합적으로 진단
+        (상담서비스) 노후준비에 대한 취약점 보완을 위해 맞춤형 상담을 제공
+        (관계기관 연계서비스) 노후준비를 위해 타 기관에서 제공중인 서비스의 이용이나 심층상담이 필요한 경우 해당기관으로 연계
+        (사후관리서비스) 노후준비 실천사항의 준비사항을 주기적으로 점검
+
+
+    </alwServCn>
+    <applmetList>
+        <servSeCode>070</servSeCode>
+        <servSeDetailLink>담당 시/군/구청 또는 국민연금공단(중앙노후준비지원센터, 지역노후준비지원센터)에서 서비스 제공 이후 대상자의 상황 관리</servSeDetailLink>
+        <servSeDetailNm>사후관리기관목록</servSeDetailNm>
+    </applmetList>
+    <applmetList>
+        <servSeCode>070</servSeCode>
+    </applmetList>
+    <inqplCtadrList>
+        <servSeCode>010</servSeCode>
+        <servSeDetailLink>1355</servSeDetailLink>
+        <servSeDetailNm>국민연금공단</servSeDetailNm>
+    </inqplCtadrList>
+    <inqplHmpgReldList>
+        <servSeCode>020</servSeCode>
+        <servSeDetailLink>csa.nps.or.kr</servSeDetailLink>
+        <servSeDetailNm>내연금사이트</servSeDetailNm>
+    </inqplHmpgReldList>
+    <inqplHmpgReldList>
+        <servSeCode>020</servSeCode>
+        <servSeDetailLink>http://www.nps.or.kr</servSeDetailLink>
+        <servSeDetailNm>국민연금공단</servSeDetailNm>
+    </inqplHmpgReldList>
+    <baslawList>
+        <servSeCode>030</servSeCode>
+        <servSeDetailLink>
+            https://www.law.go.kr/DRF/lawService.do?OC=bokjiro&amp;target=law&amp;type=HTML&amp;ID=012318
+        </servSeDetailLink>
+        <servSeDetailNm>노후준비 지원법</servSeDetailNm>
+    </baslawList>
+    <baslawList>
+        <servSeCode>030</servSeCode>
+        <servSeDetailLink>https://www.law.go.kr/DRF/lawService.do?OC=bokjiro&amp;target=law&amp;type=HTML&amp;ID=10911
+        </servSeDetailLink>
+        <servSeDetailNm>국민연금법</servSeDetailNm>
+    </baslawList>
+    <resultCode>0</resultCode>
+    <resultMessage>SUCCESS</resultMessage>
+</wantedDtl>

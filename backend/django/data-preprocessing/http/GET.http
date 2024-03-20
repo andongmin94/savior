@@ -1,0 +1,6 @@
+# 복지서비스 목록조회
+GET http://apis.data.go.kr/B554287/NationalWelfareInformations/NationalWelfarelist?serviceKey=rPO%2F6Iu0tAsSbMunY2SA%2FeMkdH0NiHRsNzYHu%2B%2F8Mnlh3xVi91YCwJdaxrOd%2F9yMRRTVcFpYlXuqB5LxJzD1%2Bw%3D%3D&callTp=L&pageNo=1&numOfRows=500&srchKeyCode=003
+
+###
+# 복지서비스 상세조회
+GET http://apis.data.go.kr/B554287/NationalWelfareInformations/NationalWelfaredetailed?serviceKey=rPO%2F6Iu0tAsSbMunY2SA%2FeMkdH0NiHRsNzYHu%2B%2F8Mnlh3xVi91YCwJdaxrOd%2F9yMRRTVcFpYlXuqB5LxJzD1%2Bw%3D%3D&callTp=D&servId=WLF00000031
