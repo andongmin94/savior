@@ -12,11 +12,7 @@ export default function FilterSlide(props) {
   return (
     <div className="box-border mb-[5vh] mt-[5vh">
       <Swiper
-        style={{
-          width: '70vw',
-          height: '40vh',
-          borderRadius: '12px',
-        }}
+        className="w-[70vw] h-[40vh] rounded-[12px]"
         spaceBetween={20}
         slidesPerView={4}
         slidesPerGroup={4}
@@ -39,16 +35,11 @@ export default function FilterSlide(props) {
       >
         {props.cards.map((card) => (
           <SwiperSlide
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-            }}
+            className="flex justify-center"
             key={card.welfareId}
           >
             <FilterCard
-              style={{
-                alignItems: 'center',
-              }}
+              className="items-center"
               name={card.welfare_service_name}
               content={card.welfare_service_content}
               id={card.welfareId}
