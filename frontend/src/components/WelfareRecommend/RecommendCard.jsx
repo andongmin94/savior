@@ -47,7 +47,7 @@ export default function RecommendCard(props) {
           </Typography>
         </Grid>
         <p
-          className="overflow-hidden text-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words"
+          className="overflow-hidden overflow-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words"
           style={{
             display: "-webkit-box",
             WebkitLineClamp: 3,
