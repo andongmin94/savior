@@ -27,32 +27,12 @@ export default function UserProfile({
   return (
     <div>
       {modify === "false" ? (
-        <div
-          className="userProfileBox"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "3%",
-          }}
-        >
+        <div className="flex justify-center items-center mt-[3%]">
           <img
             src={profileImage}
-            style={{
-              width: "110px",
-              height: "110px",
-              borderRadius: "70%",
-              overflow: "hidden",
-            }}
+            className="w-[110px] h-[110px] rounded-[70%] overflow-hidden"
           ></img>
-          <div
-            className="userProfileInfo"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginLeft: "20px",
-            }}
-          >
+          <div className="flex flex-col ml-[20px]">
             <h5>
               <b> {username}님 안녕하세요!</b>
             </h5>
@@ -76,11 +56,7 @@ export default function UserProfile({
 
             <Button
               size="sm"
-              style={{
-                width: "80px",
-                backgroundColor: "#ea580c",
-                borderColor: "#ea580c",
-              }}
+              className="w-[80px] bg-[#ea580c] border-[#ea580c]"
               onClick={() => {
                 setModify("ture");
               }}
@@ -90,32 +66,13 @@ export default function UserProfile({
           </div>
         </div>
       ) : (
-        <div
-          className="userProfileBox"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "3%",
-          }}
-        >
+        <div className="flex justify-center items-center mt-[3%]">
           <img
             src={profileImage}
-            style={{
-              width: "110px",
-              height: "110px",
-              borderRadius: "70%",
-              overflow: "hidden",
-            }}
-          ></img>
-          <div
-            className="userProfileInfo"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginLeft: "20px",
-            }}
-          >
+            className="w-[110px] h-[110px] rounded-[70%] overflow-hidden"
+          />
+          <div 
+            className="flex flex-col ml-[20px]">
             <h5>
               <b> {username}님 안녕하세요!</b>
             </h5>
@@ -129,7 +86,7 @@ export default function UserProfile({
             <Button
               variant="primary"
               size="sm"
-              style={{ width: "80px" }}
+              className="w-20"
               onClick={() => {
                 setModify("false");
                 setProfile();

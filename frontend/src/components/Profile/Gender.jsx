@@ -11,7 +11,7 @@ export default function GenderSelectBox({ gender, setGender }) {
       value={gender}
       onChange={handleChange}
       size="sm"
-      style={{ display: 'inline', width: '150px' }}
+      className='inline w-[150px]'
     >
       <option value="placeholder" disabled>
         선택

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, Container } from 'react-bootstrap';
 import HtmlReactParser from 'html-react-parser';
@@ -51,19 +51,19 @@ export default function QnaCreate(props) {
   return (
     <Container>
       {isLogin() ? (
-        <div className="mx-auto" style={{ width: '70%', marginTop: '15%', paddingBottom: '15%'}}>
-          <div className='text-center' style={{marginBottom: '3%'}}>
+        <div className="mx-auto w-[70%] mt-[15%] pb-[15%]">
+          <div className='text-center mb-[3%]'>
             <strong>고객센터</strong>
-            <div style={{ textAlign: 'center', fontSize: '16px', marginTop: '5px' }}>
+            <div className='text-center text-[16px] mt-[5px]'>
               궁금한 점이나 문의 사항을 남겨주세요.
             </div>
           </div>
-          <div className='w-full' style={{marginBottom : '2%'}}>
+          <div className='w-full mb-[2%]'>
             <p>제목</p>
             <input
               type="text"
               maxLength="50"
-              style={{ width: '100%', border: '1px solid #cccccc', padding: '10px'}}
+              className='w-full border-[1px] border-solid border-[#cccccc] p-[10px]'
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
@@ -80,21 +80,15 @@ export default function QnaCreate(props) {
 
           <div className='py-10 text-center'>
             <Link to="/Qna">
-              <Button 
-                style={{
-                  backgroundColor: "#666666",
-                  borderColor: "#666666"
-                }}
+              <Button
+                className='bg-gray-500 border-gray-500'
                 size="lg">
                 취소
               </Button>
             </Link>{' '}
             {/* <Link to = '/Qna'> */}
             <Button
-              style={{
-                backgroundColor: "#ea580c",
-                borderColor: "#ea580c"
-              }}
+              className='bg-[#ea580c] border-[#ea580c]'
               size="lg"
               onClick={(e) => {
                 createQna();

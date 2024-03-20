@@ -57,21 +57,21 @@ export default function QnaPatch(props) {
   return (
     <Container>
       {isLogin() ? (
-        <div className="mx-auto" style={{ width: '70%', marginTop: '15%', paddingBottom: '15%'}}>
-          <h1 className='text-center' style={{marginBottom:'5%'}}>
+        <div className="mx-auto w-[70%] mt-[15%] pb-[15%]">
+          <h1 className='text-center mb-[5%]'>
             <strong>고객센터</strong>
-            <div style={{ textAlign: 'center', fontSize: '16px', marginTop: '5px' }}>
+            <div className="text-center text-[16px] mt-[5px]">
               궁금한 점이나 문의 사항을 남겨주세요.
             </div>
           </h1>
-          <div className='w-full' style={{marginBottom:'2%'}}>
+          <div className='w-full mb-[2%]'>
             <p>제목</p>
             {/* value={qna.title || ""} */}
 
             <input
               type="text"
               maxLength="50"
-              style={{ width: '100%' }}
+              className='w-full'
               value={제목 || ''}
               onChange={(e) => {
                 제목값변경(e.target.value);
@@ -89,7 +89,7 @@ export default function QnaPatch(props) {
             }}
           />
 
-          <div className="text-center" style={{ paddingTop: '3%'}}>
+          <div className="text-center pt-[3%]">
             <Link to="/Qna">
               <Button variant="secondary" size="lg">
                 취소

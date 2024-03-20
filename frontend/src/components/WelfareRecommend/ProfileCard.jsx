@@ -5,25 +5,13 @@ export default function ProfileCard(props) {
         <img
           src="/blank-profile.png"
           alt="profile"
-          style={{
-            objectFit: "cover",
-            width: "100%",
-            maxHeight: "100%",
-            borderTopLeftRadius: "20px",
-            borderTopRightRadius: "20px",
-          }}
+          className="object-cover w-full max-h-full rounded-tl-[20px] rounded-tr-[20px]"
         />
       ) : (
         <img
           src={props.profile}
           alt="profile"
-          style={{
-            objectFit: "cover",
-            width: "100%",
-            maxHeight: "100%",
-            borderTopLeftRadius: "20px",
-            borderTopRightRadius: "20px",
-          }}
+          className="object-cover w-full max-h-full rounded-tl-[20px] rounded-tr-[20px]"
         ></img>
       )}
       {props.name === null ? (
