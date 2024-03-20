@@ -1,8 +1,8 @@
 version: "3"
 services:
   backend:
-    container_name: backend
-    build: ./backend
+    container_name: springboot
+    build: ./backend/springboot
     image: back_image:0.0
     ports:
       - "8080:8080"
@@ -19,6 +19,10 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - /var/lib/letsencrypt:/var/lib/letsencrypt
+      - /home/ubuntu/nginx/conf.d:/etc/nginx/conf.d
+      - /home/ubuntu/nginx/sites-enabled:/etc/nginx/sites-enabled
+      - /usr/share/nginx/html:/home/ubuntu/nginx/dist
+
     networks:
       - backend_frontend
 
