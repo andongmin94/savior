@@ -70,14 +70,13 @@ export default function DetailCard(props) {
         fontFamily: 'Pretendard'
       }}
     >
-      <CardContent style={{ display: "grid" }}>
+      <CardContent className="grid">
         <Grid container sx={{ mb: 2 }}>
           <Grid item xs={10}>
             <Typography
               variant="h6"
               component="div"
               sx={10}
-              style={{ fontFamily: 'Pretendard' }}
             >
               {welfare[1]}
             </Typography>
@@ -119,7 +118,7 @@ export default function DetailCard(props) {
         </Grid>
         <p
           style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical'}}
-          className="overflow-hidden text-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words">
+          className="overflow-hidden overflow-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words">
           {welfare[2]}
         </p>
       </CardContent>

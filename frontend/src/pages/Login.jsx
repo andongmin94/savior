@@ -19,14 +19,7 @@ export default function Login() {
         <div>
           <a href={"/"}>
             
-            <Button
-              style={{
-                backgroundColor: '#ea580c',
-                borderColor: '#ea580c',
-                fontWeight: 'bold',
-                fontSize: 'large',
-              }}
-            >
+            <Button className="bg-[#ea580c] border-[#ea580c] font-bold text-lg">
               로그인
             </Button>
           </a>
@@ -34,26 +27,13 @@ export default function Login() {
       ) : (
         <div>
           <Link to="/profile">
-            <Button
-              style={{
-                backgroundColor: '#90CAF9',
-                borderColor: '#90CAF9',
-                fontWeight: 'bold',
-                fontSize: 'large',
-                marginRight: '5px',
-              }}
-            >
+            <Button className="bg-[#90CAF9] border-[#90CAF9] font-bold text-lg mr-[5px]">
               내 정보
             </Button>
           </Link>
 
           <Button
-            style={{
-              backgroundColor: '#ea580c',
-              borderColor: '#ea580c',
-              fontWeight: 'bold',
-              fontSize: 'large',
-            }}
+            className="bg-[#ea580c] border-[#ea580c] font-bold text-lg"
             onClick={() => {
               localStorage.removeItem('token');
               localStorage.removeItem('name');

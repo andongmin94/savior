@@ -84,7 +84,7 @@ export default function DetailMain(props) {
       <Paper elevation={3} sx={{ p: 3, bgcolor: "#E3F2FD" }}>
         <Grid container>
           <Grid item xs={10}>
-            <h2 style={{ color: "#033075" }}>{Name}</h2>
+            <h2 className='text-[#033075]'>{Name}</h2>
           </Grid>
           {likeNum !== undefined && usedNum !== undefined ? (
             <Grid item xs={2} align="right">

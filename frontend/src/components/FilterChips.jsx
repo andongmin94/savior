@@ -186,10 +186,7 @@ export default function FilterChips() {
 
       <Button
         variant="Warning"
-        style={{
-          marginTop: '2%',
-          width: '250px',
-        }}
+        className='mt-[2%] w-[250px]'
         onClick={() => {
           setFilter();
           setText('정보 입력이 완료되었습니다.');
