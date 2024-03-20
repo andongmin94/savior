@@ -1,43 +1,23 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Button, Container } from 'react-bootstrap';
+import HtmlReactParser from 'html-react-parser';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { Button, Container } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useState } from 'react';
-import { getAxios } from '@/api';
-import HtmlReactParser from 'html-react-parser';
-let BoardName = styled.h1`
-  text-align: center;
-  margin-bottom: 3%;
-`;
 
-let QnaName = styled.div`
-  width: 100%;
-  margin-bottom: 2%;
-`;
-let WritePlace = styled.div`
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 15%;
-  padding-bottom: 15%;
-  font-family: 'Pretendard';
-`;
-let ButtonPlace = styled.div`
-  padding-top: 3%;
-  text-align: center;
-`;
+import { getAxios } from '@/api';
+
 function isLogin() {
   const token = localStorage.getItem('token');
   if (token) {
     return true;
   } else {
-    return false;
+    return true;
   }
 }
-function QnaCreate(props) {
+
+export default function QnaCreate(props) {
   let navigate = useNavigate();
   let state = useSelector((state) => state);
   let [title, setTitle] = useState('');
@@ -71,43 +51,50 @@ function QnaCreate(props) {
   return (
     <Container>
       {isLogin() ? (
-        <WritePlace>
-          <BoardName>
+        <div className="mx-auto" style={{ width: '70%', marginTop: '15%', paddingBottom: '15%'}}>
+          <div className='text-center' style={{marginBottom: '3%'}}>
             <strong>고객센터</strong>
             <div style={{ textAlign: 'center', fontSize: '16px', marginTop: '5px' }}>
               궁금한 점이나 문의 사항을 남겨주세요.
             </div>
-          </BoardName>
-          <QnaName>
+          </div>
+          <div className='w-full' style={{marginBottom : '2%'}}>
             <p>제목</p>
             <input
               type="text"
               maxLength="50"
-              style={{ width: '100%' }}
+              style={{ width: '100%', border: '1px solid #cccccc', padding: '10px'}}
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
             />
-          </QnaName>
+          </div>
           <p>내용</p>
           <CKEditor
             editor={ClassicEditor}
             onChange={(event, editor) => {
               const data = editor.getData();
-
               setContent(data);
             }}
           />
 
-          <ButtonPlace>
+          <div className='py-10 text-center'>
             <Link to="/Qna">
-              <Button variant="secondary" size="lg">
+              <Button 
+                style={{
+                  backgroundColor: "#666666",
+                  borderColor: "#666666"
+                }}
+                size="lg">
                 취소
               </Button>
             </Link>{' '}
             {/* <Link to = '/Qna'> */}
             <Button
-              variant="primary"
+              style={{
+                backgroundColor: "#ea580c",
+                borderColor: "#ea580c"
+              }}
               size="lg"
               onClick={(e) => {
                 createQna();
@@ -116,13 +103,11 @@ function QnaCreate(props) {
               등록
             </Button>
             {/* </Link> */}
-          </ButtonPlace>
-        </WritePlace>
+          </div>
+        </div>
       ) : (
         <div></div>
       )}
     </Container>
   );
 }
-
-export default QnaCreate;

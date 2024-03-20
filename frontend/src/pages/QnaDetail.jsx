@@ -1,60 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { Container, Button, Modal } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { connect, useSelector } from 'react-redux';
-import { getAxios } from '@/api';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Container, Button, Modal } from 'react-bootstrap';
 import HtmlReactParser from 'html-react-parser';
-import Comments from '@/components/Comments';
-let 글작성틀 = styled.div`
-  width: 70%;
-  margin-top: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 5%;
-  padding-bottom: 15%;
-  font-family: 'Pretendard';
-`;
-let 게시판이름 = styled.h1`
-  text-align: center;
-  margin-bottom: 5%;
-`;
-let 제목 = styled.div`
-  padding-left: 5%;
-  padding-right: 5%;
-`;
-let 내용 = styled.div`
-  background-color: #f9fafb;
-  height: auto;
-  padding-bottom: 5%;
-  padding-top: 5%;
-  padding-left: 5%;
-  padding-right: 5%;
-`;
-let 버튼들 = styled.div`
-  text-align: right;
-`;
-let 답변입력 = styled.textarea`
-  width: 100%;
-  min-height: 70px;
-  resize: none;
-`;
-let 답변 = styled.h2`
-  padding-bottom: 2%;
-`;
-let 답변내용 = styled.div`
-    display: flex;
-    width: 100%
-    margin-top: 5%;
-    margin-bottom: 5%;
 
-`;
-let 답변들 = styled.div`
-    
-    width: 100%
-    margin-top: 5%;
-    margin-bottom: 5%;
-`;
+import { getAxios } from '@/api';
+import Comments from '@/components/Comments';
+
 function isLogin() {
   const token = localStorage.getItem('token');
   if (token) {
@@ -63,7 +15,8 @@ function isLogin() {
     return false;
   }
 }
-function QnaDetail(props) {
+
+export default function QnaDetail(props) {
   let navigate = useNavigate();
   let state = useSelector((state) => state);
   const qnaId = useParams().qnaId;
@@ -137,15 +90,15 @@ function QnaDetail(props) {
   return (
     <Container style={{ marginBottom: '2vh' }}>
       {isLogin() && check ? (
-        <글작성틀>
-          <게시판이름>
+        <div className="mx-auto" style={{ width: '70%', marginTop: '10%', paddingTop: '5%', paddingBottom: '15%' }}>
+          <div className='text-center' style={{marginBottom:'5%'}}>
             <strong>고객센터</strong>
             <div style={{ textAlign: 'center', fontSize: '16px', marginTop: '5px' }}>
               궁금한 점이나 문의 사항을 남겨주세요.
             </div>
-          </게시판이름>
+          </div>
 
-          <버튼들>
+          <div className='text-right'>
             <Button
               variant="secondary"
               size="sm"
@@ -165,7 +118,7 @@ function QnaDetail(props) {
             >
               삭제
             </Button>
-          </버튼들>
+          </div>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>글 삭제</Modal.Title>
@@ -189,19 +142,21 @@ function QnaDetail(props) {
           </Modal>
           <hr></hr>
 
-          <제목>{qna.title}</제목>
+          <div style={{ paddingLeft: '5%', paddingRight: '5%' }}>{qna.title}</div>
           <hr></hr>
 
-          <내용>{HtmlReactParser(qna.content)}</내용>
+          <div style={{ backgroundColor: '#f9fafb', paddingBottom: '5%', paddingTop: '5%', paddingLeft: '5%', paddingRight: '5%' }}>{HtmlReactParser(qna.content)}</div>
           <hr></hr>
-          <답변>답변</답변>
-          <답변내용>
-            <답변입력
+          <h2 style={{paddingBottom: '2%'}}>답변</h2>
+          <div className='flex w-full' style={{ marginTop: '5%', marginBottom: '5%' }}>
+            <textarea
+              className='w-full resize-none'
+              style={{ width: '100%', minHeight: '70px', resize: 'none' }}
               value={댓글}
               onChange={(e) => {
                 댓글값변경(e.target.value);
               }}
-            ></답변입력>
+            />
             <Button
               variant="dark"
               size="sm"
@@ -211,8 +166,8 @@ function QnaDetail(props) {
             >
               등록
             </Button>
-          </답변내용>
-          <답변들>
+          </div>
+          <div className='w-full' style={{ width: '100%', marginTop: '5%', marginBottom: '5%' }}>
             {댓글들.map((a) => {
               return (
                 <Comments
@@ -226,20 +181,19 @@ function QnaDetail(props) {
                 />
               );
             })}
-          </답변들>
+          </div>
 
-          <버튼들>
+          <div className='text-right'>
             <Link to="/Qna">
               <Button variant="secondary" size="sm">
                 목록
               </Button>
             </Link>
-          </버튼들>
-        </글작성틀>
+          </div>
+        </div>
       ) : (
         <div></div>
       )}
     </Container>
   );
 }
-export default QnaDetail;

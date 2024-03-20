@@ -1,6 +1,4 @@
-import React from "react";
-
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="bg-orange-400 p-4">
       <div className="flex justify-center">
@@ -11,5 +9,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

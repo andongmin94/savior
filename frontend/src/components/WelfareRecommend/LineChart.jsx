@@ -1,22 +1,16 @@
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import "chart.js/auto";
 import { Bar } from "react-chartjs-2";
-import { useEffect, useState } from "react";
+
 import { getAxios } from "../../api";
-import { useDispatch } from "react-redux";
 import {
   welDataName,
   welDataContent,
   welDataId,
-} from "../../reducers/welData";
+} from "@/reducers/welData";
 
-const Container = styled.div`
-  max-width: 800px;
-  height: 80%;
-  // padding: 3vh;
-`;
-
-function Chart() {
+export default function Chart() {
   const axios = getAxios();
   const [label, setLabel] = useState([]);
   const [datas, setDatas] = useState([]);
@@ -84,9 +78,8 @@ function Chart() {
   }, []);
 
   return (
-    <Container>
+    <div className="max-w-[800px] h-[80%]">
       <Bar type="line" data={data} options={options} />
-    </Container>
+    </div>
   );
 }
-export default Chart;

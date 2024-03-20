@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import Chart from '@/components/WelfareRecommend/Chart';
 import LineChart from '@/components/WelfareRecommend/LineChart';
 import FilterSlide from '@/components/WelfareRecommend/FilterSlide';
 import RecommendSlid from '@/components/WelfareRecommend/RecommendSlide';
 import ProfileCard from '@/components/WelfareRecommend/ProfileCard';
-import styled from 'styled-components';
-import { getAxios } from '@/api';
 import Norecommend from '@/components/WelfareRecommend/Norecommend';
+
+import { getAxios } from '@/api';
+
 import LoginModal from '@/components/LoginModal';
 
 const isLogin = () => {
@@ -17,7 +19,7 @@ const isLogin = () => {
   }
 };
 
-function WelfareRecommend() {
+export default function WelfareRecommend() {
   const axios = getAxios();
   const [name, setName] = useState('User');
   const [profile, setProfile] = useState('');
@@ -47,52 +49,22 @@ function WelfareRecommend() {
     cards.length === 0 ? (
       <Norecommend profile={profile} name={name}></Norecommend>
     ) : (
-      <StyledContainer>
-        <StyledTop>
+      <div className="grid justify-center mx-auto" style={{ marginTop: '10vh', marginBottom: '5vh', gridColumn: '70vw' }}>
+        <div className="grid justify-center items-center" style={{ gridTemplateColumns: '20% 30% 50%', marginTop: '5vh' }}>
           <ProfileCard profile={profile} name={name} />
           <Chart />
           <LineChart />
-        </StyledTop>
-        <StyledMain>
+        </div>
+        <div className="gap-y-2vw w-70vw" style={{ gridRowGap: '2vh', width: '70vw' }}>
           <div>
             <h2 style={{ margin: '5% 1% -2% 0', fontWeight: '600' }}>{name}님에게 추천하는 복지</h2>
             <FilterSlide name={name} cards={cards} />
           </div>
           <RecommendSlid />
-        </StyledMain>
-      </StyledContainer>
+        </div>
+      </div>
     )
   ) : (
     <LoginModal />
   );
 }
-
-const StyledTop = styled.div`
-  display: grid;
-  grid-template-columns: 20% 30% 50%;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5vh;
-  // margin-bottom: 5vh;
-`;
-const StyledMain = styled.div`
-  display: grid;
-  justify-content: center;
-  // margin-bottom: 5vh;
-  // margin-top: 5vh;
-  grid-row-gap: 2vh;
-  width: 70vw;
-`;
-const StyledContainer = styled.div`
-  display: grid;
-  justify-content: center;
-  margin-top: 10vh;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: auto;
-  grid-template-columns: 70vw;
-  font-family: 'Pretendard';
-  margin-bottom: 5vh;
-`;
-
-export default WelfareRecommend;

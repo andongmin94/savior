@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import DetailTabs from '@/components/WelfareDetail/DetailTabs';
-import DetailMain from '@/components/WelfareDetail/DetailMain';
-import { getAxios } from '@/api';
-import DetailCard from '@/components/WelfareDetail/DetailCard';
+import { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
+import Button from '@mui/material/Button';
+
+import { getAxios } from '@/api';
 import { likeusedLike, likeusedUsed } from "@/reducers/likeused";
+import DetailMain from '@/components/WelfareDetail/DetailMain';
+import DetailTabs from '@/components/WelfareDetail/DetailTabs';
+import DetailCard from '@/components/WelfareDetail/DetailCard';
 
 const isLogin = () => {
   const token = localStorage.getItem('token');
@@ -19,7 +18,7 @@ const isLogin = () => {
   }
 }
 
-function WelfareDetail() {
+export default function WelfareDetail() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const welfareId = useParams().welfareId;
@@ -127,8 +126,8 @@ function WelfareDetail() {
   }, []);
 
   return (
-    <StyledContainer>
-      <StyledTop>
+    <div className="box-border grid justify-center" style={{ marginTop: '17vh', marginBottom: '5vh' }}>
+      <div className="flex justify-between items-center" style={{ margin: '10px' }}>
         <div>
           <h2>복지서비스 상세(중앙)</h2>
           <div>
@@ -144,7 +143,7 @@ function WelfareDetail() {
         >
           뒤로가기
         </Button>
-      </StyledTop>
+      </div>
       {likeWelfares.length !== 0 && usedWelfares.length !== 0 ? (
         <DetailMain
           welfareId={welfareId}
@@ -171,43 +170,18 @@ function WelfareDetail() {
         siteLink={siteLink}
         siteName={siteName}
       />
-        <div><StyledName>유사한 복지를 추천합니다</StyledName></div>
-      <StyledCard>
+      <div>
+        <span className="text-decoration-none inline text-xl" style={{ boxShadow: '0 -6px rgba(75, 112, 253, 0.3) inset' }}>
+          유사한 복지를 추천합니다
+        </span>
+      </div>
+      <div className="flex justify-between" style={{ margin: '10px' }}>
         {recommend.map((wel, index) => {
           return likeWelfares.length !== 0 ? (
             <DetailCard key={index} recommend={wel} likeNum={likeWelfares} />
           ) : <DetailCard key={index} recommend={wel} />
         })}
-      </StyledCard>
-    </StyledContainer>
+      </div>
+    </div>
   );
 }
-
-const StyledName = styled.span`
-  text-decoration: none;
-  display: inline;
-  box-shadow: 0 -6px rgba(75, 112, 253, 0.3) inset;
-  font-size: x-large;
-`;
-
-const StyledContainer = styled.div`
-  box-sizing: border-box;
-  display: grid;
-  justify-content: center;
-  margin-top: 17vh;
-  margin-bottom: 5vh;
-  font-family: 'Pretendard';
-`;
-const StyledCard = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-`;
-const StyledTop = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-  align-items: center;
-`;
-
-export default WelfareDetail;
