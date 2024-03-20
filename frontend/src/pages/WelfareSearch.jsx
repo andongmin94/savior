@@ -1,33 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
 import SearchBar from '@/components/Search/SearchBar';
-import ResultBoard from '@/components/Search/ResultBoard';
 import Keyword from '@/components/Search/Keyword';
+import ResultBoard from '@/components/Search/ResultBoard';
 
-function Search(){
+export default function Search(){
     return(
-        <StyledContainer>
+        <div className="grid justify-center" style={{ paddingTop: '30px', marginTop: '12vh' }}>
             <h2>통합검색</h2>
             <SearchBar/>
-            <StyledMain>
+            <div className="flex justify-between pt-20" style={{ paddingTop: '5vh' }}>
                 <ResultBoard />
                 <Keyword />
-            </StyledMain>
-        </StyledContainer>
+            </div>
+        </div>
     )
 };
-
-const StyledContainer = styled.div`
-    display: grid;
-    justify-content: center;
-    padding-top: 30px;
-    font-family: 'Pretendard';
-    margin-top: 12vh;
-`;
-const StyledMain = styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding-top: 5vh;
-`;
-
-export default Search;

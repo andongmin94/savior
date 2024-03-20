@@ -1,9 +1,9 @@
-import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
-import Login from '@/pages/Login';
 import { Link } from 'react-router-dom';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
-const Header = () => {
+import Login from '@/pages/Login';
+
+export default function Header() {
   return (
     <header className="fixed top-0 w-full">
       {typeof window.electron !== "undefined" && <div className="pt-10"/>}
@@ -28,5 +28,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

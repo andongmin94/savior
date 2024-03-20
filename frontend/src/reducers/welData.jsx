@@ -16,7 +16,7 @@ const initialState = {
 };
 
 // reducer
-const welData = (state = initialState, action) => {
+export default function welData(state = initialState, action){
   switch (action.type) {
     case WEL_NAME:
       return { ...state, title: action.title };
@@ -28,4 +28,3 @@ const welData = (state = initialState, action) => {
       return state;
   }
 };
-export default welData;

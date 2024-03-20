@@ -1,36 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Pagination, Table, Button, Container } from "react-bootstrap";
-import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { connect, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { Pagination, Table, Button, Container } from "react-bootstrap";
+
 import { getAxios } from "@/api.js";
 import Blank from "@/components/Qna/Blank";
 import Write from "@/components/Qna/BlankWrite";
 import LoginModal from "@/components/LoginModal";
-let TablePlace = styled.div`
-  margin-top: 5%;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 15%;
-  padding-bottom: 15%;
-  font-family: "Pretendard";
-`;
-let Title = styled.h1`
-  text-align: center;
-  font-family: "Pretendard";
-`;
-let WriteButton = styled.span`
-  float: right;
-  margin-bottom: 1%;
-`;
-
-let 표내용 = styled.tr`
-  text-align: center;
-`;
-let 중앙정렬 = styled.td`
-  text-align: center;
-`;
 
 function isLogin() {
   const token = localStorage.getItem("token");
@@ -40,7 +16,8 @@ function isLogin() {
     return true;
   }
 }
-function Qna(props) {
+
+export default function Qna(props) {
   let navigate = useNavigate();
   let state = useSelector((state) => state);
   let [qnas, setQnas] = useState([]);
@@ -73,16 +50,16 @@ function Qna(props) {
   return (
     <Container>
       {isLogin() ? (
-        <TablePlace>
-          <Title>
+        <div className="mt-[5%] w-[80%] mx-auto pt-[15%] pb-[15%]">
+          <h1 className="text-center">
             <strong>고객센터</strong>
-          </Title>
+          </h1>
           <div style={{ textAlign: "center" }}>
             궁금한 점이나 문의 사항을 남겨주세요.
           </div>
 
           <Link to="/QnaCreate">
-            <WriteButton>
+            <span className="float-right mb-[1%]">
               <Button
                 style={{
                   backgroundColor: "#ea580c",
@@ -91,23 +68,23 @@ function Qna(props) {
               >
                 글쓰기
               </Button>{" "}
-            </WriteButton>
+            </span>
           </Link>
 
           <Table striped bordered hover>
             <thead>
-              <표내용>
+              <tr className="text-center">
                 <th width="20%">번호</th>
                 <th width="60%">제목</th>
                 <th width="20%">등록일</th>
-              </표내용>
+              </tr>
             </thead>
 
             {qnas.length === 0 ? (
               <tbody>
                 <tr>
                   {/* <Blank></Blank> */}
-                  <Write></Write>
+                  <Write />
                   {/* <Blank></Blank> */}
                 </tr>
               </tbody>
@@ -122,24 +99,22 @@ function Qna(props) {
                       }}
                       style={{ cursor: "pointer" }}
                     >
-                      <중앙정렬 width="20%">{i + 1}</중앙정렬>
-                      <중앙정렬 width="60%">{a.title}</중앙정렬>
-                      <중앙정렬 width="20%">
+                      <td className="text-center" width="20%">{i + 1}</td>
+                      <td className="text-center" width="60%">{a.title}</td>
+                      <td className="text-center" width="20%">
                         {a.qna_created_at[0]}년 {a.qna_created_at[1]}월{" "}
                         {a.qna_created_at[2]}일
-                      </중앙정렬>
+                      </td>
                     </tr>
                   );
                 })}
               </tbody>
             )}
           </Table>
-        </TablePlace>
+        </div>
       ) : (
-        <LoginModal></LoginModal>
+        <LoginModal />
       )}
     </Container>
   );
 }
-
-export default Qna;

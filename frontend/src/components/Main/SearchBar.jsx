@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { changeInput } from "@/reducers/change";
 import { useNavigate } from "react-router-dom";
 import NewsTicker from "react-advanced-news-ticker";
-import styled from "styled-components";
-import { getAxios } from "@/api";
 
-function SearchBar() {
+import { getAxios } from "@/api";
+import { changeInput } from "@/reducers/change";
+
+export default function SearchBar() {
   const axios = getAxios();
   const dispatch = useDispatch();
   const [keywords, setKeywords] = useState([]);
@@ -51,8 +51,8 @@ function SearchBar() {
 
   return (
     <div className="searchBar">
-      <StyledSearchArea>
-        <StyledNewsTicker>
+      <div className="flex items-center">
+        <div className="flex flex-col mb-[7px]">
           <div
             style={{
               width: "200px",
@@ -328,7 +328,7 @@ function SearchBar() {
               <strong>인기검색어가 없습니다.</strong>
             </div>
           )}
-        </StyledNewsTicker>
+        </div>
 
         <Form.Control
           className="me-auto"
@@ -355,20 +355,7 @@ function SearchBar() {
         >
           검색
         </Button>
-      </StyledSearchArea>
+      </div>
     </div>
   );
 }
-
-const StyledSearchArea = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const StyledNewsTicker = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 7px;
-`;
-
-export default SearchBar;

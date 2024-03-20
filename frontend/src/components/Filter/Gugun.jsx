@@ -1,4 +1,4 @@
-const GugunSelectBox = ({ isAll, setRegion, region }) => {
+export default function GugunSelectBox({ isAll, setRegion, region }) {
   const handleChange = (e) => {
     setRegion(e.target.value);
   };
@@ -24,5 +24,3 @@ const GugunSelectBox = ({ isAll, setRegion, region }) => {
     );
   }
 };
-
-export default GugunSelectBox;

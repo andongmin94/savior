@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 
-const AgeSelectBox = ({ ageRange, setAgeRange }) => {
+export default function AgeSelectBox({ ageRange, setAgeRange }) {
   const handleChange = (e) => {
     setAgeRange(e.target.value);
   };
@@ -24,5 +24,3 @@ const AgeSelectBox = ({ ageRange, setAgeRange }) => {
     </Form.Select>
   );
 };
-
-export default AgeSelectBox;

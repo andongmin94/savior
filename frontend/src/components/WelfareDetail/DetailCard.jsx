@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -9,12 +10,11 @@ import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { yellow, grey } from "@mui/material/colors";
 import Grid from "@mui/material/Grid";
-import { getAxios } from "@/api";
-import styled from "styled-components";
-import AlertModal from "@/components/AlertModal";
-import { useSelector } from "react-redux";
 
-function DetailCard(props) {
+import { getAxios } from "@/api";
+import AlertModal from "@/components/AlertModal";
+
+export default function DetailCard(props) {
   const { used, like } = useSelector(state => state.likeused);
   const [likeBtn, setLikeBtn] = useState(false);
   const welfare = props.recommend;
@@ -117,7 +117,11 @@ function DetailCard(props) {
             <div></div>
           )}
         </Grid>
-        <StyledP>{welfare[2]}</StyledP>
+        <p
+          style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical'}}
+          className="overflow-hidden text-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words">
+          {welfare[2]}
+        </p>
       </CardContent>
       <CardActions>
         <Button
@@ -132,28 +136,3 @@ function DetailCard(props) {
     </Card>
   );
 }
-const StyledT = styled.div`
-  overflow: hidden !important;
-  text-overflow: ellipsis;
-  white-space: normal;
-  line-height: 1.5;
-  height: 3em;
-  text-align: left;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  word-wrap: break-word;
-`;
-const StyledP = styled.p`
-  overflow: hidden !important;
-  text-overflow: ellipsis;
-  white-space: normal;
-  line-height: 1.5;
-  height: 4.5em;
-  text-align: left;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  word-wrap: break-word;
-`;
-export default DetailCard;

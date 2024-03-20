@@ -1,15 +1,16 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Autoplay, Navigation } from "swiper/core";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 import RecommendCard from "./RecommendCard";
-import { useSelector } from "react-redux";
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
-function RecommendSlide() {
+export default function RecommendSlide() {
   const { title, content, id } = useSelector(state => state.welData);
 
   return (
@@ -103,4 +104,3 @@ function RecommendSlide() {
     </div>
   );
 }
-export default RecommendSlide;

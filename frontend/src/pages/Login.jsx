@@ -1,6 +1,5 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 function isLogin() {
   const token = localStorage.getItem('token');
@@ -11,8 +10,7 @@ function isLogin() {
   }
 }
 
-function Login() {
-  
+export default function Login() {
   let navigate = useNavigate();
 
   return (
@@ -70,5 +68,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
