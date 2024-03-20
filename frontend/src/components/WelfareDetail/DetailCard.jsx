@@ -70,14 +70,13 @@ export default function DetailCard(props) {
         fontFamily: 'Pretendard'
       }}
     >
-      <CardContent style={{ display: "grid" }}>
+      <CardContent className="grid">
         <Grid container sx={{ mb: 2 }}>
           <Grid item xs={10}>
             <Typography
               variant="h6"
               component="div"
               sx={10}
-              style={{ fontFamily: 'Pretendard' }}
             >
               {welfare[1]}
             </Typography>
