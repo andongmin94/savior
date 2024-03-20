@@ -4,10 +4,10 @@ import ResultBoard from '@/components/Search/ResultBoard';
 
 export default function Search(){
     return(
-        <div className="grid justify-center" style={{ paddingTop: '30px', marginTop: '12vh' }}>
+        <div className="grid justify-center pt-[30px] mt-[12vh]">
             <h2>통합검색</h2>
             <SearchBar/>
-            <div className="flex justify-between pt-20" style={{ paddingTop: '5vh' }}>
+            <div className="flex justify-between pt-[5vh]">
                 <ResultBoard />
                 <Keyword />
             </div>
