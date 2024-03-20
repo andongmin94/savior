@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
@@ -7,9 +8,9 @@ import BookmarkRemoveRoundedIcon from "@mui/icons-material/BookmarkRemoveRounded
 import BookmarkAddedOutlinedIcon from "@mui/icons-material/BookmarkAddedOutlined";
 import { yellow, blue, grey } from "@mui/material/colors";
 import { Grid, Typography } from "@mui/material";
+
 import { getAxios } from "@/api";
 import AlertModal from "@/components/AlertModal";
-import { useSelector } from "react-redux";
 
 export default function DetailMain(props) {
   const { used, like } = useSelector(state => state.likeused);

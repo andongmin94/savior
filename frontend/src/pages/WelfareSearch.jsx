@@ -1,6 +1,6 @@
+import SearchBar from '@/components/Search/SearchBar';
 import Keyword from '@/components/Search/Keyword';
 import ResultBoard from '@/components/Search/ResultBoard';
-import SearchBar from '@/components/Search/SearchBar';
 
 export default function Search(){
     return(
