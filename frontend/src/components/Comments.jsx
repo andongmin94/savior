@@ -105,7 +105,7 @@ export default function Comments(props) {
       <hr />
     </div>
   ) : (
-    <div className='flex' style={{marginBottom : '5%'}}>
+    <div className='flex mb-[5%]'>
       <input type="text" value={comment} onChange={(e)=> (setComment(e.target.value))}></input>
       <Button 
         variant="secondary"
