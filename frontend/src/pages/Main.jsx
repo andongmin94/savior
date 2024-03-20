@@ -108,6 +108,20 @@ export default function Main() {
                   10초만에 가입
                 </Button>
               ) : null}
+              &nbsp;
+              <Button className="mt-[10px] bg-[#ea580c] border-[#ea580c]"
+              onClick={() => {
+                axios.get(`/api/greeting`, {})
+                .then(response => {
+                  console.log(response);
+                })
+                .catch(error => {
+                  console.error(error);
+                });
+              }}
+                >
+                  회신 테스트
+                </Button>
             </div>
             <img src="Main-icon1.png" alt="main-image" width="400px" />
           </div>
