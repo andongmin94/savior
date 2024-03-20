@@ -1,5 +1,4 @@
 import FilterChips from '@/components/FilterChips';
-import styled from 'styled-components';
 import LoginModal from '@/components/LoginModal';
 
 function isLogin() {
@@ -13,26 +12,14 @@ function isLogin() {
 
 export default function CustomFilter() {
   return (
-    <StyledContainer>
+    <div className='grid'>
       {isLogin() ? (
-        <StyledFilterBox>
+        <div className='flex py-[10%] px-[10%] w-[100vw] h-[100vh] bg-[url("/background/waves.svg")]'>
           <FilterChips />
-        </StyledFilterBox>
+        </div>
       ) : (
         <LoginModal />
       )}
-    </StyledContainer>
+    </div>
   );
 }
-
-const StyledContainer = styled.div`
-  display: grid;
-`;
-
-const StyledFilterBox = styled.div`
-  display: flex;
-  padding: 10% 10%;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('/background/waves.svg');
-`;
