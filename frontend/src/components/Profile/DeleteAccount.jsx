@@ -26,9 +26,7 @@ export default function DeleteAccount() {
     <div>
       <Button
         variant="danger"
-        style={{
-          width: '100px',
-        }}
+        className='w-[100px]'
         onClick={() => {
           handleShow();
         }}

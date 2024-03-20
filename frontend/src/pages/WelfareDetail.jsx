@@ -126,8 +126,8 @@ export default function WelfareDetail() {
   }, []);
 
   return (
-    <div className="box-border grid justify-center" style={{ marginTop: '17vh', marginBottom: '5vh' }}>
-      <div className="flex justify-between items-center" style={{ margin: '10px' }}>
+    <div className="box-border grid justify-center mt-[17vh] mb-[5vh]">
+      <div className="flex justify-between items-center m-[10px]">
         <div>
           <h2>복지서비스 상세(중앙)</h2>
           <div>
@@ -171,11 +171,11 @@ export default function WelfareDetail() {
         siteName={siteName}
       />
       <div>
-        <span className="text-decoration-none inline text-xl" style={{ boxShadow: '0 -6px rgba(75, 112, 253, 0.3) inset' }}>
+        <span className="text-decoration-none inline text-xl shadow-[0_-6px_rgba(75,_112,_253,_0.3)_inset]">
           유사한 복지를 추천합니다
         </span>
       </div>
-      <div className="flex justify-between" style={{ margin: '10px' }}>
+      <div className="flex justify-between m-[10px]">
         {recommend.map((wel, index) => {
           return likeWelfares.length !== 0 ? (
             <DetailCard key={index} recommend={wel} likeNum={likeWelfares} />

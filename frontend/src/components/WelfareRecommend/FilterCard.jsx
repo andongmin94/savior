@@ -26,16 +26,16 @@ export default function FilterCard(props) {
         background: '#E3F2FD',
       }}
     >
-      <CardContent style={{ display: 'grid' }}>
+      <CardContent className='grid'>
         <Grid container sx={{ mb: 2 }}>
           <Typography
             onClick={onClick}
             variant="h6"
             component="div"
             sx={10}
-            style={{ color: '#033075', fontFamily: 'Pretendard' }}
+            className='text-[#033075]'
           >
-            <div className="cursor-pointer hover:no-underline" style={{ boxShadow: '0 -6px rgba(75, 112, 253, 0.3) inset' }}>
+            <div className="cursor-pointer hover:no-underline shadow-[0_-6px_rgba(75,_112,_253,_0.3)_inset]">
               {name}
             </div>
           </Typography>

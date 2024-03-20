@@ -83,26 +83,14 @@ export default function DetailTaps(props) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <div
-          style={{
-            marginBottom: "5vh",
-            fontWeight: "bold",
-            fontFamily: 'Pretendard'
-          }}
-        >
-          누가 받을 수 있나요?
-        </div>
-        <div style={{ display: "flex" }}>
+        <div className="mb-[5vh] font-bold">누가 받을 수 있나요?</div>
+        <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
-            style={{ marginRight: "10px" }}
+            className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div
-            style={{ width: "80px", flexShrink: 0, fontFamily: 'Pretendard' }}
-          >
-            지원대상 |
-          </div>
+          <div className="w-[80px] flex-shrink-0">지원대상 |</div>
           <div>{target}</div>
         </div>
         {crit !== null ? (
@@ -113,7 +101,7 @@ export default function DetailTaps(props) {
               p: 2,
               mt: 3,
               color: "#033075",
-              fontFamily: 'Pretendard'
+              fontFamily: "Pretendard",
             }}
           >
             {crit}
@@ -123,116 +111,68 @@ export default function DetailTaps(props) {
         )}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div
-          style={{
-            marginBottom: "5vh",
-            fontWeight: "bold",
-            fontFamily: 'Pretendard'
-          }}
-        >
-          어떤 혜택을 받을 수 있나요?
-        </div>
-        <div style={{ display: "flex" }}>
+        <div className="mb-[5vh] font-bold">어떤 혜택을 받을 수 있나요?</div>
+        <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
-            style={{ marginRight: "10px" }}
+            className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div
-            style={{ width: "80px", flexShrink: 0, fontFamily: 'Pretendard' }}
-          >
-            지원내용 |
-          </div>
+          <div className="w-[80px] flex-shrink-0">지원내용 |</div>
           <div>{content}</div>
         </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <div
-          style={{
-            marginBottom: "5vh",
-            fontWeight: "bold",
-            fontFamily: 'Pretendard'
-          }}
-        >
+        <div className="mb-[5vh] font-bold">
           어떻게 신청하나요?
         </div>
-        <div style={{ display: "flex" }}>
+        <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
-            style={{ marginRight: "10px" }}
+            className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div
-            style={{ width: "80px", flexShrink: 0, fontFamily: 'Pretendard' }}
-          >
-            신청방법 |
-          </div>
+          <div className="w-[80px] flex-shrink-0">신청방법 |</div>
           <div>{howto}</div>
         </div>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <div
-          style={{
-            marginBottom: "5vh",
-            fontWeight: "bold",
-            fontFamily: 'Pretendard'
-          }}
-        >
+      <div className="mb-[5vh] font-bold">
           궁금한 사항이 더 있어요.
         </div>
-        <div style={{ display: "flex" }}>
+        <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
-            style={{ marginRight: "10px" }}
+            className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div
-            style={{
-              width: "80px",
-              flexShrink: 0,
-              marginBottom: "1vh",
-              fontFamily: 'Pretendard'
-            }}
-          >
+          <div className="w-20 flex-shrink-0 mb-[1vh]">
             관련부서 |
           </div>
           <div>{deptName}</div>
           <div>{contact}</div>
         </div>
-        <div style={{ display: "flex" }}>
+        <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
-            style={{ marginRight: "10px" }}
+            className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div
-            style={{
-              width: "80px",
-              flexShrink: 0,
-              marginBottom: "1vh",
-              fontFamily: 'Pretendard'
-            }}
-          >
+          <div className="w-20 flex-shrink-0 mb-[1vh]">
             전화문의 |
           </div>
           <div>{phone}</div>
         </div>
-        <div style={{ display: "flex" }}>
+        <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
-            style={{ marginRight: "10px" }}
+            className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div
-            style={{
-              width: "120px",
-              flexShrink: 0,
-              fontFamily: 'Pretendard'
-            }}
-          >
+          <div className="w-[120px] flex-shrink-0">
             관련 웹사이트 |
           </div>
-          <div style={{ marginRight: "1vw" }}>{siteName}</div>
+          <div className="mr-[1vw]">{siteName}</div>
           <div>
             <a href={siteLink}>{siteLink}</a>
           </div>

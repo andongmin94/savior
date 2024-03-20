@@ -26,28 +26,21 @@ export default function RecommendCard(props) {
         background: "#E3F2FD",
       }}
     >
-      <CardContent style={{ display: "grid" }}>
+      <CardContent className='grid'>
         <Grid container sx={{ mb: 2 }}>
           <Typography
             variant="h6"
             component="div"
             sx={10}
-            style={{ color: "#033075", fontFamily: "Pretendard" }}
+            className="text-[#033075"
           >
-            <div
-              className="hover:no-underline hover:inline cursor-pointer"
-              style={{
-                "&:hover": {
-                  boxShadow: "0 -6px rgba(75, 112, 253, 0.3) inset",
-                },
-              }}
-            >
+            <div className="hover:no-underline hover:inline cursor-pointer hover:shadow-[0_-6px_rgba(75,_112,_253,_0.3)_inset]">
               {title}
             </div>
           </Typography>
         </Grid>
         <p
-          className="overflow-hidden text-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words"
+          className="overflow-hidden overflow-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words"
           style={{
             display: "-webkit-box",
             WebkitLineClamp: 3,
