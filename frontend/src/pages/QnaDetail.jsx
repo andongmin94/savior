@@ -88,12 +88,12 @@ export default function QnaDetail(props) {
   }, []);
 
   return (
-    <Container style={{ marginBottom: '2vh' }}>
+    <Container className='mt-[2vh]'>
       {isLogin() && check ? (
-        <div className="mx-auto" style={{ width: '70%', marginTop: '10%', paddingTop: '5%', paddingBottom: '15%' }}>
-          <div className='text-center' style={{marginBottom:'5%'}}>
+        <div className="mx-auto w-[70%] mt-[10%] pt-[5%] pb-[15%]">
+          <div className='text-center mb-[5%]'>
             <strong>고객센터</strong>
-            <div style={{ textAlign: 'center', fontSize: '16px', marginTop: '5px' }}>
+            <div className='text-center mt-[5px] text-[16px]'>
               궁금한 점이나 문의 사항을 남겨주세요.
             </div>
           </div>
@@ -142,16 +142,15 @@ export default function QnaDetail(props) {
           </Modal>
           <hr></hr>
 
-          <div style={{ paddingLeft: '5%', paddingRight: '5%' }}>{qna.title}</div>
+          <div className='px-[5%]'>{qna.title}</div>
           <hr></hr>
 
-          <div style={{ backgroundColor: '#f9fafb', paddingBottom: '5%', paddingTop: '5%', paddingLeft: '5%', paddingRight: '5%' }}>{HtmlReactParser(qna.content)}</div>
+          <div className='bg-[#f9fafb] p-[5%]'>{HtmlReactParser(qna.content)}</div>
           <hr></hr>
-          <h2 style={{paddingBottom: '2%'}}>답변</h2>
-          <div className='flex w-full' style={{ marginTop: '5%', marginBottom: '5%' }}>
+          <h2 className='pb-[2%]'>답변</h2>
+          <div className='flex w-full my-[5%]'>
             <textarea
-              className='w-full resize-none'
-              style={{ width: '100%', minHeight: '70px', resize: 'none' }}
+              className='w-full min-h-[70px] resize-none'
               value={댓글}
               onChange={(e) => {
                 댓글값변경(e.target.value);
@@ -167,7 +166,7 @@ export default function QnaDetail(props) {
               등록
             </Button>
           </div>
-          <div className='w-full' style={{ width: '100%', marginTop: '5%', marginBottom: '5%' }}>
+          <div className='w-full my-[5%]'>
             {댓글들.map((a) => {
               return (
                 <Comments

@@ -30,7 +30,7 @@ export default function Norecommend(props) {
           </div>
         )}
       </div>
-      <div className="box-border w-1/2 h-[300px] bg-[#fb923c] mx-[2%] rounded-lg flex flex-col justify-center items-center">
+      <div className="box-border w-[50vw] h-[300px] bg-[#fb923c] m-0 mx-[2%] rounded-lg flex flex-col justify-center items-center">
         <h2 className='text-white'>추천 복지가 없습니다.</h2>
         <div>
           <Button
