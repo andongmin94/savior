@@ -1,4 +1,4 @@
-import Form from 'react-bootstrap/Form';
+import Form from "react-bootstrap/Form";
 
 export default function AgeSelectBox({ ageRange, setAgeRange }) {
   const handleChange = (e) => {
@@ -11,7 +11,7 @@ export default function AgeSelectBox({ ageRange, setAgeRange }) {
       value={ageRange}
       onChange={handleChange}
       size="sm"
-      style={{ display: 'inline', width: '150px' }}
+      className="inline w-[150px]"
     >
       <option value="placeholder" disabled>
         선택
@@ -23,4 +23,4 @@ export default function AgeSelectBox({ ageRange, setAgeRange }) {
       <option value="5">노년 (60~)</option>
     </Form.Select>
   );
-};
+}
