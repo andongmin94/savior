@@ -10,8 +10,6 @@ import FilterChips from '@/components/FilterChips';
 import DeleteAccount from '@/components/Profile/DeleteAccount';
 import { paginate } from '@/components/Search/paginate';
 
-import styled from 'styled-components';
-
 const ageMap = new Map();
 ageMap.set('1', '어린이 (0~9)'); //무직
 ageMap.set('2', '청소년 (10~19)'); //창업
@@ -152,9 +150,9 @@ export default function Profile() {
 
   return (
     <div>
-      <StyledContainer>
-        <StyledLeftArea>
-          <StyledComponent>
+      <div className="flex justify-center text-black bg-[#90caf9] w-screen">
+        <div className="flex flex-col justify-center m-[15%] my-0">
+          <div className="m-[0%] mx-[5%] bg-white bg-opacity-80 rounded-md p-[3%] px-[5%]">
             <UserProfile
               modify={modify}
               setModify={setModify}
@@ -201,8 +199,8 @@ export default function Profile() {
               }}
             />
 
-            <StyledCard>
-              <StyledBox>
+            <div className="flex flex-wrap justify-evenly">
+              <div className="h-[50vh] w-[400px] p-[1%] py-0 grid items-center grid-rows-[15%,70%,15%] bg-white bg-opacity-40 rounded-md">
                 <h5 style={{ textAlign: 'center', marginTop: '0.5rem' }}>
                   <strong>찜한 복지</strong>
                 </h5>
@@ -223,22 +221,22 @@ export default function Profile() {
                           background: 'rgba(255, 255, 255, 0)',
                         }}
                       >
-                        <StyledH>{wel.welfare_service_name}</StyledH>
+                        <h6 className="hover:underline cursor-pointer">{wel.welfare_service_name}</h6>
                       </ListGroup.Item>
                     ))}
                   </ListGroup>
                 ) : (
                   <div style={{ margin: 'auto' }}>찜한 복지가 없습니다.</div>
                 )}
-                <StyledPage>
+                <div className="mx-auto">
                   <PaginationBtn
                     itemsCount={countl}
                     pageSize={pageSizel}
                     onPageChange={handlePageChangel}
                   />
-                </StyledPage>
-              </StyledBox>
-              <StyledBox>
+                </div>
+              </div>
+              <div className="h-[50vh] w-[400px] p-[1%] py-0 grid items-center grid-rows-[15%,70%,15%] bg-white bg-opacity-40 rounded-md">
                 <h5 style={{ textAlign: 'center', marginTop: '0.5rem' }}>
                   <strong>사용 중인 복지</strong>
                 </h5>
@@ -260,22 +258,22 @@ export default function Profile() {
                           background: 'rgba(255, 255, 255, 0)',
                         }}
                       >
-                        <StyledH>{wel.welfare_service_name}</StyledH>
+                        <h6 className="hover:underline cursor-pointer">{wel.welfare_service_name}</h6>
                       </ListGroup.Item>
                     ))}
                   </ListGroup>
                 ) : (
                   <div style={{ margin: 'auto' }}>사용중인 복지가 없습니다.</div>
                 )}
-                <StyledPage>
+                <div className="mx-auto">
                   <PaginationBtn
                     itemsCount={countu}
                     pageSize={pageSizeu}
                     onPageChange={handlePageChangeu}
                   />
-                </StyledPage>
-              </StyledBox>
-            </StyledCard>
+                </div>
+              </div>
+            </div>
 
             <hr
               style={{
@@ -283,64 +281,12 @@ export default function Profile() {
               }}
             />
 
-            <StyledDeleteBtn>
+            <div className="flex justify-end">
               <DeleteAccount></DeleteAccount>
-            </StyledDeleteBtn>
-          </StyledComponent>
-        </StyledLeftArea>
-      </StyledContainer>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-const StyledCard = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-`;
-const StyledPage = styled.div`
-  margin: 0 auto;
-`;
-const StyledBox = styled.div`
-  height: 50vh;
-  width: 400px;
-  padding: 1% 0;
-  display: grid;
-  align-items: center;
-  grid-template-rows: 15% 70% 15%;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 5px;
-`;
-const StyledH = styled.h6`
-  &:hover {
-    text-decoration: underline;
-  }
-  cursor: pointer;
-`;
-
-const StyledContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  color: black;
-  background-color: #90caf9;
-  width: 100vw;
-`;
-
-const StyledLeftArea = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 15% 0;
-  // background-image: url('/background/waves.svg');
-`;
-
-const StyledComponent = styled.div`
-  margin: 0% 5%;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 5px;
-  padding: 3% 5%;
-`;
-
-const StyledDeleteBtn = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`;
