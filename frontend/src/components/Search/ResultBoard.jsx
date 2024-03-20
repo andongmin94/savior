@@ -50,7 +50,7 @@ export default function ResultBoard() {
   }
 
   return (
-    <div className="box-border w-1/2 flex flex-col mb-[5vh]">
+    <div className="box-border w-[50vw] flex flex-col mb-[5vh]">
       <div className='box-border border-t-[1px] border-t-[solid] border-t-[gray] border-b-[1px] border-b-[solid] border-b-[gray]'>
         <Table striped bordered hover>
           <thead className="text-center">
