@@ -15,15 +15,11 @@ export default function RecommendSlide() {
 
   return (
     <div className="main-wrap">
-      <h2 style={{ marginBottom: "3vh", fontWeight: "600" }}>
+      <h2 className="mb-[3vh] font-bold">
         지금 인기있는 복지
       </h2>
       <Swiper
-        style={{
-          width: "70vw",
-          height: "40vh",
-          borderRadius: "12px",
-        }}
+        className="w-[70vw] h-[40vh] rounded-[12px]"
         spaceBetween={20}
         slidesPerView={4}
         slidesPerGroup={4}
@@ -44,60 +40,27 @@ export default function RecommendSlide() {
           },
         }}
       >
-        <SwiperSlide
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <SwiperSlide className="flex justify-center">
           <RecommendCard
-            style={{
-              alignItems: "center",
-              border: "1px solid",
-            }}
+            className="items-center border-[1px] border-solid"
             title={title[0]}
             id={id[0]}
             content={content[0]}
           />
         </SwiperSlide>
-        <SwiperSlide
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <SwiperSlide className="flex justify-center">
           <RecommendCard title={title[1]} id={id[1]} content={content[1]} />
         </SwiperSlide>
-        <SwiperSlide
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <SwiperSlide className="flex justify-center">
           <RecommendCard title={title[2]} id={id[2]} content={content[2]} />
         </SwiperSlide>
-        <SwiperSlide
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <SwiperSlide className="flex justify-center">
           <RecommendCard title={title[3]} id={id[3]} content={content[3]} />
         </SwiperSlide>
-        <SwiperSlide
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <SwiperSlide className="flex justify-center">
           <RecommendCard title={title[4]} id={id[4]} content={content[4]} />
         </SwiperSlide>
-        <SwiperSlide
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <SwiperSlide className="flex justify-center">
           <RecommendCard title={title[5]} id={id[5]} content={content[5]} />
         </SwiperSlide>
       </Swiper>
