@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { getAxios } from "@/api";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeInput } from "@/reducers/change";
-import styled from "styled-components";
 
 export default function Keyword() {
   const dispatch = useDispatch();
