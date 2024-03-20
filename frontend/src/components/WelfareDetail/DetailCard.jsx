@@ -119,7 +119,7 @@ export default function DetailCard(props) {
         </Grid>
         <p
           style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical'}}
-          className="overflow-hidden text-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words">
+          className="overflow-hidden overflow-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words">
           {welfare[2]}
         </p>
       </CardContent>
