@@ -1,7 +1,7 @@
 import AgeSelectBox from '@/components/Profile/AgeRange';
 import GenderSelectBox from '@/components/Profile/Gender';
 
-const ModifyProfile = ({ ageRange, setAgeRange, gender, setGender }) => {
+export default function ModifyProfile({ ageRange, setAgeRange, gender, setGender }) {
   return (
     <div>
       <h6>
@@ -17,5 +17,3 @@ const ModifyProfile = ({ ageRange, setAgeRange, gender, setGender }) => {
     </div>
   );
 };
-
-export default ModifyProfile;

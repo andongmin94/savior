@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
@@ -7,12 +8,11 @@ import BookmarkRemoveRoundedIcon from "@mui/icons-material/BookmarkRemoveRounded
 import BookmarkAddedOutlinedIcon from "@mui/icons-material/BookmarkAddedOutlined";
 import { yellow, blue, grey } from "@mui/material/colors";
 import { Grid, Typography } from "@mui/material";
-import { getAxios } from "@/api";
-import styled from "styled-components";
-import AlertModal from "@/components/AlertModal";
-import { useSelector } from "react-redux";
 
-function DetailMain(props) {
+import { getAxios } from "@/api";
+import AlertModal from "@/components/AlertModal";
+
+export default function DetailMain(props) {
   const { used, like } = useSelector(state => state.likeused);
   const [likeBtn, setLikeBtn] = useState(false);
   const [checkBtn, setCheckBtn] = useState(false);
@@ -146,13 +146,8 @@ function DetailMain(props) {
             <div></div>
           )}
         </Grid>
-        <StyledP>{Content}</StyledP>
+        <div className="mt-[3vh]">{Content}</div>
       </Paper>
     </Box>
   );
 }
-
-const StyledP = styled.div`
-  margin-top: 3vh;
-`;
-export default DetailMain;

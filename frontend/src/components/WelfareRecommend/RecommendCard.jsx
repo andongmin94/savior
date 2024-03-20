@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -6,9 +5,8 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import styled from "styled-components";
 
-function RecommendCard(props) {
+export default function RecommendCard(props) {
   const { title, id, content } = props;
   let navigate = useNavigate();
 
@@ -34,12 +32,30 @@ function RecommendCard(props) {
             variant="h6"
             component="div"
             sx={10}
-            style={{ color: "#033075", fontFamily: 'Pretendard' }}
+            style={{ color: "#033075", fontFamily: "Pretendard" }}
           >
-            <StyledLi>{title}</StyledLi>
+            <div
+              className="hover:no-underline hover:inline cursor-pointer"
+              style={{
+                "&:hover": {
+                  boxShadow: "0 -6px rgba(75, 112, 253, 0.3) inset",
+                },
+              }}
+            >
+              {title}
+            </div>
           </Typography>
         </Grid>
-        <StyledP>{content}</StyledP>
+        <p
+          className="overflow-hidden text-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words"
+          style={{
+            display: "-webkit-box",
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: "vertical",
+          }}
+        >
+          {content}
+        </p>
       </CardContent>
       <CardActions>
         <Button variant="contained" size="small" fullWidth onClick={onClick}>
@@ -49,24 +65,3 @@ function RecommendCard(props) {
     </Card>
   );
 }
-const StyledP = styled.p`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-  line-height: 1.5;
-  height: 4.5em;
-  text-align: left;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  word-wrap: break-word;
-`;
-const StyledLi = styled.div`
-  &:hover {
-    text-decoration: none;
-    display: inline;
-    box-shadow: 0 -6px rgba(75, 112, 253, 0.3) inset;
-  }
-  cursor: pointer;
-`;
-export default RecommendCard;

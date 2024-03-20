@@ -1,25 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { getAxios } from '@/api';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Comment } from '@mui/icons-material';
 import { Button, Modal } from 'react-bootstrap';
-import styled from 'styled-components';
-let CommentContent = styled.div`
-    display: flex;
-    margin-bottom: 5%;
-`;
-let CommentSize = styled.p`
-    font-size: medium;
-`
-let DatePlace = styled.div`
-  display: grid;
-  justify-content: space-between;
-  float:right;
-`
-let NamePlace = styled.div`
-  margin-left: 100%;
-`
-const Comments = props => {
+import { Comment } from '@mui/icons-material';
+
+import { getAxios } from '@/api';
+
+export default function Comments(props) {
   const axios = getAxios();
   const qnaId  = useParams().qnaId;
   const [comment, setComment] = useState('');
@@ -60,18 +46,18 @@ const Comments = props => {
 
   return editable === false ? (
     <div>
-      <CommentSize>
+      <p className='text-md'>
         {comment}
-      </CommentSize>
+      </p>
       { checkDate ? (
 
-          <DatePlace>
+          <div className="grid justify-between float-right">
             작성자 : {username} / 등록일 : {getDate[0]}년 {getDate[1]}월 {getDate[2]}일 {getDate[3]}시 {getDate[4]}분
-          </DatePlace>
+          </div>
         ):(
-          <DatePlace>
+          <div className="grid justify-between float-right">
             작성자 : {username} / 수정일 : {getDate[0]}년 {getDate[1]}월 {getDate[2]}일 {getDate[3]}시 {getDate[4]}분
-          </DatePlace>
+          </div>
       )
 
       }
@@ -119,7 +105,7 @@ const Comments = props => {
       <hr />
     </div>
   ) : (
-    <CommentContent>
+    <div className='flex' style={{marginBottom : '5%'}}>
       <input type="text" value={comment} onChange={(e)=> (setComment(e.target.value))}></input>
       <Button 
         variant="secondary"
@@ -135,10 +121,6 @@ const Comments = props => {
         onClick={(e)=> {
           setEditable(!editable)
         }}>취소</Button>
-    </CommentContent>
-    
-
-    
+    </div>
   );
 };
-export default Comments;

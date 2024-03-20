@@ -1,11 +1,10 @@
-import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import { Modal, Button } from "react-bootstrap";
 
-function LoginModal() {
+export default function LoginModal() {
   let navigate = useNavigate();
   return (
-    <StyledContainer>
+    <div className="mt-[200px]">
       <Modal.Dialog>
         <Modal.Body>
           <p>로그인이 필요한 페이지입니다.</p>
@@ -25,13 +24,6 @@ function LoginModal() {
           </Button>
         </Modal.Footer>
       </Modal.Dialog>
-    </StyledContainer>
+    </div>
   );
 }
-
-const StyledContainer = styled.div`
-  font-family: "Pretendard";
-  margin-top: 200px;
-`;
-
-export default LoginModal;

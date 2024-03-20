@@ -1,6 +1,6 @@
 import Form from 'react-bootstrap/Form';
 
-const ChildSelectBox = ({ child, setChild }) => {
+export default function ChildSelectBox({ child, setChild }) {
   const handleChange = (e) => {
     setChild(e.target.value);
   };
@@ -19,5 +19,3 @@ const ChildSelectBox = ({ child, setChild }) => {
     </Form.Select>
   );
 };
-
-export default ChildSelectBox;

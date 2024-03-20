@@ -1,6 +1,6 @@
 import { Button, Modal } from 'react-bootstrap';
 
-const AlertModal = ({ text, show, setShow }) => {
+export default function AlertModal({ text, show, setShow }) {
   const handleClose = () => setShow(false);
 
   return (
@@ -16,5 +16,3 @@ const AlertModal = ({ text, show, setShow }) => {
     </>
   );
 };
-
-export default AlertModal;

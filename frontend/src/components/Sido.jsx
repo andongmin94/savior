@@ -1,4 +1,4 @@
-const SidoSelectBox = ({ setIsAll, isAll, setRegion }) => {
+export default function SidoSelectBox({ setIsAll, isAll, setRegion }) {
   const handleChange = (e) => {
     setIsAll(e.target.value);
     if (e.target.value === 'All') {
@@ -15,5 +15,3 @@ const SidoSelectBox = ({ setIsAll, isAll, setRegion }) => {
     </select>
   );
 };
-
-export default SidoSelectBox;

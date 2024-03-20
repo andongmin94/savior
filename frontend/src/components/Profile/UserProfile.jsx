@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Stack } from "react-bootstrap";
+
 import AlertModal from "@/components/AlertModal";
 import ModifyProfile from "@/components/Profile/Modify";
 
@@ -7,7 +8,7 @@ const genderMap = new Map();
 genderMap.set("female", "여자");
 genderMap.set("male", "남자");
 
-const UserProfile = ({
+export default function UserProfile({
   modify,
   setModify,
   setProfile,
@@ -18,7 +19,7 @@ const UserProfile = ({
   setAgeRange,
   gender,
   setGender,
-}) => {
+}) {
   const [show, setShow] = useState(false);
   const [text, setText] = useState("");
   const handleShow = () => setShow(true);
@@ -145,5 +146,3 @@ const UserProfile = ({
     </div>
   );
 };
-
-export default UserProfile;
