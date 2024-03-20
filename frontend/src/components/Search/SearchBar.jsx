@@ -38,10 +38,7 @@ export default function SearchBar() {
           className="rounded-l-sm w-96 h-12 pl-4"
         />
         <Button
-          style={{
-            backgroundColor: "#ea580c",
-            borderColor: "#ea580c"
-          }}
+          className="bg-[#ea580c] border-[#ea580c]"
           type="submit"
           onClick={onClick}
         >
