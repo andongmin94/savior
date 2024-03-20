@@ -1,9 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Pagination, Autoplay, Navigation } from 'swiper/core';
-import FilterCard from '@/components/WelfareRecommend/FilterCard';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+
+import FilterCard from '@/components/WelfareRecommend/FilterCard';
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 

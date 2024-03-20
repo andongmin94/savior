@@ -2,6 +2,7 @@ import { useState } from "react";
 import Button from "@mui/material/Button";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
+
 import { changeInput } from "@/reducers/change";
 
 export default function SearchBar() {

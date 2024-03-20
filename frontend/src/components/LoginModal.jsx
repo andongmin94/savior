@@ -1,5 +1,5 @@
-import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { Modal, Button } from "react-bootstrap";
 
 export default function LoginModal() {
   let navigate = useNavigate();

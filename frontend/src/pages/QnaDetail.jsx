@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Container, Button, Modal } from 'react-bootstrap';
+import { useParams, useNavigate } from 'react-router-dom';
 import { connect, useSelector } from 'react-redux';
-import { getAxios } from '@/api';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { Container, Button, Modal } from 'react-bootstrap';
 import HtmlReactParser from 'html-react-parser';
+
+import { getAxios } from '@/api';
 import Comments from '@/components/Comments';
 
 function isLogin() {

@@ -5,14 +5,16 @@ import { Provider } from "react-redux";
 import { applyMiddleware, createStore, compose } from "redux";
 import { composeWithDevTools } from "@redux-devtools/extension";
 import logger from "redux-logger";
+
 import rootReducer from "@/reducers/index";
-import "@/globals.css";
 import App from "./App";
 import reportWebVitals from "@/reportWebVitals";
 import ScrollToTop from "@/pages/ScrollTop";
 //////////////// electron components ////////////////
 import TitleBar from "@/electron/TitleBar";
 /////////////////////////////////////////////////////
+import "@/globals.css";
+
 
 const enhancer =
   process.env.NODE_ENV === "production"

@@ -1,17 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import WelfareDetail from "./pages/WelfareDetail";
+
+import Layout from "@/components/layout/layout";
 import Main from "@/pages/Main";
+import Profile from "@/pages/Profile";
+import Manual from "@/pages/Manual";
 import Qna from "@/pages/Qna";
 import QnaCreate from "@/pages/QnaCreate";
 import QnaPatch from "@/pages/QnaPatch";
 import QnaDetail from "@/pages/QnaDetail";
 import WelfareSearch from "@/pages/WelfareSearch";
 import WelfareRecommend from "@/pages/WelfareRecommend";
+import WelfareDetail from "./pages/WelfareDetail";
 import CustomFilter from "@/pages/CustomFilter";
-import Profile from "@/pages/Profile";
 import NotFound from "@/pages/NotFound";
-import Layout from "@/components/layout/layout";
-import Manual from "@/pages/Manual";
 
 export default function App() {
   return (

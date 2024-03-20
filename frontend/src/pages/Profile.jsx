@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import FilterChips from '@/components/FilterChips';
-import { getAxios, getAxiosDjango } from '@/api';
-import DeleteAccount from '@/components/Profile/DeleteAccount';
-import UserProfile from '@/components/Profile/UserProfile';
-import { paginate } from '@/components/Search/paginate';
-import Pagination from '@mui/material/Pagination';
 import { useNavigate } from 'react-router-dom';
-import Stack from '@mui/material/Stack';
 import { ListGroup } from 'react-bootstrap';
+import Stack from '@mui/material/Stack';
+import Pagination from '@mui/material/Pagination';
+
+import { getAxios, getAxiosDjango } from '@/api';
+import UserProfile from '@/components/Profile/UserProfile';
+import FilterChips from '@/components/FilterChips';
+import DeleteAccount from '@/components/Profile/DeleteAccount';
+import { paginate } from '@/components/Search/paginate';
+
+import styled from 'styled-components';
 
 const ageMap = new Map();
 ageMap.set('1', '어린이 (0~9)'); //무직

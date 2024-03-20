@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
-import DetailTabs from '@/components/WelfareDetail/DetailTabs';
-import DetailMain from '@/components/WelfareDetail/DetailMain';
-import { getAxios } from '@/api';
-import DetailCard from '@/components/WelfareDetail/DetailCard';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
+import Button from '@mui/material/Button';
+
+import { getAxios } from '@/api';
 import { likeusedLike, likeusedUsed } from "@/reducers/likeused";
+import DetailMain from '@/components/WelfareDetail/DetailMain';
+import DetailTabs from '@/components/WelfareDetail/DetailTabs';
+import DetailCard from '@/components/WelfareDetail/DetailCard';
 
 const isLogin = () => {
   const token = localStorage.getItem('token');
