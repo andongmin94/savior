@@ -84,7 +84,7 @@ export default function Qna(props) {
               <tbody>
                 <tr>
                   {/* <Blank></Blank> */}
-                  <Write></Write>
+                  <Write />
                   {/* <Blank></Blank> */}
                 </tr>
               </tbody>
