@@ -27,9 +27,7 @@ public class UserService {
     }
 
     public List<Usedwelfare> getUsed(User userSeq){
-        System.out.println("userSeq: "+userSeq.getUserSeq());
         List<Usedwelfare> li = userUsedRepository.findByUser_UserSeq(userSeq.getUserSeq());
-        System.out.println(li);
         return li;
     }
 
@@ -69,8 +67,6 @@ public class UserService {
     @Transactional
     public void updateUserCharacter(CharacterDto dto, String userId){
         User user = getUser(userId);
-        System.out.println("userseq: "+user.getUserSeq());
-        System.out.println("dto: "+dto.toString());
         user.setChild(dto.getChild());
         userRepository.save(user);
         selectTargetRepository.deleteAllByUser_UserSeq(user.getUserSeq());
