@@ -86,7 +86,7 @@ export default function Main() {
   return (
     <main>
       <div className="grid justify-center">
-        <div className="flex flex-wrap flex-col p-[1%] px-[10%] bg-[#f97316] w-full text-black">
+        <div className="flex flex-wrap flex-col p-[1%] px-[10%] bg-[#f97316] w-screen text-black">
           <div className="flex flex-wrap flex-row mt-[100px] justify-around bg-[#f97316]">
             <div className="mt-[170px] text-white">
               <h2>
@@ -113,7 +113,7 @@ export default function Main() {
           </div>
         </div>
 
-        <div className="w-full h-screen relative bg-[url('/background/waves.svg')]">
+        <div className="w-screen h-screen relative bg-[url('/background/waves.svg')]">
           <div className="mx-[10%] mb-[1%]">
             <SearchBar keywords={keywords}></SearchBar>
           </div>
