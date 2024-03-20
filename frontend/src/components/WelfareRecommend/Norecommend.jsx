@@ -10,58 +10,31 @@ export default function Norecommend(props) {
           <img
             src="/blank-profile.png"
             alt="profile"
-            style={{
-              width: "200px",
-              height: "200px%",
-              objectFit: "cover",
-              borderTopLeftRadius: "20px",
-              borderTopRightRadius: "20px",
-            }}
+            className="w-[200px] h-[200px] object-cover rounded-tl-[20px] rounded-tr-[20px]"
           />
         ) : (
           <img
             src={props.profile}
             alt="profile"
-            style={{
-              width: "200px",
-              height: "200px",
-              objectFit: "cover",
-              borderTopLeftRadius: "20px",
-              borderTopRightRadius: "20px",
-            }}
+            className="w-[200px] h-[200px] object-cover rounded-tl-[20px] rounded-tr-[20px]"
           />
         )}
         {props.name === null ? (
-          <div
-          style={{
-            marginTop: "1vh",
-            marginBottom: "1vh",
-          }}
-        >
+          <div className="mt-[1vh] mb-[1vh]">
             안녕하세요!
           </div>
         ) : (
-          <div
-            style={{
-              marginTop: "1vh",
-              marginBottom: "1vh",
-              backgroundColor: "#ea580c",
-              borderColor: "#ea580c",
-            }}
-          >
+          <div className="mt-[1vh] mb-[1vh] bg-[#ea580c] border-[#ea580c]">
             <div>안녕하세요!</div>
             <div>{props.name}님</div>
           </div>
         )}
       </div>
       <div className="box-border w-1/2 h-[300px] bg-[#fb923c] mx-[2%] rounded-lg flex flex-col justify-center items-center">
-        <h2 style={{ color: "#ffffff" }}>추천 복지가 없습니다.</h2>
+        <h2 className='text-white'>추천 복지가 없습니다.</h2>
         <div>
           <Button
-            style={{
-              backgroundColor: "#ea580c",
-              borderColor: "#ea580c",
-            }}
+            className="bg-[#ea580c] border-[#ea580c]"
             onClick={() => {
               navigate("/filter");
             }}
