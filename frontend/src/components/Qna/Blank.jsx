@@ -1,6 +1,7 @@
-export default function Blank(){
+function Blank(){
+
     return (
-        <td className="bg-[#f9fafb] h-[600px] text-center">
-        </td>
+        <td className="bg-[#f9fafb] h-[600px] text-center" />
     )
 }
+export default Blank;
