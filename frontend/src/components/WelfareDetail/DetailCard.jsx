@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -9,9 +10,9 @@ import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
 import { yellow, grey } from "@mui/material/colors";
 import Grid from "@mui/material/Grid";
+
 import { getAxios } from "@/api";
 import AlertModal from "@/components/AlertModal";
-import { useSelector } from "react-redux";
 
 export default function DetailCard(props) {
   const { used, like } = useSelector(state => state.likeused);

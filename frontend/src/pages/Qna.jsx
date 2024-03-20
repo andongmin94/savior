@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Pagination, Table, Button, Container } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
 import { connect, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { Pagination, Table, Button, Container } from "react-bootstrap";
+
 import { getAxios } from "@/api.js";
 import Blank from "@/components/Qna/Blank";
 import Write from "@/components/Qna/BlankWrite";

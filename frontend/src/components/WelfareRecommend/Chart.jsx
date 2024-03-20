@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { getAxios } from "@/api";
 import "chart.js/auto";
 import { Doughnut } from "react-chartjs-2";
+
+import { getAxios } from "@/api";
 
 export default function Chart() {
   const axios = getAxios();

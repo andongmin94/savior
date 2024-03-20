@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+
 import Chart from '@/components/WelfareRecommend/Chart';
 import LineChart from '@/components/WelfareRecommend/LineChart';
 import FilterSlide from '@/components/WelfareRecommend/FilterSlide';
 import RecommendSlid from '@/components/WelfareRecommend/RecommendSlide';
 import ProfileCard from '@/components/WelfareRecommend/ProfileCard';
-import { getAxios } from '@/api';
 import Norecommend from '@/components/WelfareRecommend/Norecommend';
+
+import { getAxios } from '@/api';
+
 import LoginModal from '@/components/LoginModal';
 
 const isLogin = () => {
