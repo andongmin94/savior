@@ -102,14 +102,15 @@ const StyledContainer = styled.div`
   margin-top: 90px;
   width: 100vw;
   height: 350vh;
-  // background-image: url('/background/bg-orange.svg');
 `;
+<div className="grid mt-[90px] w-[100vw] h-[350vh]"></div>
 
 const StyledOneContentBox = styled.div`
   display: flex;
   height: 100%;
   align-items: center;
 `;
+<div className="flex h-full items-center"></div>
 
 const StyledTwoContentBox = styled.div`
   display: flex;
@@ -117,6 +118,7 @@ const StyledTwoContentBox = styled.div`
   height: 100%;
   align-items: center;
 `;
+<div className="flex flex-col h-full items-center"></div>
 
 const StyledTwoTextArea = styled.div`
   display: flex;
@@ -125,6 +127,7 @@ const StyledTwoTextArea = styled.div`
   align-items: flex-start;
   margin-left: 35vw;
 `;
+<div className="flex flex-col justify-center items-start ml-[35vw]"></div>
 
 const StyledThreeTextArea = styled.div`
   display: flex;
@@ -133,6 +136,7 @@ const StyledThreeTextArea = styled.div`
   align-items: flex-start;
   margin-left: 15vw;
 `;
+<div className="flex flex-col justify-center items-start ml-[15vw]"></div>
 
 const StyledTextArea = styled.div`
   display: flex;
@@ -141,6 +145,7 @@ const StyledTextArea = styled.div`
   align-items: flex-start;
   margin-left: 5vw;
 `;
+<div className="flex flex-col justify-center items-start ml-[5vw]"></div>
 
 const StyledLeftTextArea = styled.div`
   display: flex;
@@ -149,6 +154,7 @@ const StyledLeftTextArea = styled.div`
   align-items: flex-start;
   margin-left: 12vw;
 `;
+<div className="flex flex-col justify-center items-start ml-[12vw]"></div>
 
 const StyledImgArea = styled.div`
   display: flex;
@@ -156,3 +162,4 @@ const StyledImgArea = styled.div`
   align-items: center;
   width: 100vw;
 `;
+<div className="flex justify-center items-center w-screen"></div>
