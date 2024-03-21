@@ -1,4 +1,4 @@
-package org.example.springboot.sample;
+package org.example.springboot;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
