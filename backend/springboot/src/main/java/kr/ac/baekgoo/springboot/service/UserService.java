@@ -1,13 +1,15 @@
 package kr.ac.baekgoo.springboot.service;
 
-import kr.ac.baekgoo.springboot.dto.CharacterDto;
-import kr.ac.baekgoo.springboot.dto.ProfileDto;
-import kr.ac.baekgoo.springboot.entity.*;
-import kr.ac.baekgoo.springboot.repository.*;
+import jakarta.transaction.Transactional;
+import kr.ac.baekgoo.springboot.domain.dto.CharacterDto;
+import kr.ac.baekgoo.springboot.domain.dto.ProfileDto;
+import kr.ac.baekgoo.springboot.domain.user.*;
+import kr.ac.baekgoo.springboot.repository.user.*;
+import kr.ac.baekgoo.springboot.repository.welfare.FamilyRepository;
+import kr.ac.baekgoo.springboot.repository.welfare.TargetRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import jakarta.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
