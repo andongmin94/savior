@@ -8,7 +8,7 @@ export default function AlertModal({ text, show, setShow }) {
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>{text}</Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button className='text-black hover:text-white' variant="warning" onClick={handleClose}>
             닫기
           </Button>
         </Modal.Footer>
