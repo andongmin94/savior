@@ -1,4 +1,4 @@
-package org.example;
+package org.example.springboot.sample;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GreetingController {
 
-    @GetMapping("/api/greeting")
+    @GetMapping("/greeting")
     public String greeting() {
         return "Hello from Spring Boot!";
     }
