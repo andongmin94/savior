@@ -1,8 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 function isLogin() {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   if (token) {
     return true;
   } else {
@@ -11,14 +11,15 @@ function isLogin() {
 }
 
 export default function Login() {
+  // const KAKAO_AUTH_URL = `http://localhost:8080/api/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/oauth/kakao/callback`;
+  const KAKAO_AUTH_URL = `http://j10d109.p.ssafy.io:8080/api/oauth2/authorization/kakao?redirect_uri=http://j10d109.p.ssafy.io:3000/oauth/kakao/callback`;
   let navigate = useNavigate();
 
   return (
     <div>
       {!isLogin() ? (
         <div>
-          <a href={"/"}>
-            
+          <a href={KAKAO_AUTH_URL}>
             <Button className="bg-[#ea580c] border-[#ea580c] font-bold text-lg">
               로그인
             </Button>
@@ -35,10 +36,10 @@ export default function Login() {
           <Button
             className="bg-[#ea580c] border-[#ea580c] font-bold text-lg"
             onClick={() => {
-              localStorage.removeItem('token');
-              localStorage.removeItem('name');
-              localStorage.removeItem('profile');
-              window.location.replace('/');
+              localStorage.removeItem("token");
+              localStorage.removeItem("name");
+              localStorage.removeItem("profile");
+              window.location.replace("/");
             }}
           >
             로그아웃
