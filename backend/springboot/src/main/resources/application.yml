@@ -7,6 +7,11 @@ spring:
 
 
 
+web:
+  cors:
+    allowed-origins=*:
+
 server:
   servlet:
     context-path: /api
+
