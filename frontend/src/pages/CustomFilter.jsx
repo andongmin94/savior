@@ -18,7 +18,7 @@ export default function CustomFilter() {
           <FilterChips />
         </div>
       ) : (
-        <LoginModal />
+          <LoginModal />
       )}
     </div>
   );
