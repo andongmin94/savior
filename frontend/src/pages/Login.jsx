@@ -28,7 +28,7 @@ export default function Login() {
       ) : (
         <div>
           <Link to="/profile">
-            <Button className="bg-[#90CAF9] border-[#90CAF9] font-bold text-lg mr-[5px]">
+            <Button className="bg-[#ea580c] border-[#ea580c] font-bold text-lg mr-[5px]">
               내 정보
             </Button>
           </Link>
