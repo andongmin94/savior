@@ -7,6 +7,9 @@ import SearchBar from "@/components/Main/SearchBar";
 import FilterSlide from "@/components/WelfareRecommend/FilterSlide";
 
 export default function Main() {
+  // const KAKAO_AUTH_URL = `http://localhost:8080/api/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/oauth/kakao/callback`;
+  const KAKAO_AUTH_URL = `http://j10d109.p.ssafy.io:8080/api/oauth2/authorization/kakao?redirect_uri=http://j10d109.p.ssafy.io:3000/oauth/kakao/callback`;
+
   const axios = getAxios();
   let navigate = useNavigate();
 
@@ -102,10 +105,10 @@ export default function Main() {
 
               {!token ? (
                 <Button
-                  href={"/"}
+                  href={KAKAO_AUTH_URL}
                   className="mt-[10px] bg-[#ea580c] border-[#ea580c]"
                 >
-                  10초만에 가입
+                  카카오톡으로 시작하기
                 </Button>
               ) : null}
               &nbsp;
