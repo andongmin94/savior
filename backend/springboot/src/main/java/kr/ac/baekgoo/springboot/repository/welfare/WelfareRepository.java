@@ -1,10 +1,10 @@
-package kr.ac.baekgoo.springboot.repository;
-
-import kr.ac.baekgoo.springboot.entity.Welfare;
-import org.springframework.stereotype.Repository;
+package kr.ac.baekgoo.springboot.repository.welfare;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import kr.ac.baekgoo.springboot.domain.welfare.Welfare;
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,9 +62,6 @@ public class WelfareRepository {
         } else {
             return welfares.subList(0, 10);
         }
-//        return em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.welfare_view desc" , Welfare.class)
-//                .setParameter("group_id", group_id)
-//                .getResultList().subList(0, 10);
     }
 
     public List<Welfare> getMostUserWelfare() {

@@ -1,15 +1,18 @@
-package kr.ac.baekgoo.springboot.entity;
+package kr.ac.baekgoo.springboot.domain.user;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import kr.ac.baekgoo.springboot.oauth.entity.ProviderType;
+import kr.ac.baekgoo.springboot.oauth.entity.RoleType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.antlr.v4.runtime.misc.NotNull;
-import jakarta.validation.constraints.Size;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +61,14 @@ public class User {
     @Size(max = 512)
     private String profileImageUrl;
 
+    @Column(name = "PROVIDER_TYPE", length = 20)
+    @Enumerated(EnumType.STRING)
+    private ProviderType providerType;
+
+    @Column(name = "ROLE_TYPE", length = 20)
+    @Enumerated(EnumType.STRING)
+    private RoleType roleType;
+
     @Column(name = "CREATED_AT")
     private LocalDateTime createdAt;
 
@@ -83,26 +94,22 @@ public class User {
     private Long userGroup;
 
     public User(
-            @NotNull
-            @Size(max = 64)
-            String userId,
-
-            @NotNull
-            @Size(max = 100)
-            String username,
-
-            @Size(max = 512)
-            String profileImageUrl,
-
+            @NotNull @Size(max = 64) String userId,
+            @NotNull @Size(max = 100) String username,
+            @Size(max = 512) String profileImageUrl,
+            ProviderType providerType,
+            RoleType roleType,
             LocalDateTime createdAt,
-
             LocalDateTime modifiedAt
     ) {
         this.userId = userId;
         this.username = username;
         this.password = "NO_PASS";
         this.profileImageUrl = profileImageUrl != null ? profileImageUrl : "";
+        this.providerType = providerType;
+        this.roleType = roleType;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
+
     }
 }

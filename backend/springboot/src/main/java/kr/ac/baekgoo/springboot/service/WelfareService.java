@@ -1,7 +1,7 @@
 package kr.ac.baekgoo.springboot.service;
 
-import kr.ac.baekgoo.springboot.entity.Welfare;
-import kr.ac.baekgoo.springboot.repository.WelfareRepository;
+import kr.ac.baekgoo.springboot.domain.welfare.Welfare;
+import kr.ac.baekgoo.springboot.repository.welfare.WelfareRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
