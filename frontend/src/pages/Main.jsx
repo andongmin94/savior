@@ -111,7 +111,7 @@ export default function Main() {
               &nbsp;
               <Button className="mt-[10px] bg-[#ea580c] border-[#ea580c]"
               onClick={() => {
-                axios.get(`/api/greeting`, {})
+                axios.get(`/greeting`, {})
                 .then(response => {
                   console.log(response);
                 })
