@@ -156,7 +156,7 @@ export default function FilterChips() {
   }, [value]);
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center text-white'>
       <MultipleSelectChips
         label="직장"
         value={clicked}
@@ -166,7 +166,7 @@ export default function FilterChips() {
         setError={setError}
       />
 
-      <div className="flex flex-col w-[20%] mb-[2%] items-center">
+      <div className="flex flex-col w-[20%] mb-[2%] items-center ">
         <h5 className='mb-[15px]'>
           <b>자녀</b>
         </h5>
@@ -186,7 +186,7 @@ export default function FilterChips() {
 
       <Button
         variant="Warning"
-        className='mt-[2%] w-[250px]'
+        className='mt-[2%] w-[250px] text-white'
         onClick={() => {
           setFilter();
           setText('정보 입력이 완료되었습니다.');
