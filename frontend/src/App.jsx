@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Layout from "@/components/layout/layout";
 import Main from "@/pages/Main";
+import Auth from './pages/OAuth';
 import Profile from "@/pages/Profile";
 import Manual from "@/pages/Manual";
 import Qna from "@/pages/Qna";
@@ -19,6 +20,7 @@ export default function App() {
     <div>
       <Layout>
         <Routes>
+          <Route path="/oauth/kakao/callback" element={<Auth />} />
           <Route path="/" element={<Main />} />
           <Route path="/welfare/:welfareId" element={<WelfareDetail />} />
           <Route path="/Qna" element={<Qna />} />
