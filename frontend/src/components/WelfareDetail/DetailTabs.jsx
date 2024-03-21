@@ -96,7 +96,7 @@ export default function DetailTaps(props) {
         {crit !== null ? (
           <Box
             sx={{
-              bgcolor: "#90CAF9",
+              bgcolor: "#ea580c",
               borderRadius: 2,
               p: 2,
               mt: 3,
