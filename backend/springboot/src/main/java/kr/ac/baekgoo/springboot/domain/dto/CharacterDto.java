@@ -1,4 +1,4 @@
-package kr.ac.baekgoo.springboot.dto;
+package kr.ac.baekgoo.springboot.domain.dto;
 
 import lombok.Data;
 

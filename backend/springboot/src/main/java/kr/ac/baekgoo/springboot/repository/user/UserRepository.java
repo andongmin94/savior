@@ -1,6 +1,6 @@
-package kr.ac.baekgoo.springboot.repository;
+package kr.ac.baekgoo.springboot.repository.user;
 
-import kr.ac.baekgoo.springboot.entity.User;
+import kr.ac.baekgoo.springboot.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

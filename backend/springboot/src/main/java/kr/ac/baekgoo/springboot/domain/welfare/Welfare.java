@@ -1,9 +1,9 @@
-package kr.ac.baekgoo.springboot.entity;
+package kr.ac.baekgoo.springboot.domain.welfare;
 
 import jakarta.persistence.*;
+import kr.ac.baekgoo.springboot.domain.user.Usedwelfare;
 import lombok.*;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +15,7 @@ import java.util.List;
 @Table(name = "welfare")
 public class Welfare {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     @Column(name = "welfareId")
     private Long welfareId;
 
