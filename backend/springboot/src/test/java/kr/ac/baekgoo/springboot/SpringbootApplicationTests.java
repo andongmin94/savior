@@ -1,4 +1,4 @@
-package org.example.springboot;
+package kr.ac.baekgoo.springboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
