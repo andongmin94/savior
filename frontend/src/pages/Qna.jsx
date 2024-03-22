@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { connect, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Pagination, Table, Button, Container } from "react-bootstrap";
 

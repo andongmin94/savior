@@ -11,7 +11,7 @@ import App from "./App";
 import reportWebVitals from "@/reportWebVitals";
 import ScrollToTop from "@/pages/ScrollTop";
 //////////////// electron components ////////////////
-import TitleBar from "@/electron/TitleBar";
+import TitleBar from "@/components/TitleBar";
 /////////////////////////////////////////////////////
 import "@/globals.css";
 
@@ -28,7 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <ScrollToTop />
       <Provider store={store}>
-      {typeof window.electron !== "undefined" && <TitleBar />}
+        <TitleBar />
         <App />
       </Provider>
     </BrowserRouter>
