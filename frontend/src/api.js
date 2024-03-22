@@ -19,7 +19,7 @@ function getAxios() {
 }
 
 const AxiosDjango = axios.create({
-  baseURL: 'http://j10d109.p.ssafy.io:8080',
+  baseURL: 'https://j10d109.p.ssafy.io',
   // baseURL: 'http://localhost:8000',
 });
 
