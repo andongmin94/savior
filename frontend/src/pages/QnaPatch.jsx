@@ -1,6 +1,6 @@
 import { Component, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Container } from 'react-bootstrap';
 import HtmlReactParser from 'html-react-parser';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
