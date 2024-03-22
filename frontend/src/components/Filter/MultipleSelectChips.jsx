@@ -18,7 +18,7 @@ export default function MultipleSelectChips({ value, setValue, options, label, e
   };
 
   return (
-    <div className="mb-[2%] my-2 text-center">
+    <div className="mb-[2%] my-2 text-center ">
       <h5>
         <b>{label}</b>
       </h5>
@@ -27,13 +27,13 @@ export default function MultipleSelectChips({ value, setValue, options, label, e
           {error}
         </FormHelperText>
       )}
-      <div className='mt-[0.3rem]'>
+      <div className='mt-[0.3rem] '>
         {options && options.length
           ? options.map((option, i) => (
-              <Chip className='m-2 p-2'
+              <Chip className='m-2 p-2 text-white hover:bg-[#f5a623] hover:border-[#f5a623]'
                 icon={option.icon}
                 key={i}
-                color="primary"
+                color="warning"
                 variant={value.find((e) => e === option.value) ? 'default' : 'outlined'}
                 label={<Typography variant="body2">{`${option.label}`}</Typography>}
                 clickable
