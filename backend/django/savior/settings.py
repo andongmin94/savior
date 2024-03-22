@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import environ
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -18,13 +20,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
+
+env = environ.Env()
+env.read_env('.env.development')  # local
+# env.read_env('.env.production')
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--qca-k@e+9=majnn8ntdq&&5whpd0x(=xz!+g76^p70#&)(wb4'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 # Application definition
 
@@ -39,7 +46,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'data_analyzer',
     'user_analyzer',
-    'recommender'
 ]
 
 MIDDLEWARE = [
@@ -53,8 +59,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True  # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
-CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = env.bool(
+    'CORS_ORIGIN_ALLOW_ALL', default=False)  # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
+CORS_ALLOW_CREDENTIALS = env.bool('CORS_ALLOW_CREDENTIALS', default=False)
 
 ROOT_URLCONF = 'savior.urls'
 
@@ -81,14 +88,12 @@ WSGI_APPLICATION = 'savior.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'savior',
-        'USER': 'malrangcow',
-        'PASSWORD': 'choonsik',
-        # local
-        'HOST': '127.0.0.1',
-        # server
-        'PORT': '3306',
+        'ENGINE': env('DB_ENGINE'),
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
 }
 
