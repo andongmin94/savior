@@ -17,3 +17,5 @@ service_name &rarr; name
 service_content &rarr; content  
 howto &rarr; way  
 life &rarr; lifecycle
+ori_id &rarr; service_id  
+
