@@ -58,7 +58,6 @@ def save_data(request):
             # welfare_group
             welfares.append(welfare)
         Welfare.objects.bulk_create(welfares)
-        print("복지 데이터 완료")
 
     # 생애주기 데이터
     file_name = "age.csv"
@@ -111,8 +110,6 @@ def save_data(request):
 
     Target.objects.bulk_create(targets)
 
-    print("기본 데이터  완료")
-
     # 복지-생애주기 데이터
     file_name = "220404 행안부 welfarelife.csv"
     csv_welfarelife = pd.read_csv(file_path + file_name, encoding='cp949')
@@ -127,7 +124,6 @@ def save_data(request):
         if life_id == 0:
             life_id = 1
         life = Life.objects.filter(age_id=life_id)
-        # print("id : ",row['welfare_id'])
         welfare_life.welfare_id = row['welfare_id']
         welfare_life.life_id = life_id
 
@@ -167,7 +163,6 @@ def save_data(request):
         welfare_targets.append(welfare_target)
 
     Welfaretarget.objects.bulk_create(welfare_targets)
-    print("데이터 넣기 완료")
 
     return Response("success")
 
@@ -525,19 +520,9 @@ def filter_stopword():
     total = pd.read_csv(file_path + file_name)
     data = pd.read_csv(file_path + "220404 행안부 공공서비스_openapi.csv")
 
-    print("total", total)
-    print("filter_stopword ::", data.head())
-
     total_split = total.iloc[:, 2:]
     data_split = data.iloc[:, :16]
 
-    print("total_split::", len(total_split))
-    print("data_split::", len(data_split))
-
-    # print("total_split::",total_split.head())
-    # print("data_split::",data_split.head())
-
-    # result= data_split.append(total_split)
     result = pd.concat([data_split, total_split], axis=1)
 
     name_list = [
@@ -573,7 +558,6 @@ def filter_stopword():
 
     text = result['welfare_service_name'] + ' ' + result['welfare_target_detail'] + ' ' + result['welfare_crit'] + ' ' + \
            result['welfare_service_content'] + ' ' + result['welfare_service_purpose']
-    print(text)
 
     for i in range(len(name_list)):
         text += ' ' + result[name_list[i]]
@@ -672,7 +656,6 @@ def compress_matrix():
 # 복지 단어 벡터화(TF-IDF)
 def vectorize_words():
     list_file = filter_stopword()
-    print("vectorize_words")
     corpus_welfare = list_file
     tfidfv_welfare = TfidfVectorizer(min_df=5, max_features=150, ngram_range=(1, 3)).fit(list_file)
 
@@ -691,11 +674,8 @@ def vectorize_words():
 def cosine_grouping(request):
     sim_word = vectorize_words()
     vector_0101 = compress_matrix()
-    print("sim_word :: ", len(sim_word))
 
     sim_0101 = cosine_similarity(vector_0101, vector_0101)
-
-    print("verctor 0101 ::", vector_0101.shape)
 
     sim_0101[range(len(sim_0101)), range(len(sim_0101))] = 0
 
@@ -714,8 +694,6 @@ def cosine_grouping(request):
                     now = np.where(sim[i] == max_10[j])[0][z]
             max_10[j] = now
         top_10.append(max_10)
-
-    print(top_10[:10])
 
     welfares = Welfare.objects.all()
 
