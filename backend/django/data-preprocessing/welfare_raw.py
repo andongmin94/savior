@@ -1,11 +1,15 @@
+from bs4 import BeautifulSoup
+import environ
 import pandas as pd
 import requests
-from bs4 import BeautifulSoup
+
+env = environ.Env()
+env.read_env('.env.development')  # local
+# env.read_env('.env.production')
 
 welfare_list = []
 
-# WELFARE_API_KEY > .env
-WELFARE_API_KEY = 'rPO%2F6Iu0tAsSbMunY2SA%2FeMkdH0NiHRsNzYHu%2B%2F8Mnlh3xVi91YCwJdaxrOd%2F9yMRRTVcFpYlXuqB5LxJzD1%2Bw%3D%3D'
+WELFARE_API_KEY = env('WELFARE_API_KEY')
 
 welfare_list_endpoint = 'http://apis.data.go.kr/B554287/NationalWelfareInformations/NationalWelfarelist'
 welfare_detail_endpoint = 'http://apis.data.go.kr/B554287/NationalWelfareInformations/NationalWelfaredetailed'
@@ -30,13 +34,14 @@ soup_list = BeautifulSoup(response_list.content, 'lxml-xml')
 
 data = soup_list.find_all('servList')
 
+# API의 일일 호출 횟수 제한 100회
 for i in range(100):
     servId = data[i].find('servId').get_text()
-    print(servId) # Parse ServId
+    # print(servId) # Parse ServId
     response_detail = requests.get(welfare_detail_url + servId)
     # soup_detail = BeautifulSoup(response_detail.content, 'html.parser')
     soup_detail = BeautifulSoup(response_detail.content, 'lxml-xml')
-    print(soup_detail)
+    # print(soup_detail)
     welfare_service_name = soup_detail.find_all('servNm')[0].get_text().strip() # 서비스명
     welfare_dept_name = soup_detail.find_all('jurMnofNm')[0].get_text().strip() # 소관부처명
     welfare_target_detail = soup_detail.find_all('tgtrDtlCn')[0].get_text().strip() # 대상자 상세내용
