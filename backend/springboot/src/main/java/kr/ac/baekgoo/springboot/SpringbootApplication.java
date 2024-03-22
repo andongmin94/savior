@@ -1,4 +1,4 @@
-package org.example.springboot;
+package kr.ac.baekgoo.springboot;
 
 import kr.ac.baekgoo.springboot.config.properties.AppProperties;
 import kr.ac.baekgoo.springboot.config.properties.CorsProperties;
