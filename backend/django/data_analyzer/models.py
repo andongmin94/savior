@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Family(models.Model):
@@ -7,7 +8,7 @@ class Family(models.Model):
     family_name = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'family'
 
 
@@ -16,7 +17,7 @@ class Life(models.Model):
     age_name = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'life'
 
 
@@ -25,7 +26,7 @@ class Life(models.Model):
 #     purpose_name = models.CharField(max_length=50, blank=True, null=True)
 
 #     class Meta:
-#         managed = False
+#         managed = True
 #         db_table = 'purpose'
 
 
@@ -34,7 +35,7 @@ class Target(models.Model):
     target_name = models.CharField(max_length=50, blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'target'
 
 
@@ -62,7 +63,7 @@ class Welfare(models.Model):
     welfare_view = models.BigIntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'welfare'
 
 
@@ -72,7 +73,7 @@ class Welfarefamily(models.Model):
     welfare_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'welfarefamily'
 
 
@@ -82,7 +83,7 @@ class Welfarelife(models.Model):
     welfare_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'welfarelife'
 
 
@@ -92,7 +93,7 @@ class Welfarelife(models.Model):
 #     welfare_id = models.IntegerField(blank=True, null=True)
 
 #     class Meta:
-#         managed = False
+#         managed = True
 #         db_table = 'welfarepurpose'
 
 
@@ -102,13 +103,14 @@ class Welfaretarget(models.Model):
     welfare_id = models.IntegerField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'welfaretarget'
+
 
 class Welfare_similarwelfare(models.Model):
     welfare_welfare_id = models.BigIntegerField(primary_key=True)
     similarwelfare_welfare_id = models.BigIntegerField
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'similarwelfare'
