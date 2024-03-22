@@ -117,7 +117,6 @@ def combine_vectorize(user, selectfamily, selecttarget):
     for l in range(1, len(arr)):
         welfare_data = arr[l]  # selectfamily, selecttarget 데이터
         total_idx = len(welfare_data)
-        # print("total_idx",total_idx)
         if (l == 1):  # selectfamily
             for j in range(total_idx):
                 row = welfare_data[j]
@@ -201,7 +200,6 @@ def combine_vectorize(user, selectfamily, selecttarget):
     result = pd.concat(total)
     file_name = 'user_arrange.csv'
     result.to_csv(file_path + file_name, index=False, encoding='utf-8-sig')
-    # print(file_name,'완료')
     return result
 
 
@@ -209,7 +207,6 @@ def combine_vectorize(user, selectfamily, selecttarget):
 def add_names_to_properties(user, selectfamily, selecttarget):
     total = []
     arr = [user.values()[0], selectfamily.values(), selecttarget.values()]
-    print("user:: ", user.values())
     cur = arr[0]
     age09 = '@'
     age1019 = '@'
@@ -276,7 +273,6 @@ def add_names_to_properties(user, selectfamily, selecttarget):
     for l in range(1, len(arr)):
         welfare_data = arr[l]  # selectfamily, selecttarget 데이터
         total_idx = len(welfare_data)
-        # print("total_idx",total_idx)
         if (l == 1):  # selectfamily
             for j in range(total_idx):
                 row = welfare_data[j]
@@ -360,7 +356,6 @@ def add_names_to_properties(user, selectfamily, selecttarget):
     result = pd.concat(total)
     file_name = 'user_word_arrange.csv'
     result.to_csv(file_path + file_name, index=False, encoding='utf-8-sig')
-    # print(file_name,'완료')
     return result
 
 
@@ -389,10 +384,7 @@ def mapping_group_by_dbscan(user_vector, user_seq, result_word):
         df1['mean'] = df1.mean(axis=1)
         welfare_mean.append(df1['mean'][0])
         p[n] = df1['mean'][0]
-    # print("평균 리스트: ",welfare_mean)
-    # print("가장 평균이 높은 그룹 : ", welfare_mean.index(max(welfare_mean))," , 평균:",max(welfare_mean))
     # max_group=welfare_mean.index(max(welfare_mean))
-    print(p)
     p_sort = sorted(p.items(), key=lambda x: x[1], reverse=True)
     means = []
     full_welfare_word = pd.read_csv(file_path + 'welfare_word+DBSCAN.csv')
@@ -417,7 +409,7 @@ def mapping_group_by_dbscan(user_vector, user_seq, result_word):
         means.append(cnt / len(welfare))
     # print("최종 결과:", means)
     # print("가장 평균이 높은 그룹 : ", means.index(max(means)))
-    print(p_sort[means.index(max(means))][0])
+    # print(p_sort[means.index(max(means))][0])
     max_group = p_sort[means.index(max(means))][0]
     user = User.objects.filter(user_seq=user_seq)
     user.update(user_group=max_group)
