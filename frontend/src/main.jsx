@@ -2,8 +2,7 @@ import 'regenerator-runtime/runtime';
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { applyMiddleware, compose } from "redux";
-import configureStore from "@reduxjs/toolkit";
+import { applyMiddleware, createStore, compose } from "redux";
 import { composeWithDevTools } from "@redux-devtools/extension";
 import logger from "redux-logger";
 
@@ -22,14 +21,14 @@ const enhancer =
     ? compose(applyMiddleware())
     : composeWithDevTools(applyMiddleware(logger));
 
-const store = configureStore(rootReducer, undefined, enhancer);
+const store = createStore(rootReducer, undefined, enhancer);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>
     <BrowserRouter>
       <ScrollToTop />
       <Provider store={store}>
-      {typeof window.electron !== "undefined" && <TitleBar />}
+        <TitleBar />
         <App />
       </Provider>
     </BrowserRouter>
