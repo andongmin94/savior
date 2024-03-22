@@ -11,7 +11,7 @@ import App from "./App";
 import reportWebVitals from "@/reportWebVitals";
 import ScrollToTop from "@/pages/ScrollTop";
 //////////////// electron components ////////////////
-import TitleBar from "@/electron/TitleBar";
+import TitleBar from "@/components/TitleBar";
 /////////////////////////////////////////////////////
 import "@/globals.css";
 
