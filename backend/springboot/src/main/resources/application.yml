@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/dbtest?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://savior.c7cmcuk2k97d.ap-northeast-2.rds.amazonaws.com/savior?useSSL=false&serverTimezone=UTC
     username: root
-    password: Abcd123!
+    password: root1234
 #    hikari:
 #      pool-name: jpa-hikari-pool
 #      maximum-pool-size: 5
@@ -62,13 +62,17 @@ spring:
 
 # cors 설정
 cors:
-  allowed-origins: 'http://localhost:3000'
+  allowed-origins: 'https://j10d109.p.ssafy.io'
   allowed-methods: GET,POST,PUT,DELETE,OPTIONS
   allowed-headers: '*'
   max-age: 3600
 
 # jwt secret key 설정
 jwt.secret: '8sknjlO3NPTBqo319DHLNqsQAfRJEdKsETOds'
+
+web:
+  cors:
+    allowed-origins=*:
 
 # 토큰 관련 secret Key 및 RedirectUri 설정
 app:
@@ -78,7 +82,7 @@ app:
     refreshTokenExpiry: 604800000
   oauth2:
     authorizedRedirectUris:
-      - http://localhost:3000/oauth/kakao/callback
+      - https://j10d109.p.ssafy.io/oauth/kakao/callback
 server:
   servlet:
     context-path: /api
