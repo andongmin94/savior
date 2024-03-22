@@ -4,15 +4,15 @@ spring:
     url: jdbc:mysql://savior.c7cmcuk2k97d.ap-northeast-2.rds.amazonaws.com/savior?useSSL=false&serverTimezone=UTC
     username: root
     password: root1234
-#    hikari:
-#      pool-name: jpa-hikari-pool
-#      maximum-pool-size: 5
-#      jdbc-url: ${spring.datasource.url}
-#      username: ${spring.datasource.username}
-#      password: ${spring.datasource.password}
-#      driver-class-name: ${spring.datasource.driver-class-name}
-#      data-source-properties:
-#        rewriteBatchedStatements: true
+  #    hikari:
+  #      pool-name: jpa-hikari-pool
+  #      maximum-pool-size: 5
+  #      jdbc-url: ${spring.datasource.url}
+  #      username: ${spring.datasource.username}
+  #      password: ${spring.datasource.password}
+  #      driver-class-name: ${spring.datasource.driver-class-name}
+  #      data-source-properties:
+  #        rewriteBatchedStatements: true
 
   # JPA ??
   jpa:
@@ -43,7 +43,7 @@ spring:
           clientSecret: 'GGxnBUprx4NVmo84JKIzuaLvhIS9Itxf'
           clientAuthenticationMethod: client_secret_post
           authorizationGrantType: authorization_code
-          redirectUri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
+          redirectUri: "https://j10d109.p.ssafy.io/api/{action}/oauth2/code/{registrationId}"
           scope:
             - profile_nickname
             - profile_image
