@@ -2,7 +2,8 @@ import 'regenerator-runtime/runtime';
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { applyMiddleware, createStore, compose } from "redux";
+import { applyMiddleware, compose } from "redux";
+import configureStore from "@reduxjs/toolkit";
 import { composeWithDevTools } from "@redux-devtools/extension";
 import logger from "redux-logger";
 
@@ -21,7 +22,7 @@ const enhancer =
     ? compose(applyMiddleware())
     : composeWithDevTools(applyMiddleware(logger));
 
-const store = createStore(rootReducer, undefined, enhancer);
+const store = configureStore(rootReducer, undefined, enhancer);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>
