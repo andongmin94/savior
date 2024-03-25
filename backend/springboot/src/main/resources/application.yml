@@ -80,6 +80,10 @@ app:
   oauth2:
     authorizedRedirectUris:
       - https://j10d109.p.ssafy.io/api/oauth/kakao/callback
+
 server:
   servlet:
     context-path: /api
+
+logging:
+  config: classpath:log4j2.yml
