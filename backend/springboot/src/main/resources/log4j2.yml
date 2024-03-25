@@ -1,5 +1,5 @@
 Configuration:
-  status: warn
+  status: trace
   name: SpringBootApp
   properties:
     property:
@@ -23,8 +23,10 @@ Configuration:
       DefaultRolloverStrategy:
         max: 10
   Loggers:
-    Root:
-      level: trace
-      AppenderRef:
-        - ref: ConsoleAppender
-        - ref: FileAppender
+    Logger:
+      - name: org.springframework.security
+        level: trace
+        additivity: false
+        AppenderRef:
+          - ref: ConsoleAppender
+          - ref: FileAppender
