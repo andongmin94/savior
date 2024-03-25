@@ -124,7 +124,7 @@ def save_data(request):
         if life_id == 0:
             life_id = 1
         life = Life.objects.filter(age_id=life_id)
-        welfare_life.welfare_id = row['welfare_id']
+        welfare_life.welfare_id = row['癤퓑elfare_id']
         welfare_life.life_id = life_id
 
         welfare_lifes.append(welfare_life)
@@ -141,7 +141,7 @@ def save_data(request):
 
         welfare_family = Welfarefamily()
 
-        welfare_family.welfare_id = row['welfare_id']
+        welfare_family.welfare_id = row['癤퓑elfare_id']
         welfare_family.family_id = row['welfarefamily_family_id']
 
         welfare_families.append(welfare_family)
@@ -158,7 +158,7 @@ def save_data(request):
         row = csv_welfaretarget.iloc[i]
 
         welfare_target = Welfaretarget()
-        welfare_target.welfare_id = row['welfare_id']
+        welfare_target.welfare_id = row['癤퓑elfare_id']
         welfare_target.target_id = row['welfaretarget_target_id']
         welfare_targets.append(welfare_target)
 
@@ -563,7 +563,7 @@ def filter_stopword():
         text += ' ' + result[name_list[i]]
 
     for i in range(len(text)):
-        text[i] = re.sub('[-=+,#/\?:^$.@*\"※~&%ㆍ!』\\‘|\(\)\[\]\<\>`\'…》\n]', '', str(text[i]))
+        text[i] = re.sub(r'[-=+,#/\?:^$.@*\"※~&%ㆍ!』\\‘|\(\)\[\]\<\>`\'…》\n]', '', str(text[i]))
         text[i] = re.sub('[0-9]', '', str(text[i]))
         text[i] = re.sub('[;▶[]《『』]', '', str(text[i]))
         text[i] = re.sub(r"\s+", "", str(text[i]))  # 스페이스 제거
