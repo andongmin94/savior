@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://savior.c7cmcuk2k97d.ap-northeast-2.rds.amazonaws.com/savior?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://savior.c7cmcuk2k97d.ap-northeast-2.rds.amazonaws.com/savior?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
     password: root1234
   #    hikari:
