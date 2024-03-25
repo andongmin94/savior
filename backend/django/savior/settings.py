@@ -22,8 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 env = environ.Env()
-env.read_env('.env.development')  # local
-# env.read_env('.env.production')
+# env.read_env('.env.development')  # local
+env.read_env('.env.production')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
