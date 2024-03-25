@@ -36,7 +36,7 @@ Configutation:
         fileIndex: "max"
   Loggers:
     Root:
-      level: debug
+      level: trace
       AppenderRef:
         - ref: Console_Appender
         - ref: RollingFile_Appender
