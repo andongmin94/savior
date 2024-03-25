@@ -1,32 +1,49 @@
-Configuration:
+Configutation:
+  name: Default
   status: trace
-  name: SpringBootApp
-  properties:
-    property:
-      name: log-path
-      value: "logs"
-  appenders:
+
+  Properties:
+    Property:
+      - name: "log-path"
+        value: "./logs"
+      - name: "pattern"
+        value: "%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss.SSS} [%t][%F] %c{1} - %msg%n"
+      - name: "charset-UTF-8"
+        value: "UTF-8"
+
+  Appenders:
     Console:
-      name: ConsoleAppender
+      name: Console_Appender
       target: SYSTEM_OUT
       PatternLayout:
-        pattern: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
-    File:
-      name: FileAppender
-      fileName: ${log-path}/springboot-app.log
+        charset: ${charset-UTF-8}
+        pattern: ${pattern}
+        disableAnsi: false
+    RollingFile:
+      name: RollingFile_Appender
+      fileName: ${log-path}/rollingfile.log
+      filePattern: "logs/archive/rollingfile.log.%d{yyyy-MM-dd-hh-mm}_%i.gz"
       PatternLayout:
-        pattern: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+        charset: ${charset-UTF-8}
+        pattern: ${pattern}
       Policies:
+        SizeBasedTriggeringPolicy:
+          size: "200KB"
         TimeBasedTriggeringPolicy:
-          interval: 1
-          modulate: true
-      DefaultRolloverStrategy:
-        max: 10
+          interval: "1"
+      DefaultRollOverStrategy:
+        max: "30"
+        fileIndex: "max"
   Loggers:
+    Root:
+      level: trace
+      AppenderRef:
+        - ref: Console_Appender
+        - ref: RollingFile_Appender
     Logger:
-      - name: org.springframework.security
-        level: trace
-        additivity: false
-        AppenderRef:
-          - ref: ConsoleAppender
-          - ref: FileAppender
+      name: example.demospringboot
+      additivity: false
+      level: debug
+      AppenderRef:
+        - ref: Console_Appender
+        - ref: RollingFile_Appender
