@@ -79,7 +79,7 @@ app:
     refreshTokenExpiry: 604800000
   oauth2:
     authorizedRedirectUris:
-      - https://j10d109.p.ssafy.io/api/oauth/kakao/callback
+      - https://j10d109.p.ssafy.io/oauth/kakao/callback
 server:
   servlet:
     context-path: /api
