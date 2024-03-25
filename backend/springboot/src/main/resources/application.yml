@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://savior.c7cmcuk2k97d.ap-northeast-2.rds.amazonaws.com/savior?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
-    password: 1234
+    password: root1234
   #    hikari:
   #      pool-name: jpa-hikari-pool
   #      maximum-pool-size: 5
@@ -86,3 +86,5 @@ server:
 
 logging:
   config: classpath:log4j2.yml
+
+debug: true
