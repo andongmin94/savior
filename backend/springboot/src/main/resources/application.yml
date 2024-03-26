@@ -85,6 +85,8 @@ server:
     context-path: /api
 
 logging:
+  file:
+    path: /home/ubuntu/log
   config: classpath:log4j2.yml
 
 debug: true
