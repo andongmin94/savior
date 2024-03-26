@@ -60,7 +60,7 @@ export default function Main() {
 
   const fetchCard = async () => {
     try {
-      const request = await axios.get("/api/welfare/recommend");
+      const request = await axios.get("/welfare/recommend");
       console.log("welfare: ", request.data.body.welfare);
       setCards(request.data.body.welfare);
     } catch (err) {
