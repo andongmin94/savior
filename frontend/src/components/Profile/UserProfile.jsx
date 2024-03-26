@@ -84,9 +84,9 @@ export default function UserProfile({
             ></ModifyProfile>
 
             <Button
-              variant="primary"
               size="sm"
-              className="w-20"
+              variant="warning"
+              className="w-20 bg-orange-400 border-orange-400 text-white"
               onClick={() => {
                 setModify("false");
                 setProfile();
