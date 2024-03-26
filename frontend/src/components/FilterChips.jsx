@@ -7,6 +7,7 @@ import { getAxios, getAxiosDjango } from '../api';
 import MultipleSelectChips from '@/components/Filter/MultipleSelectChips';
 import ChildSelectBox from '@/components/Filter/Child';
 import AlertModal from '@/components/AlertModal';
+import { orange } from '@mui/material/colors';
 
 const map = new Map();
 map.set(15, 0); //학생
