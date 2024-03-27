@@ -65,13 +65,13 @@ public class SecurityConfig {
             http.exceptionHandling((exceptionHandling)->exceptionHandling.authenticationEntryPoint(new RestAuthenticationEntryPoint()).accessDeniedHandler(tokenAccessDeniedHandler));
             http.authorizeHttpRequests(authorize -> authorize.requestMatchers(CorsUtils::isPreFlightRequest).permitAll().requestMatchers("/swagger-ui/**", "/v3/**", "/api/**", "/swagger-resources/**").permitAll().anyRequest().authenticated());
             http.oauth2Login(oauth2 -> oauth2.authorizationEndpoint(authorization -> authorization.baseUri("/oauth2/authorization").authorizationRequestRepository(oAuth2AuthorizationRequestBasedOnCookieRepository()))
-                    .redirectionEndpoint(redirection -> redirection.baseUri("/oauth2/code/*"))
+                    .redirectionEndpoint(redirection -> redirection.baseUri("/*/oauth2/code/*"))
                     .userInfoEndpoint(userInfo -> userInfo.userService(oAuth2UserService))
                     .successHandler(oAuth2AuthenticationSuccessHandler())
                     .failureHandler(oAuth2AuthenticationFailureHandler()));
 
             http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-            log.info("securityFilterChain succeess");
+            log.info("securityFilterChain success");
         } catch (Exception e) {
             log.error("error : securityFilterChain", e);
         }
