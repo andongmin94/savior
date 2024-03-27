@@ -71,7 +71,7 @@ public class SecurityConfig {
                     .failureHandler(oAuth2AuthenticationFailureHandler()));
 
             http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-            log.info("securityFilterChain succeess");
+            log.info("securityFilterChain success");
         } catch (Exception e) {
             log.error("error : securityFilterChain", e);
         }

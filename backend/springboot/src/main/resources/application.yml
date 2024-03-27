@@ -14,7 +14,7 @@ spring:
       data-source-properties:
         rewriteBatchedStatements: true
 
-  # JPA ??
+  # JPA
   jpa:
     generate-ddl: true
     hibernate:
@@ -46,7 +46,7 @@ spring:
           redirectUri: "https://j10d109.p.ssafy.io/api/{action}/oauth2/code/{registrationId}"
           scope:
             - profile_nickname
-            - profile_image
+            - profile_imageserver_name
           #            - account_email
           #            - age_range
           #            - gender
@@ -78,7 +78,9 @@ app:
     refreshTokenExpiry: 604800000
   oauth2:
     authorizedRedirectUris:
+      - https://j10d109.p.ssafy.io:3000/api/oauth/kakao/callback
       - https://j10d109.p.ssafy.io/api/oauth/kakao/callback
+      - https://j10d109.p.ssafy.io:3000/oauth/kakao/callback
       - https://j10d109.p.ssafy.io/oauth/kakao/callback
 server:
   servlet:
