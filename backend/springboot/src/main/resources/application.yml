@@ -90,19 +90,13 @@ server:
     context-path: /api
   #Access logging
   tomcat:
+    basedir: .                              # access log를 저장할 base directory 지정
     accesslog:
-      enabled: true
-      directory: /logs
-      prefix: access_log
-      suffix: .log
-      pattern: "%h %l %u %t \"%r\" %s %b"
-
-logging:
-  level:
-    root: INFO
-    org.springframework.web: DEBUG
-  file:
-    name: /path/to/logs/app.log
+      enabled: true                         # access log 저장 여부 (default: false)
+      directory: logs                       # access log를 저장할 상세 directory (base directory에 기반한) (default: logs)
+      pattern: '%h %l %u %t "%r" %s %b %D'  # access log 출력 패턴
+      prefix: access                        # access log 파일이름 prefix
+      suffix: .log                          # access log 파일이름 suffix (확장자 포함)
 
 #logging:
 #  file:
