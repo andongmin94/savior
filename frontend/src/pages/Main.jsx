@@ -40,6 +40,7 @@ export default function Main() {
       await setSelectfamilies(response.data.body.user.selectfamilies);
       await setSelecttargets(response.data.body.user.selecttargets);
     } catch (err) {
+
       console.log(err);
     }
   };
