@@ -32,7 +32,7 @@ export default function Main() {
   const getProfile = async () => {
     try {
       const axios = getAxios();
-      let response = await axios.get("/api/users/profile");
+      let response = await axios.get("/users/profile");
       console.log("카카오 : ", response.data);
       localStorage.setItem("name", response.data.body.user.username);
       localStorage.setItem("profile", response.data.body.user.profileImageUrl);
@@ -46,7 +46,7 @@ export default function Main() {
 
   const getPopular = async () => {
     try {
-      let res = await axios.get("/api/welfare/popular");
+      let res = await axios.get("/welfare/popular");
       console.log(
         "인기순: ",
         res.data.body.welfare,
@@ -70,7 +70,7 @@ export default function Main() {
 
   const fetchWord = async () => {
     try {
-      const request = await axios.get("/api/welfare/keyword");
+      const request = await axios.get("/welfare/keyword");
       console.log("keywords: ", request.data.body.keywords);
       setKeywords(request.data.body.keywords.slice(0, 10));
     } catch (err) {
