@@ -128,7 +128,7 @@ export default function FilterChips() {
     const getFilter = async () => {
       try {
         const axios = getAxios();
-        let response = await axios.get('/api/users/profile');
+        let response = await axios.get('/users/profile');
         setUserSeq(response.data.body.user.userSeq);
 
         let res = await axios.get('/api/users/update/char');
