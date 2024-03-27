@@ -82,6 +82,9 @@ app:
       - https://j10d109.p.ssafy.io/api/oauth/kakao/callback
       - https://j10d109.p.ssafy.io:3000/oauth/kakao/callback
       - https://j10d109.p.ssafy.io/oauth/kakao/callback
+
+
+
 server:
   servlet:
     context-path: /api
@@ -93,6 +96,13 @@ server:
       prefix: access_log
       suffix: .log
       pattern: "%h %l %u %t \"%r\" %s %b"
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+  file:
+    name: /path/to/logs/app.log
 
 #logging:
 #  file:
