@@ -8,7 +8,7 @@ import FilterSlide from "@/components/WelfareRecommend/FilterSlide";
 
 export default function Main() {
   // const KAKAO_AUTH_URL = `http://localhost:8080/api/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/oauth/kakao/callback`;
-  const KAKAO_AUTH_URL = `https://j10d109.p.ssafy.io/api/oauth2/authorization/kakao?redirect_uri=https://j10d109.p.ssafy.io:3000/oauth/kakao/callback`;
+  const KAKAO_AUTH_URL = `https://j10d109.p.ssafy.io/api/oauth2/authorization/kakao?redirect_uri=https://j10d109.p.ssafy.io/oauth/kakao/callback`;
 
   const axios = getAxios();
   let navigate = useNavigate();
