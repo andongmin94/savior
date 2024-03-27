@@ -14,7 +14,7 @@ spring:
       data-source-properties:
         rewriteBatchedStatements: true
 
-  # JPA ??
+  # JPA
   jpa:
     generate-ddl: true
     hibernate:
