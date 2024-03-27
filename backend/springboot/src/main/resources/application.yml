@@ -46,7 +46,7 @@ spring:
           redirectUri: "https://j10d109.p.ssafy.io/api/{action}/oauth2/code/{registrationId}"
           scope:
             - profile_nickname
-            - profile_imageserver_name
+            - profile_image
           #            - account_email
           #            - age_range
           #            - gender
