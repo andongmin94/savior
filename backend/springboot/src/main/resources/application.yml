@@ -89,7 +89,7 @@ server:
   tomcat:
     accesslog:
       enabled: true
-      directory: logs
+      directory: ./logs
       prefix: access_log
       suffix: .log
       pattern: "%h %l %u %t \"%r\" %s %b"
