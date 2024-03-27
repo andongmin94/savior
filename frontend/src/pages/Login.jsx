@@ -16,6 +16,7 @@ export default function Login() {
   let navigate = useNavigate();
 
   return (
+    <>
     <div>
       {!isLogin() ? (
         <div>
@@ -47,5 +48,6 @@ export default function Login() {
         </div>
       )}
     </div>
+    </>
   );
 }
