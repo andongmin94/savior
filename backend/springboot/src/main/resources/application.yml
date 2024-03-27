@@ -85,10 +85,18 @@ app:
 server:
   servlet:
     context-path: /api
+  #Access logging
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: logs
+      prefix: access_log
+      suffix: .log
+      pattern: "%h %l %u %t \"%r\" %s %b"
 
-logging:
-  file:
-    path: /home/ubuntu/log
-  config: classpath:log4j2.yml
+#logging:
+#  file:
+#    path: /home/ubuntu/log
+#  config: classpath:log4j2.yml
 
 debug: true
