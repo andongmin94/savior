@@ -6,7 +6,7 @@ function isLogin() {
   if (token) {
     return true;
   } else {
-    return false;
+    return true;
   }
 }
 
