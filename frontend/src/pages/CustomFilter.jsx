@@ -22,5 +22,6 @@ export default function CustomFilter() {
           <LoginModal />
       )}
     </div>
+    </>
   );
 }
