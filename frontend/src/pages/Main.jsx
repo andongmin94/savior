@@ -32,7 +32,7 @@ export default function Main() {
   const getProfile = async () => {
     try {
       const axios = getAxios();
-      let response = await axios.get("https://j10d109.p.ssafy.io/api/users/profile");
+      let response = await axios.get("https://j10d109.p.ssafy.io/users/profile");
       console.log("카카오 : ", response.data);
       localStorage.setItem("name", response.data.body.user.username);
       localStorage.setItem("profile", response.data.body.user.profileImageUrl);
@@ -47,7 +47,7 @@ export default function Main() {
 
   const getPopular = async () => {
     try {
-      let res = await axios.get("https://j10d109.p.ssafy.io/api/welfare/popular");
+      let res = await axios.get("https://j10d109.p.ssafy.io/welfare/popular");
       console.log(
         "인기순: ",
         res.data.body.welfare,
