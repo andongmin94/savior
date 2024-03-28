@@ -19,3 +19,19 @@ howto &rarr; way
 life &rarr; lifecycle
 ori_id &rarr; service_id  
 
+### 설치
+```bash
+pip install -r requirements.txt
+```
+
+### 실행
+최초 1회
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+서버 실행
+```bash
+python manage.py runserver
+```
