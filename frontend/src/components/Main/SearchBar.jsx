@@ -51,8 +51,8 @@ export default function SearchBar() {
 
   return (
     <div className="searchBar">
-      <div className="flex items-center">
-        <div className="flex flex-col mb-[7px]">
+      <div className="flex items-start">
+      <div className="flex flex-col mb-[7px]">
           <div className="w-[200px] bg-white text-[13px] pl-[5%] rounded-t-[3px] rounded-b-none">
             인기검색어
           </div>
@@ -166,20 +166,20 @@ export default function SearchBar() {
         </div>
 
         <Form.Control
-          placeholder="검색어를 입력하세요"
-          onKeyDown={onEnter}
-          onChange={onChange}
-          value={word}
-          className="w-[1500px] h-[45px] mt-0 mr-[0.4rem] mb-0 ml-[0.5rem]"
-        />
-        <Button
-          type="submit"
-          onClick={onClick}
-          className="w-20 h-[45px] mt-0 mr-0 mb-[0.4rem] ml-[0.5rem] bg-[#ea580c] border-[#ea580c]"
-        >
-          검색
-        </Button>
-      </div>
+    placeholder="검색어를 입력하세요"
+    onKeyDown={onEnter}
+    onChange={onChange}
+    value={word}
+    className="w-[1500px] h-[45px] mt-0 mr-[0.4rem] mb-0 ml-[0.5rem]"
+  />
+  <Button
+    type="submit"
+    onClick={() => onClick(word)}
+    className="w-20 h-[45px] mt-0 mr-0 mb-0 ml-[0.5rem] bg-[#ea580c] border-[#ea580c]"
+  >
+    검색
+  </Button>
+</div>
     </div>
   );
 }
