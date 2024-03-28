@@ -1,3 +1,5 @@
+import React from "react";
+
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Tabs from "@mui/material/Tabs";
@@ -107,7 +109,7 @@ export default function DetailTaps(props) {
             {crit}
           </Box>
         ) : (
-          <div></div>
+          <div/>
         )}
       </TabPanel>
       <TabPanel value={value} index={1}>
