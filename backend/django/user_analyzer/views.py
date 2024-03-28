@@ -14,9 +14,24 @@ from .models import User, Selectfamily, Selecttarget
 file_path = os.getcwd() + "/data-preprocessing/result/"
 
 
+# 모든 유저 데이터를 받아 데이터 벡터화 후 DBSCAN을 이용하여 클러스터링
+@api_view(['GET'])
+def insert_all(request):
+    users = User.objects.all();
+    for user in users:
+        process_user_data(user.user_seq)
+    return Response("success")
+
+
 # 유저 아이디를 받아 데이터 벡터화 후 DBSCAN을 이용하여 클러스터링
 @api_view(['GET'])
 def insert_user(request, user_seq):
+    process_user_data(user_seq)
+    return Response("success")
+
+
+# 유저 아이디를 받아 데이터 벡터화 후 DBSCAN을 이용하여 클러스터링
+def process_user_data(user_seq):
     # user_seq=1; #유저 아이디 받아오기
     user = User.objects.filter(user_seq=user_seq);
     # print("user확인 :: ",user.values())
@@ -33,8 +48,6 @@ def insert_user(request, user_seq):
     # print(user_vector)
     # DBSCAN or Spherical K-Means
     mapping_group_by_dbscan(user_vector, user_seq, result_word)
-
-    return Response("success")
 
 
 # Dataframe 결합 및 벡터화
