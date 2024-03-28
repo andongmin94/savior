@@ -26,7 +26,25 @@ export default function QnaCreate(props) {
   const qnaId = useParams().qnaId;
   const axios = getAxios();
 
-
+  const createQna = async () => {
+    if (title == '') {
+      alert('제목을 입력해주세요');
+    } else if (content == '') {
+      alert('내용을 입력해주세요');
+    } else if (title !== '' && content !== '') {
+      await axios.post('/api/qna/mine', {
+        title: title,
+        content: content,
+      });
+      navigate(`/Qna`);
+    }
+  };
+  const checkLogin = () => {
+    if (!isLogin()) {
+      alert('로그인해주세요');
+      navigate(`/`);
+    }
+  };
   useEffect(() => {
     checkLogin();
   }, []);
