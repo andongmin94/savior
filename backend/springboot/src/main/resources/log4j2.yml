@@ -1,49 +1,39 @@
-Configutation:
+Configuration:
+  status: warn
   name: Default
-  status: trace
-
   Properties:
     Property:
       - name: "log-path"
         value: "./logs"
       - name: "pattern"
-        value: "%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss.SSS} [%t][%F] %c{1} - %msg%n"
-      - name: "charset-UTF-8"
+        value: "%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+      - name: "charset"
         value: "UTF-8"
-
   Appenders:
     Console:
-      name: Console_Appender
-      target: SYSTEM_OUT
+      name: "Console_Appender"
+      target: "SYSTEM_OUT"
       PatternLayout:
-        charset: ${charset-UTF-8}
-        pattern: ${pattern}
-        disableAnsi: false
+        pattern: "${pattern}"
+        charset: "${charset}"
     RollingFile:
-      name: RollingFile_Appender
-      fileName: ${log-path}/rollingfile.log
-      filePattern: "logs/archive/rollingfile.log.%d{yyyy-MM-dd-hh-mm}_%i.gz"
+      name: "RollingFile_Appender"
+      fileName: "${log-path}/rollingfile.log"
+      filePattern: "${log-path}/archive/rollingfile-%d{yyyy-MM-dd-hh-mm}.log"
       PatternLayout:
-        charset: ${charset-UTF-8}
-        pattern: ${pattern}
+        pattern: "${pattern}"
+        charset: "${charset}"
       Policies:
-        SizeBasedTriggeringPolicy:
-          size: "200KB"
         TimeBasedTriggeringPolicy:
-          interval: "1"
-      DefaultRollOverStrategy:
+          interval: 3
+          modulate: true
+        SizeBasedTriggeringPolicy:
+          size: "300KB"
+      DefaultRolloverStrategy:
         max: "30"
-        fileIndex: "max"
   Loggers:
     Root:
       level: trace
       AppenderRef:
-        - ref: Console_Appender
-        - ref: RollingFile_Appender
-    Logger:
-      name: example.demospringboot
-      additivity: false
-      level: debug
-      AppenderRef:
-        - ref: Console_Appender
-        - ref: RollingFile_Appender
+        - ref: "Console_Appender"
+        - ref: "RollingFile_Appender"
