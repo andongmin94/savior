@@ -43,7 +43,7 @@ spring:
           clientSecret: 'GGxnBUprx4NVmo84JKIzuaLvhIS9Itxf'
           clientAuthenticationMethod: client_secret_post
           authorizationGrantType: authorization_code
-          redirectUri: "https://j10d109.p.ssafy.io/api/{action}/oauth2/code/{registrationId}"
+          redirectUri: "https://j10d109.p.ssafy.io/{action}/oauth2/code/{registrationId}"
           scope:
             - profile_nickname
             - profile_image
@@ -83,8 +83,6 @@ app:
       - https://j10d109.p.ssafy.io:3000/oauth/kakao/callback
       - https://j10d109.p.ssafy.io/oauth/kakao/callback
 
-
-
 server:
   servlet:
     context-path: /api
@@ -98,9 +96,9 @@ server:
       prefix: access                        # access log 파일이름 prefix
       suffix: .log                          # access log 파일이름 suffix (확장자 포함)
 
-#logging:
-#  file:
-#    path: /home/ubuntu/log
-#  config: classpath:log4j2.yml
+logging:
+  file:
+    path: /home/ubuntu/log
+  config: classpath:log4j2.yml
 
 debug: true
