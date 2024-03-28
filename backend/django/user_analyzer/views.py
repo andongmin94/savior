@@ -14,6 +14,17 @@ from .models import User, Selectfamily, Selecttarget
 file_path = os.getcwd() + "/data-preprocessing/result/"
 
 
+# 모든 유저 데이터를 받아 데이터 벡터화 후 DBSCAN을 이용하여 클러스터링
+@api_view(['GET'])
+def insert_all(request):
+    users = User.objects.all();
+
+    for user in users:
+        insert_user(request, user.user_seq)
+
+    return Response("success")
+
+
 # 유저 아이디를 받아 데이터 벡터화 후 DBSCAN을 이용하여 클러스터링
 @api_view(['GET'])
 def insert_user(request, user_seq):
