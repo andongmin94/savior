@@ -2,23 +2,13 @@ import create from 'zustand';
 
 export const useStore = create((set) => ({
   username: undefined,
-  setUsername(res) {
-    set(() => ({ username: res }));
-  },
+  setUsername: (username) => set({ username }),
   email: undefined,
-  setEmail(res) {
-    set(() => ({ email: res }));
-  },
+  setEmail: (email) => set({ email }),
   ageRange: undefined,
-  setAgeRange(res) {
-    set(() => ({ ageRange: res }));
-  },
+  setAgeRange: (ageRange) => set({ ageRange }),
   gender: undefined,
-  setGender(res) {
-    set(() => ({ gender: res }));
-  },
+  setGender: (gender) => set({ gender }),
   profileImage: undefined,
-  setProfileImage(res) {
-    set(() => ({ profileImage: res }));
-  },
+  setProfileImage: (profileImage) => set({ profileImage }),
 }));
