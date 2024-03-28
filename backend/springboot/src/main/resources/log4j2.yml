@@ -1,0 +1,39 @@
+Configuration:
+  status: warn
+  name: Default
+  Properties:
+    Property:
+      - name: "log-path"
+        value: "./logs"
+      - name: "pattern"
+        value: "%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+      - name: "charset"
+        value: "UTF-8"
+  Appenders:
+    Console:
+      name: "Console_Appender"
+      target: "SYSTEM_OUT"
+      PatternLayout:
+        pattern: "${pattern}"
+        charset: "${charset}"
+    RollingFile:
+      name: "RollingFile_Appender"
+      fileName: "${log-path}/rollingfile.log"
+      filePattern: "${log-path}/archive/rollingfile-%d{yyyy-MM-dd-hh-mm}.log"
+      PatternLayout:
+        pattern: "${pattern}"
+        charset: "${charset}"
+      Policies:
+        TimeBasedTriggeringPolicy:
+          interval: 3
+          modulate: true
+        SizeBasedTriggeringPolicy:
+          size: "300KB"
+      DefaultRolloverStrategy:
+        max: "30"
+  Loggers:
+    Root:
+      level: trace
+      AppenderRef:
+        - ref: "Console_Appender"
+        - ref: "RollingFile_Appender"
