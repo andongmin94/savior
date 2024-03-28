@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Modal } from 'react-bootstrap';
+import { StepContext } from '@mui/material';
 
-import { getAxios, getAxiosDjango } from '@/api';
+import { getAxios, getAxiosDjango } from '../api';
 import MultipleSelectChips from '@/components/Filter/MultipleSelectChips';
 import ChildSelectBox from '@/components/Filter/Child';
 import AlertModal from '@/components/AlertModal';
+import { orange } from '@mui/material/colors';
 
 const map = new Map();
 map.set(15, 0); //학생
@@ -118,7 +120,7 @@ export default function FilterChips() {
       });
 
       const djangoAxios = getAxiosDjango();
-      let res = await djangoAxios.get(`/user/insert_dbscan/${userSeq}`);
+      let res = await djangoAxios.get(`/insertusergroup/dbscan/${userSeq}`);
     } catch (err) {
       console.log(err);
     }
@@ -128,7 +130,7 @@ export default function FilterChips() {
     const getFilter = async () => {
       try {
         const axios = getAxios();
-        let response = await axios.get('/users/profile');
+        let response = await axios.get('/api/users/profile');
         setUserSeq(response.data.body.user.userSeq);
 
         let res = await axios.get('/api/users/update/char');
@@ -155,7 +157,7 @@ export default function FilterChips() {
   }, [value]);
 
   return (
-    <div className='flex flex-col justify-center items-center text-white'>
+    <div className='flex flex-col justify-center items-center'>
       <MultipleSelectChips
         label="직장"
         value={clicked}
@@ -165,7 +167,7 @@ export default function FilterChips() {
         setError={setError}
       />
 
-      <div className="flex flex-col w-[20%] mb-[2%] items-center ">
+      <div className="flex flex-col w-[20%] mb-[2%] items-center">
         <h5 className='mb-[15px]'>
           <b>자녀</b>
         </h5>
@@ -185,7 +187,7 @@ export default function FilterChips() {
 
       <Button
         variant="Warning"
-        className='mt-[2%] w-[250px] text-white'
+        className='mt-[2%] w-[250px]'
         onClick={() => {
           setFilter();
           setText('정보 입력이 완료되었습니다.');
