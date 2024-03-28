@@ -6,6 +6,7 @@ services:
     image: back_image:0.0
     ports:
       - "8080:8080"
+
     networks:
       - backend_frontend
 
@@ -20,8 +21,7 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
       - /var/lib/letsencrypt:/var/lib/letsencrypt
       - /home/ubuntu/nginx/conf.d:/etc/nginx/conf.d
-      - /home/ubuntu/nginx/sites-enabled:/etc/nginx/sites-enabled
-      - /usr/share/nginx/html:/home/ubuntu/nginx/dist
+      - /home/ubuntu/nginx/sites/sites-enabled:/etc/nginx/sites-enabled
 
     networks:
       - backend_frontend
