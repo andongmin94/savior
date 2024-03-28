@@ -76,7 +76,7 @@ export default function DetailCard(props) {
             <Typography
               variant="h6"
               component="div"
-              sx={10}
+              sx={{ width: 10, height: 10 }}
             >
               {welfare[1]}
             </Typography>
