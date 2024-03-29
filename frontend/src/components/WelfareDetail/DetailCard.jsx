@@ -73,13 +73,9 @@ export default function DetailCard(props) {
       <CardContent className="grid">
         <Grid container sx={{ mb: 2 }}>
           <Grid item xs={10}>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ width: 10, height: 10 }}
-            >
+            <div className="font-bold text-md">
               {welfare[1]}
-            </Typography>
+            </div>
           </Grid>
           {likeNum !== undefined ? (
             <Grid item xs={2}>
