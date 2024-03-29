@@ -310,7 +310,6 @@ export default function Main() {
             </Tabs>
           </div>
         </div>
-      </div>
     </main>
   );
 }

@@ -10,9 +10,6 @@ import rootReducer from "@/reducers/index";
 import App from "./App";
 import reportWebVitals from "@/reportWebVitals";
 import ScrollToTop from "@/pages/ScrollTop";
-//////////////// electron components ////////////////
-import TitleBar from "@/components/TitleBar";
-/////////////////////////////////////////////////////
 import "@/globals.css";
 
 const enhancer =
@@ -27,7 +24,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <ScrollToTop />
       <Provider store={store}>
-        <TitleBar />
         <App />
       </Provider>
     </BrowserRouter>
