@@ -55,7 +55,7 @@ export default function TitleBar() {
   return (
     <>
     {typeof window.electron !== "undefined" && 
-      <div className="fixed flex justify-end w-full bg-[#262626] z-10" style={{ WebkitAppRegion: "drag" }}>
+      <div className="fixed flex justify-end w-full bg-[#262626] z-[999]" style={{ WebkitAppRegion: "drag" }}>
         <div style={{ WebkitAppRegion: "no-drag" }}>
           <Button onClick={minimize} size="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/></svg>  

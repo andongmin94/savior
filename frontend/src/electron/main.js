@@ -9,9 +9,6 @@ import axios from "axios";
 import https from "https";
 import dotenv from "dotenv";
 
-// 웹 연결 URL
-
-
 // 일렉트론 생성 함수
 export let mainWindow;
 const createWindow = () => {
@@ -28,9 +25,9 @@ const createWindow = () => {
     }
   });
 
+  // 웹 연결 URL
   dotenv.config();
   const BASE_URL = 'http://localhost:3000';
-  // const BASE_URL = 'https://j10d109.p.ssafy.io';
   mainWindow.loadURL(BASE_URL);
 }
 
