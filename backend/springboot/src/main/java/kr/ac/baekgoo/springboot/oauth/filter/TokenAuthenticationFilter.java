@@ -8,6 +8,7 @@ import kr.ac.baekgoo.springboot.oauth.token.AuthToken;
 import kr.ac.baekgoo.springboot.oauth.token.AuthTokenProvider;
 import kr.ac.baekgoo.springboot.utils.HeaderUtil;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,7 +16,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-@Slf4j
+@Log4j2
 @RequiredArgsConstructor
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
     private final AuthTokenProvider tokenProvider;
@@ -24,17 +25,31 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(
             HttpServletRequest request,
             HttpServletResponse response,
-            FilterChain filterChain)  throws ServletException, IOException {
+            FilterChain filterChain) throws ServletException, IOException {
 
-        String tokenStr = HeaderUtil.getAccessToken(request);
-        AuthToken token = tokenProvider.convertAuthToken(tokenStr);
+        try {
+            String tokenStr = HeaderUtil.getAccessToken(request);
+            log.debug("Attempting to authenticate with token: {}", tokenStr);
 
-        if (token.validate()) {
-            Authentication authentication = tokenProvider.getAuthentication(token);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+            AuthToken token = tokenProvider.convertAuthToken(tokenStr);
+
+            if (token.validate()) {
+                log.debug("Token is valid. Attempting to authenticate the user.");
+                Authentication authentication = tokenProvider.getAuthentication(token);
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+            }
+
+            filterChain.doFilter(request, response);
+        } catch (IOException e) {
+            log.error("IOException occurred during authentication process: {}", e.getMessage(), e);
+            throw e;
+        } catch (Exception e) {
+            log.error("Exception occurred during authentication process: {}", e.getMessage(), e);
+            if (e instanceof ServletException) {
+                throw (ServletException) e;
+            } else {
+                throw new ServletException(e);
+            }
         }
-
-        filterChain.doFilter(request, response);
     }
-
 }

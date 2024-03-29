@@ -16,6 +16,7 @@ import kr.ac.baekgoo.springboot.oauth.token.AuthTokenProvider;
 import kr.ac.baekgoo.springboot.repository.user.UserRefreshTokenRepository;
 import kr.ac.baekgoo.springboot.utils.CookieUtil;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
@@ -33,6 +34,7 @@ import java.util.Optional;
 import static kr.ac.baekgoo.springboot.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository.REDIRECT_URI_PARAM_COOKIE_NAME;
 import static kr.ac.baekgoo.springboot.oauth.repository.OAuth2AuthorizationRequestBasedOnCookieRepository.REFRESH_TOKEN;
 
+@Log4j2
 @Component
 @RequiredArgsConstructor
 public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
