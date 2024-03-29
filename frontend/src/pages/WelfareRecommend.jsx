@@ -47,7 +47,7 @@ export default function WelfareRecommend() {
 
   return isLogin() ? (
     cards.length === 0 ? (
-      <Norecommend profile={profile} name={name}></Norecommend>
+      <Norecommend profile={profile} name={name} />
     ) : (
       <div className="grid justify-center mx-auto mt-[10vh] mb-[5vh] grid-cols-[70vw]">
         <div className="grid justify-center items-center mt-[5vh] grid-cols-[20%_30%_50%]">
@@ -58,6 +58,7 @@ export default function WelfareRecommend() {
         <div className="gap-y-[2vh] w-[70vw]">
           <div>
             <h2 className="mt-[5%] mr-[1%] mb-[-2%] ml-0 font-semibold">{name}님에게 추천하는 복지</h2>
+            <br /><br />
             <FilterSlide name={name} cards={cards} />
           </div>
           <RecommendSlid />
