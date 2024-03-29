@@ -31,10 +31,12 @@ export default function Norecommend(props) {
         )}
       </div>
       <div className="box-border w-[50vw] h-[300px] bg-[#fb923c] m-0 mx-[2%] rounded-lg flex flex-col justify-center items-center">
-        <h2 className='text-white'>추천 복지가 없습니다.</h2>
+        <h2 className='text-white text-xl font-bold'>추천 복지가 없습니다.</h2>
+        <br />
         <div>
           <Button
             className="bg-[#ea580c] border-[#ea580c]"
+            variant="danger"
             onClick={() => {
               navigate("/filter");
             }}
