@@ -85,24 +85,24 @@ export default function DetailTaps(props) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <div className="mb-[5vh] font-bold">누가 받을 수 있나요?</div>
+        <div className="mb-[4vh] font-bold" style={{ fontFamily: "Pretendard" }}>누가 받을 수 있나요?</div>
         <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-[80px] flex-shrink-0">지원대상 |</div>
-          <div>{target}</div>
+          <div className="w-[80px] flex-shrink-0" style={{ fontFamily: "Pretendard" }}>지원대상 |</div>
+          <div style={{ fontFamily: "Pretendard" }}>{target}</div>
         </div>
         {crit !== null ? (
           <Box
             sx={{
-              bgcolor: "#ea580c",
-              borderRadius: 2,
+              bgcolor: "#fb691d",
+              borderRadius: 3,
               p: 2,
               mt: 3,
-              color: "#033075",
+              color: "#eee",
               fontFamily: "Pretendard",
             }}
           >
@@ -113,19 +113,19 @@ export default function DetailTaps(props) {
         )}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div className="mb-[5vh] font-bold">어떤 혜택을 받을 수 있나요?</div>
+        <div className="mb-[5vh] font-bold" style={{ fontFamily: "Pretendard" }}>어떤 혜택을 받을 수 있나요?</div>
         <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-[80px] flex-shrink-0">지원내용 |</div>
-          <div>{content}</div>
+          <div className="w-[80px] flex-shrink-0" style={{ fontFamily: "Pretendard" }}>지원내용 |</div>
+          <div style={{ fontFamily: "Pretendard" }}>{content}</div>
         </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <div className="mb-[5vh] font-bold">
+        <div className="mb-[5vh] font-bold" style={{ fontFamily: "Pretendard" }}>
           어떻게 신청하나요?
         </div>
         <div className="flex">
@@ -134,12 +134,12 @@ export default function DetailTaps(props) {
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-[80px] flex-shrink-0">신청방법 |</div>
-          <div>{howto}</div>
+          <div className="w-[80px] flex-shrink-0" style={{ fontFamily: "Pretendard" }}>신청방법 |</div>
+          <div style={{ fontFamily: "Pretendard" }}>{howto}</div>
         </div>
       </TabPanel>
       <TabPanel value={value} index={3}>
-      <div className="mb-[5vh] font-bold">
+        <div className="mb-[5vh] font-bold" style={{ fontFamily: "Pretendard" }}>
           궁금한 사항이 더 있어요.
         </div>
         <div className="flex">
@@ -148,11 +148,11 @@ export default function DetailTaps(props) {
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-20 flex-shrink-0 mb-[1vh]">
+          <div className="w-20 flex-shrink-0 mb-[1vh]" style={{ fontFamily: "Pretendard" }}>
             관련부서 |
           </div>
-          <div>{deptName}</div>
-          <div>{contact}</div>
+          <div style={{ fontFamily: "Pretendard" }}>{deptName}</div>
+          <div style={{ fontFamily: "Pretendard" }}>{contact}</div>
         </div>
         <div className="flex">
           <Avatar
@@ -160,10 +160,10 @@ export default function DetailTaps(props) {
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-20 flex-shrink-0 mb-[1vh]">
+          <div className="w-20 flex-shrink-0 mb-[1vh]" style={{ fontFamily: "Pretendard" }}>
             전화문의 |
           </div>
-          <div>{phone}</div>
+          <div style={{ fontFamily: "Pretendard" }}>{phone}</div>
         </div>
         <div className="flex">
           <Avatar
@@ -171,12 +171,12 @@ export default function DetailTaps(props) {
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-[120px] flex-shrink-0">
+          <div className="w-[120px] flex-shrink-0" style={{ fontFamily: "Pretendard" }}>
             관련 웹사이트 |
           </div>
-          <div className="mr-[1vw]">{siteName}</div>
+          <div className="mr-[1vw]" style={{ fontFamily: "Pretendard" }}>{siteName}</div>
           <div>
-            <a href={siteLink}>{siteLink}</a>
+            <a href={siteLink} style={{ fontFamily: "Pretendard" }}>{siteLink}</a>
           </div>
         </div>
       </TabPanel>
