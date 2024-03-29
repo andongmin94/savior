@@ -2,12 +2,16 @@ package kr.ac.baekgoo.springboot.repository.welfare;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.PersistenceException;
 import kr.ac.baekgoo.springboot.domain.welfare.Welfare;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+@Log4j2
 @Repository
 public class WelfareRepository {
 
@@ -47,11 +51,27 @@ public class WelfareRepository {
                 .getResultList();
     }
 
-    public List<Welfare> getGroupWelfare(Long group_id) {
-        return em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.usedwelfares.size desc", Welfare.class)
-                .setParameter("group_id", group_id)
-                .getResultList();
-    }
+//    public List<Welfare> getGroupWelfare(Long group_id) {
+////        return em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.usedwelfares.size desc", Welfare.class)
+////                .setParameter("group_id", group_id)
+////                .getResultList();
+//        return em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by element(w.usedwelfares).id desc", Welfare.class)
+//                .setParameter("group_id", group_id)
+//                .getResultList();
+//    }
+//    public List<Welfare> getGroupWelfare(Long group_id) {
+//        try {
+//            return em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.usedwelfares.size desc", Welfare.class)
+//                    .setParameter("group_id", group_id)
+//                    .getResultList();
+//        } catch (PersistenceException e) {
+//            log.error(e);
+//            log.debug(e);
+//            log.info("대안메세지 출력");
+//            return Collections.emptyList(); // 예를 들어 빈 리스트를 반환하거나 다른 적절한 방법으로 처리
+//        }
+//    }
+
 
     public List<Welfare> getGroupPopularWelfare(Long group_id) {
         List<Welfare> welfares = em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.welfare_view desc" , Welfare.class)
@@ -65,6 +85,9 @@ public class WelfareRepository {
     }
 
     public List<Welfare> getMostUserWelfare() {
+//        List<Welfare> resultList = em.createQuery("select w from Welfare w order by w.usedwelfares.size desc", Welfare.class)
+//                .getResultList();
+//        return resultList.subList(0, 10);
         List<Welfare> resultList = em.createQuery("select w from Welfare w order by w.usedwelfares.size desc", Welfare.class)
                 .getResultList();
         return resultList.subList(0, 10);
