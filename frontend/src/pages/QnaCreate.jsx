@@ -82,6 +82,7 @@ export default function QnaCreate(props) {
             <Link to="/Qna">
               <Button
                 className='bg-gray-500 border-gray-500'
+                variant="danger"
                 size="lg">
                 취소
               </Button>
@@ -90,6 +91,7 @@ export default function QnaCreate(props) {
             <Button
               className='bg-[#ea580c] border-[#ea580c]'
               size="lg"
+              variant="danger"
               onClick={(e) => {
                 createQna();
               }}
