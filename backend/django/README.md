@@ -33,5 +33,6 @@ python manage.py migrate
 
 서버 실행
 ```bash
+source .venv/Scripts/activate
 python manage.py runserver
 ```
