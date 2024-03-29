@@ -151,9 +151,9 @@ export default function Profile() {
   return (
     <div>
       {typeof window.electron !== "undefined" && <div className="pt-16"/>}
-      <div className="flex justify-center text-black bg-[#ea580c] w-screen">
+      <div className="flex justify-center text-black bg-[url('/background/waves.svg')] w-screen">
         <div className="flex flex-col justify-center m-[15%] my-0">
-          <div className="m-[0%] mx-[5%] bg-white bg-opacity-80 rounded-md p-[3%] px-[5%]">
+          <div className="m-[0%] mx-[5%] bg-opacity-50 rounded-md p-[3%] px-[5%]">
             <UserProfile
               modify={modify}
               setModify={setModify}
