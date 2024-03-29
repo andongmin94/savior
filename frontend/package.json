@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
-  "author": "D109 정보처리기사 대비반",
-  "description": "Team Project by D109 정보처리기사 대비반",
+  "author": "D109 K-ASAP",
+  "description": "Team Project by D109 K-ASAP",
   "main": "src/electron/main.js",
   "build": {
     "appId": "Savior",
@@ -15,7 +15,7 @@
       "icon": "icon.png"
     },
     "productName": "Savior",
-    "copyright": "Copyright © 2024 D109 정보처리기사 대비반",
+    "copyright": "Copyright © 2024 D109 K-ASAP",
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
@@ -89,8 +89,8 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.18",
     "concurrently": "^8.2.2",
-    "electron": "^28.2.6",
-    "electron-builder": "^24.13.3",
+    "electron": "^28.1.4",
+    "electron-builder": "^24.9.1",
     "electron-localshortcut": "^3.2.1",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
