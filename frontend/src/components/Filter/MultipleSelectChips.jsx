@@ -17,9 +17,9 @@ export default function MultipleSelectChips({ value, setValue, options, label, e
 
   return (
     <div className="mb-2 my-2 text-center">
-      <Typography variant="h5" component="h5" gutterBottom>
+      <div className='font-bold text-2xl' style={{ fontFamily: "Pretendard" }}>
         <strong>{label}</strong>
-      </Typography>
+      </div>
       {error && (
         <FormHelperText error>
           {error}
@@ -29,20 +29,18 @@ export default function MultipleSelectChips({ value, setValue, options, label, e
         {options.map((option, i) => (
           <Chip
             key={i}
-            label={<Typography variant="body2" sx={{ 
-              color: value.includes(option.value) ? 'white' : orange[500] // 조건부 글자 색상
-            }}>{option.label}</Typography>}
+            label={<div style={{fontFamily:'Pretendard'}} className='text-white text-lg font-bold'>{option.label}</div>}
             onClick={() => handleClick(option.value)}
             sx={{
               borderColor: orange[500], // 오렌지색 테두리
               color: orange[500], // 오렌지색 글자 (기본)
               margin: 1, // 여백
               '&.MuiChip-outlined': {
-                border: `1px solid ${orange[500]}`, // 오렌지색 외곽선
+                border: `1px solid ${orange[900]}`, // 오렌지색 외곽선
               },
-              backgroundColor: value.includes(option.value) ? orange[500] : 'transparent', // 조건부 배경색
+              backgroundColor: value.includes(option.value) ? orange[900] : 'transparent', // 조건부 배경색
               '&:hover': {
-                backgroundColor: value.includes(option.value) ? orange[700] : orange[50], // 호버 시 배경색 변경
+                backgroundColor: value.includes(option.value) ? orange[900] : orange[500], // 호버 시 배경색 변경
               },
             }}
             variant={value.includes(option.value) ? 'filled' : 'outlined'} // 조건부 스타일 변화
