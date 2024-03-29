@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
+//////////////// electron components ////////////////
+import TitleBar from "@/components/TitleBar";
+/////////////////////////////////////////////////////
 
 import Login from '@/pages/Login';
 
 export default function Header() {
   return (
     <header className="fixed top-0 w-full z-10">
+      <TitleBar />
       {typeof window.electron !== "undefined" && <div className="pt-10"/>}
       <Navbar className="bg-orange-400" variant="dark">
         <Container>

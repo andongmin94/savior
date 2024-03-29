@@ -7,12 +7,13 @@
   "description": "Team Project by D109 K-ASAP",
   "main": "src/electron/main.js",
   "build": {
+    "extends": null,
     "appId": "Savior",
     "mac": {
-      "icon": "icon.png"
+      "icon": "public/icon.png"
     },
     "win": {
-      "icon": "icon.png"
+      "icon": "public/icon.png"
     },
     "productName": "Savior",
     "copyright": "Copyright © 2024 D109 K-ASAP",
@@ -23,7 +24,8 @@
     "files": [
       "dist/**/*",
       "src/electron/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "public/**/*"
     ],
     "directories": {
       "buildResources": "assets",
@@ -32,9 +34,9 @@
   },
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
     "elec": "electron .",
     "app": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && npm run elec\"",
-    "build": "vite build",
     "app:build": "electron-builder"
   },
   "dependencies": {
@@ -55,7 +57,10 @@
     "chart.js": "^4.4.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "dotenv": "^16.4.5",
+    "electron-localshortcut": "^3.2.1",
     "html-react-parser": "^5.1.8",
+    "https": "^1.0.0",
     "lodash": "^4.17.21",
     "lucide-react": "^0.354.0",
     "nginx": "^1.0.8",
@@ -89,9 +94,8 @@
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.18",
     "concurrently": "^8.2.2",
-    "electron": "^28.1.4",
-    "electron-builder": "^24.9.1",
-    "electron-localshortcut": "^3.2.1",
+    "electron": "^28.2.6",
+    "electron-builder": "^24.13.3",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
