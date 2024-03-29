@@ -157,6 +157,7 @@ export default function Main() {
                       </h5>
                       <Button
                         className="mt-[5%] mr-[30%] mb-[5%] ml-0 bg-[#ea580c] border-[#ea580c]"
+                        variant="danger"
                         onClick={() => {
                           navigate("/filter");
                         }}
@@ -167,7 +168,7 @@ export default function Main() {
                   </div>
                 ) : (
                   <div>
-                    <h2 className="mt-[50px] mb-[-10px] ml-[60px] font-semibold">
+                    <h2 className="mt-[50px] ml-[60px] font-semibold mb-12">
                       {name}님에게 추천하는 복지
                     </h2>
                     <FilterSlide
