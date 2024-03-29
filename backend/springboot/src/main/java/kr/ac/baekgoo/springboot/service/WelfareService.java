@@ -38,15 +38,16 @@ public List<Welfare> getWelfarebygroup(Long group_id) {
     return w;
 }
 
-//    public List<Welfare> getPopularWelfare() {
-//        return welfareRepository.getMostUserWelfare();
-//    }
     public List<Welfare> getPopularWelfare() {
-        List<Welfare> w = new ArrayList<>();
-        w.add(welfareRepository.findByWelfareId(1L));
-        w.add(welfareRepository.findByWelfareId(2L));
-        return w;
+        return welfareRepository.getMostUserWelfare();
     }
+//    public List<Welfare> getPopularWelfare() {
+//        List<Welfare> w = new ArrayList<>();
+//        w.add(welfareRepository.findByWelfareId(1L));
+//        w.add(welfareRepository.findByWelfareId(2L));
+//        w.add(welfareRepository.findByWelfareId(9L));
+//        return w;
+//    }
 
     public List<Welfare> getPopularInGroup(Long group) { return welfareRepository.getGroupPopularWelfare(group); }
 

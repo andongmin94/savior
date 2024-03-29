@@ -85,10 +85,7 @@ public class WelfareRepository {
     }
 
     public List<Welfare> getMostUserWelfare() {
-//        List<Welfare> resultList = em.createQuery("select w from Welfare w order by w.usedwelfares.size desc", Welfare.class)
-//                .getResultList();
-//        return resultList.subList(0, 10);
-        List<Welfare> resultList = em.createQuery("select w from Welfare w order by w.usedwelfares.size desc", Welfare.class)
+        List<Welfare> resultList = em.createQuery("select w from Welfare w order by w.welfare_view desc", Welfare.class)
                 .getResultList();
         return resultList.subList(0, 10);
     }
