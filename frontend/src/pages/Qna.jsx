@@ -60,7 +60,7 @@ export default function Qna(props) {
 
           <Link to="/QnaCreate">
             <span className="float-right mb-[1%]">
-              <Button className="bg-[#ea580c] border-[#ea580c]">
+              <Button variant="danger" className="bg-[#ea580c] border-[#ea580c]">
                 글쓰기
               </Button>{" "}
             </span>
