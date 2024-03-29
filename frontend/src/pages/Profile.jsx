@@ -29,7 +29,35 @@ const PaginationBtn = (props) => {
     </Stack>
   );
 };
+export default function Profile() {
+  const [userSeq, setUserSeq] = useState('');
+  const [username, setUsername] = useState('');
+  const [ageRange, setAgeRange] = useState('');
+  const [ageRender, setAgeRender] = useState('');
+  const [gender, setGender] = useState('');
+  const [profileImage, setProfileImage] = useState('');
+  const [liked, setLiked] = useState([]);
+  const [used, setUsed] = useState([]);
+  const [modify, setModify] = useState('false');
+  const navigate = useNavigate();
 
+  const [welLikes, setWelLikes] = useState({
+    datal: '',
+    pageSizel: 5, // 한 페이지에 보여줄 데이터 개수
+    currentPagel: 1, // 현재 활성화된 페이지 위치
+  });
+  const [welUsed, setWelUsed] = useState({
+    datau: '',
+    pageSizeu: 5, // 한 페이지에 보여줄 데이터 개수
+    currentPageu: 1, // 현재 활성화된 페이지 위치
+  });
+
+  const handlePageChangel = (page) => {
+    setWelLikes({ ...welLikes, currentPagel: page });
+  };
+  const handlePageChangeu = (page) => {
+    setWelUsed({ ...welUsed, currentPageu: page });
+  };
 
   const { datal, pageSizel, currentPagel } = welLikes;
   const { datau, pageSizeu, currentPageu } = welUsed;
