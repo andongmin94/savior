@@ -7,7 +7,6 @@
   "description": "Team Project by D109 K-ASAP",
   "main": "src/electron/main.js",
   "build": {
-    "extends": null,
     "appId": "Savior",
     "mac": {
       "icon": "public/icon.png"
@@ -30,7 +29,8 @@
     "directories": {
       "buildResources": "assets",
       "output": "dist_electron"
-    }
+    },
+    "extends": null
   },
   "scripts": {
     "dev": "vite",
