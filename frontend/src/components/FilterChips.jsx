@@ -168,7 +168,7 @@ export default function FilterChips() {
       />
 
       <div className="flex flex-col w-[20%] mb-[2%] items-center">
-        <h5 className='mb-[15px]'>
+        <h5 className='mb-[15px] text-2xl'>
           <b>자녀</b>
         </h5>
         <ChildSelectBox child={child} setChild={setChild}></ChildSelectBox>
@@ -187,7 +187,7 @@ export default function FilterChips() {
 
       <Button
         variant="Warning"
-        className='mt-[2%] w-[250px]'
+        className='mt-[2%] w-[250px] text-2xl font-bold'
         onClick={() => {
           setFilter();
           setText('정보 입력이 완료되었습니다.');
