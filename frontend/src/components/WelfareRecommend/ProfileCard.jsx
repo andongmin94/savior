@@ -17,7 +17,7 @@ export default function ProfileCard(props) {
       {props.name === null ? (
         <div />
       ) : (
-        <div className="text-[#033075] font-bold h-[6vh] grid justify-center items-center">안녕하세요 {props.name}님!</div>
+        <div className="text-white font-bold h-[6vh] grid justify-center items-center">안녕하세요 {props.name}님!</div>
       )}
     </div>
   );

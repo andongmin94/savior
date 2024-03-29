@@ -5,7 +5,7 @@ import Login from '@/pages/Login';
 
 export default function Header() {
   return (
-    <header className="fixed top-0 w-full">
+    <header className="fixed top-0 w-full z-10">
       {typeof window.electron !== "undefined" && <div className="pt-10"/>}
       <Navbar className="bg-orange-400" variant="dark">
         <Container>

@@ -14,11 +14,11 @@ export default function SearchBar() {
   const [word, setWord] = useState("");
   const navigate = useNavigate();
 
-  const onChange = e => {
+  const onChange = (e) => {
     setWord(e.target.value);
   };
 
-  const onEnter = async e => {
+  const onEnter = async (e) => {
     if (e.key === "Enter") {
       // console.log(e);
       await setWord(e.target.value);
@@ -28,7 +28,7 @@ export default function SearchBar() {
     }
   };
 
-  const onClick = word => {
+  const onClick = (word) => {
     // console.log(word);
     dispatch(changeInput(word));
     navigate(`/search?keyword=${word}`);
@@ -52,7 +52,7 @@ export default function SearchBar() {
   return (
     <div className="searchBar">
       <div className="flex items-start">
-      <div className="flex flex-col mb-[7px]">
+        <div className="flex flex-col mb-[7px]">
           <div className="w-[200px] bg-white text-[13px] pl-[5%] rounded-t-[3px] rounded-b-none">
             인기검색어
           </div>
@@ -67,93 +67,101 @@ export default function SearchBar() {
               pauseOnHover={true}
               className="w-[200px] p-[0_5%] bg-white rounded-b-[3px] list-none"
             >
-              <div onClick={e => onClick(keywords[0].keywordName)}>
+              <div onClick={(e) => onClick(keywords[0].keywordName)}>
                 <strong>
-                  <span className="text-white bg-[#0D6EFD] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     1
                   </span>
-
+                  &nbsp;
                   {keywords[0].keywordName}
                 </strong>
               </div>
-              <div onClick={e => onClick(keywords[1].keywordName)}>
+              <div onClick={(e) => onClick(keywords[1].keywordName)}>
                 <strong>
-                <span className="text-white bg-[#0D6EFD] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     2
                   </span>
-
+                  &nbsp;&nbsp;
                   {keywords[1].keywordName}
                 </strong>
               </div>
-              <div onClick={e => onClick(keywords[2].keywordName)}>
+              <div onClick={(e) => onClick(keywords[2].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#0D6EFD] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     3
                   </span>{" "}
+                  &nbsp;
                   {keywords[2].keywordName}
                 </strong>
               </div>
-              <div onClick={e => onClick(keywords[3].keywordName)}>
+              <div onClick={(e) => onClick(keywords[3].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#0D6EFD] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     4
                   </span>{" "}
+                  &nbsp;
                   {keywords[3].keywordName}
                 </strong>
               </div>
-              <div onClick={e => onClick(keywords[4].keywordName)}>
+              <div onClick={(e) => onClick(keywords[4].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#0D6EFD] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     5
                   </span>{" "}
+                  &nbsp;
                   {keywords[4].keywordName}
                 </strong>
               </div>
-              <div onClick={e => onClick(keywords[5].keywordName)}>
+              <div onClick={(e) => onClick(keywords[5].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#0D6EFD] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     6
                   </span>
+                  &nbsp;
                   {keywords[5].keywordName}
                 </strong>
               </div>
-              <div onClick={e => onClick(keywords[6].keywordName)}>
+              <div onClick={(e) => onClick(keywords[6].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#0D6EFD] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     7
                   </span>
+                  &nbsp;
                   {keywords[6].keywordName}
                 </strong>
               </div>
-              <div onClick={e => onClick(keywords[7].keywordName)}>
+              <div onClick={(e) => onClick(keywords[7].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#0D6EFD] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     8
                   </span>{" "}
+                  &nbsp;
                   {keywords[7].keywordName}
                 </strong>
               </div>
-              <div onClick={e => onClick(keywords[8].keywordName)}>
+              <div onClick={(e) => onClick(keywords[8].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#0D6EFD] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     9
                   </span>{" "}
+                  &nbsp;
                   {keywords[8].keywordName}
                 </strong>
               </div>
-              <div onClick={e => onClick(keywords[9].keywordName)}>
+              <div onClick={(e) => onClick(keywords[9].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#0D6EFD] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     10
                   </span>{" "}
+                  &nbsp;
                   {keywords[9].keywordName}
                 </strong>
               </div>
@@ -166,20 +174,21 @@ export default function SearchBar() {
         </div>
 
         <Form.Control
-    placeholder="검색어를 입력하세요"
-    onKeyDown={onEnter}
-    onChange={onChange}
-    value={word}
-    className="w-[1500px] h-[45px] mt-0 mr-[0.4rem] mb-0 ml-[0.5rem]"
-  />
-  <Button
-    type="submit"
-    onClick={() => onClick(word)}
-    className="w-20 h-[45px] mt-0 mr-0 mb-0 ml-[0.5rem] bg-[#ea580c] border-[#ea580c]"
-  >
-    검색
-  </Button>
-</div>
+          placeholder="검색어를 입력하세요"
+          onKeyDown={onEnter}
+          onChange={onChange}
+          value={word}
+          className="w-[1500px] h-[45px] mt-0 mr-[0.4rem] mb-0 ml-[0.5rem]"
+        />
+        <Button
+          type="submit"
+          variant="danger"
+          onClick={() => onClick(word)}
+          className="w-20 h-[45px] mt-0 mr-0 mb-0 ml-[0.5rem] bg-[#ea580c] border-[#ea580c]"
+        >
+          검색
+        </Button>
+      </div>
     </div>
   );
 }

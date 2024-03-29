@@ -15,7 +15,6 @@ import TitleBar from "@/components/TitleBar";
 /////////////////////////////////////////////////////
 import "@/globals.css";
 
-
 const enhancer =
   process.env.NODE_ENV === "production"
     ? compose(applyMiddleware())
