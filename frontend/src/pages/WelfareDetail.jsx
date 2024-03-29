@@ -129,7 +129,7 @@ export default function WelfareDetail() {
     <div className="box-border grid justify-center mt-[17vh] mb-[5vh]">
       <div className="flex justify-between items-center m-[10px]">
         <div>
-          <h2>복지서비스 상세(중앙)</h2>
+          <h2 className='text-xl font-bold'>복지서비스 상세(중앙)</h2>
           <div>
             다양한 복지 혜택을 찾고, 지원대상 및 선정기준 등 자세한 내용을 확인할 수 있습니다.
           </div>
@@ -175,7 +175,8 @@ export default function WelfareDetail() {
           유사한 복지를 추천합니다
         </span>
       </div>
-      <div className="flex justify-between m-[10px]">
+      <br />
+      <div className="flex justify-between m-[10px] border rounded-sm">
         {recommend.map((wel, index) => {
           return likeWelfares.length !== 0 ? (
             <DetailCard key={index} recommend={wel} likeNum={likeWelfares} />
