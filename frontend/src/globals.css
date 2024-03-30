@@ -52,8 +52,8 @@
  
 @layer base {
   @font-face {
-    font-family: 'Pretendard';
-    src: url('/fonts/Pretendard-Variable.ttf') format('truetype');
+    font-family: 'TmoneyRoundWind';
+    src: url('/fonts/TmoneyRoundWind.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -70,7 +70,7 @@
 
   body {
     @apply bg-background text-foreground font-sans;
-    font-family: 'Pretendard';
+    font-family: 'TmoneyRoundWind';
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
