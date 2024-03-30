@@ -41,12 +41,7 @@ export default function RecommendSlide() {
         }}
       >
         <SwiperSlide className="flex justify-center">
-          <RecommendCard
-            className="items-center border-[1px] border-solid"
-            title={title[0]}
-            id={id[0]}
-            content={content[0]}
-          />
+          <RecommendCard title={title[0]} id={id[0]} content={content[0]} />
         </SwiperSlide>
         <SwiperSlide className="flex justify-center">
           <RecommendCard title={title[1]} id={id[1]} content={content[1]} />
