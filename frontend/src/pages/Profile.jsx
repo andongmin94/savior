@@ -175,7 +175,7 @@ export default function Profile() {
                   회원님의 상황을 자세하게 설정하세요. 추천 복지 선택에 도움을 줍니다.
                 </strong>
               </h5>
-              <FilterChips></FilterChips>
+              <FilterChips />
             </div>
 
             <hr className='my-[3%] mx-0' />
@@ -251,7 +251,7 @@ export default function Profile() {
             <hr className='my-[3%] mx-0' />
 
             <div className="flex justify-end">
-              <DeleteAccount></DeleteAccount>
+              <DeleteAccount />
             </div>
           </div>
         </div>
