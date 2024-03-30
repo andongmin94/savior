@@ -90,24 +90,26 @@ export default function Main() {
   return (
     <main>
       <div className="grid justify-center">
-        <div className="flex flex-wrap flex-col p-[1%] px-[10%] bg-[#f97316] w-screen text-black">
-          <div className="flex flex-wrap flex-row mt-[100px] justify-around bg-[#f97316]">
-            <div className="mt-[170px] text-white">
-              <h2>
+        <div className="flex flex-wrap flex-col p-[1%] px-[10%] bg-blue-500 w-screen text-black">
+          <div className="flex flex-wrap flex-row mt-[100px] justify-around bg-blue-500">
+            <div className="mt-[170px] text-white text-lg">
+              <div>
                 <b>만류귀종, 삶의 형태는 다양하지만 우리는 모두 동등하다.</b>
-              </h2>
+              </div>
+              
+              <br />
 
-              <h5 className="mt-[10px]">
+              <div className="mt-[10px]">
                 세이비어는 이용자에게 맞춤 복지 정보를 제공합니다.
                 <br />
                 ‘세이비어’에 가입하고 본인에게 딱 맞는 복지제도 정보를
                 찾아보세요.
-              </h5>
+              </div>
 
               {!token ? (
                 <Button
                   href={KAKAO_AUTH_URL}
-                  className="mt-[10px] bg-[#ea580c] border-[#ea580c]"
+                  className="mt-[10px] bg-blue-800 border-none"
                 >
                   카카오톡으로 시작하기
                 </Button>
@@ -118,6 +120,7 @@ export default function Main() {
         </div>
 
         <div className="w-screen h-screen relative bg-[url('/background/waves.svg')]">
+          <br />
           <div className="mx-[10%] mb-[1%]">
             <SearchBar keywords={keywords} />
           </div>
@@ -156,8 +159,7 @@ export default function Main() {
                         </strong>
                       </h5>
                       <Button
-                        className="mt-[5%] mr-[30%] mb-[5%] ml-0 bg-[#ea580c] border-[#ea580c]"
-                        variant="danger"
+                        className="mt-[5%] mr-[30%] mb-[5%] ml-0 bg-blue-800 border-none"
                         onClick={() => {
                           navigate("/filter");
                         }}
