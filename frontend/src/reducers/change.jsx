@@ -1,6 +1,6 @@
 export const CHANGE_INPUT = "CHANGE/CHANGE_INPUT";
 
-export const changeInput = keyword => ({ type: CHANGE_INPUT, keyword });
+export const changeInput = (keyword) => ({ type: CHANGE_INPUT, keyword });
 
 const initialState = {
   keyword: "",
@@ -15,4 +15,4 @@ export default function change(state = initialState, action) {
     default:
       return state;
   }
-};
+}

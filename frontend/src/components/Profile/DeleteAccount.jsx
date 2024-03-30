@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-import { getAxios } from '@/api';
+import { getAxios } from "@/api";
 
 export default function DeleteAccount() {
   let navigate = useNavigate();
@@ -16,7 +16,7 @@ export default function DeleteAccount() {
   const getDelete = async () => {
     try {
       const axios = getAxios();
-      let res = await axios.delete('/api/users/delete');
+      let res = await axios.delete("/api/users/delete");
     } catch (err) {
       console.log(err);
     }
@@ -26,7 +26,7 @@ export default function DeleteAccount() {
     <div>
       <Button
         variant="danger"
-        className='w-[100px]'
+        className="w-[100px]"
         onClick={() => {
           handleShow();
         }}
@@ -46,7 +46,7 @@ export default function DeleteAccount() {
               handleClose();
               getDelete();
               setShowDone(true);
-              localStorage.removeItem('token');
+              localStorage.removeItem("token");
             }}
           >
             탈퇴
@@ -64,7 +64,7 @@ export default function DeleteAccount() {
             variant="secondary"
             onClick={() => {
               setShowDone(false);
-              navigate('/', { replace: true });
+              navigate("/", { replace: true });
             }}
           >
             메인으로 가기
@@ -73,4 +73,4 @@ export default function DeleteAccount() {
       </Modal>
     </div>
   );
-};
+}

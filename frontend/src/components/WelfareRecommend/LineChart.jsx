@@ -4,11 +4,7 @@ import "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
 import { getAxios } from "../../api";
-import {
-  welDataName,
-  welDataContent,
-  welDataId,
-} from "@/reducers/welData";
+import { welDataName, welDataContent, welDataId } from "@/reducers/welData";
 
 export default function Chart() {
   const axios = getAxios();
@@ -61,14 +57,14 @@ export default function Chart() {
     const fetchData = async () => {
       try {
         const request = await axios.get("/api/welfare/recommend/grouppopular");
-        let wel = request.data.map(a => a.welfare_service_name);
+        let wel = request.data.map((a) => a.welfare_service_name);
         await setLabel(wel);
         await dispatch(welDataName(wel));
-        let view = request.data.map(a => a.welfare_view);
+        let view = request.data.map((a) => a.welfare_view);
         await setDatas(view);
-        let welNum = request.data.map(a => a.welfare_id);
+        let welNum = request.data.map((a) => a.welfare_id);
         await dispatch(welDataId(welNum));
-        let con = request.data.map(a => a.welfare_service_content);
+        let con = request.data.map((a) => a.welfare_service_content);
         await dispatch(welDataContent(con));
       } catch (err) {
         console.log(err);

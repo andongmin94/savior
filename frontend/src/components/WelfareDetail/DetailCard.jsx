@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Button } from "react-bootstrap";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import { Button } from "react-bootstrap";
 import Typography from "@mui/material/Typography";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
@@ -15,7 +15,7 @@ import { getAxios } from "@/api";
 import AlertModal from "@/components/AlertModal";
 
 export default function DetailCard(props) {
-  const { used, like } = useSelector(state => state.likeused);
+  const { used, like } = useSelector((state) => state.likeused);
   const [likeBtn, setLikeBtn] = useState(false);
   const welfare = props.recommend;
   const likeNum = props.likeNum;
@@ -67,15 +67,13 @@ export default function DetailCard(props) {
         pr: 2,
         display: "grid",
         gridTemplateRows: "80% 20%",
-        fontFamily: 'TmoneyRoundWind'
+        fontFamily: "TmoneyRoundWind",
       }}
     >
       <CardContent className="grid">
         <Grid container sx={{ mb: 2 }}>
           <Grid item xs={10}>
-            <div className="font-bold text-md text-blue-800">
-              {welfare[1]}
-            </div>
+            <div className="font-bold text-md text-blue-800">{welfare[1]}</div>
           </Grid>
           {likeNum !== undefined ? (
             <Grid item xs={2}>
@@ -113,14 +111,19 @@ export default function DetailCard(props) {
           )}
         </Grid>
         <p
-          style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical'}}
-          className="overflow-hidden overflow-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words">
+          style={{
+            display: "-webkit-box",
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: "vertical",
+          }}
+          className="overflow-hidden overflow-ellipsis whitespace-normal leading-[1.5] h-[4.5em] text-left break-words"
+        >
           {welfare[2]}
         </p>
       </CardContent>
       <CardActions>
         <Button
-          className='bg-blue-700 border-none texd-white w-full'
+          className="bg-blue-700 border-none texd-white w-full"
           onClick={handleClick}
         >
           상세보기

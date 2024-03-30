@@ -42,7 +42,7 @@ export default function SearchBar() {
           type="submit"
           onClick={onClick}
         >
-          <BsSearch className="text-white"/>
+          <BsSearch className="text-white" />
         </Button>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import { Button } from "react-bootstrap";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 
@@ -26,14 +26,14 @@ export default function RecommendCard(props) {
         background: "#E3F2FD",
       }}
     >
-      <CardContent className='grid'>
+      <CardContent className="grid">
         <Grid container sx={{ mb: 2 }}>
-        <Typography
+          <Typography
             onClick={onClick}
             component="div"
             sx={10}
-            className='text-blue-800'
-            fontFamily={'TmoneyRoundWind'}
+            className="text-blue-800"
+            fontFamily={"TmoneyRoundWind"}
           >
             <div className="hover:no-underline hover:inline cursor-pointer font-bold">
               {title}
@@ -52,7 +52,10 @@ export default function RecommendCard(props) {
         </p>
       </CardContent>
       <CardActions>
-        <Button className='bg-blue-700 border-none texd-white w-full' onClick={onClick}>
+        <Button
+          className="bg-blue-700 border-none texd-white w-full"
+          onClick={onClick}
+        >
           상세보기
         </Button>
       </CardActions>

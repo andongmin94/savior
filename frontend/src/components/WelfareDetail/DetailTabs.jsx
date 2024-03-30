@@ -85,26 +85,38 @@ export default function DetailTaps(props) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <div className="mb-[4vh] font-bold" style={{ fontFamily: "TmoneyRoundWind" }}>누가 받을 수 있나요?</div>
+        <div
+          className="mb-[4vh] font-bold"
+          style={{ fontFamily: "TmoneyRoundWind" }}
+        >
+          누가 받을 수 있나요?
+        </div>
         <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-[80px] flex-shrink-0" style={{ fontFamily: "TmoneyRoundWind" }}>지원대상 |</div>
+          <div
+            className="w-[80px] flex-shrink-0"
+            style={{ fontFamily: "TmoneyRoundWind" }}
+          >
+            지원대상 |
+          </div>
           <div style={{ fontFamily: "TmoneyRoundWind" }}>
-            {target !== undefined && target.split('○').map((item, index) => (
-              <div key={index}>
-                {item.trim() !== '' && (
-                  <div>
-                    <span>○ </span>
-                    <span>{item.trim()}</span>
-                    <br /><br />
-                  </div>
-                )}
-              </div>
-            ))}
+            {target !== undefined &&
+              target.split("○").map((item, index) => (
+                <div key={index}>
+                  {item.trim() !== "" && (
+                    <div>
+                      <span>○ </span>
+                      <span>{item.trim()}</span>
+                      <br />
+                      <br />
+                    </div>
+                  )}
+                </div>
+              ))}
           </div>
         </div>
         {crit !== null && crit !== undefined ? (
@@ -118,39 +130,52 @@ export default function DetailTaps(props) {
               fontFamily: "TmoneyRoundWind",
             }}
           >
-            {crit.split('○').map((item, index) => (
+            {crit.split("○").map((item, index) => (
               <div key={index}>
-                {item.trim() !== '' && (
+                {item.trim() !== "" && (
                   <div>
                     <span>○ </span>
                     <span>{item.trim()}</span>
-                    <br /><br />
+                    <br />
+                    <br />
                   </div>
                 )}
               </div>
             ))}
           </Box>
         ) : (
-          <div/>
+          <div />
         )}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <div className="mb-[5vh] font-bold" style={{ fontFamily: "TmoneyRoundWind" }}>어떤 혜택을 받을 수 있나요?</div>
+        <div
+          className="mb-[5vh] font-bold"
+          style={{ fontFamily: "TmoneyRoundWind" }}
+        >
+          어떤 혜택을 받을 수 있나요?
+        </div>
         <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-[80px] flex-shrink-0" style={{ fontFamily: "TmoneyRoundWind" }}>지원내용 |</div>
+          <div
+            className="w-[80px] flex-shrink-0"
+            style={{ fontFamily: "TmoneyRoundWind" }}
+          >
+            지원내용 |
+          </div>
           <div style={{ fontFamily: "TmoneyRoundWind" }}>
-            {content !== undefined && content.split('○').map((item, index) => (
+            {content !== undefined &&
+              content.split("○").map((item, index) => (
                 <div key={index}>
-                  {item.trim() !== '' && (
+                  {item.trim() !== "" && (
                     <div>
                       <span>○ </span>
                       <span>{item.trim()}</span>
-                      <br /><br />
+                      <br />
+                      <br />
                     </div>
                   )}
                 </div>
@@ -159,7 +184,10 @@ export default function DetailTaps(props) {
         </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <div className="mb-[5vh] font-bold" style={{ fontFamily: "TmoneyRoundWind" }}>
+        <div
+          className="mb-[5vh] font-bold"
+          style={{ fontFamily: "TmoneyRoundWind" }}
+        >
           어떻게 신청하나요?
         </div>
         <div className="flex">
@@ -168,15 +196,22 @@ export default function DetailTaps(props) {
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-[80px] flex-shrink-0" style={{ fontFamily: "TmoneyRoundWind" }}>신청방법 |</div>
+          <div
+            className="w-[80px] flex-shrink-0"
+            style={{ fontFamily: "TmoneyRoundWind" }}
+          >
+            신청방법 |
+          </div>
           <div style={{ fontFamily: "TmoneyRoundWind" }}>
-            {howto !== undefined && howto.split('○').map((item, index) => (
+            {howto !== undefined &&
+              howto.split("○").map((item, index) => (
                 <div key={index}>
-                  {item.trim() !== '' && (
+                  {item.trim() !== "" && (
                     <div>
                       <span>○ </span>
                       <span>{item.trim()}</span>
-                      <br /><br />
+                      <br />
+                      <br />
                     </div>
                   )}
                 </div>
@@ -185,7 +220,10 @@ export default function DetailTaps(props) {
         </div>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <div className="mb-[5vh] font-bold" style={{ fontFamily: "TmoneyRoundWind" }}>
+        <div
+          className="mb-[5vh] font-bold"
+          style={{ fontFamily: "TmoneyRoundWind" }}
+        >
           궁금한 사항이 더 있어요.
         </div>
         <div className="flex">
@@ -194,7 +232,10 @@ export default function DetailTaps(props) {
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-20 flex-shrink-0 mb-[1vh]" style={{ fontFamily: "TmoneyRoundWind" }}>
+          <div
+            className="w-20 flex-shrink-0 mb-[1vh]"
+            style={{ fontFamily: "TmoneyRoundWind" }}
+          >
             관련부서 |
           </div>
           <div style={{ fontFamily: "TmoneyRoundWind" }}>{deptName}</div>
@@ -206,7 +247,10 @@ export default function DetailTaps(props) {
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-20 flex-shrink-0 mb-[1vh]" style={{ fontFamily: "TmoneyRoundWind" }}>
+          <div
+            className="w-20 flex-shrink-0 mb-[1vh]"
+            style={{ fontFamily: "TmoneyRoundWind" }}
+          >
             전화문의 |
           </div>
           <div style={{ fontFamily: "TmoneyRoundWind" }}>{phone}</div>
@@ -217,12 +261,19 @@ export default function DetailTaps(props) {
             className="mr-[10px]"
             src="/broken-image.jpg"
           />
-          <div className="w-[120px] flex-shrink-0" style={{ fontFamily: "TmoneyRoundWind" }}>
+          <div
+            className="w-[120px] flex-shrink-0"
+            style={{ fontFamily: "TmoneyRoundWind" }}
+          >
             관련 웹사이트 |
           </div>
-          <div className="mr-[1vw]" style={{ fontFamily: "TmoneyRoundWind" }}>{siteName}</div>
+          <div className="mr-[1vw]" style={{ fontFamily: "TmoneyRoundWind" }}>
+            {siteName}
+          </div>
           <div>
-            <a href={siteLink} style={{ fontFamily: "TmoneyRoundWind" }}>{siteLink}</a>
+            <a href={siteLink} style={{ fontFamily: "TmoneyRoundWind" }}>
+              {siteLink}
+            </a>
           </div>
         </div>
       </TabPanel>

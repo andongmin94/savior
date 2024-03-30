@@ -1,5 +1,5 @@
-import 'regenerator-runtime/runtime';
-import ReactDOM from 'react-dom/client'
+import "regenerator-runtime/runtime";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore, compose } from "redux";
@@ -19,7 +19,7 @@ const enhancer =
 
 const store = createStore(rootReducer, undefined, enhancer);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <>
     <BrowserRouter>
       <ScrollToTop />
@@ -27,8 +27,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <App />
       </Provider>
     </BrowserRouter>
-  </>,
-)
+  </>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

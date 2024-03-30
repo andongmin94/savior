@@ -1,4 +1,4 @@
-import Form from 'react-bootstrap/Form';
+import Form from "react-bootstrap/Form";
 
 export default function GenderSelectBox({ gender, setGender }) {
   const handleChange = (e) => {
@@ -11,7 +11,7 @@ export default function GenderSelectBox({ gender, setGender }) {
       value={gender}
       onChange={handleChange}
       size="sm"
-      className='inline w-[150px]'
+      className="inline w-[150px]"
     >
       <option value="placeholder" disabled>
         선택
@@ -20,4 +20,4 @@ export default function GenderSelectBox({ gender, setGender }) {
       <option value="male">남자</option>
     </Form.Select>
   );
-};
+}
