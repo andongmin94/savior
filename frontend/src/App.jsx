@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Layout from "@/components/layout/layout";
 import Main from "@/pages/Main";
-import Auth from './pages/OAuth';
+import Auth from "./pages/OAuth";
 import Profile from "@/pages/Profile";
 import Manual from "@/pages/Manual";
 import Qna from "@/pages/Qna";

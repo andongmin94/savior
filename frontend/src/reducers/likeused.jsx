@@ -1,8 +1,8 @@
 export const LIKE_INPUT = "likeused/LIKE_INPUT";
 export const USED_INPUT = "likeused/USED_INPUT";
 
-export const likeusedLike = like => ({ type: LIKE_INPUT, like });
-export const likeusedUsed = used => ({ type: USED_INPUT, used });
+export const likeusedLike = (like) => ({ type: LIKE_INPUT, like });
+export const likeusedUsed = (used) => ({ type: USED_INPUT, used });
 
 const initialState = {
   like: [],
@@ -18,4 +18,4 @@ export default function likeused(state = initialState, action) {
     default:
       return state;
   }
-};
+}

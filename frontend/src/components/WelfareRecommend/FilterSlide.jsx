@@ -1,10 +1,10 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Pagination, Autoplay, Navigation } from 'swiper/core';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Pagination, Autoplay, Navigation } from "swiper/core";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-import FilterCard from '@/components/WelfareRecommend/FilterCard';
+import FilterCard from "@/components/WelfareRecommend/FilterCard";
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
@@ -34,10 +34,7 @@ export default function FilterSlide(props) {
         }}
       >
         {props.cards.map((card) => (
-          <SwiperSlide
-            className="flex justify-center"
-            key={card.welfareId}
-          >
+          <SwiperSlide className="flex justify-center" key={card.welfareId}>
             <FilterCard
               className="items-center"
               name={card.welfare_service_name}

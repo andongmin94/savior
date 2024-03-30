@@ -40,7 +40,6 @@ export default function Main() {
       await setSelectfamilies(response.data.body.user.selectfamilies);
       await setSelecttargets(response.data.body.user.selecttargets);
     } catch (err) {
-
       console.log(err);
     }
   };
@@ -96,7 +95,7 @@ export default function Main() {
               <div>
                 <b>만류귀종, 삶의 형태는 다양하지만 우리는 모두 동등하다.</b>
               </div>
-              
+
               <br />
 
               <div className="mt-[10px]">

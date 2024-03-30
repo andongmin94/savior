@@ -54,15 +54,13 @@ export default function Qna(props) {
           <h1 className="text-center">
             <strong>고객센터</strong>
           </h1>
-          <div className='text-center'>
+          <div className="text-center">
             궁금한 점이나 문의 사항을 남겨주세요.
           </div>
 
           <Link to="/QnaCreate">
             <span className="float-right mb-[1%]">
-              <Button className="bg-blue-700 border-none">
-                글쓰기
-              </Button>{" "}
+              <Button className="bg-blue-700 border-none">글쓰기</Button>{" "}
             </span>
           </Link>
 

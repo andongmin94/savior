@@ -1,10 +1,10 @@
 export default function SidoSelectBox({ setIsAll, isAll, setRegion }) {
   const handleChange = (e) => {
     setIsAll(e.target.value);
-    if (e.target.value === 'All') {
-      setRegion('00');
-    } else if (e.target.value === 'GwangJu') {
-      setRegion('10');
+    if (e.target.value === "All") {
+      setRegion("00");
+    } else if (e.target.value === "GwangJu") {
+      setRegion("10");
     }
   };
 
@@ -14,4 +14,4 @@ export default function SidoSelectBox({ setIsAll, isAll, setRegion }) {
       <option value="GwangJu">광주</option>
     </select>
   );
-};
+}

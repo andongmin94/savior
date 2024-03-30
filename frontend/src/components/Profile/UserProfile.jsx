@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Stack } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 import AlertModal from "@/components/AlertModal";
 import ModifyProfile from "@/components/Profile/Modify";
@@ -71,8 +71,7 @@ export default function UserProfile({
             src={profileImage}
             className="w-[110px] h-[110px] rounded-[70%] overflow-hidden"
           />
-          <div 
-            className="flex flex-col ml-[20px]">
+          <div className="flex flex-col ml-[20px]">
             <h5>
               <b> {username}님 안녕하세요!</b>
             </h5>
@@ -100,4 +99,4 @@ export default function UserProfile({
       <AlertModal text={text} show={show} setShow={setShow}></AlertModal>
     </div>
   );
-};
+}

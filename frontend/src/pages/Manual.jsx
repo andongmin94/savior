@@ -9,7 +9,8 @@ export default function Manual() {
               <strong>'세이비어'는 회원가입 이후 사용하실 수 있습니다.</strong>
             </h4>
             <h6>
-              메인 페이지에서 '카카오톡 간편 가입' 버튼을 눌러 가입을 완료해주세요.
+              메인 페이지에서 '카카오톡 간편 가입' 버튼을 눌러 가입을
+              완료해주세요.
             </h6>
           </div>
         </div>
@@ -33,18 +34,10 @@ export default function Manual() {
         </div>
         <div className="flex justify-center items-center w-screen">
           <div className="w-[50vw]">
-            <img
-              src="/site-manual/002.png"
-              alt="manual-image"
-              width="100%"
-            />
+            <img src="/site-manual/002.png" alt="manual-image" width="100%" />
           </div>
           <div className="w-[50vw]">
-            <img
-              src="/site-manual/003.png"
-              alt="manual-image"
-              width="100%"
-            />
+            <img src="/site-manual/003.png" alt="manual-image" width="100%" />
           </div>
         </div>
       </div>
@@ -84,18 +77,10 @@ export default function Manual() {
         </div>
         <div className="flex justify-center items-center w-screen">
           <div className="w-[50vw]">
-            <img
-              src="/site-manual/005.png"
-              alt="manual-image"
-              width="100%"
-            />
+            <img src="/site-manual/005.png" alt="manual-image" width="100%" />
           </div>
           <div className="w-[50vw]">
-            <img
-              src="/site-manual/006.png"
-              alt="manual-image"
-              width="100%"
-            />
+            <img src="/site-manual/006.png" alt="manual-image" width="100%" />
           </div>
         </div>
       </div>

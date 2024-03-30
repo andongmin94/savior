@@ -20,9 +20,7 @@ export default function Norecommend(props) {
           />
         )}
         {props.name === null ? (
-          <div className="mt-[1vh] mb-[1vh]">
-            안녕하세요!
-          </div>
+          <div className="mt-[1vh] mb-[1vh]">안녕하세요!</div>
         ) : (
           <div className="mt-[1vh] mb-[1vh] bg-blue-600 border-none">
             <div>안녕하세요!</div>
@@ -31,7 +29,7 @@ export default function Norecommend(props) {
         )}
       </div>
       <div className="box-border w-[50vw] h-[300px] bg-blue-600 m-0 mx-[2%] rounded-lg flex flex-col justify-center items-center">
-        <h2 className='text-white text-xl font-bold'>추천 복지가 없습니다.</h2>
+        <h2 className="text-white text-xl font-bold">추천 복지가 없습니다.</h2>
         <br />
         <div>
           <Button
@@ -46,4 +44,4 @@ export default function Norecommend(props) {
       </div>
     </div>
   );
-};
+}

@@ -13,7 +13,7 @@ import { getAxios } from "@/api";
 import AlertModal from "@/components/AlertModal";
 
 export default function DetailMain(props) {
-  const { used, like } = useSelector(state => state.likeused);
+  const { used, like } = useSelector((state) => state.likeused);
   const [likeBtn, setLikeBtn] = useState(false);
   const [checkBtn, setCheckBtn] = useState(false);
   const [show, setShow] = useState(false);
@@ -84,7 +84,7 @@ export default function DetailMain(props) {
       <Paper elevation={3} sx={{ p: 3, bgcolor: "#E3F2FD" }}>
         <Grid container>
           <Grid item xs={10}>
-            <h2 className='text-[#033075]'>{Name}</h2>
+            <h2 className="text-[#033075]">{Name}</h2>
           </Grid>
           {likeNum !== undefined && usedNum !== undefined ? (
             <Grid item xs={2} align="right">
