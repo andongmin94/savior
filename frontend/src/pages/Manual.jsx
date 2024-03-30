@@ -9,12 +9,12 @@ export default function Manual() {
               <strong>'세이비어'는 회원가입 이후 사용하실 수 있습니다.</strong>
             </h4>
             <h6>
-              메인 페이지에서 '10초만에 가입' 버튼을 눌러 가입을 완료해주세요.
+              메인 페이지에서 '카카오톡 간편 가입' 버튼을 눌러 가입을 완료해주세요.
             </h6>
           </div>
         </div>
         <div className="w-[50vw]">
-          <img src="/site-manual/example.png" alt="manual-image" width="100%" />
+          <img src="/site-manual/001.png" alt="manual-image" width="100%" />
         </div>
       </div>
       <div className="flex flex-col h-full items-center">
@@ -34,14 +34,14 @@ export default function Manual() {
         <div className="flex justify-center items-center w-screen">
           <div className="w-[50vw]">
             <img
-              src="/site-manual/example.png"
+              src="/site-manual/002.png"
               alt="manual-image"
               width="100%"
             />
           </div>
           <div className="w-[50vw]">
             <img
-              src="/site-manual/example.png"
+              src="/site-manual/003.png"
               alt="manual-image"
               width="100%"
             />
@@ -50,7 +50,7 @@ export default function Manual() {
       </div>
       <div className="flex h-full items-center">
         <div className="w-[50vw]">
-          <img src="/site-manual/example.png" alt="manual-image" width="100%" />
+          <img src="/site-manual/004.png" alt="manual-image" width="100%" />
         </div>
         <div className="w-[50vw]">
           <div className="flex flex-col justify-center items-start ml-[5vw]">
@@ -85,14 +85,14 @@ export default function Manual() {
         <div className="flex justify-center items-center w-screen">
           <div className="w-[50vw]">
             <img
-              src="/site-manual/example.png"
+              src="/site-manual/005.png"
               alt="manual-image"
               width="100%"
             />
           </div>
           <div className="w-[50vw]">
             <img
-              src="/site-manual/example.png"
+              src="/site-manual/006.png"
               alt="manual-image"
               width="100%"
             />
@@ -115,7 +115,7 @@ export default function Manual() {
           </div>
         </div>
         <div className="w-[50vw]">
-          <img src="/site-manual/example.png" alt="manual-image" width="100%" />
+          <img src="/site-manual/007.png" alt="manual-image" width="100%" />
         </div>
       </div>
     </div>
