@@ -32,7 +32,7 @@ export default function UserProfile({
             src={profileImage}
             className="w-[110px] h-[110px] rounded-[70%] overflow-hidden"
           ></img>
-          <div className="flex flex-col ml-[20px]">
+          <div className="flex flex-col ml-[20px] text-white">
             <h5>
               <b> {username}님 안녕하세요!</b>
             </h5>
@@ -53,12 +53,12 @@ export default function UserProfile({
                   : genderMap.get(gender)}
               </b>
             </h6>
-
+            <br />
             <Button
               size="sm"
-              className="w-[80px] bg-[#ea580c] border-[#ea580c]"
+              className="w-[80px] bg-blue-800 border-none"
               onClick={() => {
-                setModify("ture");
+                setModify("true");
               }}
             >
               수정
@@ -82,11 +82,9 @@ export default function UserProfile({
               gender={gender}
               setGender={setGender}
             ></ModifyProfile>
-
             <Button
               size="sm"
-              variant="warning"
-              className="w-20 bg-orange-400 border-orange-400 text-white"
+              className="w-20 bg-blue-800 border-none text-white"
               onClick={() => {
                 setModify("false");
                 setProfile();
