@@ -14,7 +14,7 @@ export default function CustomFilter() {
   return (
     <div className='grid'>
       {isLogin() ? (
-        <div className='flex py-[10%] px-[10%] w-[100vw] h-[100vh] bg-[url("/background/waves.svg")]'>
+        <div className='flex py-[10%] px-[10%] w-screen h-screen bg-[url("/background/waves.svg")]'>
           <FilterChips />
         </div>
       ) : (
