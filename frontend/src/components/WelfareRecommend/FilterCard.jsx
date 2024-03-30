@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
+import { Button } from "react-bootstrap";
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
@@ -30,12 +30,12 @@ export default function FilterCard(props) {
         <Grid container sx={{ mb: 2 }}>
           <Typography
             onClick={onClick}
-            variant="h6"
             component="div"
             sx={10}
-            className='text-[#033075]'
+            className='text-blue-800'
+            fontFamily={'TmoneyRoundWind'}
           >
-            <div className="cursor-pointer hover:no-underline shadow-[0_-6px_rgba(75,_112,_253,_0.3)_inset]">
+            <div className="cursor-pointer hover:no-underline font-bold">
               {name}
             </div>
           </Typography>
@@ -47,7 +47,7 @@ export default function FilterCard(props) {
         </div>
       </CardContent>
       <CardActions>
-        <Button variant="contained" size="small" fullWidth onClick={onClick}>
+        <Button className='bg-blue-700 border-none texd-white w-full'  onClick={onClick}>
           상세보기
         </Button>
       </CardActions>
