@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
-import Button from '@mui/material/Button';
+import { Button } from "react-bootstrap";
 
 import { getAxios } from '@/api';
 import { likeusedLike, likeusedUsed } from "@/reducers/likeused";
@@ -135,7 +135,7 @@ export default function WelfareDetail() {
           </div>
         </div>
         <Button
-          variant="contained"
+          className='bg-blue-700 border-none texd-white font-bold'
           sx={{ height: 35 }}
           onClick={() => {
             navigate(-1);
