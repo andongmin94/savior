@@ -31,7 +31,7 @@ public class WelfareRepository {
 
     public List searchWelfare(String keyword) {
 
-        return em.createQuery("select w.welfareId, w.welfare_service_name, w.welfare_view from Welfare w where w.welfare_service_name like concat('%', :keyword, '%')")
+        return em.createQuery("select w.welfareId, w.welfare_service_name, w.welfare_view from Welfare w where w.welfare_service_name like concat('%', :keyword, '%') order by w.welfare_view desc")
                 .setParameter("keyword", keyword)
                 .getResultList();
     }
@@ -59,20 +59,30 @@ public class WelfareRepository {
 //                .setParameter("group_id", group_id)
 //                .getResultList();
 //    }
-//    public List<Welfare> getGroupWelfare(Long group_id) {
-//        try {
-//            return em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.usedwelfares.size desc", Welfare.class)
-//                    .setParameter("group_id", group_id)
-//                    .getResultList();
-//        } catch (PersistenceException e) {
-//            log.error(e);
-//            log.debug(e);
-//            log.info("대안메세지 출력");
-//            return Collections.emptyList(); // 예를 들어 빈 리스트를 반환하거나 다른 적절한 방법으로 처리
-//        }
-//    }
+    public List<Welfare> getGroupWelfare(Long group_id) {
+        try {
+            System.out.println("WelfareRepository.getGroupWelfare success");
+            List<Welfare> query_result = em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.usedwelfares.size desc", Welfare.class)
+                .setParameter("group_id", group_id)
+                .getResultList();
+            return query_result;
+        } catch (PersistenceException e) {
+            log.info("PersistenceException");
+            log.error(e);
+            return Collections.emptyList();
+        } catch (Exception e) {
+            log.info("getGroupWelfare Exception");
+            log.error(e);
+
+            List<Welfare> query_result = em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.id desc", Welfare.class)
+                    .setParameter("group_id", group_id)
+                    .getResultList();
+            return query_result;
+        }
+    }
 
 
+    // 유저 그룹에 의한 인기(조회) 순
     public List<Welfare> getGroupPopularWelfare(Long group_id) {
         List<Welfare> welfares = em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.welfare_view desc" , Welfare.class)
                 .setParameter("group_id", group_id)
@@ -84,6 +94,7 @@ public class WelfareRepository {
         }
     }
 
+    // 모든 유저에 있어서의 인기(조회) 순
     public List<Welfare> getMostUserWelfare() {
         List<Welfare> resultList = em.createQuery("select w from Welfare w order by w.welfare_view desc", Welfare.class)
                 .getResultList();

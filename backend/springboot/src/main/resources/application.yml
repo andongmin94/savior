@@ -19,7 +19,7 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
@@ -104,5 +104,8 @@ logging:
   file:
     path: /home/ubuntu/log
   config: classpath:log4j2.yml
+  level:
+    com.zaxxer.hikari.HikariConfig: WARN
+    com.zaxxer.hikari: WARN
 
-debug: true
+#debug: true
