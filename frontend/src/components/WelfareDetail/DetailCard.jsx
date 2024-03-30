@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+import { Button } from "react-bootstrap";
 import Typography from "@mui/material/Typography";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
 import StarRoundedIcon from "@mui/icons-material/StarRounded";
@@ -67,13 +67,13 @@ export default function DetailCard(props) {
         pr: 2,
         display: "grid",
         gridTemplateRows: "80% 20%",
-        fontFamily: 'Pretendard'
+        fontFamily: 'TmoneyRoundWind'
       }}
     >
       <CardContent className="grid">
         <Grid container sx={{ mb: 2 }}>
           <Grid item xs={10}>
-            <div className="font-bold text-md">
+            <div className="font-bold text-md text-blue-800">
               {welfare[1]}
             </div>
           </Grid>
@@ -120,9 +120,7 @@ export default function DetailCard(props) {
       </CardContent>
       <CardActions>
         <Button
-          variant="contained"
-          size="small"
-          fullWidth
+          className='bg-blue-700 border-none texd-white w-full'
           onClick={handleClick}
         >
           상세보기
