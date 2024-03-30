@@ -41,7 +41,7 @@ export default function DeleteAccount() {
         <Modal.Body>회원탈퇴 하시겠습니까?</Modal.Body>
         <Modal.Footer>
           <Button
-            variant="secondary"
+            className="bg-blue-700 border-none"
             onClick={() => {
               handleClose();
               getDelete();
@@ -51,7 +51,7 @@ export default function DeleteAccount() {
           >
             탈퇴
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose}>
             취소
           </Button>
         </Modal.Footer>
