@@ -20,7 +20,7 @@ export default function Login() {
       {!isLogin() ? (
         <div>
           <a href={KAKAO_AUTH_URL}>
-            <Button variant="danger" className="bg-[#ea580c] border-[#ea580c] font-bold text-lg">
+            <Button className="bg-blue-800 border-none font-bold text-lg">
               로그인
             </Button>
           </a>
@@ -28,14 +28,13 @@ export default function Login() {
       ) : (
         <div>
           <Link to="/profile">
-            <Button variant="danger" className="bg-[#ea580c] border-[#ea580c] font-bold text-lg mr-[5px]">
+            <Button className="bg-blue-800 border-none font-bold text-lg mr-[5px]">
               내 정보
             </Button>
           </Link>
 
           <Button
-            className="bg-[#ea580c] border-[#ea580c] font-bold text-lg"
-            variant="danger"
+            className="bg-blue-800 border-none font-bold text-lg"
             onClick={() => {
               localStorage.removeItem("token");
               localStorage.removeItem("name");
