@@ -51,8 +51,7 @@ export default function Comments(props) {
         </div>
       )}
       <Button
-        variant="secondary"
-        size="sm"
+        className="bg-blue-700 border-none"
         onClick={() => {
           setEditable(!editable);
         }}
@@ -60,8 +59,7 @@ export default function Comments(props) {
         수정
       </Button>{" "}
       <Button
-        variant="danger"
-        size="sm"
+        className="bg-blue-700 border-none"
         onClick={() => {
           handleShow();
           // deleteComment(props.id);
@@ -76,7 +74,7 @@ export default function Comments(props) {
         <Modal.Body>댓글 삭제 하시겠습니까?</Modal.Body>
         <Modal.Footer>
           <Button
-            variant="danger"
+            className="bg-blue-700 border-none"
             onClick={() => {
               handleClose();
               deleteComment(props.id);
@@ -100,8 +98,7 @@ export default function Comments(props) {
         onChange={(e) => setComment(e.target.value)}
       ></input>
       <Button
-        variant="secondary"
-        size="sm"
+        className="bg-blue-700 border-none"
         onClick={(e) => {
           updateComment(props.id);
           setEditable(!editable);
@@ -111,7 +108,6 @@ export default function Comments(props) {
       </Button>{" "}
       <Button
         variant="secondary"
-        size="sm"
         onClick={(e) => {
           setEditable(!editable);
         }}
