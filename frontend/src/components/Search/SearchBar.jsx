@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "@mui/material/Button";
+import { Button } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 
@@ -26,7 +26,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="box-border flex mt-8 justify-center items-center h-24 rounded-sm bg-orange-400">
+    <div className="box-border flex mt-8 justify-center items-center h-24 rounded-sm bg-blue-600">
       <div className="flex h-12 justify-center">
         <input
           type="text"
@@ -38,7 +38,7 @@ export default function SearchBar() {
           className="rounded-l-sm w-96 h-12 pl-4"
         />
         <Button
-          className="bg-[#ea580c] border-[#ea580c]"
+          className="bg-blue-800 border-none rounded-l-none"
           type="submit"
           onClick={onClick}
         >
