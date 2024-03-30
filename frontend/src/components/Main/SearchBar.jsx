@@ -69,7 +69,7 @@ export default function SearchBar() {
             >
               <div onClick={(e) => onClick(keywords[0].keywordName)}>
                 <strong>
-                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-blue-800 inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     1
                   </span>
                   &nbsp;
@@ -78,7 +78,7 @@ export default function SearchBar() {
               </div>
               <div onClick={(e) => onClick(keywords[1].keywordName)}>
                 <strong>
-                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-blue-800 inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     2
                   </span>
                   &nbsp;&nbsp;
@@ -88,7 +88,7 @@ export default function SearchBar() {
               <div onClick={(e) => onClick(keywords[2].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-blue-800 inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     3
                   </span>{" "}
                   &nbsp;
@@ -98,7 +98,7 @@ export default function SearchBar() {
               <div onClick={(e) => onClick(keywords[3].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-blue-800 inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     4
                   </span>{" "}
                   &nbsp;
@@ -108,7 +108,7 @@ export default function SearchBar() {
               <div onClick={(e) => onClick(keywords[4].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-blue-800 inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     5
                   </span>{" "}
                   &nbsp;
@@ -118,7 +118,7 @@ export default function SearchBar() {
               <div onClick={(e) => onClick(keywords[5].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-blue-800 inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     6
                   </span>
                   &nbsp;
@@ -128,7 +128,7 @@ export default function SearchBar() {
               <div onClick={(e) => onClick(keywords[6].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-blue-800 inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     7
                   </span>
                   &nbsp;
@@ -138,7 +138,7 @@ export default function SearchBar() {
               <div onClick={(e) => onClick(keywords[7].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-blue-800 inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     8
                   </span>{" "}
                   &nbsp;
@@ -148,7 +148,7 @@ export default function SearchBar() {
               <div onClick={(e) => onClick(keywords[8].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-blue-800 inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     9
                   </span>{" "}
                   &nbsp;
@@ -158,7 +158,7 @@ export default function SearchBar() {
               <div onClick={(e) => onClick(keywords[9].keywordName)}>
                 <strong>
                   {" "}
-                  <span className="text-white bg-[#f97316] inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
+                  <span className="text-white bg-blue-800 inline-block text-xs h-[16px] leading-[16px] text-center w-[15px] pb-[1px] mr-[1px] rounded-[2px]">
                     10
                   </span>{" "}
                   &nbsp;
@@ -182,9 +182,8 @@ export default function SearchBar() {
         />
         <Button
           type="submit"
-          variant="danger"
           onClick={() => onClick(word)}
-          className="w-20 h-[45px] mt-0 mr-0 mb-0 ml-[0.5rem] bg-[#ea580c] border-[#ea580c]"
+          className="w-20 h-[45px] mt-0 mr-0 mb-0 ml-[0.5rem] bg-blue-800 border-none"
         >
           검색
         </Button>
