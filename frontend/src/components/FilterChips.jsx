@@ -186,8 +186,7 @@ export default function FilterChips() {
       </div>
 
       <Button
-        variant="Warning"
-        className='mt-[2%] w-[250px] text-2xl font-bold'
+        className="bg-blue-700 border-none mt-[2%] w-[250px] text-2xl font-bold"
         onClick={() => {
           setFilter();
           setText('정보 입력이 완료되었습니다.');
