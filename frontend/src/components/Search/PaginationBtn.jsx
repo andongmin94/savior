@@ -17,8 +17,8 @@ export default function PaginationBtn(props) {
         count={pageCount}
         variant="outlined"
         shape="rounded"
-        onClick={e => onPageChange(e.target.textContent)}
+        onClick={(e) => onPageChange(e.target.textContent)}
       />
     </Stack>
   );
-};
+}

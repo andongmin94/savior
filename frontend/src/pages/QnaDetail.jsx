@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { connect, useSelector } from 'react-redux';
-import { Container, Button, Modal } from 'react-bootstrap';
-import HtmlReactParser from 'html-react-parser';
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { connect, useSelector } from "react-redux";
+import { Container, Button, Modal } from "react-bootstrap";
+import HtmlReactParser from "html-react-parser";
 
-import { getAxios } from '@/api';
-import Comments from '@/components/Comments';
+import { getAxios } from "@/api";
+import Comments from "@/components/Comments";
 
 function isLogin() {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   if (token) {
     return true;
   } else {
@@ -21,9 +21,9 @@ export default function QnaDetail(props) {
   let state = useSelector((state) => state);
   const qnaId = useParams().qnaId;
 
-  const [댓글, 댓글값변경] = useState('');
+  const [댓글, 댓글값변경] = useState("");
   const [댓글들, 댓글들변경] = useState([]);
-  const [new댓글, new댓글값변경] = useState('');
+  const [new댓글, new댓글값변경] = useState("");
   const [new댓글들, new댓글들변경] = useState([]);
   // const [editable, setEditable] = useState(false);
   const [show, setShow] = useState(false);
@@ -32,7 +32,7 @@ export default function QnaDetail(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [editable, setEditable] = useState('false');
+  const [editable, setEditable] = useState("false");
   const [check, setCheck] = useState(false);
   const [qna, setQna] = useState({});
   const axios = getAxios();
@@ -42,14 +42,15 @@ export default function QnaDetail(props) {
     navigate(`/Qna/`);
   };
   const createComment = () => {
-    if (댓글 == '') {
-      alert('댓글을 입력하세요');
-    } else if (댓글 !== '') {
-      axios.post(`/api/comment/${qnaId}?content=${댓글}`, {
+    if (댓글 == "") {
+      alert("댓글을 입력하세요");
+    } else if (댓글 !== "") {
+      axios
+        .post(`/api/comment/${qnaId}?content=${댓글}`, {
           // comment_content: 댓글,
         })
         .then((res) => {
-          댓글값변경('');
+          댓글값변경("");
           getComment();
         });
     }
@@ -70,14 +71,14 @@ export default function QnaDetail(props) {
         // console.log(res)
       })
       .catch((err) => {
-        alert('잘못된 접근입니다');
-        navigate('/');
+        alert("잘못된 접근입니다");
+        navigate("/");
         // console.log(err);
       });
   };
   const checkLogin = () => {
     if (!isLogin()) {
-      alert('로그인해주세요');
+      alert("로그인해주세요");
       navigate(`/`);
     } else {
       getComment();
@@ -88,17 +89,17 @@ export default function QnaDetail(props) {
   }, []);
 
   return (
-    <Container className='mt-[2vh]'>
+    <Container className="mt-[2vh]">
       {isLogin() && check ? (
         <div className="mx-auto w-[70%] mt-[10%] pt-[5%] pb-[15%]">
-          <div className='text-center mb-[5%]'>
+          <div className="text-center mb-[5%]">
             <strong>고객센터</strong>
-            <div className='text-center mt-[5px] text-[16px]'>
+            <div className="text-center mt-[5px] text-[16px]">
               궁금한 점이나 문의 사항을 남겨주세요.
             </div>
           </div>
 
-          <div className='text-right'>
+          <div className="text-right">
             <Button
               variant="secondary"
               size="sm"
@@ -107,7 +108,7 @@ export default function QnaDetail(props) {
               }}
             >
               수정
-            </Button>{' '}
+            </Button>{" "}
             <Button
               variant="danger"
               size="sm"
@@ -142,15 +143,17 @@ export default function QnaDetail(props) {
           </Modal>
           <hr></hr>
 
-          <div className='px-[5%]'>{qna.title}</div>
+          <div className="px-[5%]">{qna.title}</div>
           <hr></hr>
 
-          <div className='bg-[#f9fafb] p-[5%]'>{HtmlReactParser(qna.content)}</div>
+          <div className="bg-[#f9fafb] p-[5%]">
+            {HtmlReactParser(qna.content)}
+          </div>
           <hr></hr>
-          <h2 className='pb-[2%]'>답변</h2>
-          <div className='flex w-full my-[5%]'>
+          <h2 className="pb-[2%]">답변</h2>
+          <div className="flex w-full my-[5%]">
             <textarea
-              className='w-full min-h-[70px] resize-none'
+              className="w-full min-h-[70px] resize-none"
               value={댓글}
               onChange={(e) => {
                 댓글값변경(e.target.value);
@@ -166,7 +169,7 @@ export default function QnaDetail(props) {
               등록
             </Button>
           </div>
-          <div className='w-full my-[5%]'>
+          <div className="w-full my-[5%]">
             {댓글들.map((a) => {
               return (
                 <Comments
@@ -182,7 +185,7 @@ export default function QnaDetail(props) {
             })}
           </div>
 
-          <div className='text-right'>
+          <div className="text-right">
             <Link to="/Qna">
               <Button variant="secondary" size="sm">
                 목록

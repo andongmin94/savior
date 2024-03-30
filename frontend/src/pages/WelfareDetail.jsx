@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Button } from "react-bootstrap";
 
-import { getAxios } from '@/api';
+import { getAxios } from "@/api";
 import { likeusedLike, likeusedUsed } from "@/reducers/likeused";
-import DetailMain from '@/components/WelfareDetail/DetailMain';
-import DetailTabs from '@/components/WelfareDetail/DetailTabs';
-import DetailCard from '@/components/WelfareDetail/DetailCard';
+import DetailMain from "@/components/WelfareDetail/DetailMain";
+import DetailTabs from "@/components/WelfareDetail/DetailTabs";
+import DetailCard from "@/components/WelfareDetail/DetailCard";
 
 const isLogin = () => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   if (token) {
     return true;
   } else {
     return false;
   }
-}
+};
 
 export default function WelfareDetail() {
   const dispatch = useDispatch();
@@ -57,9 +57,9 @@ export default function WelfareDetail() {
         const request = await axios.get(`/api/welfare/${welfareId}/recommend`);
         // console.log(request.data)
         // console.log(shuffle(request.data))
-        const arr = request.data.sort(()=>Math.random()-0.5);
+        const arr = request.data.sort(() => Math.random() - 0.5);
         // console.log(arr);
-        setRecommend(arr.slice(0,3));
+        setRecommend(arr.slice(0, 3));
       } catch (err) {
         console.log(err);
       }
@@ -71,7 +71,7 @@ export default function WelfareDetail() {
   useEffect(() => {
     const fetchLike = async () => {
       try {
-        const request = await axios.get('/api/users/like');
+        const request = await axios.get("/api/users/like");
         const datas = request.data.body.likeList;
         if (datas.length !== 0) {
           const ids = await datas.map((data) => data.welfareId);
@@ -90,8 +90,8 @@ export default function WelfareDetail() {
     const checkLogin = () => {
       if (isLogin()) {
         fetchLike();
-      } 
-    }
+      }
+    };
     checkLogin();
     return () => setLikeWelfares([]);
   }, []);
@@ -99,7 +99,7 @@ export default function WelfareDetail() {
   useEffect(() => {
     const fetchUsed = async () => {
       try {
-        const request = await axios.get('api/users/used');
+        const request = await axios.get("api/users/used");
         const datas = request.data.body.usedWelfareList;
         if (datas.length !== 0) {
           const ids = await datas.map((data) => data.welfareId);
@@ -120,7 +120,7 @@ export default function WelfareDetail() {
       if (isLogin()) {
         fetchUsed();
       }
-    }
+    };
     checkLogin();
     return () => setUsedWelfares([0]);
   }, []);
@@ -129,13 +129,14 @@ export default function WelfareDetail() {
     <div className="box-border grid justify-center mt-[17vh] mb-[5vh]">
       <div className="flex justify-between items-center m-[10px]">
         <div>
-          <h2 className='text-xl font-bold'>복지서비스 상세(중앙)</h2>
+          <h2 className="text-xl font-bold">복지서비스 상세(중앙)</h2>
           <div>
-            다양한 복지 혜택을 찾고, 지원대상 및 선정기준 등 자세한 내용을 확인할 수 있습니다.
+            다양한 복지 혜택을 찾고, 지원대상 및 선정기준 등 자세한 내용을
+            확인할 수 있습니다.
           </div>
         </div>
         <Button
-          className='bg-blue-700 border-none texd-white font-bold'
+          className="bg-blue-700 border-none texd-white font-bold"
           sx={{ height: 35 }}
           onClick={() => {
             navigate(-1);
@@ -153,11 +154,7 @@ export default function WelfareDetail() {
           usedNum={usedWelfares}
         />
       ) : (
-        <DetailMain
-          welfareId={welfareId}
-          Name={name}
-          Content={content}
-        />
+        <DetailMain welfareId={welfareId} Name={name} Content={content} />
       )}
       <DetailTabs
         target={target}
@@ -180,7 +177,9 @@ export default function WelfareDetail() {
         {recommend.map((wel, index) => {
           return likeWelfares.length !== 0 ? (
             <DetailCard key={index} recommend={wel} likeNum={likeWelfares} />
-          ) : <DetailCard key={index} recommend={wel} />
+          ) : (
+            <DetailCard key={index} recommend={wel} />
+          );
         })}
       </div>
     </div>

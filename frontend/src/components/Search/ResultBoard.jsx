@@ -4,12 +4,12 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { getAxios } from "@/api";
-import PaginationBtn from "@/components/Search/PaginationBtn";
 import { paginate } from "@/components/Search/paginate";
+import PaginationBtn from "@/components/Search/PaginationBtn";
 
 export default function ResultBoard() {
   const axios = getAxios();
-  const { keyword } = useSelector(state => state.change);
+  const { keyword } = useSelector((state) => state.change);
   const navigate = useNavigate();
 
   const [welfares, setWelfares] = useState({
@@ -18,7 +18,7 @@ export default function ResultBoard() {
     currentPage: 1, // 현재 활성화된 페이지 위치
   });
 
-  const handlePageChange = page => {
+  const handlePageChange = (page) => {
     setWelfares({ ...welfares, currentPage: page });
     // console.log(page);
   };
@@ -40,18 +40,22 @@ export default function ResultBoard() {
     fetchSearch();
   }, [keyword]);
 
-  const onClick = id => {
+  const onClick = (id) => {
     navigate(`/welfare/${id}`);
   };
 
   const { length: count } = data;
   if (count === 0) {
-    return <div className="box-border w-[50vw] h-[50vh] rounded-lg border-solid border border-[#e9ecef] m-auto text-center font-bold leading-[50vh]">검색 정보가 없습니다 🔍</div>;
+    return (
+      <div className="box-border w-[50vw] h-[50vh] rounded-lg border-solid border border-[#e9ecef] m-auto text-center font-bold leading-[50vh]">
+        검색 정보가 없습니다 🔍
+      </div>
+    );
   }
 
   return (
     <div className="box-border w-[50vw] flex flex-col mb-[5vh]">
-      <div className='box-border border-t-[1px] border-t-[solid] border-t-[gray] border-b-[1px] border-b-[solid] border-b-[gray]'>
+      <div className="box-border border-t-[1px] border-t-[solid] border-t-[gray] border-b-[1px] border-b-[solid] border-b-[gray]">
         <Table striped bordered hover>
           <thead className="text-center">
             <tr>
@@ -61,10 +65,13 @@ export default function ResultBoard() {
             </tr>
           </thead>
           <tbody>
-            {pagedWelfares.map(welfare => (
+            {pagedWelfares.map((welfare) => (
               <tr key={welfare[0]}>
                 <td>{welfare[0]}</td>
-                <div className="cursor-pointer hover:underline" onClick={e => onClick(welfare[0])}>
+                <div
+                  className="cursor-pointer hover:underline"
+                  onClick={(e) => onClick(welfare[0])}
+                >
                   {welfare[1]}
                 </div>
                 <td>{welfare[2]}</td>

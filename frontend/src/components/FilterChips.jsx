@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button, Modal } from 'react-bootstrap';
-import { StepContext } from '@mui/material';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button, Modal } from "react-bootstrap";
+import { StepContext } from "@mui/material";
 
-import { getAxios, getAxiosDjango } from '../api';
-import MultipleSelectChips from '@/components/Filter/MultipleSelectChips';
-import ChildSelectBox from '@/components/Filter/Child';
-import AlertModal from '@/components/AlertModal';
-import { orange } from '@mui/material/colors';
+import { getAxios, getAxiosDjango } from "../api";
+import MultipleSelectChips from "@/components/Filter/MultipleSelectChips";
+import ChildSelectBox from "@/components/Filter/Child";
+import AlertModal from "@/components/AlertModal";
+import { orange } from "@mui/material/colors";
 
 const map = new Map();
 map.set(15, 0); //학생
@@ -54,43 +54,43 @@ familyMap.set(11, 34); //취약계층
 familyMap.set(12, 35); // --> 해당없음
 
 const jobChip = [
-  { label: '학생', value: 15 },
-  { label: '무직 (실업자(취업희망자))', value: 16 },
-  { label: '창업(영세자영업(창업)자)', value: 17 },
-  { label: '농어업인', value: 18 },
-  { label: '중소기업(저소득근로자)', value: 19 },
-  { label: '일반', value: 20 },
+  { label: "학생", value: 15 },
+  { label: "무직 (실업자(취업희망자))", value: 16 },
+  { label: "창업(영세자영업(창업)자)", value: 17 },
+  { label: "농어업인", value: 18 },
+  { label: "중소기업(저소득근로자)", value: 19 },
+  { label: "일반", value: 20 },
 ];
 
 const familyChip = [
-  { label: '무주택자', value: 23 },
-  { label: '임산부', value: 24 },
-  { label: '1인가구', value: 25 },
-  { label: '다문화/탈북민', value: 26 },
-  { label: '다자녀', value: 27 },
-  { label: '보훈대상자', value: 28 },
-  { label: '장애인', value: 29 },
-  { label: '신규전입', value: 30 },
-  { label: '한부모/조손', value: 31 },
-  { label: '확대가족', value: 32 },
-  { label: '요양환자/치매환자', value: 33 },
-  { label: '취약계층', value: 34 },
-  { label: '해당없음', value: 35 },
+  { label: "무주택자", value: 23 },
+  { label: "임산부", value: 24 },
+  { label: "1인가구", value: 25 },
+  { label: "다문화/탈북민", value: 26 },
+  { label: "다자녀", value: 27 },
+  { label: "보훈대상자", value: 28 },
+  { label: "장애인", value: 29 },
+  { label: "신규전입", value: 30 },
+  { label: "한부모/조손", value: 31 },
+  { label: "확대가족", value: 32 },
+  { label: "요양환자/치매환자", value: 33 },
+  { label: "취약계층", value: 34 },
+  { label: "해당없음", value: 35 },
 ];
 
 export default function FilterChips() {
   let navigate = useNavigate();
 
-  const [userSeq, setUserSeq] = useState('');
+  const [userSeq, setUserSeq] = useState("");
   const [value, setValue] = useState([0]); //value에 없는 임의의 초기값 저장
   const [clicked, setCliked] = useState([]);
-  const [error, setError] = useState('');
-  const [child, setChild] = useState('2');
+  const [error, setError] = useState("");
+  const [child, setChild] = useState("2");
   const [job, setJob] = useState([]);
   const [family, setFamily] = useState([]);
 
   const [show, setShow] = useState(false);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const handleShow = () => setShow(true);
 
   const setFilter = async () => {
@@ -113,8 +113,8 @@ export default function FilterChips() {
       });
 
       const axios = getAxios();
-      await axios.post('/api/users/update/char', {
-        child: child ? child : '2',
+      await axios.post("/api/users/update/char", {
+        child: child ? child : "2",
         job: selectJob,
         family: selectFamily,
       });
@@ -130,10 +130,10 @@ export default function FilterChips() {
     const getFilter = async () => {
       try {
         const axios = getAxios();
-        let response = await axios.get('/api/users/profile');
+        let response = await axios.get("/api/users/profile");
         setUserSeq(response.data.body.user.userSeq);
 
-        let res = await axios.get('/api/users/update/char');
+        let res = await axios.get("/api/users/update/char");
         setChild(res.data.body.UserCharacter.child);
         setJob(res.data.body.UserCharacter.job);
         setFamily(res.data.body.UserCharacter.family);
@@ -157,7 +157,7 @@ export default function FilterChips() {
   }, [value]);
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className="flex flex-col justify-center items-center">
       <MultipleSelectChips
         label="직장"
         value={clicked}
@@ -168,13 +168,13 @@ export default function FilterChips() {
       />
 
       <div className="flex flex-col w-[20%] mb-[2%] items-center">
-        <h5 className='mb-[15px] text-2xl'>
+        <h5 className="mb-[15px] text-2xl">
           <b>자녀</b>
         </h5>
         <ChildSelectBox child={child} setChild={setChild}></ChildSelectBox>
       </div>
 
-      <div className='w-[70%]'>
+      <div className="w-[70%]">
         <MultipleSelectChips
           label="상황"
           value={clicked}
@@ -189,7 +189,7 @@ export default function FilterChips() {
         className="bg-blue-700 border-none mt-[2%] w-[250px] text-2xl font-bold"
         onClick={() => {
           setFilter();
-          setText('정보 입력이 완료되었습니다.');
+          setText("정보 입력이 완료되었습니다.");
           handleShow();
         }}
       >

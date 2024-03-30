@@ -3,17 +3,27 @@ export default function GugunSelectBox({ isAll, setRegion, region }) {
     setRegion(e.target.value);
   };
 
-  if (isAll === 'All') {
+  if (isAll === "All") {
     return (
-      <select id="selectGugunAll" value={region} onChange={handleChange} readOnly>
+      <select
+        id="selectGugunAll"
+        value={region}
+        onChange={handleChange}
+        readOnly
+      >
         <option value="00" readOnly>
           전체
         </option>
       </select>
     );
-  } else if (isAll === 'GwangJu') {
+  } else if (isAll === "GwangJu") {
     return (
-      <select id="selectGugunGwangJu" value={region} onChange={handleChange} readOnly>
+      <select
+        id="selectGugunGwangJu"
+        value={region}
+        onChange={handleChange}
+        readOnly
+      >
         <option value="10">전체</option>
         <option value="11">광산구</option>
         <option value="12">남구</option>
@@ -23,4 +33,4 @@ export default function GugunSelectBox({ isAll, setRegion, region }) {
       </select>
     );
   }
-};
+}

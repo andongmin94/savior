@@ -46,7 +46,7 @@ export default function Keyword() {
           </div>
           <div
             className="text-left"
-            style={{ flexBasis: "70%"}}
+            style={{ flexBasis: "70%" }}
             onClick={(e) => onClick(keyword.keywordName)}
           >
             {keyword.keywordName}

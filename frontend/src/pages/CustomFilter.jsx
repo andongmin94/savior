@@ -1,8 +1,8 @@
-import FilterChips from '@/components/FilterChips';
-import LoginModal from '@/components/LoginModal';
+import FilterChips from "@/components/FilterChips";
+import LoginModal from "@/components/LoginModal";
 
 function isLogin() {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   if (token) {
     return true;
   } else {
@@ -12,13 +12,13 @@ function isLogin() {
 
 export default function CustomFilter() {
   return (
-    <div className='grid'>
+    <div className="grid">
       {isLogin() ? (
         <div className='flex py-[10%] px-[10%] w-screen h-screen bg-[url("/background/waves.svg")]'>
           <FilterChips />
         </div>
       ) : (
-          <LoginModal />
+        <LoginModal />
       )}
     </div>
   );

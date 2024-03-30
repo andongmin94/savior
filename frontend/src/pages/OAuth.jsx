@@ -1,16 +1,16 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Auth() {
   // BE에서 받은 token
-  const token = new URL(window.location.href).searchParams.get('token');
+  const token = new URL(window.location.href).searchParams.get("token");
 
   let navigate = useNavigate();
 
   const getToken = async () => {
     try {
-      await localStorage.setItem('token', token);
-      navigate('/', { replace: true });
+      await localStorage.setItem("token", token);
+      navigate("/", { replace: true });
       // navigate('/filter', { replace: true });
     } catch (err) {
       console.log(err);
