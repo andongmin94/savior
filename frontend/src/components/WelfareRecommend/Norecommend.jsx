@@ -5,7 +5,7 @@ export default function Norecommend(props) {
   const navigate = useNavigate();
   return (
     <div className="flex justify-center items-center my-[20vh] mx-[10vw] w-[80vw] h-[60vh]">
-      <div className="box-border grid w-[200px] h-[300px] text-[#ffffff] mx-[2%] bg-[#fb923c] text-center rounded-[20px]">
+      <div className="box-border grid w-[200px] h-[300px] text-[#ffffff] mx-[2%] bg-blue-600 text-center rounded-[20px]">
         {props.profile === null ? (
           <img
             src="/blank-profile.png"
@@ -24,19 +24,18 @@ export default function Norecommend(props) {
             안녕하세요!
           </div>
         ) : (
-          <div className="mt-[1vh] mb-[1vh] bg-[#ea580c] border-[#ea580c]">
+          <div className="mt-[1vh] mb-[1vh] bg-blue-600 border-none">
             <div>안녕하세요!</div>
             <div>{props.name}님</div>
           </div>
         )}
       </div>
-      <div className="box-border w-[50vw] h-[300px] bg-[#fb923c] m-0 mx-[2%] rounded-lg flex flex-col justify-center items-center">
+      <div className="box-border w-[50vw] h-[300px] bg-blue-600 m-0 mx-[2%] rounded-lg flex flex-col justify-center items-center">
         <h2 className='text-white text-xl font-bold'>추천 복지가 없습니다.</h2>
         <br />
         <div>
           <Button
-            className="bg-[#ea580c] border-[#ea580c]"
-            variant="danger"
+            className="bg-blue-800 border-none"
             onClick={() => {
               navigate("/filter");
             }}
