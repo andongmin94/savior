@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -30,24 +31,17 @@ public class WelfareService {
 
 //    public List<Welfare> getWelfarebygroup(Long group_id) {
 //        return welfareRepository.getGroupWelfare(group_id);
-//    }
-public List<Welfare> getWelfarebygroup(Long group_id) {
-    List<Welfare> w = new ArrayList<>();
-    w.add(welfareRepository.findByWelfareId(5L));
-    w.add(welfareRepository.findByWelfareId(6L));
-    return w;
-}
+//    } 임시
+    public List<Welfare> getWelfarebygroup(Long group_id) {
+        Random random = new Random();
+        Long random_group_id = random.nextLong(49) - 1;
+        System.out.println("Warn Info WelfareService.getWelfarebygroup, randnom = " + random_group_id);
+        return welfareRepository.getGroupWelfare(random_group_id);
+    }
 
     public List<Welfare> getPopularWelfare() {
         return welfareRepository.getMostUserWelfare();
     }
-//    public List<Welfare> getPopularWelfare() {
-//        List<Welfare> w = new ArrayList<>();
-//        w.add(welfareRepository.findByWelfareId(1L));
-//        w.add(welfareRepository.findByWelfareId(2L));
-//        w.add(welfareRepository.findByWelfareId(9L));
-//        return w;
-//    }
 
     public List<Welfare> getPopularInGroup(Long group) { return welfareRepository.getGroupPopularWelfare(group); }
 
