@@ -12,8 +12,7 @@ export default function LoginModal() {
 
         <Modal.Footer>
           <Button
-            className="bg-[#ea580c] border-[#ea580c]"
-            variant="danger"
+            className="bg-blue-800 border-none"
             onClick={() => {
               navigate("/");
             }}
