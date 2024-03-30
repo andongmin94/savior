@@ -33,14 +33,14 @@ export default function Keyword() {
 
   return (
     <div className="box-border border-[1px] border-solid border-[#e9ecef] h-[50vh] w-[15vw] text-center grid items-center rounded-lg grid-rows-[8vh]">
-      <div className="bg-[#fb923c] w-full h-full leading-[8vh] rounded-tl-[15px] rounded-tr-[15px] text-white">
+      <div className="bg-blue-600 w-full h-full leading-[8vh] rounded-tl-md rounded-tr-md text-white">
         인기 검색어
       </div>
 
       {keywords.map((keyword, i) => (
         <div className="box-border flex hover:underline cursor-pointer" key={i}>
           <div style={{ flexBasis: "30%" }}>
-            <span className="text-white bg-orange-400 inline-block text-[.75rem] h-4 leading-[16px] text-center w-[15px] pb-[1px]">
+            <span className="text-white bg-blue-800 inline-block text-[.75rem] h-4 leading-[16px] text-center w-[15px] pb-[1px]">
               {i + 1}
             </span>
           </div>
