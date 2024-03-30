@@ -28,18 +28,18 @@ public class WelfareController {
 
     @GetMapping("/{welfare_id}")
     public ApiResponse getwelfare(@PathVariable("welfare_id") Long welfare_id) {
-        log.warn("getwelfare start");
         Welfare welfare = welfareService.getWelfare(welfare_id);
-        log.warn("getwelfare end");
         return ApiResponse.success("welfare", welfare);
     }
 
+    // welfare_id의 유사 복지 추천
     @GetMapping("/{welfare_id}/recommend")
     public List getwelfarelike(@PathVariable("welfare_id") Long welfare_id) {
         List list = welfareService.getSimilarWelfare(welfare_id);
         return list;
     }
 
+    // user가 속한 userGroup 기반 추천
     @GetMapping("/recommend")
     public ApiResponse getwelfaregroup() {
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -52,6 +52,7 @@ public class WelfareController {
         return ApiResponse.success("welfare", list);
     }
 
+    // 도넛차트
     @GetMapping("/recommend/purpose")
     public Map getwelfarepurpose() {
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
