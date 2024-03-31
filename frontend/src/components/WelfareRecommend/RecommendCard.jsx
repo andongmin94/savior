@@ -31,7 +31,7 @@ export default function RecommendCard(props) {
           <Typography
             onClick={onClick}
             component="div"
-            sx={10}
+            sx={{ width: "10", height: "10" }}
             className="text-blue-800"
             fontFamily={"TmoneyRoundWind"}
           >
