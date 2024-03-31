@@ -75,11 +75,13 @@ export default function Main() {
   };
 
   useEffect(() => {
+    if (token) {
     getPopular();
     fetchCard();
     fetchWord();
     isLogin();
     getProfile();
+    }
   }, []);
 
   return (

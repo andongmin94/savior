@@ -8,6 +8,15 @@ import { getAxios } from "@/api";
 import { changeInput } from "@/reducers/change";
 
 export default function SearchBar() {
+  const [token, setToken] = useState("");
+  const isLogin = () => {
+    if (localStorage.getItem("token")) {
+      setToken(true);
+    } else {
+      setToken(false);
+    }
+  };
+
   const axios = getAxios();
   const dispatch = useDispatch();
   const [keywords, setKeywords] = useState([]);
@@ -46,7 +55,7 @@ export default function SearchBar() {
         console.log(err);
       }
     };
-    fetchWord();
+    if (token) { fetchWord() }
   }, []);
 
   return (
