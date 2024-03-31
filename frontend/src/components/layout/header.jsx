@@ -29,10 +29,10 @@ export default function Header() {
             <Nav.Link href="/manual">
               <div className="text-white font-bold">세이비어 이용방법</div>
             </Nav.Link>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <Nav.Link href="/qna">
               <div className="text-white font-bold">Q&A</div>
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
           <Login />
         </Container>
