@@ -33,7 +33,7 @@ export default function Main() {
     try {
       const axios = getAxios();
       let response = await axios.get("/api/users/profile");
-      console.log("카카오 : ", response.data);
+      // console.log("카카오 : ", response.data);
       localStorage.setItem("name", response.data.body.user.username);
       localStorage.setItem("profile", response.data.body.user.profileImageUrl);
       await setName(localStorage.getItem("name"));
@@ -47,11 +47,7 @@ export default function Main() {
   const getPopular = async () => {
     try {
       let res = await axios.get("/api/welfare/popular");
-      console.log(
-        "인기순: ",
-        res.data.body.welfare,
-        typeof res.data.body.welfare
-      );
+      // console.log("인기순: ", res.data.body.welfare, typeof res.data.body.welfare);
       setPopular(res.data.body.welfare);
     } catch (error) {
       console.log(error);
@@ -61,7 +57,7 @@ export default function Main() {
   const fetchCard = async () => {
     try {
       const request = await axios.get("/api/welfare/recommend");
-      console.log("welfare: ", request.data.body.welfare);
+      // console.log("welfare: ", request.data.body.welfare);
       setCards(request.data.body.welfare);
     } catch (err) {
       console.log(err);
@@ -71,7 +67,7 @@ export default function Main() {
   const fetchWord = async () => {
     try {
       const request = await axios.get("/api/welfare/keyword");
-      console.log("keywords: ", request.data.body.keywords);
+      // console.log("keywords: ", request.data.body.keywords);
       setKeywords(request.data.body.keywords.slice(0, 10));
     } catch (err) {
       console.log(err);
