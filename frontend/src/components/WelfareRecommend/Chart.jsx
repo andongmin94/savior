@@ -40,7 +40,7 @@ export default function Chart() {
     const fetchData = async () => {
       try {
         const res = await axios.get("/api/welfare/recommend/purpose");
-        console.log(res.data);
+        // console.log(res.data);
         let wel = res.data;
         await setLabel(Object.keys(wel).slice(0, 6));
         await setDatas(Object.values(wel).slice(0, 6));
