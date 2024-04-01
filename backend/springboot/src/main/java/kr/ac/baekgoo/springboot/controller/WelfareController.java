@@ -27,41 +27,41 @@ public class WelfareController {
     private final KeywordService keywordService;
 
     @GetMapping("/{welfare_id}")
-    public ApiResponse getwelfare(@PathVariable("welfare_id") Long welfare_id) {
+    public ApiResponse getWelfare(@PathVariable("welfare_id") Long welfare_id) {
         Welfare welfare = welfareService.getWelfare(welfare_id);
         return ApiResponse.success("welfare", welfare);
     }
 
-    // welfare_id의 유사 복지 추천
+    // {welfare_id}의 유사 복지 추천
     @GetMapping("/{welfare_id}/recommend")
-    public List getwelfarelike(@PathVariable("welfare_id") Long welfare_id) {
+    public List getWelfareSimilar(@PathVariable("welfare_id") Long welfare_id) {
         List list = welfareService.getSimilarWelfare(welfare_id);
         return list;
     }
 
     // user가 속한 userGroup 기반 추천
     @GetMapping("/recommend")
-    public ApiResponse getwelfaregroup() {
+    public ApiResponse getWelfareGroup() {
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userService.getUser(principal.getUsername());
         if (user == null) {
             return ApiResponse.fail();
         }
         Long group = user.getUserGroup();
-        List<Welfare> list = welfareService.getWelfarebygroup(group);
+        List<Welfare> list = welfareService.getWelfareByGroup(group);
         return ApiResponse.success("welfare", list);
     }
 
     // 도넛차트
     @GetMapping("/recommend/purpose")
-    public Map getwelfarepurpose() {
+    public Map getWelfarePurpose() {
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userService.getUser(principal.getUsername());
         if (user == null) {
             return null;
         }
         Long group = user.getUserGroup();
-        List<Welfare> list = welfareService.getWelfarebygroup(group);
+        List<Welfare> list = welfareService.getWelfareByGroup(group);
 
         LinkedHashMap<String, Long> purposes = new LinkedHashMap<>();
 
@@ -96,12 +96,12 @@ public class WelfareController {
                 }
             }
         }
-        System.out.println(purposes);
         return purposes;
     }
 
+    // 라인 차트
     @GetMapping("/recommend/grouppopular")
-    public List getwelfaregrouppopular() {
+    public List getWelfareGroupPopular() {
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userService.getUser(principal.getUsername());
         if (user == null) {
@@ -125,52 +125,27 @@ public class WelfareController {
         return popularview;
     }
 
-//    @GetMapping("/recommend/grouppopular")
-//    public List getwelfaregrouppopular() {
-//        List popularview = new ArrayList<Object>();
-//
-//        for (int i = 1; i < 7; i ++) {
-//            Welfare w = welfareService.getWelfare(Long.valueOf(i));
-//            Map<String, Object> newmap = new HashMap<String, Object>();
-//            newmap.put("welfare_id", w.getWelfareId());
-//            newmap.put("welfare_service_name", w.getWelfare_service_name());
-//            newmap.put("welfare_view", w.getWelfare_view());
-//            newmap.put("welfare_service_content", w.getWelfare_service_content());
-//
-//            popularview.add(newmap);
-//        }
-//        return popularview;
-//    }
-
+    // 조회수 순
     @GetMapping("/popular")
-    public ApiResponse getwelfarepopular() {
+    public ApiResponse getWelfarePopular() {
         List<Welfare> list = welfareService.getPopularWelfare();
         return ApiResponse.success("welfare", list);
     }
 
-    @GetMapping("/search/{keyword}")
-    public List welfaresearch(@PathVariable("keyword") String keyword) {
-        List list = welfareService.getWelfarebykeyword(keyword);
-        if (list.size() != 0) {
-            keywordService.getOrsetKeywordbyname(keyword);
-        }
-        return list;
-    }
-
+    // 키워드 인기 순
     @GetMapping("/keyword")
-    public ApiResponse loadkeyword() {
+    public ApiResponse getKeyword() {
         List<Keyword> list = keywordService.getPopularKeyword();
         return ApiResponse.success("keywords", list);
     }
 
-    public static LinkedHashMap<String, Long> sortMapByValue(Map<String, Long> map) {
-        List<Map.Entry<String, Long>> entries = new LinkedList<>(map.entrySet());
-        Collections.sort(entries, (o1, o2) -> o2.getValue().compareTo(o1.getValue()));
-
-        LinkedHashMap<String, Long> result = new LinkedHashMap<>();
-        for (Map.Entry<String, Long> entry : entries) {
-            result.put(entry.getKey(), entry.getValue());
+    // 키워드 검색
+    @GetMapping("/search/{keyword}")
+    public List searchKeyword(@PathVariable("keyword") String keyword) {
+        List list = welfareService.getWelfareByKeyword(keyword);
+        if (list.size() != 0) {
+            keywordService.getOrsetKeywordbyname(keyword);
         }
-        return result;
+        return list;
     }
 }
