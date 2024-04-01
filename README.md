@@ -246,7 +246,7 @@ Related to: #48, #45
             👑 김상훈
         </td>
         <td>
-            PM
+            Frontend
         </td>
         <td>
             프론트엔드, 데스크탑 SW 개발
@@ -316,7 +316,7 @@ Related to: #48, #45
             🍯 송민석
         </td>
         <td>
-            Frontend
+            PM
         </td>
         <td>
             프로젝트 관리
