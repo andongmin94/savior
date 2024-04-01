@@ -53,13 +53,6 @@ public class UserController {
                 res.add(welfareService.getWelfare(i.getWelfare().getWelfareId()));
             }
         }
-        List<Long> test = new ArrayList<>();
-        for(Usedwelfare i: used){
-            if(i.getUser().getUserSeq()==user.getUserSeq()){
-                test.add(i.getWelfare().getWelfareId());
-            }
-        }
-        System.out.println("test: "+test.toString());
         return ApiResponse.success("usedWelfareList",res);
     }
 
@@ -130,7 +123,6 @@ public class UserController {
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userService.getUser(principal.getUsername());
         userService.updateUserCharacter(dto,user.getUserId());
-//        System.out.println(dto.getRegion().getClass().getName());
         return ApiResponse.success("성공","성공");
     }
 
@@ -150,7 +142,7 @@ public class UserController {
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userService.getUser(principal.getUsername());
         userService.updateUserProfile(dto,user.getUserId());
-        String response = "연령대: "+dto.getAge()+" 성별: "+dto.getGender()+" 입력!";
+        String response = "연령대: "+dto.getAge()+" 성별: "+dto.getGender()+" 입력";
         return ApiResponse.success("Response",response);
     }
 
