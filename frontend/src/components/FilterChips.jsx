@@ -120,7 +120,7 @@ export default function FilterChips() {
       });
 
       const djangoAxios = getAxiosDjango();
-      let res = await djangoAxios.get(`/insertusergroup/dbscan/${userSeq}`);
+      let res = await djangoAxios.get(`/user_insert/dbscan/${userSeq}`);
     } catch (err) {
       console.log(err);
     }
