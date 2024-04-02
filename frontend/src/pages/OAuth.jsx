@@ -10,7 +10,7 @@ export default function Auth() {
   const getToken = async () => {
     try {
       await localStorage.setItem("token", token);
-      navigate("/", { replace: true });
+      navigate("https://j10d109.p.ssafy.io/", { replace: true });
       // navigate('/filter', { replace: true });
     } catch (err) {
       console.log(err);
