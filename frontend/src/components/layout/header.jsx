@@ -31,7 +31,7 @@ export default function Header() {
             </Nav.Link>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {typeof window.electron === "undefined" &&
-            <Nav.Link href="/">
+            <Nav.Link href="/qna">
               <div className="text-white font-bold">다운로드</div>
             </Nav.Link>}
           </Nav>
