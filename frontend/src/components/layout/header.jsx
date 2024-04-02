@@ -31,7 +31,7 @@ export default function Header() {
             </Nav.Link>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {typeof window.electron === "undefined" &&
-            <Nav.Link href="Savior Setup 1.0.0.exe">
+            <Nav.Link href="https://drive.google.com/file/d/15QUu4WdwSVwVTclDt9C6Pc24oEymoqTU/view?usp=drive_link">
               <div className="text-white font-bold">다운로드</div>
             </Nav.Link>}
           </Nav>
