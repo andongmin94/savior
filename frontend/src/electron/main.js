@@ -27,7 +27,8 @@ const createWindow = () => {
 
   // 웹 연결 URL
   dotenv.config();
-  const BASE_URL = 'http://localhost:3000';
+  // const BASE_URL = 'http://localhost:3000';
+  const BASE_URL = 'https://j10d109.p.ssafy.io';
   mainWindow.loadURL(BASE_URL);
 }
 
