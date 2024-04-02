@@ -1,13 +1,11 @@
 // 일렉트론 모듈
 import { fileURLToPath } from "url";
 import { join, dirname } from "path";
-import electronLocalshortcut from "electron-localshortcut";
+// import electronLocalshortcut from "electron-localshortcut";
 import { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage, globalShortcut } from "electron";
 
 // 웹 모듈
 import axios from "axios";
-import https from "https";
-import dotenv from "dotenv";
 
 // 일렉트론 생성 함수
 export let mainWindow;
@@ -26,9 +24,8 @@ const createWindow = () => {
   });
 
   // 웹 연결 URL
-  dotenv.config();
-  // const BASE_URL = 'http://localhost:3000';
   const BASE_URL = 'https://j10d109.p.ssafy.io';
+  // const BASE_URL = 'http://localhost:3000';
   mainWindow.loadURL(BASE_URL);
 }
 
@@ -60,7 +57,7 @@ export default app.whenReady().then(createWindow).then(() => {
   globalShortcut.register('F5', () => { console.log('F5 is pressed'); mainWindow.reload() });
 
   // F12 개발자 도구 열기
-  electronLocalshortcut.register(mainWindow, "F12", () => { console.log("F12 is pressed"); mainWindow.webContents.toggleDevTools() });
+  // electronLocalshortcut.register(mainWindow, "F12", () => { console.log("F12 is pressed"); mainWindow.webContents.toggleDevTools() });
   
   // 애플리케이션이 종료되기 전에 단축키 해제
   app.on('will-quit', () => { globalShortcut.unregisterAll(); });
