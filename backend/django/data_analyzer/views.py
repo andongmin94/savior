@@ -2,7 +2,9 @@ import json
 import os
 import re
 
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 from konlpy.tag import Okt
 import numpy as np
 import pandas as pd
@@ -702,3 +704,35 @@ def cosine_grouping(request):
         welfare.update(welfare_similar_welfare=top_10[i])
 
     return Response('cosine_grouping done')
+
+
+@csrf_exempt
+@api_view(['POST'])
+def upload_welfare_app(request):
+    if request.method == 'POST':
+        app_version = request.POST.get('app_version')
+        file = request.FILES.get('file')
+
+        if not file:
+            return JsonResponse({'error': 'No file provided.'}, status=400)
+
+        welfare_app, created = WelfareApp.objects.get_or_create(app_version=app_version)
+        welfare_app.file = file
+        welfare_app.save()
+
+        return JsonResponse({
+            'id': welfare_app.id,
+            'app_version': welfare_app.app_version,
+            'file_url': welfare_app.file.url,
+            'created': created  # True면 새로 생성, False면 업데이트
+        }, status=201)
+
+
+@api_view(['GET'])
+def download_welfare_app(request, app_version):
+    try:
+        welfare_app = WelfareApp.objects.get(app_version=app_version)
+        file_url = welfare_app.file.url
+        return JsonResponse({'url': file_url}, status=200)
+    except WelfareApp.DoesNotExist:
+        return JsonResponse({'error': 'File not found'}, status=404)
