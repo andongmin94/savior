@@ -44,7 +44,7 @@ spring:
           clientAuthenticationMethod: client_secret_post
           authorizationGrantType: authorization_code
           redirectUri: "https://j10d109.p.ssafy.io/api/{action}/oauth2/code/{registrationId}"
-          # redirectUri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
+          #redirectUri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
           scope:
             - profile_nickname
             - profile_image

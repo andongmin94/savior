@@ -96,46 +96,28 @@ public class WelfareController {
                 }
             }
         }
-        System.out.println(purposes);
         return purposes;
     }
 
-//    @GetMapping("/recommend/grouppopular")
-//    public List getwelfaregrouppopular() {
-//        org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        User user = userService.getUser(principal.getUsername());
-//        if (user == null) {
-//            return null;
-//        }
-//        Long group = user.getUserGroup();
-//
-//        List popularview = new ArrayList<Object>();
-//
-//        List<Welfare> list = welfareService.getPopularInGroup(group);
-//
-//        for (int i = 0; i < 6; i ++) {
-//            Map<String, Object> newmap = new HashMap<String, Object>();
-//            newmap.put("welfare_id", list.get(i).getWelfareId());
-//            newmap.put("welfare_service_name", list.get(i).getWelfare_service_name());
-//            newmap.put("welfare_view", list.get(i).getWelfare_view());
-//            newmap.put("welfare_service_content", list.get(i).getWelfare_service_content());
-//
-//            popularview.add(newmap);
-//        }
-//        return popularview;
-//    }
-
     @GetMapping("/recommend/grouppopular")
     public List getwelfaregrouppopular() {
+        org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userService.getUser(principal.getUsername());
+        if (user == null) {
+            return null;
+        }
+        Long group = user.getUserGroup();
+
         List popularview = new ArrayList<Object>();
 
-        for (int i = 1; i < 7; i ++) {
-            Welfare w = welfareService.getWelfare(Long.valueOf(i));
+        List<Welfare> list = welfareService.getPopularInGroup(group);
+
+        for (int i = 0; i < 6; i ++) {
             Map<String, Object> newmap = new HashMap<String, Object>();
-            newmap.put("welfare_id", w.getWelfareId());
-            newmap.put("welfare_service_name", w.getWelfare_service_name());
-            newmap.put("welfare_view", w.getWelfare_view());
-            newmap.put("welfare_service_content", w.getWelfare_service_content());
+            newmap.put("welfare_id", list.get(i).getWelfareId());
+            newmap.put("welfare_service_name", list.get(i).getWelfare_service_name());
+            newmap.put("welfare_view", list.get(i).getWelfare_view());
+            newmap.put("welfare_service_content", list.get(i).getWelfare_service_content());
 
             popularview.add(newmap);
         }
