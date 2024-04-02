@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Log4j2
@@ -50,17 +51,38 @@ public class WelfareRepository {
                 .getResultList();
     }
 
+//    public List<Welfare> getGroupWelfare(Long group_id) {
+////        return em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.usedwelfares.size desc", Welfare.class)
+////                .setParameter("group_id", group_id)
+////                .getResultList();
+//        return em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by element(w.usedwelfares).id desc", Welfare.class)
+//                .setParameter("group_id", group_id)
+//                .getResultList();
+//    }
     public List<Welfare> getGroupWelfare(Long group_id) {
-        List<Welfare> query_result = em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.id desc", Welfare.class)
+        try {
+            System.out.println("WelfareRepository.getGroupWelfare success");
+            List<Welfare> query_result = em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.usedwelfares.size desc", Welfare.class)
                 .setParameter("group_id", group_id)
                 .getResultList();
-        return query_result;
-//        List<Welfare> query_result = em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by SIZE(w.usedwelfares)", Welfare.class)
-//            .setParameter("group_id", group_id)
-//            .getResultList();
-//        return query_result;
+            return query_result;
+        } catch (PersistenceException e) {
+            log.info("PersistenceException");
+            log.error(e);
+            return Collections.emptyList();
+        } catch (Exception e) {
+            log.info("getGroupWelfare Exception");
+            log.error(e);
+
+            List<Welfare> query_result = em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.id desc", Welfare.class)
+                    .setParameter("group_id", group_id)
+                    .getResultList();
+            return query_result;
+        }
     }
 
+
+    // 유저 그룹에 의한 인기(조회) 순
     public List<Welfare> getGroupPopularWelfare(Long group_id) {
         List<Welfare> welfares = em.createQuery("select w from Welfare w where w.welfare_group = :group_id order by w.welfare_view desc" , Welfare.class)
                 .setParameter("group_id", group_id)
@@ -72,6 +94,7 @@ public class WelfareRepository {
         }
     }
 
+    // 모든 유저에 있어서의 인기(조회) 순
     public List<Welfare> getMostUserWelfare() {
         List<Welfare> resultList = em.createQuery("select w from Welfare w order by w.welfare_view desc", Welfare.class)
                 .getResultList();
