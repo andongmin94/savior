@@ -29,10 +29,11 @@ export default function Header() {
             <Nav.Link href="/manual">
               <div className="text-white font-bold">세이비어 이용방법</div>
             </Nav.Link>
-            {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Nav.Link href="/qna">
-              <div className="text-white font-bold">Q&A</div>
-            </Nav.Link> */}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {typeof window.electron === "undefined" &&
+            <Nav.Link href="https://k-asap-savior.s3.amazonaws.com/welfare_app/Savior_Setup.exe?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=REMOVED&X-Amz-Date=20240402T173517Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=REMOVED">
+              <div className="text-white font-bold">다운로드</div>
+            </Nav.Link>}
           </Nav>
           <Login />
         </Container>
