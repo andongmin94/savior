@@ -54,6 +54,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        System.out.println("securityFilterChain");
+        log.info("securityFilterChain start");
         try {
             http.cors(AbstractHttpConfigurer::disable);
             http.sessionManagement((sessionManagement)->sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
@@ -69,6 +71,7 @@ public class SecurityConfig {
                     .failureHandler(oAuth2AuthenticationFailureHandler()));
 
             http.addFilterBefore(tokenAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+            log.info("securityFilterChain success");
         } catch (Exception e) {
             log.error("error : securityFilterChain", e);
         }
