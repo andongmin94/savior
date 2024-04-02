@@ -29,10 +29,11 @@ export default function Header() {
             <Nav.Link href="/manual">
               <div className="text-white font-bold">세이비어 이용방법</div>
             </Nav.Link>
-            {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Nav.Link href="/qna">
-              <div className="text-white font-bold">Q&A</div>
-            </Nav.Link> */}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {typeof window.electron === "undefined" &&
+            <Nav.Link href="Savior Setup 1.0.0.exe">
+              <div className="text-white font-bold">다운로드</div>
+            </Nav.Link>}
           </Nav>
           <Login />
         </Container>
