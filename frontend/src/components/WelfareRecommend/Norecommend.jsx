@@ -22,7 +22,7 @@ export default function Norecommend(props) {
         {props.name === null ? (
           <div className="mt-[1vh] mb-[1vh]">안녕하세요!</div>
         ) : (
-          <div className="mt-[1vh] mb-[1vh] bg-blue-600 border-none">
+          <div className="mt-[1vh] mb-[1vh] bg-blue-600 border-none rounded-xl">
             <div>안녕하세요!</div>
             <div>{props.name}님</div>
           </div>
