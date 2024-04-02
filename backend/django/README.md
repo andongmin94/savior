@@ -20,10 +20,15 @@ life &rarr; lifecycle
 ori_id &rarr; service_id   -->
 
 ### 가상 환경
+1. 설치
 ```bash
 python -m venv SaviorEnv
+```
+2. 실행
+```bash
 source SaviorEnv/Script/activate
 ```
+3. 종료
 ```bash
 deactivate
 ```
@@ -46,4 +51,5 @@ python manage.py runserver
 ```
 
 ### Conventions
-[Python PEP 8](/Coding-Conventions.md)
+[Python PEP 8](Coding-Conventions.md)
+
