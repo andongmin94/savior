@@ -114,3 +114,12 @@ class Welfare_similarwelfare(models.Model):
     class Meta:
         managed = True
         db_table = 'similarwelfare'
+
+
+class WelfareApp(models.Model):
+    app_version = models.CharField(max_length=255, unique=True)
+    file = models.FileField(upload_to='welfare_app/')
+
+    class Meta:
+        managed = True
+        db_table = 'welfare_app'
