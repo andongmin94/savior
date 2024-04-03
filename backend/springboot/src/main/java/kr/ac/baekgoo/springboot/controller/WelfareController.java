@@ -28,7 +28,7 @@ public class WelfareController {
 
     @GetMapping("/{welfare_id}")
     public ApiResponse getWelfare(@PathVariable("welfare_id") Long welfare_id) {
-        Welfare welfare = welfareService.getWelfare(welfare_id);
+        Welfare welfare = welfareService.getWelfareAndIncreaseView(welfare_id);
         return ApiResponse.success("welfare", welfare);
     }
 
