@@ -7,6 +7,15 @@ import { getAxios } from "@/api";
 import { paginate } from "@/components/Search/paginate";
 import PaginationBtn from "@/components/Search/PaginationBtn";
 
+function isLogin() {
+  const token = localStorage.getItem("token");
+  if (token) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 export default function ResultBoard() {
   const axios = getAxios();
   const { keyword } = useSelector((state) => state.change);
@@ -29,12 +38,13 @@ export default function ResultBoard() {
   useEffect(() => {
     const fetchSearch = async () => {
       try {
+        if (isLogin()) {
         const request = await axios.get(`/api/welfare/search/${keyword}`);
         navigate(`/search?keyword=${keyword}`);
         setWelfares({ ...welfares, data: request.data });
-        // console.log(request.data);
+        }
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     fetchSearch();
