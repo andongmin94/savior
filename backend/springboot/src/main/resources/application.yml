@@ -1,19 +1,4 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://savior.c7cmcuk2k97d.ap-northeast-2.rds.amazonaws.com/savior?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: root1234
-    hikari:
-      pool-name: jpa-hikari-pool
-      maximum-pool-size: 5
-      jdbc-url: ${spring.datasource.url}
-      username: ${spring.datasource.username}
-      password: ${spring.datasource.password}
-      driver-class-name: ${spring.datasource.driver-class-name}
-      data-source-properties:
-        rewriteBatchedStatements: true
-
   # JPA
   jpa:
     generate-ddl: true
@@ -60,32 +45,6 @@ spring:
           tokenUri: https://kauth.kakao.com/oauth/token
           userInfoUri: https://kapi.kakao.com/v2/user/me
           userNameAttribute: id
-
-# cors 설정
-cors:
-  allowed-origins: 'https://j10d109.p.ssafy.io'
-  # allowed-origins: 'http://localhost:3000'
-  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
-  allowed-headers: '*'
-  max-age: 3600
-
-# jwt secret key 설정
-jwt.secret: '8sknjlO3NPTBqo319DHLNqsQAfRJEdKsETOds'
-
-# 토큰 관련 secret Key 및 RedirectUri 설정
-app:
-  auth:
-    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
-    tokenExpiry: 432000000
-    refreshTokenExpiry: 604800000
-  oauth2:
-    authorizedRedirectUris:
-      - https://j10d109.p.ssafy.io:3000/api/oauth/kakao/callback
-      - https://j10d109.p.ssafy.io/api/oauth/kakao/callback
-      - https://j10d109.p.ssafy.io:3000/oauth/kakao/callback
-      - https://j10d109.p.ssafy.io/oauth/kakao/callback
-      - http://localhost:3000/api/oauth/kakao/callback
-      - http://localhost:3000/oauth/kakao/callback
 
 server:
   servlet:
