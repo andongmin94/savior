@@ -19,6 +19,10 @@ public class WelfareService {
         return welfareRepository.findByWelfareId(welfare_id);
     }
 
+    public Welfare getWelfareAndIncreaseView(Long welfare_id) {
+        return welfareRepository.findByWelfareIdAndIncreaseView(welfare_id);
+    }
+
     public List getWelfareByKeyword(String keyword) {
         return welfareRepository.searchWelfare(keyword);
     }
