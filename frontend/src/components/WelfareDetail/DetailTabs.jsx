@@ -271,10 +271,12 @@ export default function DetailTaps(props) {
           </div>
           <div>
             {siteLink}&nbsp;
-            {siteLink && (
+            {siteLink && typeof window.electron === "undefined" && (
               <a
                 href={`http://www.${siteLink.substring(8)}`}
                 style={{ fontFamily: "TmoneyRoundWind", color: "#1d4ed8"}}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 (바로가기)
               </a>
