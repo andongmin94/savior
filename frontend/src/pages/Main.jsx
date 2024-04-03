@@ -55,37 +55,31 @@ export default function Main() {
 
   const getPopular = async () => {
     try {
-      if (isLogin()) {
       let res = await axios.get("/api/welfare/popular");
       // console.log("인기순: ", res.data.body.welfare, typeof res.data.body.welfare);
       setPopular(res.data.body.welfare);
-      }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
   const fetchCard = async () => {
     try {
-      if (isLogin()) {
       const request = await axios.get("/api/welfare/recommend");
       // console.log("welfare: ", request.data.body.welfare);
       setCards(request.data.body.welfare);
-      }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
   const fetchWord = async () => {
     try {
-      if (isLogin()) {
       const request = await axios.get("/api/welfare/keyword");
       // console.log("keywords: ", request.data.body.keywords);
       setKeywords(request.data.body.keywords.slice(0, 10));
-      }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
