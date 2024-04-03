@@ -2,23 +2,27 @@ package kr.ac.baekgoo.springboot.repository.welfare;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.PersistenceException;
 import kr.ac.baekgoo.springboot.domain.welfare.Welfare;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Log4j2
 @Repository
+@Transactional
 public class WelfareRepository {
 
     @PersistenceContext
     private EntityManager em;
 
     public Welfare findByWelfareId(Long id) {
+        return em.find(Welfare.class, id);
+    }
+
+    public Welfare findByWelfareIdAndIncreaseView(Long id) {
         Welfare welfare = em.find(Welfare.class, id);
         welfare.setWelfare_view(welfare.getWelfare_view() + 1);
         return welfare;
