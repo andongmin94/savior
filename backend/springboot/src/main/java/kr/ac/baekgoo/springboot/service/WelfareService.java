@@ -19,7 +19,7 @@ public class WelfareService {
         return welfareRepository.findByWelfareId(welfare_id);
     }
 
-    public List getWelfarebykeyword(String keyword) {
+    public List getWelfareByKeyword(String keyword) {
         return welfareRepository.searchWelfare(keyword);
     }
 
@@ -27,7 +27,7 @@ public class WelfareService {
         return welfareRepository.getSimilar(welfare_id);
     }
 
-    public List<Welfare> getWelfarebygroup(Long group_id) {
+    public List<Welfare> getWelfareByGroup(Long group_id) {
         return welfareRepository.getGroupWelfare(group_id);
     }
 
@@ -35,6 +35,7 @@ public class WelfareService {
         return welfareRepository.getMostUserWelfare();
     }
 
-    public List<Welfare> getPopularInGroup(Long group) { return welfareRepository.getGroupPopularWelfare(group); }
-
+    public List<Welfare> getPopularInGroup(Long group) {
+        return welfareRepository.getGroupPopularWelfare(group);
+    }
 }
