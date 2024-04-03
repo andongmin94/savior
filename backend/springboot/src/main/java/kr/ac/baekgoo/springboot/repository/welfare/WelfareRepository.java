@@ -2,13 +2,11 @@ package kr.ac.baekgoo.springboot.repository.welfare;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.PersistenceException;
 import kr.ac.baekgoo.springboot.domain.welfare.Welfare;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Log4j2
