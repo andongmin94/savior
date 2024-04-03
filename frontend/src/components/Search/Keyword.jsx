@@ -5,6 +5,15 @@ import { useNavigate } from "react-router-dom";
 import { getAxios } from "@/api";
 import { changeInput } from "@/reducers/change";
 
+function isLogin() {
+  const token = localStorage.getItem("token");
+  if (token) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 export default function Keyword() {
   const dispatch = useDispatch();
   const [keywords, setKeywords] = useState([]);
@@ -15,10 +24,12 @@ export default function Keyword() {
   useEffect(() => {
     const fetchWord = async () => {
       try {
+        if (isLogin()) {
         const request = await axios.get("/api/welfare/keyword");
         setKeywords(request.data.body.keywords.slice(0, 10));
         // console.log(request.data.body.keywords);
         // console.log("최신 인기검색어 출력!");
+        }
       } catch (err) {
         console.log(err);
       }
