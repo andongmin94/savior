@@ -31,7 +31,7 @@ export default function Header() {
             </Nav.Link>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {typeof window.electron === "undefined" &&
-            <Nav.Link href="https://k-asap-savior.s3.amazonaws.com/welfare_app/Savior_Setup.exe?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAYS2NXJFTSTXYG2XU%2F20240402%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20240402T173517Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=5841408f3f1941f1d5deafdb1579c68eed529f792f8e60ef607665afb10b63ff">
+            <Nav.Link href="https://drive.google.com/file/d/15QUu4WdwSVwVTclDt9C6Pc24oEymoqTU/view">
               <div className="text-white font-bold">다운로드</div>
             </Nav.Link>}
           </Nav>

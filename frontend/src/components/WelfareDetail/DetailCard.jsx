@@ -36,7 +36,6 @@ export default function DetailCard(props) {
   const unlikeAxios = async () => {
     try {
       const request = await axios.delete(`/api/users/like/${welfareId}`);
-      // console.log(request.data);
     } catch (err) {
       console.log(err);
     }

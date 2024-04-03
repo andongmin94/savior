@@ -7,6 +7,15 @@ import NewsTicker from "react-advanced-news-ticker";
 import { getAxios } from "@/api";
 import { changeInput } from "@/reducers/change";
 
+function isLogin() {
+  const token = localStorage.getItem("token");
+  if (token) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 export default function SearchBar() {
   const axios = getAxios();
   const dispatch = useDispatch();
@@ -38,10 +47,12 @@ export default function SearchBar() {
   useEffect(() => {
     const fetchWord = async () => {
       try {
-        const request = await axios.get("/api/welfare/keyword");
-        setKeywords(request.data.body.keywords.slice(0, 10));
-        // console.log(request.data.body.keywords.slice(0, 10));
-        // console.log(keywords[0].keywordName);
+        if (isLogin()) {
+          const request = await axios.get("/api/welfare/keyword");
+          setKeywords(request.data.body.keywords.slice(0, 10));
+          // console.log(request.data.body.keywords.slice(0, 10));
+          // console.log(keywords[0].keywordName);
+        }
       } catch (err) {
         console.log(err);
       }
