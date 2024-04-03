@@ -55,10 +55,7 @@ export default function WelfareDetail() {
     const fetchRecommend = async () => {
       try {
         const request = await axios.get(`/api/welfare/${welfareId}/recommend`);
-        // console.log(request.data)
-        // console.log(shuffle(request.data))
         const arr = request.data.sort(() => Math.random() - 0.5);
-        // console.log(arr);
         setRecommend(arr.slice(0, 3));
       } catch (err) {
         console.log(err);
