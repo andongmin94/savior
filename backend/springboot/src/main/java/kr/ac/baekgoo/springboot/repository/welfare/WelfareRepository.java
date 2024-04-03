@@ -5,12 +5,14 @@ import jakarta.persistence.PersistenceContext;
 import kr.ac.baekgoo.springboot.domain.welfare.Welfare;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
 @Repository
+@Transactional
 public class WelfareRepository {
 
     @PersistenceContext
