@@ -40,7 +40,6 @@ export default function Main() {
 
   const getProfile = async () => {
     try {
-      if (isLogin()) {
       const axios = getAxios();
       let response = await axios.get("/api/users/profile");
       // console.log("카카오 : ", response.data);
@@ -49,9 +48,8 @@ export default function Main() {
       await setName(localStorage.getItem("name"));
       await setSelectfamilies(response.data.body.user.selectfamilies);
       await setSelecttargets(response.data.body.user.selecttargets);
-      }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
