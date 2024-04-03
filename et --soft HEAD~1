@@ -1,0 +1,576 @@
+[33mcommit 8f3dde5f0fc8f9ed5d84c0449f83119b403067d3[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: 44074f6 255d904
+Author: 오은아 <erropp89@naver.com>
+Date:   Wed Apr 3 14:26:07 2024 +0900
+
+    Feat: gitignore에 application.yml대신 application-secret.yml 추가
+
+[33mcommit 44074f6167f4f6a8ef3204e31c9627cd9693d46d[m
+Author: 오은아 <erropp89@naver.com>
+Date:   Wed Apr 3 14:22:15 2024 +0900
+
+    Feat: gitignore에 application.yml대신 application-secret.yml 추가
+
+[33mcommit c4529217d485ad3932b9305995885f6f75301d05[m
+Author: 오은아 <erropp89@naver.com>
+Date:   Wed Apr 3 14:22:10 2024 +0900
+
+    Feat: gitignore에 application.yml대신 application-secret.yml 추가
+
+[33mcommit 255d904629daa4ecd4d711893c9c49b94bbba544[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: 장준영 <wnsdud2889@naver.com>
+Date:   Wed Apr 3 13:57:54 2024 +0900
+
+    Fix : add transactional annotation for welfare_view's increase
+
+[33mcommit 6c8017b570b330c7e374c5aa275d3d3cf0a0e3aa[m
+Author: 오은아 <erropp89@naver.com>
+Date:   Wed Apr 3 13:40:01 2024 +0900
+
+    Delete application.yml
+
+[33mcommit 4c29b21f1cb9ec558ec5e70f91e93e7aa9d3aeb8[m
+Author: 오은아 <erropp89@naver.com>
+Date:   Wed Apr 3 13:36:01 2024 +0900
+
+    Feat: gitignore에 application.yml 추가
+
+[33mcommit 166380268134f9e0f98ec350d84ecc71bf1c667e[m
+Merge: 3bffd0c af491a9
+Author: MalrangCow <malrangcow00@gmail.com>
+Date:   Wed Apr 3 13:09:22 2024 +0900
+
+    Merge remote-tracking branch 'origin/download-app'
+
+[33mcommit 3bffd0cfa4c5b1169e80a1128755670e822241d0[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Wed Apr 3 12:04:48 2024 +0900
+
+    Fix : modify filter in login at main
+
+[33mcommit df35836fcf2135ca2fe35d892c99f09138fd3977[m
+Merge: e40102e e499647
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Wed Apr 3 12:03:06 2024 +0900
+
+    Merge branch 'master' of https://lab.ssafy.com/s10-bigdata-recom-sub2/S10P22D109
+
+[33mcommit e40102e5ff28d2df7e22814ed344f7f31d2af0bd[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Wed Apr 3 12:02:58 2024 +0900
+
+    Fix : modify axios profile in main
+
+[33mcommit e4996474ebb45745e94292eb94a13546eee3b86d[m
+Merge: 71befc9 9b44d60
+Author: 장준영 <wnsdud2889@naver.com>
+Date:   Wed Apr 3 11:14:53 2024 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 71befc988575c7d4fe01a830026a172641f8fc5b[m
+Author: 장준영 <wnsdud2889@naver.com>
+Date:   Wed Apr 3 11:14:22 2024 +0900
+
+    Fix : Remove unused codes
+
+[33mcommit 9b44d60b57df2c6008b39d2ce8d795f88c6c8942[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Wed Apr 3 11:13:56 2024 +0900
+
+    Fix : modify loggin console in Main
+
+[33mcommit 9f0cb28ad7c716683b38049bfd019f1902a2ab7e[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Wed Apr 3 10:20:52 2024 +0900
+
+    Fix : relation url
+
+[33mcommit ed258e621a725c817197f7c24c6f868a5872e428[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Wed Apr 3 10:20:39 2024 +0900
+
+    Fix : modify console log filter
+
+[33mcommit ad734e1620bf3d5d58f6fc2dd19b2eb094164b4e[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Wed Apr 3 03:05:01 2024 +0900
+
+    Fix : modify app download link
+
+[33mcommit 4c4c9828907728fcb767427609e65442f8d6062b[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Wed Apr 3 03:03:03 2024 +0900
+
+    Fix : modify bug
+
+[33mcommit 54fcbe3a9bb6bc1c0a2f8500c1dd8b6496c9cc19[m
+Merge: 776305c 3dfe5ca
+Author: 김상훈 <k1016h@naver.com>
+Date:   Wed Apr 3 02:59:27 2024 +0900
+
+    Fix : refact
+
+[33mcommit 776305c4c327b8e9bb5bdfba2a88e289271a4b64[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 23:13:41 2024 +0900
+
+    Fix : restore
+
+[33mcommit 2b408ddd6f8d1db15505d6d48bb12cca01ae115e[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 23:04:51 2024 +0900
+
+    check for bug 2
+
+[33mcommit 479feed028caf31947126f2bb0775ae28770570b[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 22:53:20 2024 +0900
+
+    Fix : modify ppt and header download link
+
+[33mcommit fa78f2862367e83eff6e9dfcecc6894f3f4533c7[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 22:41:48 2024 +0900
+
+    Delete exe
+
+[33mcommit af491a9c08b7fb5c60a2af235ae083b0429da033[m
+Author: JP <115908997+malrangcow00@users.noreply.github.com>
+Date:   Wed Apr 3 02:56:24 2024 +0900
+
+    Feat: upload/download application
+
+[33mcommit 0dbb1aee78028dc130f6d1f79b366b769396bf47[m
+Author: JP <115908997+malrangcow00@users.noreply.github.com>
+Date:   Wed Apr 3 02:55:37 2024 +0900
+
+    Fix: clean DB
+
+[33mcommit 3dfe5ca4e3dfacaa3672df0a47722aacbc3f9fba[m
+Author: 장준영 <wnsdud2889@naver.com>
+Date:   Wed Apr 3 00:53:15 2024 +0900
+
+    Fix : Welfare recommendation
+
+[33mcommit 198aedfa23dcbe732ab852a275c73464c173c3f9[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 23:13:41 2024 +0900
+
+    Fix : restore
+
+[33mcommit 7f2d78084ae23e923fef549588b17a45649cd577[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 23:04:51 2024 +0900
+
+    check for bug 2
+
+[33mcommit 0f14b23f29343b8771660d059662f43481fdec2e[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 23:01:48 2024 +0900
+
+    check for bug
+
+[33mcommit e61703e119008585fa3c8ca791277f2c3e93ce9c[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 22:53:20 2024 +0900
+
+    Fix : modify ppt and header download link
+
+[33mcommit e29ed680ed2b1a4a4a115d574d050b17d873118c[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 22:41:48 2024 +0900
+
+    Delete exe
+
+[33mcommit 07718bdb357be1506c3ad94371dec2516c39a73c[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 22:21:17 2024 +0900
+
+    Feat : update install url in header
+
+[33mcommit 81ab27f9fe431d9375146a9bfb1c46b412b8d09a[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 22:20:15 2024 +0900
+
+    Fix : return past in spring boot
+
+[33mcommit f0f075aee576eea7a5c021f41e0705bbbdc9f32b[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Tue Apr 2 22:19:51 2024 +0900
+
+    Fix : update front package
+
+[33mcommit 7dcf0ee5ffc9f19d3d454be20518bddf642a1a87[m
+Merge: a6f7229 8fdd613
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Tue Apr 2 17:13:37 2024 +0900
+
+    Merge branch 'dev' into DEMO
+
+[33mcommit 8fdd61344d0488a830d671b1876b28a1122affd8[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Tue Apr 2 17:12:32 2024 +0900
+
+    Fix : base access url
+
+[33mcommit aae029b87017131852b2143a5bf6b023bf8eb1fd[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Tue Apr 2 16:35:17 2024 +0900
+
+    check for deploy 6
+
+[33mcommit 8a957bb9c3658d6c144d9cab11f5214a07946cd4[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Tue Apr 2 16:28:51 2024 +0900
+
+    check for deploy 5
+
+[33mcommit 6c57b98b5b705f3eedc6e0ae26398c6e3f58b699[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Tue Apr 2 16:11:50 2024 +0900
+
+    check for deploy 4
+
+[33mcommit 4992db471a286d6e5b47f525d6aeeec4e10fdfad[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Tue Apr 2 15:49:59 2024 +0900
+
+    check for deploy 3
+
+[33mcommit bfb77f30fd6dbb4379ea89b239ef02e5fb5a79cd[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Tue Apr 2 15:42:12 2024 +0900
+
+    check for deploy 2
+
+[33mcommit ab5ba84bb3da6ae2dbeb720d21ba50c9ba3a8c33[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Tue Apr 2 15:35:58 2024 +0900
+
+    check for deploy
+
+[33mcommit 3c42fd60469ae7fc1aee7fcf12c3a0d4d4830fc1[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Tue Apr 2 14:25:11 2024 +0900
+
+    Fix : url fix to deploy
+
+[33mcommit eb4557dbe9d68fc77687dbb89df85f2430f49339[m
+Author: 이재평 <malrangcow00@gmail.com>
+Date:   Tue Apr 2 11:16:41 2024 +0900
+
+    Fix: README.md
+
+[33mcommit a74d1eb3211e376e1c70f19e7e38300065c29cec[m
+Author: 이재평 <malrangcow00@gmail.com>
+Date:   Tue Apr 2 11:14:12 2024 +0900
+
+    Fix: README.md
+
+[33mcommit a6f722938b45bc6be2a93c28c1c4d9aa845dd65d[m
+Author: 장준영 <wnsdud2889@naver.com>
+Date:   Mon Apr 1 16:40:55 2024 +0900
+
+    Fix : Remove unused codes & refactor to follow code convention
+
+[33mcommit e3f92a1122839e0ef49d2e0569f28916f5d3cc6e[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Mon Apr 1 16:36:20 2024 +0900
+
+    Create 빌드 및 배포 환경.pdf
+
+[33mcommit ef5a2690384639f22ddf4a45ba3c9fefa305c1e3[m
+Author: 오은아 <erropp89@naver.com>
+Date:   Mon Apr 1 16:32:43 2024 +0900
+
+    Add new 포팅메뉴얼 디렉토리
+
+[33mcommit 43287783900dcdc5d5011a347cd1818c4a3694ce[m
+Author: 오은아 <erropp89@naver.com>
+Date:   Mon Apr 1 16:32:23 2024 +0900
+
+    Delete 포팅 메뉴얼
+
+[33mcommit bbf81f54a61d5e25ffede1691318c06c94712e26[m
+Author: 오은아 <erropp89@naver.com>
+Date:   Mon Apr 1 16:32:02 2024 +0900
+
+    Add 포팅메뉴얼
+
+[33mcommit b8acd6e30a9e94ac84f3519f5ca8aafaedacc3dc[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Mon Apr 1 16:02:21 2024 +0900
+
+    Update README.md
+
+[33mcommit 020dc49f20a44de9803b6670f4dc32e79865bdcc[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Mon Apr 1 15:53:02 2024 +0900
+
+    Update README
+
+[33mcommit 43daefb752655cf48186d4f2c27ef38e813df5e6[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Mon Apr 1 15:21:02 2024 +0900
+
+    Feat : init exec
+
+[33mcommit a521bacc34adeca0aad0d8093e1b1fbbc2d37c17[m
+Author: MalrangCow <malrangcow00@gmail.com>
+Date:   Mon Apr 1 10:55:51 2024 +0900
+
+    Delete: QnA Service
+
+[33mcommit 22cc2602544b56cfab0824713ce1a4c1ce533e06[m
+Author: MalrangCow <malrangcow00@gmail.com>
+Date:   Mon Apr 1 10:49:51 2024 +0900
+
+    Feat: QnA Service
+
+[33mcommit de89d0d91694fb9e16ab6297ad2cbc85a1e695be[m
+Author: 안동민 <andongmin94@gmail.com>
+Date:   Mon Apr 1 10:02:07 2024 +0900
+
+    Fix : modify url in django
+
+[33mcommit f6a270cd2be028e04ee917b2c94fffd845646f24[m
+Author: MalrangCow <malrangcow00@gmail.com>
+Date:   Mon Apr 1 09:34:16 2024 +0900
+
+    Fix: match url
+
+[33mcommit 357a32b950f22a6ca2da2f422df13b8753ec2da8[m
+Author: 장준영 <wnsdud2889@naver.com>
+Date:   Mon Apr 1 09:31:59 2024 +0900
+
+    Fix : recommend charts fix
+
+[33mcommit 5b2df2f8f05f23059af61347f8e076342c4400cb[m
+Author: 장준영 <wnsdud2889@naver.com>
+Date:   Mon Apr 1 09:07:38 2024 +0900
+
+    Fix : insertusergroup url
+
+[33mcommit 36181d2c95776a53a11f6297e15b32b48a1859fe[m
+Author: 장준영 <wnsdud2889@naver.com>
+Date:   Mon Apr 1 09:06:57 2024 +0900
+
+    Fix : insertusergroup url
+
+[33mcommit 281f1257645384995bd283850760769cd7d5471b[m
+Merge: a225ebe 77c2270
+Author: 김상훈 <k1016h@naver.com>
+Date:   Mon Apr 1 00:57:42 2024 +0900
+
+    Merge : front-css to dev
+
+[33mcommit a225ebe77ee550bd2b4c6f16fa1d8aaf4cb9a1a3[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Mon Apr 1 00:51:34 2024 +0900
+
+    Fix : 원상복구
+
+[33mcommit a80735bae1d212bf8da4ab86bffa6383b2f13a92[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Mon Apr 1 00:45:02 2024 +0900
+
+    Fix : check condition
+
+[33mcommit c3125f8369793f548069c0b2d3806f715d9009c1[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 22:05:57 2024 +0900
+
+    Fix : modify console error in chart
+
+[33mcommit b9501de335806f9917f14adb47322f3e7c6bc2ff[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 22:05:52 2024 +0900
+
+    Fix : modify console error in recommend-card
+
+[33mcommit dabd4f1eec7ebf27907c6cd1bf31d9c5db24b6d0[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 22:05:46 2024 +0900
+
+    Fix : modify console error in main
+
+[33mcommit 62d913f82103b303ece1d39225558f5caf0ba577[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 22:05:41 2024 +0900
+
+    Fix : modify console error in filter-card
+
+[33mcommit fd38498a51a7b3bce1e9c8096b8a6438411f27b9[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 18:33:28 2024 +0900
+
+    Fix : url fix
+
+[33mcommit c1c9f8a77a98992671109f1daa1c55a12d1d25c1[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 17:46:38 2024 +0900
+
+    Fix : lock qna
+
+[33mcommit d5e57a907b05cbcc3f28260e2846b8b2f540a1f0[m
+Author: 장준영 <wnsdud2889@naver.com>
+Date:   Sun Mar 31 01:03:11 2024 +0900
+
+    Fix : Tune springboot's log, comment, Rollback partial welfare service
+
+[33mcommit 4fb0b20021cb907da224baaa1acebe8d1f38436b[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:13:48 2024 +0900
+
+    Fix : eslint all
+
+[33mcommit 67873b7bd3ba09c8af8cfe0111989988418b7b11[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:06:00 2024 +0900
+
+    Fix : modify fonts in global.css
+
+[33mcommit e8453597e7c3d1fd22e0f1dce9612077877e6695[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:05:48 2024 +0900
+
+    Fix : modify theme in custom-filter
+
+[33mcommit 81caf346d6c39e17710fe87d8147f4602c96f20a[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:05:43 2024 +0900
+
+    Fix : modify theme in login
+
+[33mcommit adfbb017d865787c2636488e871e49b9a60587a2[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:05:40 2024 +0900
+
+    Fix : modify theme in main
+
+[33mcommit d1fc786e0b4d6ac05be358b97ec034e6b0f2ee8a[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:05:36 2024 +0900
+
+    Fix : modify theme in manual
+
+[33mcommit 90642811b2215280b37696d31331799ecc0112c5[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:05:29 2024 +0900
+
+    Fix : modify theme in profile
+
+[33mcommit 830d81a4ae21d3e5eab9b1b0d112ef44b9682109[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:05:25 2024 +0900
+
+    Fix : modify theme in qna
+
+[33mcommit 10abddfb984e9bb82bf32652895333b3c2d6217d[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:05:21 2024 +0900
+
+    Fix : modify theme in qna-create
+
+[33mcommit 0b9376263928581e79562dbb9e6b308bca05f0ac[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:05:14 2024 +0900
+
+    Fix : modify theme in welfare-detail
+
+[33mcommit 10a8a08e1dd18d69eb04e8c8218bc370627c184b[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:05:09 2024 +0900
+
+    Fix : modify theme in welfare-search
+
+[33mcommit eef9e29cbd9941be2640922554997b730b3d747e[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:05:05 2024 +0900
+
+    Fix : modify theme in recommend-slide
+
+[33mcommit 547a758596368465f82a3a433394770ee3409a91[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:04:58 2024 +0900
+
+    Fix : modify theme in recommend-card
+
+[33mcommit 099df1f28f2c3bbb3416fc0407ba7289b4344d92[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:04:53 2024 +0900
+
+    Fix : modify theme in profile-card
+
+[33mcommit 95bbc97fd40969a45a553e3d07b7a36eb1a19bd8[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:04:47 2024 +0900
+
+    Fix : modify theme in no-recommend
+
+[33mcommit 7c2d43cc73e30760baff347d9d46922833be2cae[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:04:41 2024 +0900
+
+    Fix : modify theme in filter-card
+
+[33mcommit 619842fb94def99f5ea6c6ecadc6667d9b733e73[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:04:36 2024 +0900
+
+    Fix : modify theme in detail-tabs
+
+[33mcommit 9a303d55e1d0b6dab249156096375e679ede63a3[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:04:31 2024 +0900
+
+    Fix : modify theme in detail-card
+
+[33mcommit b3608364b2006ca8fb46349365d161f3869ef160[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:04:24 2024 +0900
+
+    Fix : modify theme in search-bar
+
+[33mcommit b4c07288a67ff475a9c29e3524ec246469236e22[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:04:20 2024 +0900
+
+    Fix : modify theme in keyword
+
+[33mcommit 2368bd7dca2e04366f7610a3af54020e3b684f90[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:04:13 2024 +0900
+
+    Fix : modify theme in user-profile
+
+[33mcommit e7b722ae1f67d8c0e24ccfc45b066f6f8ef22e13[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:03:59 2024 +0900
+
+    Fix : modify 오와열 in modify
+
+[33mcommit 7907376c53dd511e09b5ae1129e4156b810ce00e[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:03:36 2024 +0900
+
+    Fix : theme in delete-account
+
+[33mcommit d594f26d736acb021eb7af93452acbbb34ccd39b[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:03:23 2024 +0900
+
+    Fix : theme in search-bar
+
+[33mcommit 96c5ff7e331003b2e1bbaa8f72f5f90acd296493[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:03:19 2024 +0900
+
+    Fix : theme in login-modal
+
+[33mcommit 7bbafe54c6170c90ccbc847f6865ec1dad8e2df0[m
+Author: 김상훈 <k1016h@naver.com>
+Date:   Sun Mar 31 00:03:12 2024 +0900
+
+    Fix : theme in header

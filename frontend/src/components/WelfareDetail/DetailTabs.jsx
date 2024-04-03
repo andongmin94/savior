@@ -1,7 +1,6 @@
 import React from "react";
 
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
@@ -20,7 +19,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <span>{children}</span>
         </Box>
       )}
     </div>
@@ -271,9 +270,17 @@ export default function DetailTaps(props) {
             {siteName}
           </div>
           <div>
-            <a href={siteLink} style={{ fontFamily: "TmoneyRoundWind" }}>
-              {siteLink}
-            </a>
+            {siteLink}&nbsp;
+            {siteLink && typeof window.electron === "undefined" && (
+              <a
+                href={`http://www.${siteLink.substring(8)}`}
+                style={{ fontFamily: "TmoneyRoundWind", color: "#1d4ed8"}}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                (바로가기)
+              </a>
+            )}
           </div>
         </div>
       </TabPanel>

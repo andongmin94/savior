@@ -6,6 +6,15 @@ import { getAxios } from "@/api";
 import SearchBar from "@/components/Main/SearchBar";
 import FilterSlide from "@/components/WelfareRecommend/FilterSlide";
 
+function isLogin() {
+  const token = localStorage.getItem("token");
+  if (token) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 export default function Main() {
   const KAKAO_AUTH_URL = `https://j10d109.p.ssafy.io/api/oauth2/authorization/kakao?redirect_uri=https://j10d109.p.ssafy.io/oauth/kakao/callback`;
   // const KAKAO_AUTH_URL = `http://localhost:8080/api/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/oauth/kakao/callback`;
@@ -40,7 +49,7 @@ export default function Main() {
       await setSelectfamilies(response.data.body.user.selectfamilies);
       await setSelecttargets(response.data.body.user.selecttargets);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -50,7 +59,7 @@ export default function Main() {
       // console.log("인기순: ", res.data.body.welfare, typeof res.data.body.welfare);
       setPopular(res.data.body.welfare);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -60,7 +69,7 @@ export default function Main() {
       // console.log("welfare: ", request.data.body.welfare);
       setCards(request.data.body.welfare);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -70,7 +79,7 @@ export default function Main() {
       // console.log("keywords: ", request.data.body.keywords);
       setKeywords(request.data.body.keywords.slice(0, 10));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

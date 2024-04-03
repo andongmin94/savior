@@ -2,7 +2,11 @@ import json
 import os
 import re
 
+import boto3
+from django.conf import settings
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 from konlpy.tag import Okt
 import numpy as np
 import pandas as pd
@@ -702,3 +706,50 @@ def cosine_grouping(request):
         welfare.update(welfare_similar_welfare=top_10[i])
 
     return Response('cosine_grouping done')
+
+
+@csrf_exempt
+@api_view(['POST'])
+def upload_welfare_app(request):
+    if request.method == 'POST':
+        app_version = request.POST.get('app_version')
+        file = request.FILES.get('file')
+
+        if not file:
+            return JsonResponse({'error': 'No file provided.'}, status=400)
+
+        welfare_app, created = WelfareApp.objects.get_or_create(app_version=app_version)
+        welfare_app.file = file
+        welfare_app.save()
+
+        return JsonResponse({
+            'id': welfare_app.id,
+            'app_version': welfare_app.app_version,
+            'file_url': welfare_app.file.url,
+            'created': created  # True면 새로 생성, False면 업데이트
+        }, status=201)
+
+
+@api_view(['GET'])
+def download_welfare_app(request, app_version):
+    try:
+        welfare_app = WelfareApp.objects.get(app_version=app_version)
+
+        # S3 클라이언트 생성
+        s3_client = boto3.client(
+            's3',
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+            region_name=settings.AWS_S3_REGION_NAME
+        )
+
+        # Pre-signed URL 생성
+        bucket_name = settings.AWS_STORAGE_BUCKET_NAME
+        object_name = welfare_app.file.name  # S3에 저장된 객체의 키
+        presigned_url = s3_client.generate_presigned_url('get_object',
+                                                         Params={'Bucket': bucket_name, 'Key': object_name},
+                                                         ExpiresIn=604800)  # 여기서 만료 시간을 설정
+
+        return JsonResponse({'url': presigned_url}, status=200)
+    except WelfareApp.DoesNotExist:
+        return JsonResponse({'error': 'File not found'}, status=404)
