@@ -23,6 +23,7 @@ export default function WelfareDetail() {
   let navigate = useNavigate();
   const welfareId = useParams().welfareId;
   const [welfare, setWelfare] = useState({});
+  const [loadState, setLoadState] = useState("loading");
   const axios = getAxios();
   const [likeWelfares, setLikeWelfares] = useState([]);
   const [usedWelfares, setUsedWelfares] = useState([]);
@@ -40,30 +41,32 @@ export default function WelfareDetail() {
 
   useEffect(() => {
     const fetchDetail = async () => {
+      setLoadState("loading");
       try {
         const request = await axios.get(`/api/welfare/${welfareId}`);
         const datas = request.data.body.welfare;
         setWelfare(datas);
+        setLoadState("ready");
       } catch (err) {
-        console.log(err);
+        setWelfare({});
+        setLoadState("not-found");
       }
     };
     fetchDetail();
-  }, []);
+  }, [axios, welfareId]);
 
   useEffect(() => {
     const fetchRecommend = async () => {
       try {
         const request = await axios.get(`/api/welfare/${welfareId}/recommend`);
-        const arr = request.data.sort(() => Math.random() - 0.5);
-        setRecommend(arr.slice(0, 3));
+        setRecommend(request.data.slice(0, 3));
       } catch (err) {
-        console.log(err);
+        setRecommend([]);
       }
     };
     fetchRecommend();
     return () => setRecommend([]);
-  }, []);
+  }, [axios, welfareId]);
 
   useEffect(() => {
     const fetchLike = async () => {
@@ -91,12 +94,12 @@ export default function WelfareDetail() {
     };
     checkLogin();
     return () => setLikeWelfares([]);
-  }, []);
+  }, [axios, dispatch, welfareId]);
 
   useEffect(() => {
     const fetchUsed = async () => {
       try {
-        const request = await axios.get("api/users/used");
+        const request = await axios.get("/api/users/used");
         const datas = request.data.body.usedWelfareList;
         if (datas.length !== 0) {
           const ids = await datas.map((data) => data.welfareId);
@@ -120,7 +123,32 @@ export default function WelfareDetail() {
     };
     checkLogin();
     return () => setUsedWelfares([0]);
-  }, []);
+  }, [axios, dispatch, welfareId]);
+
+  if (loadState === "loading") {
+    return (
+      <div className="flex min-h-screen items-center justify-center text-blue-800">
+        복지 상세 정보를 불러오는 중입니다.
+      </div>
+    );
+  }
+
+  if (loadState === "not-found") {
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center gap-4 text-center">
+        <h2 className="text-2xl font-bold">복지 정보를 찾을 수 없습니다.</h2>
+        <p className="text-gray-600">
+          데모 목록에서 다른 복지를 선택해 주세요.
+        </p>
+        <Button
+          className="border-none bg-blue-700"
+          onClick={() => navigate("/search")}
+        >
+          복지 검색으로 이동
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className="box-border grid justify-center mt-[17vh] mb-[5vh]">
@@ -133,8 +161,7 @@ export default function WelfareDetail() {
           </div>
         </div>
         <Button
-          className="bg-blue-700 border-none texd-white font-bold"
-          sx={{ height: 35 }}
+          className="h-[35px] border-none bg-blue-700 font-bold text-white"
           onClick={() => {
             navigate(-1);
           }}

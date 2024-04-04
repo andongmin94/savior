@@ -8,6 +8,11 @@ dev-dist
 dist_electron
 *.local
 
+# Local credentials and production-only configuration
+**/application-secret.yml
+**/env.production
+backend/django/data-preprocessing/http/GET.http
+
 ### C++ ###
 # Prerequisites
 *.d

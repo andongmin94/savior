@@ -17,6 +17,7 @@ file_path = os.getcwd() + "/data-preprocessing/result/"
 # 모든 유저 데이터를 받아 데이터 벡터화 후 DBSCAN을 이용하여 클러스터링
 @api_view(['GET'])
 def insert_all(request):
+    """저장된 모든 사용자의 조건 벡터를 다시 계산해 추천 군집을 갱신한다."""
     users = User.objects.all();
     for user in users:
         process_user_data(user.user_seq)
@@ -26,12 +27,14 @@ def insert_all(request):
 # 유저 아이디를 받아 데이터 벡터화 후 DBSCAN을 이용하여 클러스터링
 @api_view(['GET'])
 def insert_user(request, user_seq):
+    """한 사용자의 최신 조건을 벡터화해 추천 군집을 갱신한다."""
     process_user_data(user_seq)
     return Response("success")
 
 
 # 유저 아이디를 받아 데이터 벡터화 후 DBSCAN을 이용하여 클러스터링
 def process_user_data(user_seq):
+    """사용자·가구·대상 조건을 결합하고 최종 군집 매핑 파이프라인을 실행한다."""
     # user_seq=1; #유저 아이디 받아오기
     user = User.objects.filter(user_seq=user_seq);
     # print("user확인 :: ",user.values())
@@ -54,7 +57,6 @@ def process_user_data(user_seq):
 def combine_vectorize(user, selectfamily, selecttarget):
     total = []
     arr = [user.values()[0], selectfamily.values(), selecttarget.values()]
-    print("user:: ", user.values())
     cur = arr[0]
     # area=1
     # gwangju=0
@@ -380,6 +382,7 @@ def compress_matrix(result):
 
 # 유사도 계산 및 그룹 매핑
 def mapping_group_by_dbscan(user_vector, user_seq, result_word):
+    """코사인 유사도 상위 군집을 조건 단어 유사도로 재평가해 user_group에 저장한다."""
     full_welfare = pd.read_csv(file_path + 'welfare+DBSCAN.csv')
 
     welfare_mean = []

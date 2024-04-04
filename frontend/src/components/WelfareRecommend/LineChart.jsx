@@ -71,7 +71,7 @@ export default function Chart() {
       }
     };
     fetchData();
-  }, []);
+  }, [axios, dispatch]);
 
   return (
     <div className="max-w-[800px] h-[80%]">

@@ -1,0 +1,10 @@
+@serviceKey = {{$dotenv WELFARE_API_KEY}}
+
+### 중앙부처 복지서비스 목록 예시
+GET https://apis.data.go.kr/B554287/NationalWelfareInformations/NationalWelfarelist?serviceKey={{serviceKey}}&callTp=L&pageNo=1&numOfRows=10&srchKeyCode=001&lifeArray=
+Accept: application/xml
+
+### 중앙부처 복지서비스 상세 예시
+GET https://apis.data.go.kr/B554287/NationalWelfareInformations/NationalWelfaredetailed?serviceKey={{serviceKey}}&callTp=D&servId=sample-service-id
+Accept: application/xml
+

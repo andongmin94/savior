@@ -1,9 +1,9 @@
 export default function ProfileCard(props) {
   return (
-    <div className="box-border gird rounded-[20px] bg-blue-600">
+    <div className="box-border grid rounded-[20px] bg-blue-600">
       {props.profile === null ? (
         <img
-          src="/blank-profile.png"
+          src="./blank-profile.png"
           alt="profile"
           className="object-cover w-full max-h-full rounded-tl-[20px] rounded-tr-[20px]"
         />

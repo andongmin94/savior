@@ -26,10 +26,11 @@ export default function UserProfile({
 
   return (
     <div>
-      {modify === "false" ? (
+      {!modify ? (
         <div className="flex justify-center items-center mt-[3%]">
           <img
             src={profileImage}
+            alt={`${username} 프로필`}
             className="w-[110px] h-[110px] rounded-[70%] overflow-hidden"
           ></img>
           <div className="flex flex-col ml-[20px] text-white">
@@ -58,7 +59,7 @@ export default function UserProfile({
               size="sm"
               className="w-[80px] bg-blue-800 border-none"
               onClick={() => {
-                setModify("true");
+                setModify(true);
               }}
             >
               수정
@@ -69,6 +70,7 @@ export default function UserProfile({
         <div className="flex justify-center items-center mt-[3%]">
           <img
             src={profileImage}
+            alt={`${username} 프로필`}
             className="w-[110px] h-[110px] rounded-[70%] overflow-hidden"
           />
           <div className="flex flex-col ml-[20px]">
@@ -84,9 +86,9 @@ export default function UserProfile({
             <Button
               size="sm"
               className="w-20 bg-blue-800 border-none text-white"
-              onClick={() => {
-                setModify("false");
-                setProfile();
+              onClick={async () => {
+                await setProfile();
+                setModify(false);
                 setText("정보 입력이 완료되었습니다.");
                 handleShow();
               }}

@@ -1,14 +1,13 @@
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, Autoplay, Navigation } from "swiper/core";
+import { A11y, Autoplay, Pagination, Scrollbar } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/a11y";
+import "swiper/css/autoplay";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/css/scrollbar";
 
 import RecommendCard from "./RecommendCard";
-
-SwiperCore.use([Pagination, Autoplay, Navigation]);
 
 export default function RecommendSlide() {
   const { title, content, id } = useSelector((state) => state.welData);
@@ -17,6 +16,7 @@ export default function RecommendSlide() {
     <div className="main-wrap">
       <h2 className="mb-[3vh] font-bold">지금 인기있는 복지</h2>
       <Swiper
+        modules={[A11y, Autoplay, Pagination, Scrollbar]}
         className="w-[70vw] h-[40vh] rounded-[12px]"
         spaceBetween={20}
         slidesPerView={4}
@@ -24,7 +24,7 @@ export default function RecommendSlide() {
         initialSlide={1}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        loop
+        rewind
         autoplay={{ delay: 5000 }}
         breakpoints={{
           0: {

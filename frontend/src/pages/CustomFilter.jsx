@@ -14,7 +14,12 @@ export default function CustomFilter() {
   return (
     <div className="grid">
       {isLogin() ? (
-        <div className='flex py-[10%] px-[10%] w-screen h-screen bg-[url("/background/waves.svg")]'>
+        <div
+          className="flex py-[10%] px-[10%] w-screen h-screen"
+          style={{
+            backgroundImage: `url(${import.meta.env.BASE_URL}background/waves.svg)`,
+          }}
+        >
           <FilterChips />
         </div>
       ) : (

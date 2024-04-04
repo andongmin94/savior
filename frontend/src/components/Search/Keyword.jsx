@@ -35,7 +35,7 @@ export default function Keyword() {
       }
     };
     fetchWord();
-  }, [keyword]);
+  }, [axios, keyword]);
 
   const onClick = (word) => {
     dispatch(changeInput(word));
@@ -58,7 +58,7 @@ export default function Keyword() {
           <div
             className="text-left"
             style={{ flexBasis: "70%" }}
-            onClick={(e) => onClick(keyword.keywordName)}
+            onClick={() => onClick(keyword.keywordName)}
           >
             {keyword.keywordName}
           </div>

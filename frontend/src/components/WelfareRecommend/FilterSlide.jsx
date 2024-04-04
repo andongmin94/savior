@@ -1,17 +1,18 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, Autoplay, Navigation } from "swiper/core";
+import { A11y, Autoplay, Pagination, Scrollbar } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/a11y";
+import "swiper/css/autoplay";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/css/scrollbar";
 
 import FilterCard from "@/components/WelfareRecommend/FilterCard";
 
-SwiperCore.use([Pagination, Autoplay, Navigation]);
-
 export default function FilterSlide(props) {
   return (
-    <div className="box-border mb-[5vh] mt-[5vh">
+    <div className="box-border mb-[5vh] mt-[5vh]">
       <Swiper
+        modules={[A11y, Autoplay, Pagination, Scrollbar]}
         className="w-[70vw] h-[40vh] rounded-[12px]"
         spaceBetween={20}
         slidesPerView={4}
@@ -19,7 +20,7 @@ export default function FilterSlide(props) {
         initialSlide={1}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        loop
+        rewind
         autoplay={{ delay: 5000 }}
         breakpoints={{
           0: {

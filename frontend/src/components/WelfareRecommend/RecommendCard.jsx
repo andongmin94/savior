@@ -33,7 +33,7 @@ export default function RecommendCard(props) {
             component="div"
             sx={{ width: "10", height: "10" }}
             className="text-blue-800"
-            fontFamily={"TmoneyRoundWind"}
+            fontFamily="var(--app-font)"
           >
             <div className="hover:no-underline hover:inline cursor-pointer font-bold">
               {title}
@@ -53,7 +53,7 @@ export default function RecommendCard(props) {
       </CardContent>
       <CardActions>
         <Button
-          className="bg-blue-700 border-none texd-white w-full"
+          className="w-full border-none bg-blue-700 text-white"
           onClick={onClick}
         >
           상세보기

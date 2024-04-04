@@ -1,15 +1,12 @@
-import _ from "lodash";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 
 export default function PaginationBtn(props) {
-  const { itemsCount, pageSize, currentPage, onPageChange } = props;
+  const { itemsCount, pageSize, onPageChange } = props;
   // 각각 복지목록 개수, 한 페이지에 보여줄 데이터개수,
   const pageCount = Math.ceil(itemsCount / pageSize); // 몇 페이지가 필요한지 계산
 
   if (pageCount === 1) return null; // 1페이지 뿐이라면 페이지네이션 안보이게
-
-  const pages = _.range(1, pageCount + 1); // 마지막 페이지에 보여줄 컨텐츠를 위해 +1
 
   return (
     <Stack spacing={2}>

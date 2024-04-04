@@ -9,6 +9,7 @@ import UserProfile from "@/components/Profile/UserProfile";
 import FilterChips from "@/components/FilterChips";
 import DeleteAccount from "@/components/Profile/DeleteAccount";
 import { paginate } from "@/components/Search/paginate";
+import { isMockMode } from "@/mocks/demoStore";
 
 const ageMap = new Map();
 ageMap.set("1", "어린이 (0~9)"); //무직
@@ -27,7 +28,7 @@ const PaginationBtn = (props) => {
     <Stack spacing={2}>
       <Pagination
         count={pageCount}
-        onClick={(e) => onPageChange(e.target.textContent)}
+        onChange={(_event, page) => onPageChange(page)}
       />
     </Stack>
   );
@@ -39,18 +40,16 @@ export default function Profile() {
   const [ageRender, setAgeRender] = useState("");
   const [gender, setGender] = useState("");
   const [profileImage, setProfileImage] = useState("");
-  const [liked, setLiked] = useState([]);
-  const [used, setUsed] = useState([]);
-  const [modify, setModify] = useState("false");
+  const [modify, setModify] = useState(false);
   const navigate = useNavigate();
 
   const [welLikes, setWelLikes] = useState({
-    datal: "",
+    datal: [],
     pageSizel: 5, // 한 페이지에 보여줄 데이터 개수
     currentPagel: 1, // 현재 활성화된 페이지 위치
   });
   const [welUsed, setWelUsed] = useState({
-    datau: "",
+    datau: [],
     pageSizeu: 5, // 한 페이지에 보여줄 데이터 개수
     currentPageu: 1, // 현재 활성화된 페이지 위치
   });
@@ -71,29 +70,30 @@ export default function Profile() {
     try {
       const axios = getAxios();
       let response = await axios.get("/api/users/profile");
+      const user = response.data.body.user;
 
-      setUsername(localStorage.getItem("name"));
-      setProfileImage(localStorage.getItem("profile"));
-      setUserSeq(response.data.body.user.userSeq);
+      setUsername(user.username);
+      setUserSeq(user.userSeq);
 
-      if (response.data.body.user.profileImageUrl === null) {
-        setProfileImage("/blank-profile.png");
+      if (user.profileImageUrl === null) {
+        setProfileImage("./blank-profile.png");
       } else {
-        setProfileImage(response.data.body.user.profileImageUrl);
+        setProfileImage(user.profileImageUrl);
       }
 
-      if (response.data.body.user.ageRange === null) {
+      if (user.ageRange === null) {
         setAgeRange("placeholder");
+        setAgeRender("");
       } else {
-        setAgeRange(response.data.body.user.ageRange);
-        setAgeRender(ageMap.get(ageRange));
+        setAgeRange(user.ageRange);
+        setAgeRender(ageMap.get(user.ageRange));
       }
 
-      if (response.data.body.user.male === null) {
+      if (user.male === null) {
         setGender("placeholder");
-      } else if (response.data.body.user.male === 1) {
+      } else if (user.male === 1) {
         setGender("male");
-      } else if (response.data.body.user.male === 0) {
+      } else if (user.male === 0) {
         setGender("female");
       }
     } catch (err) {
@@ -111,7 +111,7 @@ export default function Profile() {
       setAgeRender(ageMap.get(ageRange));
 
       const djangoAxios = getAxiosDjango();
-      let res = await djangoAxios.get(`/user_insert/dbscan/${userSeq}`);
+      await djangoAxios.get(`/user/insert_dbscan/${userSeq}`);
     } catch (err) {
       console.log(err);
     }
@@ -121,8 +121,10 @@ export default function Profile() {
     try {
       const axios = getAxios();
       let response = await axios.get("/api/users/like");
-      setLiked(response.data.body.likeList);
-      setWelLikes({ ...welLikes, datal: response.data.body.likeList });
+      setWelLikes((current) => ({
+        ...current,
+        datal: response.data.body.likeList,
+      }));
     } catch (err) {
       console.log(err);
     }
@@ -132,8 +134,10 @@ export default function Profile() {
     try {
       const axios = getAxios();
       let response = await axios.get("/api/users/used");
-      setUsed(response.data.body.usedWelfareList);
-      setWelUsed({ ...welUsed, datau: response.data.body.usedWelfareList });
+      setWelUsed((current) => ({
+        ...current,
+        datau: response.data.body.usedWelfareList,
+      }));
     } catch (err) {
       console.log(err);
     }
@@ -141,7 +145,7 @@ export default function Profile() {
 
   useEffect(() => {
     getProfile();
-  }, [ageRender]);
+  }, []);
 
   useEffect(() => {
     getLike();
@@ -154,7 +158,12 @@ export default function Profile() {
   return (
     <div>
       {typeof window.electron !== "undefined" && <div className="pt-16" />}
-      <div className="flex justify-center text-black bg-[url('/background/waves.svg')] w-screen">
+      <div
+        className="flex justify-center text-black w-screen"
+        style={{
+          backgroundImage: `url(${import.meta.env.BASE_URL}background/waves.svg)`,
+        }}
+      >
         <div className="flex flex-col justify-center m-[15%] my-0">
           <div className="m-[0%] mx-[5%] bg-opacity-50 rounded-md p-[3%] px-[5%]">
             <UserProfile
@@ -185,7 +194,7 @@ export default function Profile() {
             <hr className="my-[3%] mx-0" />
 
             <div className="flex flex-wrap justify-evenly">
-              <div className="h-[50vh] w-[400px] p-[1%] py-0 grid items-center grid-rows-[15%,70%,15%] bg-white bg-opacity-40 rounded-md">
+              <div className="grid h-[50vh] w-[400px] grid-rows-[15%_70%_15%] items-center rounded-md bg-white bg-opacity-40 p-[1%] py-0">
                 <h5 className="text-center mt-[0.5rem]">
                   <strong>찜한 복지</strong>
                 </h5>
@@ -216,7 +225,7 @@ export default function Profile() {
                   />
                 </div>
               </div>
-              <div className="h-[50vh] w-[400px] p-[1%] py-0 grid items-center grid-rows-[15%,70%,15%] bg-white bg-opacity-40 rounded-md">
+              <div className="grid h-[50vh] w-[400px] grid-rows-[15%_70%_15%] items-center rounded-md bg-white bg-opacity-40 p-[1%] py-0">
                 <h5 className="text-center mt-[0.5rem]">
                   <strong>사용 중인 복지</strong>
                 </h5>
@@ -252,9 +261,11 @@ export default function Profile() {
 
             <hr className="my-[3%] mx-0" />
 
-            <div className="flex justify-end">
-              <DeleteAccount />
-            </div>
+            {!isMockMode && (
+              <div className="flex justify-end">
+                <DeleteAccount />
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -36,16 +36,15 @@ export default function WelfareRecommend() {
     const fetchCard = async () => {
       try {
         if (isLogin()) {
-        const request = await axios.get("/api/welfare/recommend");
-        // console.log(request.data.body.welfare);
-        setCards(request.data.body.welfare);
+          const request = await axios.get("/api/welfare/recommend");
+          setCards(request.data.body.welfare);
         }
       } catch (err) {
         console.log(err);
       }
     };
     fetchCard();
-  }, []);
+  }, [axios]);
 
   return isLogin() ? (
     cards.length === 0 ? (

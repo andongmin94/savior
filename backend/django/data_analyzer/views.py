@@ -623,6 +623,7 @@ def filter_stopword():
 # 복지 특성유무에 따른 DBSCAN 클러스터링
 @api_view(['GET'])
 def dbscan(request):
+    """복지 조건 벡터를 DBSCAN으로 군집화하고 CSV와 복지 그룹 필드를 갱신한다."""
     ex = classify_words()
     total_word = pd.read_csv(file_path + "welfare_word_result.csv", encoding='utf-8')
     total = vectorize_properties()
@@ -676,6 +677,7 @@ def vectorize_words():
 # 복지 유사도 계산 및 그룹화
 @api_view(['GET'])
 def cosine_grouping(request):
+    """조건 특성과 설명 텍스트의 유사도를 결합해 복지별 연관 복지 ID를 저장한다."""
     sim_word = vectorize_words()
     vector_0101 = compress_matrix()
 

@@ -1,28 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { changeInput } from "@/reducers/change";
 
-export default function SearchBar() {
+export default function SearchBar({ keyword = "" }) {
   const dispatch = useDispatch();
-  const [word, setWord] = useState("");
+  const navigate = useNavigate();
+  const [word, setWord] = useState(keyword);
+
+  useEffect(() => {
+    setWord(keyword);
+  }, [keyword]);
 
   const onChange = (e) => {
     setWord(e.target.value);
   };
 
-  const onEnter = async (e) => {
+  const search = (keyword) => {
+    const normalizedKeyword = keyword.trim();
+    dispatch(changeInput(normalizedKeyword));
+    navigate(`/search?keyword=${encodeURIComponent(normalizedKeyword)}`);
+    setWord(normalizedKeyword);
+  };
+
+  const onEnter = (e) => {
     if (e.key === "Enter") {
-      await setWord(e.target.value);
-      await dispatch(changeInput(word));
-      await setWord("");
+      search(e.currentTarget.value);
     }
   };
   const onClick = () => {
-    dispatch(changeInput(word));
-    setWord("");
+    search(word);
   };
 
   return (

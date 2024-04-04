@@ -1,66 +1,129 @@
-// 일렉트론 모듈
-import { fileURLToPath } from "url";
-import { join, dirname } from "path";
-// import electronLocalshortcut from "electron-localshortcut";
-import { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage, globalShortcut } from "electron";
+import { fileURLToPath, pathToFileURL } from "url";
+import { dirname, join } from "path";
+import {
+  app,
+  BrowserWindow,
+  globalShortcut,
+  ipcMain,
+  Menu,
+  nativeImage,
+  shell,
+  Tray,
+} from "electron";
 
-// 웹 모듈
-import axios from "axios";
+const currentDirectory = dirname(fileURLToPath(import.meta.url));
+const iconPath = join(currentDirectory, "../../public/icon.png");
+const packagedIndexPath = join(currentDirectory, "../../dist/index.html");
+const packagedIndexUrl = pathToFileURL(packagedIndexPath);
+const developmentUrl = process.env.ELECTRON_RENDERER_URL ?? "http://localhost:3000";
 
-// 일렉트론 생성 함수
-export let mainWindow;
-const createWindow = () => {
+let mainWindow;
+let tray;
 
-  // 브라우저 창을 생성합니다.
+function openExternalLink(url) {
+  if (url.startsWith("https://") || url.startsWith("http://")) {
+    void shell.openExternal(url);
+  }
+}
+
+function isAllowedInternalNavigation(url) {
+  try {
+    const target = new URL(url);
+
+    if (app.isPackaged) {
+      return (
+        target.protocol === "file:" &&
+        target.host === packagedIndexUrl.host &&
+        target.pathname === packagedIndexUrl.pathname
+      );
+    }
+
+    return target.origin === new URL(developmentUrl).origin;
+  } catch {
+    return false;
+  }
+}
+
+/** React renderer를 담는 보안 격리 BrowserWindow를 만들고 내부·외부 이동 경계를 설정한다. */
+async function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 1600,
+    width: 1440,
     height: 900,
+    minWidth: 1100,
+    minHeight: 720,
     frame: false,
-
-    icon: join(dirname(fileURLToPath(import.meta.url)), "../../public/icon.png"),
+    icon: iconPath,
     webPreferences: {
-      preload: join(dirname(fileURLToPath(import.meta.url)), "preload.js")
+      preload: join(currentDirectory, "preload.cjs"),
+      contextIsolation: true,
+      nodeIntegration: false,
+      sandbox: true,
+    },
+  });
+
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    openExternalLink(url);
+    return { action: "deny" };
+  });
+
+  mainWindow.webContents.on("will-navigate", (event, url) => {
+    if (!isAllowedInternalNavigation(url)) {
+      event.preventDefault();
+      openExternalLink(url);
     }
   });
 
-  // 웹 연결 URL
-  const BASE_URL = 'https://j10d109.p.ssafy.io';
-  // const BASE_URL = 'http://localhost:3000';
-  mainWindow.loadURL(BASE_URL);
+  if (app.isPackaged) {
+    await mainWindow.loadFile(packagedIndexPath);
+  } else {
+    await mainWindow.loadURL(developmentUrl);
+  }
 }
 
-// 이 메소드는 Electron의 초기화가 완료되고
-// 브라우저 윈도우가 생성될 준비가 되었을때 호출된다.
-export default app.whenReady().then(createWindow).then(() => {
+/** 닫힌 창을 다시 열거나 애플리케이션을 종료할 수 있는 시스템 tray를 만든다. */
+function createTray() {
+  tray = new Tray(nativeImage.createFromPath(iconPath));
+  tray.setToolTip("Savior");
+  tray.on("double-click", () => mainWindow?.show());
+  tray.setContextMenu(
+    Menu.buildFromTemplate([
+      { label: "Savior 열기", click: () => mainWindow?.show() },
+      { label: "종료", click: () => app.quit() },
+    ]),
+  );
+}
 
-  // 기본 생성 세팅
-  app.on("window-all-closed", () => { if (process.platform !== "darwin") app.quit() });
-  app.on("activate", () => { if (BrowserWindow.getAllWindows().length === 0) createWindow() });
-
-  // 타이틀 바 옵션
-  ipcMain.on("hidden", () => mainWindow.hide());
-  ipcMain.on("minimize", () => mainWindow.minimize());
-  ipcMain.on("maximize", () => {
+/** preload가 노출한 최소 창 제어 요청만 main process에 연결한다. */
+function registerWindowControls() {
+  ipcMain.on("window:hide", () => mainWindow?.hide());
+  ipcMain.on("window:minimize", () => mainWindow?.minimize());
+  ipcMain.on("window:maximize", () => {
+    if (!mainWindow) return;
     mainWindow.isMaximized() ? mainWindow.restore() : mainWindow.maximize();
   });
+}
 
-  // 트레이 세팅
-  const tray = new Tray(nativeImage.createFromPath(join(dirname(fileURLToPath(import.meta.url)), "../../public/icon.png")));
-  tray.setToolTip("react-electron-boilerplate");
-  tray.on("double-click", () => mainWindow.show());
-  tray.setContextMenu(Menu.buildFromTemplate([
-    { label: "켜기", type: "normal", click: () => mainWindow.show() },
-    { label: "끄기", type: "normal", click: () => app.quit() }
-  ]));
+app.whenReady().then(async () => {
+  registerWindowControls();
+  createTray();
+  await createWindow();
 
-  // F5 키를 누르면 현재 포커스된 창 새로고침
-  globalShortcut.register('F5', () => { console.log('F5 is pressed'); mainWindow.reload() });
+  globalShortcut.register("F5", () => mainWindow?.reload());
 
-  // F12 개발자 도구 열기
-  // electronLocalshortcut.register(mainWindow, "F12", () => { console.log("F12 is pressed"); mainWindow.webContents.toggleDevTools() });
-  
-  // 애플리케이션이 종료되기 전에 단축키 해제
-  app.on('will-quit', () => { globalShortcut.unregisterAll(); });
+  app.on("activate", async () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      await createWindow();
+    } else {
+      mainWindow?.show();
+    }
+  });
 });
 
-// 여기서부터 코드 작성
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") app.quit();
+});
+
+app.on("will-quit", () => {
+  globalShortcut.unregisterAll();
+  ipcMain.removeAllListeners();
+});

@@ -5,9 +5,10 @@ import { Button } from "react-bootstrap";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
-import StarRoundedIcon from "@mui/icons-material/StarRounded";
+import {
+  StarBorderRounded as StarBorderRoundedIcon,
+  StarRounded as StarRoundedIcon,
+} from "@mui/icons-material";
 import { yellow, grey } from "@mui/material/colors";
 import Grid from "@mui/material/Grid";
 
@@ -15,7 +16,7 @@ import { getAxios } from "@/api";
 import AlertModal from "@/components/AlertModal";
 
 export default function DetailCard(props) {
-  const { used, like } = useSelector((state) => state.likeused);
+  const { like } = useSelector((state) => state.likeused);
   const [likeBtn, setLikeBtn] = useState(false);
   const welfare = props.recommend;
   const likeNum = props.likeNum;
@@ -27,7 +28,7 @@ export default function DetailCard(props) {
 
   const likeAxios = async () => {
     try {
-      const request = await axios.put(`/api/users/like/${welfareId}`);
+      await axios.put(`/api/users/like/${welfareId}`);
       // console.log(request.data);
     } catch (err) {
       console.log(err);
@@ -35,7 +36,7 @@ export default function DetailCard(props) {
   };
   const unlikeAxios = async () => {
     try {
-      const request = await axios.delete(`/api/users/like/${welfareId}`);
+      await axios.delete(`/api/users/like/${welfareId}`);
     } catch (err) {
       console.log(err);
     }
@@ -47,14 +48,12 @@ export default function DetailCard(props) {
         like.includes(welfareId) ? setLikeBtn(true) : setLikeBtn(false);
       }
     }
-  }, [like]);
+  }, [like, welfareId]);
 
   let navigate = useNavigate();
 
   const handleClick = () => {
     navigate(`/welfare/${welfareId}`);
-    // console.log("클릭");
-    window.location.reload();
   };
 
   return (
@@ -66,7 +65,7 @@ export default function DetailCard(props) {
         pr: 2,
         display: "grid",
         gridTemplateRows: "80% 20%",
-        fontFamily: "TmoneyRoundWind",
+        fontFamily: "var(--app-font)",
       }}
     >
       <CardContent className="grid">
@@ -122,7 +121,7 @@ export default function DetailCard(props) {
       </CardContent>
       <CardActions>
         <Button
-          className="bg-blue-700 border-none texd-white w-full"
+          className="w-full border-none bg-blue-700 text-white"
           onClick={handleClick}
         >
           상세보기

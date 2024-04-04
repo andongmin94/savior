@@ -1,31 +1,23 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Tabs, Tab, ListGroup } from "react-bootstrap";
 
 import { getAxios } from "@/api";
 import SearchBar from "@/components/Main/SearchBar";
 import FilterSlide from "@/components/WelfareRecommend/FilterSlide";
-
-function isLogin() {
-  const token = localStorage.getItem("token");
-  if (token) {
-    return true;
-  } else {
-    return false;
-  }
-}
+import DemoPersonaSwitcher from "@/components/DemoPersonaSwitcher";
+import { isMockMode } from "@/mocks/demoStore";
 
 export default function Main() {
-  const KAKAO_AUTH_URL = `https://j10d109.p.ssafy.io/api/oauth2/authorization/kakao?redirect_uri=https://j10d109.p.ssafy.io/oauth/kakao/callback`;
-  // const KAKAO_AUTH_URL = `http://localhost:8080/api/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/oauth/kakao/callback`;
+  const oauthUrl = import.meta.env.VITE_OAUTH_URL;
 
   const axios = getAxios();
   let navigate = useNavigate();
 
   const [name, setName] = useState("User");
-  const [selectfamilies, setSelectfamilies] = useState([{}]);
-  const [selecttargets, setSelecttargets] = useState([{}]);
-  const [popular, setPopular] = useState([{}]);
+  const [selectfamilies, setSelectfamilies] = useState([]);
+  const [selecttargets, setSelecttargets] = useState([]);
+  const [popular, setPopular] = useState([]);
   const [token, setToken] = useState("");
   const [cards, setCards] = useState([]);
   const [keywords, setKeywords] = useState([]);
@@ -53,7 +45,7 @@ export default function Main() {
     }
   };
 
-  const getPopular = async () => {
+  const getPopular = useCallback(async () => {
     try {
       let res = await axios.get("/api/welfare/popular");
       // console.log("인기순: ", res.data.body.welfare, typeof res.data.body.welfare);
@@ -61,9 +53,9 @@ export default function Main() {
     } catch (error) {
       // console.log(error);
     }
-  };
+  }, [axios]);
 
-  const fetchCard = async () => {
+  const fetchCard = useCallback(async () => {
     try {
       const request = await axios.get("/api/welfare/recommend");
       // console.log("welfare: ", request.data.body.welfare);
@@ -71,9 +63,9 @@ export default function Main() {
     } catch (err) {
       // console.log(err);
     }
-  };
+  }, [axios]);
 
-  const fetchWord = async () => {
+  const fetchWord = useCallback(async () => {
     try {
       const request = await axios.get("/api/welfare/keyword");
       // console.log("keywords: ", request.data.body.keywords);
@@ -81,7 +73,7 @@ export default function Main() {
     } catch (err) {
       // console.log(err);
     }
-  };
+  }, [axios]);
 
   useEffect(() => {
     getPopular();
@@ -89,7 +81,7 @@ export default function Main() {
     fetchWord();
     isLogin();
     getProfile();
-  }, []);
+  }, [fetchCard, fetchWord, getPopular]);
 
   return (
     <main>
@@ -110,9 +102,17 @@ export default function Main() {
                 찾아보세요.
               </div>
 
-              {!token ? (
+              {isMockMode ? (
+                <div className="mt-4 max-w-xl">
+                  <div className="mb-2 text-sm text-blue-100">
+                    익명화된 샘플 데이터로 핵심 사용자 흐름을 체험할 수
+                    있습니다.
+                  </div>
+                  <DemoPersonaSwitcher />
+                </div>
+              ) : !token ? (
                 <Button
-                  href={KAKAO_AUTH_URL}
+                  href={oauthUrl}
                   className="mt-[10px] bg-blue-800 border-none"
                 >
                   카카오톡으로 시작하기
@@ -123,7 +123,12 @@ export default function Main() {
           </div>
         </div>
 
-        <div className="w-screen h-screen relative bg-[url('/background/waves.svg')]">
+        <div
+          className="w-screen h-screen relative"
+          style={{
+            backgroundImage: `url(${import.meta.env.BASE_URL}background/waves.svg)`,
+          }}
+        >
           <br />
           <div className="mx-[10%] mb-[1%]">
             <SearchBar keywords={keywords} />
@@ -137,7 +142,8 @@ export default function Main() {
             >
               <Tab eventKey="home" title="나에게 맞는 복지">
                 {cards.length === 0 ||
-                (selectfamilies == [] && selecttargets == []) ? (
+                (selectfamilies.length === 0 &&
+                  selecttargets.length === 0) ? (
                   <div className="flex justify-evenly items-center m-[2%] mx-0">
                     <img
                       src="Main-icon2.png"

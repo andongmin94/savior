@@ -1,5 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+
+import DemoPersonaSwitcher from "@/components/DemoPersonaSwitcher";
+import { isMockMode } from "@/mocks/demoStore";
 
 function isLogin() {
   const token = localStorage.getItem("token");
@@ -11,15 +14,17 @@ function isLogin() {
 }
 
 export default function Login() {
-  const KAKAO_AUTH_URL = `https://j10d109.p.ssafy.io/api/oauth2/authorization/kakao?redirect_uri=https://j10d109.p.ssafy.io/oauth/kakao/callback`;
-  // const KAKAO_AUTH_URL = `http://localhost:8080/api/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/oauth/kakao/callback`;
-  let navigate = useNavigate();
+  if (isMockMode) {
+    return <DemoPersonaSwitcher compact />;
+  }
+
+  const oauthUrl = import.meta.env.VITE_OAUTH_URL;
 
   return (
     <div>
       {!isLogin() ? (
         <div>
-          <a href={KAKAO_AUTH_URL}>
+          <a href={oauthUrl}>
             <Button className="bg-blue-800 border-none font-bold text-lg">
               로그인
             </Button>
@@ -39,7 +44,7 @@ export default function Login() {
               localStorage.removeItem("token");
               localStorage.removeItem("name");
               localStorage.removeItem("profile");
-              window.location.replace("/");
+              window.location.assign("/");
             }}
           >
             로그아웃

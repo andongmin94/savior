@@ -24,6 +24,7 @@
     --input: 20 5.9% 90%;
     --ring: 24.6 95% 53.1%;
     --radius: 0.5rem;
+    --app-font: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
   }
 
   .dark {
@@ -50,14 +51,6 @@
 }
 
 @layer base {
-  @font-face {
-    font-family: "TmoneyRoundWind";
-    src: url("/fonts/TmoneyRoundWind.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
   * {
     @apply border-border;
   }
@@ -69,7 +62,7 @@
 
   body {
     @apply bg-background text-foreground font-sans;
-    font-family: "TmoneyRoundWind";
+    font-family: var(--app-font);
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }

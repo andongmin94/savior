@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Modal } from "react-bootstrap";
-import { StepContext } from "@mui/material";
+import { Button } from "react-bootstrap";
 
 import { getAxios, getAxiosDjango } from "../api";
 import MultipleSelectChips from "@/components/Filter/MultipleSelectChips";
 import ChildSelectBox from "@/components/Filter/Child";
-import AlertModal from "@/components/AlertModal";
-import { orange } from "@mui/material/colors";
 
 const map = new Map();
 map.set(15, 0); //학생
@@ -82,16 +79,9 @@ export default function FilterChips() {
   let navigate = useNavigate();
 
   const [userSeq, setUserSeq] = useState("");
-  const [value, setValue] = useState([0]); //value에 없는 임의의 초기값 저장
   const [clicked, setCliked] = useState([]);
   const [error, setError] = useState("");
   const [child, setChild] = useState("2");
-  const [job, setJob] = useState([]);
-  const [family, setFamily] = useState([]);
-
-  const [show, setShow] = useState(false);
-  const [text, setText] = useState("");
-  const handleShow = () => setShow(true);
 
   const setFilter = async () => {
     try {
@@ -106,12 +96,6 @@ export default function FilterChips() {
         }
       }
 
-      await console.log({
-        child: child,
-        job: selectJob,
-        family: selectFamily,
-      });
-
       const axios = getAxios();
       await axios.post("/api/users/update/char", {
         child: child ? child : "2",
@@ -120,7 +104,8 @@ export default function FilterChips() {
       });
 
       const djangoAxios = getAxiosDjango();
-      let res = await djangoAxios.get(`/user_insert/dbscan/${userSeq}`);
+      await djangoAxios.get(`/user/insert_dbscan/${userSeq}`);
+      navigate("/recommend");
     } catch (err) {
       console.log(err);
     }
@@ -135,26 +120,23 @@ export default function FilterChips() {
 
         let res = await axios.get("/api/users/update/char");
         setChild(res.data.body.UserCharacter.child);
-        setJob(res.data.body.UserCharacter.job);
-        setFamily(res.data.body.UserCharacter.family);
+        const nextJob = res.data.body.UserCharacter.job;
+        const nextFamily = res.data.body.UserCharacter.family;
 
-        let allValue = [];
-        for (let element of job) {
-          await allValue.push(jobMap.get(element));
+        const allValue = [];
+        for (const element of nextJob) {
+          allValue.push(jobMap.get(element));
         }
-        for (let element of family) {
-          await allValue.push(familyMap.get(element));
+        for (const element of nextFamily) {
+          allValue.push(familyMap.get(element));
         }
-        if (JSON.stringify(value) !== JSON.stringify(allValue)) {
-          setValue([...allValue]);
-          setCliked([...allValue]);
-        }
+        setCliked(allValue.filter((element) => element !== undefined));
       } catch (err) {
         console.log(err);
       }
     };
     getFilter();
-  }, [value]);
+  }, []);
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -187,16 +169,10 @@ export default function FilterChips() {
 
       <Button
         className="bg-blue-700 border-none mt-[2%] w-[250px] text-2xl font-bold"
-        onClick={() => {
-          setFilter();
-          setText("정보 입력이 완료되었습니다.");
-          handleShow();
-        }}
+        onClick={setFilter}
       >
-        저장
+        조건 저장하고 추천 보기
       </Button>
-
-      <AlertModal text={text} show={show} setShow={setShow}></AlertModal>
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function Norecommend(props) {
       <div className="box-border grid w-[200px] h-[300px] text-[#ffffff] mx-[2%] bg-blue-600 text-center rounded-[20px]">
         {props.profile === null ? (
           <img
-            src="/blank-profile.png"
+            src="./blank-profile.png"
             alt="profile"
             className="w-[200px] h-[200px] object-cover rounded-tl-[20px] rounded-tr-[20px]"
           />

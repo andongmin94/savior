@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { blue } from "@mui/material/colors";
-import { Chip, Typography, FormHelperText } from "@mui/material";
+import { Chip, FormHelperText } from "@mui/material";
 
 export default function MultipleSelectChips({
   value,
@@ -26,7 +26,7 @@ export default function MultipleSelectChips({
     <div className="mb-2 my-2 text-center">
       <div
         className="font-bold text-2xl"
-        style={{ fontFamily: "TmoneyRoundWind" }}
+        style={{ fontFamily: "var(--app-font)" }}
       >
         <strong>{label}</strong>
       </div>
@@ -37,7 +37,7 @@ export default function MultipleSelectChips({
             key={i}
             label={
               <div
-                style={{ fontFamily: "TmoneyRoundWind" }}
+                style={{ fontFamily: "var(--app-font)" }}
                 className="text-white text-lg font-bold"
               >
                 {option.label}

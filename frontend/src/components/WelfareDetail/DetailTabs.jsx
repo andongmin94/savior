@@ -3,7 +3,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 
@@ -86,7 +85,7 @@ export default function DetailTaps(props) {
       <TabPanel value={value} index={0}>
         <div
           className="mb-[4vh] font-bold"
-          style={{ fontFamily: "TmoneyRoundWind" }}
+          style={{ fontFamily: "var(--app-font)" }}
         >
           누가 받을 수 있나요?
         </div>
@@ -94,15 +93,14 @@ export default function DetailTaps(props) {
           <Avatar
             sx={{ width: 20, height: 20 }}
             className="mr-[10px]"
-            src="/broken-image.jpg"
           />
           <div
             className="w-[80px] flex-shrink-0"
-            style={{ fontFamily: "TmoneyRoundWind" }}
+            style={{ fontFamily: "var(--app-font)" }}
           >
             지원대상 |
           </div>
-          <div style={{ fontFamily: "TmoneyRoundWind" }}>
+          <div style={{ fontFamily: "var(--app-font)" }}>
             {target !== undefined &&
               target.split("○").map((item, index) => (
                 <div key={index}>
@@ -126,7 +124,7 @@ export default function DetailTaps(props) {
               p: 2,
               mt: 3,
               color: "#eee",
-              fontFamily: "TmoneyRoundWind",
+              fontFamily: "var(--app-font)",
             }}
           >
             {crit.split("○").map((item, index) => (
@@ -149,7 +147,7 @@ export default function DetailTaps(props) {
       <TabPanel value={value} index={1}>
         <div
           className="mb-[5vh] font-bold"
-          style={{ fontFamily: "TmoneyRoundWind" }}
+          style={{ fontFamily: "var(--app-font)" }}
         >
           어떤 혜택을 받을 수 있나요?
         </div>
@@ -157,15 +155,14 @@ export default function DetailTaps(props) {
           <Avatar
             sx={{ width: 20, height: 20 }}
             className="mr-[10px]"
-            src="/broken-image.jpg"
           />
           <div
             className="w-[80px] flex-shrink-0"
-            style={{ fontFamily: "TmoneyRoundWind" }}
+            style={{ fontFamily: "var(--app-font)" }}
           >
             지원내용 |
           </div>
-          <div style={{ fontFamily: "TmoneyRoundWind" }}>
+          <div style={{ fontFamily: "var(--app-font)" }}>
             {content !== undefined &&
               content.split("○").map((item, index) => (
                 <div key={index}>
@@ -185,7 +182,7 @@ export default function DetailTaps(props) {
       <TabPanel value={value} index={2}>
         <div
           className="mb-[5vh] font-bold"
-          style={{ fontFamily: "TmoneyRoundWind" }}
+          style={{ fontFamily: "var(--app-font)" }}
         >
           어떻게 신청하나요?
         </div>
@@ -193,15 +190,14 @@ export default function DetailTaps(props) {
           <Avatar
             sx={{ width: 20, height: 20 }}
             className="mr-[10px]"
-            src="/broken-image.jpg"
           />
           <div
             className="w-[80px] flex-shrink-0"
-            style={{ fontFamily: "TmoneyRoundWind" }}
+            style={{ fontFamily: "var(--app-font)" }}
           >
             신청방법 |
           </div>
-          <div style={{ fontFamily: "TmoneyRoundWind" }}>
+          <div style={{ fontFamily: "var(--app-font)" }}>
             {howto !== undefined &&
               howto.split("○").map((item, index) => (
                 <div key={index}>
@@ -221,7 +217,7 @@ export default function DetailTaps(props) {
       <TabPanel value={value} index={3}>
         <div
           className="mb-[5vh] font-bold"
-          style={{ fontFamily: "TmoneyRoundWind" }}
+          style={{ fontFamily: "var(--app-font)" }}
         >
           궁금한 사항이 더 있어요.
         </div>
@@ -229,52 +225,49 @@ export default function DetailTaps(props) {
           <Avatar
             sx={{ width: 20, height: 20 }}
             className="mr-[10px]"
-            src="/broken-image.jpg"
           />
           <div
             className="w-20 flex-shrink-0 mb-[1vh]"
-            style={{ fontFamily: "TmoneyRoundWind" }}
+            style={{ fontFamily: "var(--app-font)" }}
           >
             관련부서 |
           </div>
-          <div style={{ fontFamily: "TmoneyRoundWind" }}>{deptName}</div>
-          <div style={{ fontFamily: "TmoneyRoundWind" }}>{contact}</div>
+          <div style={{ fontFamily: "var(--app-font)" }}>{deptName}</div>
+          <div style={{ fontFamily: "var(--app-font)" }}>{contact}</div>
         </div>
         <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
             className="mr-[10px]"
-            src="/broken-image.jpg"
           />
           <div
             className="w-20 flex-shrink-0 mb-[1vh]"
-            style={{ fontFamily: "TmoneyRoundWind" }}
+            style={{ fontFamily: "var(--app-font)" }}
           >
             전화문의 |
           </div>
-          <div style={{ fontFamily: "TmoneyRoundWind" }}>{phone}</div>
+          <div style={{ fontFamily: "var(--app-font)" }}>{phone}</div>
         </div>
         <div className="flex">
           <Avatar
             sx={{ width: 20, height: 20 }}
             className="mr-[10px]"
-            src="/broken-image.jpg"
           />
           <div
             className="w-[120px] flex-shrink-0"
-            style={{ fontFamily: "TmoneyRoundWind" }}
+            style={{ fontFamily: "var(--app-font)" }}
           >
             관련 웹사이트 |
           </div>
-          <div className="mr-[1vw]" style={{ fontFamily: "TmoneyRoundWind" }}>
+          <div className="mr-[1vw]" style={{ fontFamily: "var(--app-font)" }}>
             {siteName}
           </div>
           <div>
             {siteLink}&nbsp;
-            {siteLink && typeof window.electron === "undefined" && (
+            {siteLink && (
               <a
-                href={`http://www.${siteLink.substring(8)}`}
-                style={{ fontFamily: "TmoneyRoundWind", color: "#1d4ed8"}}
+                href={siteLink}
+                style={{ fontFamily: "var(--app-font)", color: "#1d4ed8" }}
                 target="_blank"
                 rel="noopener noreferrer"
               >

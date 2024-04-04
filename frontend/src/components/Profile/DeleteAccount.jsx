@@ -16,7 +16,7 @@ export default function DeleteAccount() {
   const getDelete = async () => {
     try {
       const axios = getAxios();
-      let res = await axios.delete("/api/users/delete");
+      await axios.delete("/api/users/delete");
     } catch (err) {
       console.log(err);
     }

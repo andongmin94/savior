@@ -49,7 +49,7 @@ export default function Chart() {
       }
     };
     fetchData();
-  }, []);
+  }, [axios]);
 
   return (
     <div className="p-[3vh]">

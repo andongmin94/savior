@@ -22,14 +22,13 @@ export default function ResultBoard() {
   const navigate = useNavigate();
 
   const [welfares, setWelfares] = useState({
-    data: "",
+    data: [],
     pageSize: 10, // 한 페이지에 보여줄 데이터 개수
     currentPage: 1, // 현재 활성화된 페이지 위치
   });
 
   const handlePageChange = (page) => {
-    setWelfares({ ...welfares, currentPage: page });
-    // console.log(page);
+    setWelfares((current) => ({ ...current, currentPage: page }));
   };
 
   const { data, pageSize, currentPage } = welfares;
@@ -39,16 +38,21 @@ export default function ResultBoard() {
     const fetchSearch = async () => {
       try {
         if (isLogin()) {
-        const request = await axios.get(`/api/welfare/search/${keyword}`);
-        navigate(`/search?keyword=${keyword}`);
-        setWelfares({ ...welfares, data: request.data });
+          const request = await axios.get(
+            `/api/welfare/search/${encodeURIComponent(keyword)}`,
+          );
+          setWelfares((current) => ({
+            ...current,
+            data: request.data,
+            currentPage: 1,
+          }));
         }
       } catch (err) {
         // console.log(err);
       }
     };
     fetchSearch();
-  }, [keyword]);
+  }, [axios, keyword]);
 
   const onClick = (id) => {
     navigate(`/welfare/${id}`);
@@ -78,12 +82,15 @@ export default function ResultBoard() {
             {pagedWelfares.map((welfare) => (
               <tr key={welfare[0]}>
                 <td>{welfare[0]}</td>
-                <div
-                  className="cursor-pointer hover:underline"
-                  onClick={(e) => onClick(welfare[0])}
-                >
-                  {welfare[1]}
-                </div>
+                <td>
+                  <button
+                    className="text-left hover:underline"
+                    onClick={() => onClick(welfare[0])}
+                    type="button"
+                  >
+                    {welfare[1]}
+                  </button>
+                </td>
                 <td>{welfare[2]}</td>
               </tr>
             ))}

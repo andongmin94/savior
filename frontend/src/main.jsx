@@ -1,36 +1,30 @@
-import "regenerator-runtime/runtime";
+import "bootstrap/dist/css/bootstrap.min.css";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { applyMiddleware, createStore, compose } from "redux";
-import { composeWithDevTools } from "@redux-devtools/extension";
-import logger from "redux-logger";
+import { createStore } from "redux";
 
 import rootReducer from "@/reducers/index";
 import App from "./App";
-import reportWebVitals from "@/reportWebVitals";
 import ScrollToTop from "@/pages/ScrollTop";
+import { initializeDemoSession } from "@/mocks/demoStore";
 import "@/globals.css";
 
-const enhancer =
-  process.env.NODE_ENV === "production"
-    ? compose(applyMiddleware())
-    : composeWithDevTools(applyMiddleware(logger));
+/**
+ * React tree를 만들기 전에 Mock 세션을 복원해 첫 화면부터 일관된 사용자 상태를 제공한다.
+ * Real 모드에서는 아무 상태도 만들지 않고 실제 인증·API 흐름을 그대로 사용한다.
+ */
+initializeDemoSession();
 
-const store = createStore(rootReducer, undefined, enhancer);
+const store = createStore(rootReducer);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTop />
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   </>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

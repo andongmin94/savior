@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
-import StarRoundedIcon from "@mui/icons-material/StarRounded";
-import BookmarkRemoveRoundedIcon from "@mui/icons-material/BookmarkRemoveRounded";
-import BookmarkAddedOutlinedIcon from "@mui/icons-material/BookmarkAddedOutlined";
+import {
+  BookmarkAddedOutlined as BookmarkAddedOutlinedIcon,
+  BookmarkRemoveRounded as BookmarkRemoveRoundedIcon,
+  StarBorderRounded as StarBorderRoundedIcon,
+  StarRounded as StarRoundedIcon,
+} from "@mui/icons-material";
 import { yellow, blue, grey } from "@mui/material/colors";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 
 import { getAxios } from "@/api";
 import AlertModal from "@/components/AlertModal";
@@ -71,7 +73,7 @@ export default function DetailMain(props) {
         used.includes(welfareId) ? setCheckBtn(true) : setCheckBtn(false);
       }
     }
-  }, [like, used]);
+  }, [like, used, welfareId]);
 
   return (
     <Box
